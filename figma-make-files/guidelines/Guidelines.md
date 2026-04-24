@@ -264,6 +264,14 @@ When using the Text component, here are the acceptable values to include:
 'headline-small-light'
 'headline-small-regular'
 
+### Text colors
+
+- **Prefer the `Text` component** with an appropriate `type` so color comes from Momentum by default. Only set `color` when you need a specific semantic (e.g. secondary, disabled, error, success).
+- **Use theme text tokens only** — names like `var(--mds-color-theme-text-<role>-<state>)`. Examples: `text-primary-normal`, `text-secondary-normal`, `text-primary-disabled`, `text-error-normal`. These are **not** raw palette colors; do **not** use `--mds-color-core-*` for body or label text unless a guideline explicitly calls for a brand or chart color.
+- **Set the Webex theme class** on the root (see [Theming](#theming)) so the same token resolves to the correct light or dark value.
+
+Same pattern as in [Design Tokens](#design-tokens): `color: var(--mds-color-theme-text-primary-normal)` in CSS, or `style={{ color: "var(--mds-color-theme-text-primary-normal)" }}` in JSX.
+
 ---
 
 ## Icons
@@ -275,6 +283,10 @@ import { Icon } from "@momentum-design/components/react";
 
 <Icon name="search-bold" size="20" />
 ```
+
+Momentum Icons are appended with a weight value: "-light", "-regular", "-bold", or "-filled". If a user wants to use an icon and it doesn't have one of these suffixes conventions, add the "-bold" suffix to the icon name.
+
+If a user asks for "brightness-high" when adding it, append "-bold" to the icon so it will read "brightness-high-bold".
 
 ---
 

@@ -3,5 +3,9 @@
 @import "@momentum-design/tokens/dist/css/components/complete.css";
 @import "@momentum-design/tokens/dist/css/typography/complete.css";
 
+/* Apply Momentum scope classes on <html> or a root container so theme.css vars resolve
+   to real tokens, e.g. mds-core mds-typography mds-elevation mds-theme-stable-lightWebex
+   and mds-theme-stable-darkWebex when using .dark / a dark theme provider. */
+
 @import './tailwind.css';
 @import './theme.css';

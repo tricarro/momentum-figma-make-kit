@@ -1,0 +1,92 @@
+/*
+  Shadcn / Tailwind bridge: semantic colors are expressed with Momentum tokens first.
+  Values resolve when an ancestor (typically <html class="…">) includes:
+  - mds-core (from @momentum-design/tokens core/complete)
+  - mds-theme-stable-lightWebex (light) and mds-theme-stable-darkWebex (dark), from components/complete
+  See Guidelines.md. Semantic colors are `var(--mds-color-...)` only; mds-core + Webex theme classes on an ancestor are required for resolution.
+*/
+
+:root {
+    --font-size: 16px;
+    color: var(--mds-color-theme-text-primary-normal);
+  }
+  
+  @layer base {
+    * {
+      @apply border-border outline-ring/50;
+    }
+  
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: var(--mds-font-family-primary, Momentum, Inter, Arial, Helvetica Neue, Helvetica, sans-serif);
+    }
+  
+    /**
+    * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+    * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+    */
+  
+    html {
+      font-size: var(--font-size);
+      color: var(--mds-color-theme-text-primary-normal);
+    }
+  
+    p {
+      color: var(--mds-color-theme-text-primary-normal);
+    }
+  
+    h1 {
+      font-size: var(--mds-font-size-heading-midsize);
+      font-weight: var(--mds-font-weight-medium);
+      line-height: var(--mds-font-lineheight-heading-midsize);
+      color: var(--mds-color-theme-text-primary-normal);
+    }
+  
+    h2 {
+      font-size: var(--mds-font-size-heading-small);
+      font-weight: var(--mds-font-weight-medium);
+      line-height: var(--mds-font-lineheight-heading-small);
+      color: var(--mds-color-theme-text-primary-normal);
+    }
+  
+    h3 {
+      font-size: var(--mds-font-size-body-large);
+      font-weight: var(--mds-font-weight-medium);
+      line-height: var(--mds-font-lineheight-body-large);
+      color: var(--mds-color-theme-text-primary-normal);
+    }
+  
+    h4 {
+      font-size: var(--mds-font-size-body-midsize);
+      font-weight: var(--mds-font-weight-medium);
+      line-height: var(--mds-font-lineheight-body-midsize);
+      color: var(--mds-color-theme-text-primary-normal);
+    }
+  
+    h5{
+      color: var(--mds-color-theme-text-primary-normal);
+  
+    }
+  
+    label {
+      font-size: var(--mds-font-size-body-midsize);
+      font-weight: var(--mds-font-weight-medium);
+      line-height: var(--mds-font-lineheight-body-midsize);
+      color: var(--mds-color-theme-text-primary-normal);
+    }
+  
+    button {
+      font-size: var(--mds-font-size-body-large);
+      font-weight: var(--mds-font-weight-medium);
+      line-height: var(--mds-font-lineheight-body-large);
+    }
+  
+    input {
+      font-size: var(--mds-font-size-body-large);
+      font-weight: var(--mds-font-weight-regular);
+      line-height: var(--mds-font-lineheight-body-large);
+      
+    }
+  }
+  
