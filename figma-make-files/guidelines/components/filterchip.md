@@ -31,7 +31,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
-## Example
+## Example — `FilterChip`
 
 ```jsx
 import { useState } from "react";

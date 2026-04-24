@@ -38,27 +38,9 @@ Styling: `--mdc-calendar-*` tokens in the [doc](https://momentum.design/storyboo
 ## Example
 
 ```jsx
-import { useState } from "react";
-import { Calendar } from "@momentum-design/components/react";
+import "@momentum-design/components/dist/components/calendar/index.js";
 
-function SingleDateField() {
-  const [date, setDate] = useState("2026-04-15");
-
-  return (
-    <Calendar
-      selectionMode="single"
-      value={date}
-      locale="en-US"
-      showTodayButton
-      onDateSelected={(e) => {
-        const d = e.detail?.date;
-        if (d) {
-          setDate(d);
-        }
-      }}
-    />
-  );
-}
+<mdc-calendar selection-mode="single" locale="en-US"></mdc-calendar>
 ```
 
 For **`range`**, set **`selectionMode="range"`**, keep **`value`** / **`endValue`** in sync with `onDateSelected` **detail**.

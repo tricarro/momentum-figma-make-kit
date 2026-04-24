@@ -18,4 +18,23 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 - **Panel** content is **not** inside the tab: render **tabpanel** regions in your layout and wire **`aria-controls` / `aria-labelledby`** (see [TabList](https://momentum.design/storybook-static/index.html?path=/docs/components-tab-tablist--docs) notes).  
 
+---
+
+## Example — `Tab` inside `TabList`
+
+```jsx
+import { Tab, TabList } from "@momentum-design/components/react";
+
+function MyTabs() {
+  return (
+    <TabList>
+      <Tab text="Account" tabId="account" />
+      <Tab text="Billing" tabId="billing" />
+    </TabList>
+  );
+}
+```
+
+(Render **tab panels** in your page and follow **WAI-ARIA tab** wiring from [Storybook — TabList / Example](https://momentum.design/storybook-static/index.html?path=/story/components-tab-tablist--example).)
+
 [Storybook — Tab / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-tab-tab--docs)

@@ -36,22 +36,17 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { ButtonLink } from "@momentum-design/components/react";
+import { ButtonLink } from "@momentum-design/components/dist/react";
 
-function HelpLink() {
-  return (
-    <ButtonLink
-      href="https://help.webex.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      variant="tertiary"
-      size={32}
-      prefixIcon="help-bold"
-    >
-      Help
-    </ButtonLink>
-  );
-}
+
+<div role="main">
+  <ButtonLink
+    href="https://www.webex.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    >VisitLink</ButtonLink
+  >
+</div>
 ```
 
 Use a real internal help URL in production.

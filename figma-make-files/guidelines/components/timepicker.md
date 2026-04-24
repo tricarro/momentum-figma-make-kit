@@ -14,6 +14,20 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `TimePicker`
+
+```jsx
+import { TimePicker } from "@momentum-design/components/react";
+
+function StartTime() {
+  return <TimePicker label="Start time" />;
+}
+```
+
+(Add **`onInput` / `onChange`**, **12h/24h**, **locale**, and **value** binding from [Storybook — TimePicker / Example](https://momentum.design/storybook-static/index.html?path=/story/components-timepicker-timepicker--example).)
+
+---
+
 ## Checklist
 
 - [ ] **Time zone** and **format** match the spec (12h/24h, leading zeros)  

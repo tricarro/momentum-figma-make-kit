@@ -14,6 +14,31 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Toggle`
+
+```jsx
+import { useState } from "react";
+import { Toggle } from "@momentum-design/components/react";
+
+function Mute() {
+  const [on, setOn] = useState(false);
+
+  return (
+    <Toggle
+      label="Mute notifications"
+      checked={on}
+      onChange={() => {
+        setOn((v) => !v);
+      }}
+    />
+  );
+}
+```
+
+(Use **`onChange` / `onInput`**, **`dataAriaLabel`**, and **group** with **FormfieldGroup** as in [Storybook — Toggle / Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggle-toggle--example).)
+
+---
+
 ## Checklist
 
 - [ ] `dataAriaLabel` when the label is not visible, per the package a11y notes  

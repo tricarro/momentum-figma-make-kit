@@ -23,6 +23,26 @@ Use **Progressspinner** in **compact** spaces (row end, cell); use **Progressbar
 
 ---
 
+## Example — `Progressspinner`
+
+```jsx
+import { Progressspinner } from "@momentum-design/components/react";
+
+function StepSpinner() {
+  return (
+    <Progressspinner
+      label="Saving"
+      value="75"
+      dataAriaLabel="Saving, 75 percent"
+    />
+  );
+}
+```
+
+(See **end-of-flow** **success** / **error** visuals in [Storybook — Progressspinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs).)
+
+---
+
 ## Checklist
 
 - [ ] `value` reflects **real** progress, not a looping fake unless the spec says so  

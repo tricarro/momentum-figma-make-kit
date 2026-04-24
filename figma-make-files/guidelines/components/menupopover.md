@@ -24,6 +24,29 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `MenuPopover` with `MenuItem` children
+
+```jsx
+import { MenuPopover, MenuItem } from "@momentum-design/components/react";
+
+function FileMenu() {
+  return (
+    <MenuPopover
+      onAction={() => {
+        /* run command + close; see Storybook for event shape */
+      }}
+    >
+      <MenuItem label="New" data-value="new" />
+      <MenuItem label="Open" data-value="open" />
+    </MenuPopover>
+  );
+}
+```
+
+You must **anchor** the popover to a **trigger** (e.g. **MenuBar** or a **Button**) the way the [Storybook — MenuPopover / Example](https://momentum.design/storybook-static/index.html?path=/story/components-menupopover-menupopover--example) shows; this snippet is only the **menu content** subtree.
+
+---
+
 ## Checklist
 
 - [ ] Follow Storybook for **submenu** markup and **ARIA** roles (the component sets many attributes automatically)  

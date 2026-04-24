@@ -65,20 +65,72 @@ Do not put arbitrary markup here—non-accordion children are **ignored**.
 ## Example — `AccordionGroup` with `AccordionButton` children
 
 ```jsx
-import { AccordionGroup, AccordionButton, Text } from "@momentum-design/components/react";
+import {
+  AccordionButton,
+  AccordionGroup,
+  Button,
+} from "@momentum-design/components/dist/react";
 
-    <AccordionGroup size="small" variant="stacked" allowMultiple={false}>
-      <AccordionButton headerText="First question" dataAriaLevel={2} prefixIcon="info-bold">
-        <Text type="body-midsize-medium" tagname="p">
-          Answer for the first item.
-        </Text>
-      </AccordionButton>
-      <AccordionButton headerText="Second question" dataAriaLevel={2}>
-        <Text type="body-midsize-medium" tagname="p">
-          Answer for the second item.
-        </Text>
-      </AccordionButton>
-    </AccordionGroup>
+
+<div role="main">
+  <AccordionGroup size="small" variant="stacked">
+    <AccordionButton headerText="Why is the moon sometimes out during the day?"
+      >Loreum impusm sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui p ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.<Button style="margin-top:0.75rem"
+        >Continue</Button
+      ></AccordionButton
+    >
+    <AccordionButton headerText="Why is the sky blue?"
+      >Loreum impusm sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui p ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.<Button style="margin-top:0.75rem"
+        >Continue</Button
+      ></AccordionButton
+    >
+    <AccordionButton headerText="Will we ever discover aliens?"
+      >Loreum impusm sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui p ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.<Button style="margin-top:0.75rem"
+        >Continue</Button
+      ></AccordionButton
+    >
+    <AccordionButton headerText="How much does the Earth weigh?"
+      >Loreum impusm sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui p ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.<Button style="margin-top:0.75rem"
+        >Continue</Button
+      ></AccordionButton
+    >
+    <AccordionButton headerText="How do airplanes stay up?"
+      >Loreum impusm sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui p ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.<Button style="margin-top:0.75rem"
+        >Continue</Button
+      ></AccordionButton
+    >
+  </AccordionGroup>
+</div>
 ```
 
 For **`Accordion`** children, add **`openButtonAriaLabel`**, **`closeButtonAriaLabel`**, and any **header slots** on each `Accordion` per the **Accordion** guidance.

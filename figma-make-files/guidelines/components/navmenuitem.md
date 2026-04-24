@@ -20,4 +20,20 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Action-only** row: **`disableAriaCurrent`** to keep the **look** without `aria-current` navigation behavior.  
 - Theming: **`--mdc-navmenuitem-*`** in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-navmenuitem--docs).  
 
+---
+
+## Example — `NavMenuItem`
+
+```jsx
+import { NavMenuItem } from "@momentum-design/components/react";
+
+function InboxRow() {
+  return (
+    <NavMenuItem label="Inbox" iconName="inbox-bold" onClick={() => { /* navigate or expand */ }} />
+  );
+}
+```
+
+(Place this inside **`MenuBar` / `SideNavigation`** the way [Storybook — NavMenuItem / Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-navmenuitem--example) does; add **active**, **tooltipText**, and **submenu** props when the design needs them.)
+
 [Storybook — NavMenuItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-navmenuitem--docs)

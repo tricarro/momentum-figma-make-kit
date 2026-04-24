@@ -19,4 +19,34 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Stability** of **`getItemKey`** is **critical** when list **data** **mutates**—or **scroll** and **content** will **jitter** (per JSDoc).  
 - For **short** lists, **List** is **simpler**; use **VirtualizedList** at **hundreds+** of **rows** or when **profile** **requires** it.  
 
+---
+
+## Example (shell — `virtualizerProps` **required**)
+
+```jsx
+import { VirtualizedList, ListItem } from "@momentum-design/components/react";
+
+function LongList() {
+  return (
+    <VirtualizedList
+      virtualizerProps={{
+        count: 1000,
+        estimateSize: 56,
+        getItemKey: (i) => String(i),
+        paddingStart: 0,
+        paddingEnd: 0,
+        gap: 0,
+      }}
+      onVirtualItemsChange={() => {
+        /* set data-index on visible rows; see JSDoc + Storybook */
+      }}
+    >
+      {/* Render rows from `virtualItems` in your app — see Storybook */}
+    </VirtualizedList>
+  );
+}
+```
+
+(Follow **`onVirtualItemsChange`**, **`data-index`**, and **height** / **gap** rules in [Storybook — VirtualizedList / Example](https://momentum.design/storybook-static/index.html?path=/story/components-virtualizedlist-virtualizedlist--example).)
+
 [Storybook — VirtualizedList / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-virtualizedlist-virtualizedlist--docs)

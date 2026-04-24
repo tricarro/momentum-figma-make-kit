@@ -35,11 +35,10 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { Chip } from "@momentum-design/components/react";
+import { Chip } from "@momentum-design/components/dist/react";
 
-function DepartmentTag() {
-  return <Chip color="cobalt" label="Engineering" iconName="devices-bold" type="button" />;
-}
+
+<Chip label="Label"></Chip>
 ```
 
 ---

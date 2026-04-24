@@ -24,6 +24,20 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `ScreenreaderAnnouncer`
+
+```jsx
+import { ScreenreaderAnnouncer } from "@momentum-design/components/react";
+
+function AppChrome() {
+  return <ScreenreaderAnnouncer announcement="Your profile was updated" />;
+}
+```
+
+(Use **`announce()`**, **`delay`**, **`timeout`**, and **`identity`** for advanced cases—see [Storybook — ScreenreaderAnnouncer / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-screenreaderannouncer-screenreaderannouncer--docs).)
+
+---
+
 ## Checklist
 
 - [ ] The same information is (or can be) seen **on screen**; announcer is **redundant** enhancement, not the only error channel  

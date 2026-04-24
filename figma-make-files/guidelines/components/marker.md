@@ -29,6 +29,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Marker` next to a block
+
+```jsx
+import { Marker, Text } from "@momentum-design/components/react";
+
+function Callout() {
+  return (
+    <div style={{ display: "flex", gap: "var(--mds-space-200, 0.5rem)" }}>
+      <Marker variant="solid" />
+      <Text type="body-primary" tagname="p">
+        Status: in review (also describe this in copy; do not rely on color alone).
+      </Text>
+    </div>
+  );
+}
+```
+
+(Validate **`variant`** and layout against [Storybook — Marker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs).)
+
+---
+
 ## Checklist
 
 - [ ] A **string label** in the item explains what the marker color means  

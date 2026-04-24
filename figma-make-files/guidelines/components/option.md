@@ -20,4 +20,18 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - Styling overlaps **ListItem**-style **parts** and **`--mdc-option-*`**.  
 - **Not** a standalone list row—**ListItem** is for **List**; **Option** is for **listbox** contexts.  
 
+---
+
+## Example — `Option` in a `Select` listbox (see `select.md` for the full field)
+
+```jsx
+import { Option } from "@momentum-design/components/react";
+
+function StateOption() {
+  return <Option value="az" label="Arizona" secondaryLabel="US" selected={false} />;
+}
+```
+
+(Always use **`value`**; wire **`selected`** to the listbox/Select model from [Storybook — Option / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-option--docs).)
+
 [Storybook — Option / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-option--docs)

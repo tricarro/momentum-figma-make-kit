@@ -26,7 +26,30 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ## Key props (typical)
 
-- **`orientation`**, **`variant` / line style**
+- **`orientation`**, **`variant` / line style`
+
+---
+
+## Example — horizontal `Divider` and with centered `Text`
+
+```jsx
+import { Divider, Text } from "@momentum-design/components/react";
+
+function SectionBreak() {
+  return (
+    <div>
+      <Divider orientation="horizontal" />
+      <Divider orientation="horizontal">
+        <Text type="body-midsize-regular" tagname="span">
+          Or
+        </Text>
+      </Divider>
+    </div>
+  );
+}
+```
+
+(Use **one** child type in the default slot: nothing, `Text`, or a grabber `Button`—see [Storybook — Divider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs).)
 
 ---
 

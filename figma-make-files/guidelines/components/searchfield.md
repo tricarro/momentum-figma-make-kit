@@ -23,6 +23,20 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Searchfield`
+
+```jsx
+import { Searchfield } from "@momentum-design/components/react";
+
+function MessagesSearch() {
+  return <Searchfield label="Search messages" placeholder="Search…" />;
+}
+```
+
+(Add **`InputChip` / `Chip` filter** children and **`onChipRemove`** when the design needs inline filters—[Storybook — Searchfield / Example](https://momentum.design/storybook-static/index.html?path=/story/components-searchfield-searchfield--example).)
+
+---
+
 ## Checklist
 
 - [ ] Do not pair with **Popover**-based result lists; use **SearchPopover** for that model  

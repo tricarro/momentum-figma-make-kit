@@ -30,6 +30,25 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `RadioGroup` with `Radio` options
+
+```jsx
+import { RadioGroup, Radio } from "@momentum-design/components/react";
+
+function ThemeChoice() {
+  return (
+    <RadioGroup name="theme" headerText="Theme" label="App theme">
+      <Radio label="Light" value="light" />
+      <Radio label="Dark" value="dark" />
+    </RadioGroup>
+  );
+}
+```
+
+(Wire **selection** and **`onChange` / `onInput`** the way [Storybook — RadioGroup / Example](https://momentum.design/storybook-static/index.html?path=/story/components-radiogroup-radiogroup--example) does for a controlled group.)
+
+---
+
 ## Checklist
 
 - [ ] `RadioGroup` + multiple **`Radio`**, not orphan radios with mismatched `name`  

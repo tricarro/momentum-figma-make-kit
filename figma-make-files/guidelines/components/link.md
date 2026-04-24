@@ -30,6 +30,30 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Link` with `iconName`
+
+```jsx
+import { Link } from "@momentum-design/components/react";
+
+function PolicyLink() {
+  return (
+    <Link
+      href="https://example.com/policy"
+      size="midsize"
+      iconName="link-bold"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Privacy policy
+    </Link>
+  );
+}
+```
+
+(Confirm **`size`**, **`iconName`**, and **external** link **security** in [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs).)
+
+---
+
 ## Checklist
 
 - [ ] External links: **`rel`** and **`target`** (e.g. `noopener` + `noreferrer` for new tabs) per security policy  

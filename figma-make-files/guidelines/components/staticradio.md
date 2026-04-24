@@ -30,6 +30,26 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `StaticRadio` (selected)
+
+```jsx
+import { StaticRadio, Text } from "@momentum-design/components/react";
+
+function ChosenPlan() {
+  return (
+    <StaticRadio checked readOnly>
+      <Text type="body-midsize-regular" tagname="span">
+        Pro plan
+      </Text>
+    </StaticRadio>
+  );
+}
+```
+
+(Use a **string** in the default slot or **Text**; see [Storybook — StaticRadio / Example](https://momentum.design/storybook-static/index.html?path=/story/components-decorator-staticradio--example).)
+
+---
+
 ## Checklist
 
 - [ ] Real **mutually exclusive** selection uses **Radio** + `name` (or **RadioGroup**) in forms  

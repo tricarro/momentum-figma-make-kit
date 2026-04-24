@@ -19,4 +19,18 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Resizing:** when **`resizable`**, document **shortcuts** in the resize button’s **aria** label.  
 - **Length** rules: use **`onLimitExceeded`** to flip **error** help text, not a silent cap.  
 
+---
+
+## Example — `Textarea`
+
+```jsx
+import { Textarea } from "@momentum-design/components/react";
+
+function Notes() {
+  return <Textarea label="Notes" placeholder="Add details" maxCharacterLimit={500} helpText="Optional" />;
+}
+```
+
+(Use **`onInput` / `onChange` / `onLimitExceeded`**, **`resizable`**, and **help** for errors per [Storybook — Textarea / Example](https://momentum.design/storybook-static/index.html?path=/story/components-textarea-textarea--example).)
+
 [Storybook — Textarea / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-textarea-textarea--docs)

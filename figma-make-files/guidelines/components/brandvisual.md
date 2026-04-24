@@ -35,25 +35,16 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { Brandvisual } from "@momentum-design/components/react";
-import { useState } from "react";
+import { Brandvisual } from "@momentum-design/components/dist/react";
 
-function ProductHeader() {
-  const [failed, setFailed] = useState(false);
 
-  if (failed) {
-    return <div style={{ height: 32, width: 120 }} role="img" aria-label="Product" />;
-  }
-
-  return (
-    {/* `name` must be a key from your package’s BrandVisualNames / Storybook list */}
-    <Brandvisual
-      name="webex"
-      altText="Webex"
-      onError={() => setFailed(true)}
-    />
-  );
-}
+<div role="main">
+  <Brandvisual
+    altText="Momentum design vertical logo"
+    name="momentum-design-logo-dark-color-vertical"
+    style="width: 6.25rem;"
+  ></Brandvisual>
+</div>
 ```
 
 Pick a **`name`** that exists in your version’s **`BrandVisualNames`** (re-exported from `@momentum-design/brand-visuals`).

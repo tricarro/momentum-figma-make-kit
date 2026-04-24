@@ -30,6 +30,25 @@ See [Checkbox / Docs](https://momentum.design/storybook-static/index.html?path=/
 
 ---
 
+## Example — `FormfieldGroup` with `Checkbox` children
+
+```jsx
+import { FormfieldGroup, Checkbox } from "@momentum-design/components/react";
+
+function FeatureToggles() {
+  return (
+    <FormfieldGroup headerText="Notifications" label="Group label">
+      <Checkbox label="Product updates" />
+      <Checkbox label="Marketing" />
+    </FormfieldGroup>
+  );
+}
+```
+
+(Confirm `Checkbox` binding (`checked` / `onInput` or `onChange`) and the group **header** vs **`dataAriaLabel`** rule in [Storybook — FormfieldGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-formfieldgroup-formfieldgroup--docs).)
+
+---
+
 ## Checklist
 
 - [ ] **Either** `headerText` (or the header slot) **or** `dataAriaLabel` is set  

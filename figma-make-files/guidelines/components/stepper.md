@@ -19,4 +19,24 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **`orientation`** and **`variant`** flow through **context** to children.  
 - Wire **form** steps, **wizards**, and **checkout** flows—**not** a substitute for **Tabs** when the UX is **parallel** views.  
 
+---
+
+## Example — `Stepper` with two items and a **connector**
+
+```jsx
+import { Stepper, StepperItem, StepperConnector, Text } from "@momentum-design/components/react";
+
+function TwoStep() {
+  return (
+    <Stepper orientation="horizontal" variant="inline">
+      <StepperItem label="Address" status="completed" dataAriaLabel="Address step" />
+      <StepperConnector />
+      <StepperItem label="Payment" status="current" dataAriaLabel="Payment step" />
+    </Stepper>
+  );
+}
+```
+
+(Confirm **props** for **`text` / `label`**, **`status`**, and child order in [Storybook — Stepper / Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepper--example).)
+
 [Storybook — Stepper / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepper--docs)

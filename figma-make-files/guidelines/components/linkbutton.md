@@ -30,6 +30,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `LinkButton` (in-app action, not navigation)
+
+```jsx
+import { useState } from "react";
+import { LinkButton } from "@momentum-design/components/react";
+
+function ExpandDetails() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <LinkButton type="button" size="midsize" onClick={() => setOpen((o) => !o)}>
+      {open ? "Hide" : "Show"} details
+    </LinkButton>
+  );
+}
+```
+
+(Use a **real** `href` with **`Link`**; use **`LinkButton`** only for **actions** with **no** URL, per [Storybook — LinkButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-linkbutton-linkbutton--docs).)
+
+---
+
 ## Checklist
 
 - [ ] `type="button"` when the control is not submitting a form  

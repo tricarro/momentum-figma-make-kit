@@ -24,6 +24,39 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Popover` with a **trigger** + **Button**
+
+```jsx
+import { useState } from "react";
+import { Popover, Button, Text } from "@momentum-design/components/react";
+
+function WithPopover() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button type="button" onClick={() => setOpen(true)}>
+        Open
+      </Button>
+      <Popover
+        onHidden={() => setOpen(false)}
+        onShown={() => {
+          // optional: focus
+        }}
+      >
+        <Text type="body-primary" tagname="p" slot="popover-content">
+          Panel content
+        </Text>
+      </Popover>
+    </>
+  );
+}
+```
+
+(The **trigger → popover** wiring, **`visible` / open state**, and **slot** names are version-specific; copy the pattern from [Storybook — Popover / Example](https://momentum.design/storybook-static/index.html?path=/story/components-popover-popover--example).)
+
+---
+
 ## Checklist
 
 - [ ] **`appendTo` + React** use the **wrapper** workaround if you hit mount errors  

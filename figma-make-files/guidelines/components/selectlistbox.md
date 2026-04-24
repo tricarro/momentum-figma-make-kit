@@ -19,4 +19,25 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Default** slot: **`Option`** and **`OptGroup`** only (same as **Select**’s “default” slot in practice).  
 - **Not** the same as **ListBox** (standalone) or the combobox’s internal list—name matches the **select** + **a11y** use case.  
 
+---
+
+## Example — with **`Select`** (the usual pattern)
+
+```jsx
+import { Select, Selectlistbox, Option } from "@momentum-design/components/react";
+
+function InSelect() {
+  return (
+    <Select label="Priority">
+      <Selectlistbox>
+        <Option value="p1" label="P1" />
+        <Option value="p2" label="P2" />
+      </Selectlistbox>
+    </Select>
+  );
+}
+```
+
+(You **rarely** use **`Selectlistbox` alone**—it exists so **Select** / **Combobox** can wrap **Option** trees; see [Storybook — Select / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-select--docs) and [Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs).)
+
 [Storybook — Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs)

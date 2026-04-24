@@ -30,6 +30,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `StaticToggle` (on)
+
+```jsx
+import { StaticToggle, Text } from "@momentum-design/components/react";
+
+function NotifReadout() {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <StaticToggle checked size="default" readOnly />
+      <Text type="body-midsize-regular" tagname="span">
+        Notifications on
+      </Text>
+    </div>
+  );
+}
+```
+
+(Confirm **slot** / layout in [Storybook — StaticToggle / Example](https://momentum.design/storybook-static/index.html?path=/story/components-decorator-statictoggle--example).)
+
+---
+
 ## Checklist
 
 - [ ] If the user can **flip** the value, use **Toggle** and wire **`onChange`**  

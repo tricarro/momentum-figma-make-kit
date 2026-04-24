@@ -24,6 +24,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Progressbar`
+
+```jsx
+import { Progressbar } from "@momentum-design/components/react";
+
+function UploadStatus() {
+  return (
+    <Progressbar
+      label="Uploading"
+      value="42"
+      dataAriaLabel="Upload progress, 42 percent"
+      helpText="Do not close this window."
+    />
+  );
+}
+```
+
+(Confirm **validation** / **error** props in [Storybook — Progressbar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs). **`value`** is a string percentage.)
+
+---
+
 ## Checklist
 
 - [ ] **`value`** updated as the real job advances; avoid fake animation on static pages  

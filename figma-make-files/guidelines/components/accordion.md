@@ -67,7 +67,7 @@ Styling tokens for borders/disabled state can be tuned with CSS custom propertie
 
 ---
 
-## Example — single `Accordion`
+## Example
 
 import {
   Accordion,

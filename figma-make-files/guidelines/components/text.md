@@ -19,4 +19,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Link**-like inline: often **`Link`** or **`Text`**+**`tagname="span"`** in context—follow Storybook.  
 - **Typewriter** animation is a **separate** **Typewriter** component, not a prop on **Text** alone.  
 
+---
+
+## Example — `Text` (heading + body)
+
+```jsx
+import { Text } from "@momentum-design/components/react";
+
+function Blurb() {
+  return (
+    <div>
+      <Text type="heading-3" tagname="h1">
+        Welcome
+      </Text>
+      <Text type="body-primary" tagname="p">
+        This copy uses the Momentum type scale.
+      </Text>
+    </div>
+  );
+}
+```
+
+(Choose **`type`** and **`tagname`** from the matrix in [Storybook — Text / Example](https://momentum.design/storybook-static/index.html?path=/story/components-text-text--example).)
+
 [Storybook — Text / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs)

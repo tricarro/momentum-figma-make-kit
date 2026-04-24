@@ -31,6 +31,20 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `StaticCheckbox` (read-only)
+
+```jsx
+import { StaticCheckbox } from "@momentum-design/components/react";
+
+function PlanSummary() {
+  return <StaticCheckbox checked readOnly>API access</StaticCheckbox>;
+}
+```
+
+(You can also put a **`Text`** (or other) child in the **default** **label** slot; see [Storybook — StaticCheckbox / Example](https://momentum.design/storybook-static/index.html?path=/story/components-decorator-staticcheckbox--example).)
+
+---
+
 ## Checklist
 
 - [ ] Replaced with **Checkbox** the moment the user can **change** the value  

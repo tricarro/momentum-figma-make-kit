@@ -66,23 +66,30 @@ Optional theming via CSS custom properties, e.g. `--mdc-accordionbutton-border-c
 ## Example — single `AccordionButton`
 
 ```jsx
-import { useState } from "react";
-import { AccordionButton, Text } from "@momentum-design/components/react";
+import {
+  AccordionButton,
+  Button,
+} from "@momentum-design/components/dist/react";
 
-    <AccordionButton
-      headerText="What is included in this release?"
-      dataAriaLevel={2}
-      expanded={open}
-      onShown={(e) => setOpen(!!e.detail?.expanded)}
-      size="small"
-      variant="default"
-      prefixIcon="info-bold"
-      togglePosition="trailing"
-    >
-      <Text type="body-midsize-medium" tagname="p">
-        Summarize the release in one or two sentences using Momentum Text and design tokens for any layout.
-      </Text>
-    </AccordionButton>
+
+<div role="main">
+  <AccordionButton
+    expanded
+    headerText="Heading"
+    prefixIcon="placeholder-bold"
+    size="small"
+    variant="default"
+    togglePosition="trailing"
+  >
+    Loreum impusm sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+    nostrud exercitation ullamco laboris nisi ut aliqui p ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est
+    laborum.<Button style="margin-top:0.75rem">Continue</Button>
+  </AccordionButton>
+</div>
 ```
 
 ---

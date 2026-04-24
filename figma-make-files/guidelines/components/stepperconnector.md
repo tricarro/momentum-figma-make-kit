@@ -14,6 +14,28 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example (only valid **between** `StepperItem` rows)
+
+This is the same **Stepper** snippet as in **`stepper.md`**; **`StepperConnector`** sits between items:
+
+```jsx
+import { Stepper, StepperItem, StepperConnector } from "@momentum-design/components/react";
+
+function ConnectorOnly() {
+  return (
+    <Stepper>
+      <StepperItem label="1" status="completed" dataAriaLabel="Step 1" />
+      <StepperConnector />
+      <StepperItem label="2" status="incomplete" dataAriaLabel="Step 2" />
+    </Stepper>
+  );
+}
+```
+
+[Storybook — StepperConnector / Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepperconnector--example)
+
+---
+
 ## Checklist
 
 - [ ] One **connector** **between** each **pair** of steps, not at the end of the list  

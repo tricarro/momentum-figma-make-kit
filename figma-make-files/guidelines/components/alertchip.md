@@ -35,18 +35,10 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { AlertChip } from "@momentum-design/components/react";
+import { AlertChip } from "@momentum-design/components/dist/react";
 
-function SaveFailedHint() {
-  return (
-    <AlertChip
-      variant="error"
-      label="Save failed"
-      iconName="error-legacy"
-      type="button"
-    />
-  );
-}
+
+<AlertChip label="Alert"></AlertChip>
 ```
 
 (Use icon names and **`variant`** pairings that match your Storybook example.)

@@ -35,19 +35,16 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { useState } from "react";
-import { Checkbox } from "@momentum-design/components/react";
+import { Checkbox } from "@momentum-design/components/dist/react";
 
-function RememberMe() {
-  const [checked, setChecked] = useState(false);
-  return (
-    <Checkbox
-      label="Keep me signed in on this device"
-      checked={checked}
-      onChange={() => setChecked((v) => !v)}
-    />
-  );
-}
+
+<div role="main">
+  <Checkbox
+    label="I agree to the terms"
+    helpTextType="default"
+    dataAriaLabel="Agree to all terms and conditions"
+  ></Checkbox>
+</div>
 ```
 
 ---

@@ -14,6 +14,20 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Slider`
+
+```jsx
+import { Slider } from "@momentum-design/components/react";
+
+function Volume() {
+  return <Slider label="Volume" min={0} max={100} step={1} value={30} />;
+}
+```
+
+(Use **`onInput` / `onChange`**, **two-thumb `range`**, and **a11y** for thumb labels from [Storybook — Slider / Example](https://momentum.design/storybook-static/index.html?path=/story/components-slider-slider--example).)
+
+---
+
 ## Checklist
 
 - [ ] **Label** and **min** / **max** / **step** are set from product; screen readers get the same information  

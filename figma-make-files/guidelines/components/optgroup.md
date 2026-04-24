@@ -19,4 +19,23 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **`label`:** group title above the options.  
 - **Accessibility:** the option group is structured by the listbox/ select implementation—follow **Select** / **Selectlistbox** docs.  
 
+---
+
+## Example — `OptGroup` wrapping `Option` rows (inside `Select` / `Selectlistbox`)
+
+```jsx
+import { OptGroup, Option } from "@momentum-design/components/react";
+
+function FruitsGroup() {
+  return (
+    <OptGroup label="Fruits" disabled={false}>
+      <Option value="apple" label="Apple" />
+      <Option value="banana" label="Banana" />
+    </OptGroup>
+  );
+}
+```
+
+(Compose **`Select`** (or **Combobox**) and **`Selectlistbox`** in the [Storybook — Select / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-select--docs) pattern; the snippet is only the **options** piece.)
+
 [Storybook — OptGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-optgroup--docs)

@@ -32,6 +32,39 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — controlled `Dialog`
+
+```jsx
+import { useState } from "react";
+import { Dialog, Button, Text } from "@momentum-design/components/react";
+
+function ConfirmAction() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open dialog</Button>
+
+      <Dialog visible={open} onClose={() => setOpen(false)} ariaLabel="Confirm action">
+        <Text slot="dialog-body" type="body-primary">
+          Are you sure you want to continue?
+        </Text>
+        <Button slot="footer-button-secondary" type="button" onClick={() => setOpen(false)}>
+          Cancel
+        </Button>
+        <Button slot="footer-button-primary" type="button" onClick={() => setOpen(false)}>
+          Confirm
+        </Button>
+      </Dialog>
+    </>
+  );
+}
+```
+
+(Slot names and **footer** layout must match your Storybook for this version—see [Storybook — Dialog / Example](https://momentum.design/storybook-static/index.html?path=/story/components-dialog-dialog--example).)
+
+---
+
 ## Checklist
 
 - [ ] `visible` and **`onClose`** are wired so Escape and the close control **both** work  

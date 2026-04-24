@@ -19,4 +19,23 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Scroll** overflow may show **arrow** **buttons**—`--mdc-tablist-*` in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-tab-tablist--docs).  
 - **Vertical** **tabs** → use **Verticaltablist**, not **TabList** rotated.  
 
+---
+
+## Example — `TabList` with `Tab` children
+
+```jsx
+import { TabList, Tab } from "@momentum-design/components/react";
+
+function TopTabs() {
+  return (
+    <TabList dataAriaLabel="Settings" onChange={() => {}}>
+      <Tab text="General" tabId="general" />
+      <Tab text="Security" tabId="security" />
+    </TabList>
+  );
+}
+```
+
+(Implement **`onChange`**: read **`event.detail.tabId`**; wire **panels** and **selection** per [Storybook — TabList / Example](https://momentum.design/storybook-static/index.html?path=/story/components-tab-tablist--example).)
+
 [Storybook — TabList / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-tab-tablist--docs)

@@ -19,4 +19,25 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Button** + **Spinner:** use the **`button`** **variant** on the **Spinner** inside the **Button** (see Storybook) so colors stay **≥ 3:1** with the label.  
 - `IconProvider` in the app root is **not** always required for the SVG itself—check [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-spinner-spinner--docs) for the exact markup.  
 
+---
+
+## Example — `Spinner` (inline, **midsize**)
+
+```jsx
+import { Spinner, Text } from "@momentum-design/components/react";
+
+function InlineLoading() {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <Spinner size="midsize" dataAriaLabel="Loading" />
+      <Text type="body-midsize-regular" tagname="span">
+        Loading
+      </Text>
+    </div>
+  );
+}
+```
+
+(See **`button` variant** and **inverted** on busy **Button**s in [Storybook — Spinner / Example](https://momentum.design/storybook-static/index.html?path=/story/components-spinner-spinner--example).)
+
 [Storybook — Spinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-spinner-spinner--docs)

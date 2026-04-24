@@ -30,6 +30,20 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Input` with `label` and `helpText`
+
+```jsx
+import { Input } from "@momentum-design/components/react";
+
+function DisplayNameField() {
+  return <Input label="Display name" defaultValue="" helpText="Shown in your profile." />;
+}
+```
+
+For **controlled** usage, add **`value`** + **`onInput`** / **`onChange`** per [Storybook — Input / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-input-input--docs). For **passwords**, use **`Password`**, not `Input` with `type` alone, unless the spec says otherwise.
+
+---
+
 ## Checklist
 
 - [ ] Label or **`dataAriaLabel`** for screen readers  

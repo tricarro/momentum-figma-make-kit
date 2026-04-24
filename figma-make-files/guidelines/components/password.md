@@ -29,6 +29,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Password` with show/hide labels
+
+```jsx
+import { Password } from "@momentum-design/components/react";
+
+function SignIn() {
+  return (
+    <Password
+      label="Password"
+      showButtonAriaLabel="Show password"
+      hideButtonAriaLabel="Hide password"
+      helpText="8+ characters."
+    />
+  );
+}
+```
+
+(Add **`value` / `defaultValue`** and **`onInput` / `onChange`** for a real form; see [Storybook — Password / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-password-password--docs).)
+
+---
+
 ## Checklist
 
 - [ ] **Show** / **hide** buttons have **distinct, translated** ARIA labels  

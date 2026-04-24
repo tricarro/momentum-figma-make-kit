@@ -24,6 +24,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `SideNavigation` + `MenuBar` + `NavMenuItem` (shell)
+
+```jsx
+import { SideNavigation, MenuBar, NavMenuItem } from "@momentum-design/components/react";
+
+function AppNav() {
+  return (
+    <SideNavigation dataAriaLabel="Product navigation">
+      <MenuBar slot="scrollable-menubar" data-aria-label="Main">
+        <NavMenuItem label="Home" iconName="home-bold" onClick={() => {}} />
+        <NavMenuItem label="Messages" iconName="inbox-bold" onClick={() => {}} />
+      </MenuBar>
+    </SideNavigation>
+  );
+}
+```
+
+(The **full** layout (slot names, **`onToggle`**, **variants**, **submenus**) is in [Storybook — SideNavigation / Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).)
+
+---
+
 ## Checklist
 
 - [ ] Every **nav** target has a **visible** or **screen-reader** label; **submenu** tooltips filled when the design collapses the rail  

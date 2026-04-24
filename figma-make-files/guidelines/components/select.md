@@ -24,6 +24,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Select` + `Selectlistbox` + `Option`
+
+```jsx
+import { Select, Selectlistbox, Option } from "@momentum-design/components/react";
+
+function CountryField() {
+  return (
+    <Select label="Country" placeholder="Select a country">
+      <Selectlistbox>
+        <Option value="us" label="United States" />
+        <Option value="ca" label="Canada" />
+      </Selectlistbox>
+    </Select>
+  );
+}
+```
+
+(Use **`value`**, **`onInput` / `onChange`**, and **form** wiring from [Storybook — Select / Example](https://momentum.design/storybook-static/index.html?path=/story/components-select-select--example).)
+
+---
+
 ## Checklist
 
 - [ ] **Selectlistbox** wraps the options in the same structure as Storybook  

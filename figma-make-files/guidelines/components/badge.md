@@ -35,16 +35,9 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { Badge } from "@momentum-design/components/react";
+import { Badge } from "@momentum-design/components/dist/react";
 
-function TabWithCount() {
-  return (
-    <div style={{ display: "inline-flex", alignItems: "center", gap: "var(--mds-space-100, 0.25rem)" }}>
-      <span>Inbox</span>
-      <Badge type="counter" counter={12} maxCounter={99} variant="primary" ariaLabel="12 unread" />
-    </div>
-  );
-}
+<Badge type="icon" iconName="placeholder-bold"></Badge>
 ```
 
 ---

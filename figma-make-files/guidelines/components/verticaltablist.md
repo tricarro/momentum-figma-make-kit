@@ -18,4 +18,23 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 - **Default** slot: **Tab** children, same as **TabList** but stacked nav in side panels or settings layouts.  
 
+---
+
+## Example — `Verticaltablist` with `Tab` children
+
+```jsx
+import { Verticaltablist, Tab } from "@momentum-design/components/react";
+
+function SettingsNav() {
+  return (
+    <Verticaltablist dataAriaLabel="Settings" onChange={() => {}}>
+      <Tab text="Profile" tabId="profile" />
+      <Tab text="Security" tabId="security" />
+    </Verticaltablist>
+  );
+}
+```
+
+(Implement **`onChange`** and **tab panel** wiring per [Storybook — Verticaltablist / Example](https://momentum.design/storybook-static/index.html?path=/story/components-verticaltablist-verticaltablist--example).)
+
 [Storybook — Verticaltablist / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-verticaltablist-verticaltablist--docs)

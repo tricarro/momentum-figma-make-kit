@@ -34,28 +34,33 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { useState } from "react";
-import { CardCheckbox, Text } from "@momentum-design/components/react";
+import { CardCheckbox, Text } from "@momentum-design/components/dist/react";
 
-function FeatureToggle() {
-  const [on, setOn] = useState(false);
-  return (
-    <div role="group" aria-label="Add-ons">
-      <CardCheckbox
-        cardTitle="Screen share"
-        variant="border"
-        orientation="horizontal"
-        checked={on}
-        selectionType="checkbox"
-        onChange={() => setOn((v) => !v)}
-      >
-        <Text slot="body" type="body-midsize-medium" tagname="p">
-          Let guests share their screen in meetings.
-        </Text>
-      </CardCheckbox>
-    </div>
-  );
-}
+
+<div role="main">
+  <CardCheckbox
+    variant="border"
+    orientation="vertical"
+    cardTitle="Title"
+    subtitle="Subtitle"
+    imageSrc="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAABUUlEQVR4nO3bMU7DMABAURdxqNx/6rEYKqKIiiq/YDDovanxYMW/djLlcr1eB+e8/PYN/CViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFYgViBWIFr1Nn37ZtjLF/eHa7fDwydZ4vmrWztm3bF7CPjPfF3H7fj8yb51vM2lnP3fpxg/xYgvPWemZ9OFarfTi6VqxxCLRaqbFgrP3ELXL0ji6T/sD7pe6PofH5W2w/fQ9KnZlnklmx/qXljuHKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQKxArECsQK3gAA4FUSP2o9dQAAAABJRU5ErkJggg=="
+    imageAlt="Image Alt"
+    iconName="placeholder-bold"
+    selectionType="check"
+    titleTagName="span"
+    subtitleTagName="span"
+    ><Text slot="body" tagname="span"
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate
+      aliquet risus, eget auctor ante egestas facilisis. Curabitur malesuada
+      tempor pulvinar. Quisque sollicitudin magna leo, gravida ultrices lacus
+      lobortis at. Praesent gravida dui diam, non elementum risus laoreet vitae.
+      Sed sed nunc ullamcorper, porttitor dui id, posuere justo. Curabitur
+      laoreet sem ut pharetra hendrerit. Vivamus mattis ligula eget imperdiet
+      tempor. Ut in massa luctus lacus sodales accumsan. Praesent at aliquam
+      leo. Ut a scelerisque turpis.</Text
+    ></CardCheckbox
+  >
+</div>
 ```
 
 (Align **`onChange`** with your version’s `detail` / controlled pattern from Storybook.)

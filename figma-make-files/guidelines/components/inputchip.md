@@ -34,7 +34,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
-## Example
+## Example — `InputChip`
 
 ```jsx
 import { InputChip } from "@momentum-design/components/react";

@@ -32,6 +32,30 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `DatePicker` (default variant + `locale`)
+
+```jsx
+import { useState } from "react";
+import { DatePicker } from "@momentum-design/components/react";
+
+function DueDateField() {
+  const [value, setValue] = useState("");
+
+  return (
+    <DatePicker
+      label="Due date"
+      value={value}
+      locale="en-US"
+      variant="default"
+    />
+  );
+}
+```
+
+Add **`onInput`**, **`onChange`**, and any **`onFocus` / `onBlur`** your flow needs using the event contract in [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs).
+
+---
+
 ## Checklist
 
 - [ ] Choose **`input`** vs **`default`** to match the product’s data-entry pattern  

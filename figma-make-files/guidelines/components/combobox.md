@@ -26,6 +26,44 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example
+```jsx
+import {
+  Combobox,
+  Option,
+  Selectlistbox,
+} from "@momentum-design/components/dist/react";
+
+
+<div style="..." role="main">
+  <Combobox
+    dataAriaLabel="Select a country"
+    helpText="Select a country"
+    helpTextType="default"
+    infoIconAriaLabel="Required icon label"
+    label="Top Countries"
+    name="country"
+    noResultText="No results found"
+    placeholder="Start typing"
+    placement="bottom-start"
+    invalidCustomValueText="Custom values are not allowed"
+  >
+    <Selectlistbox>
+      <Option value="arg" label="Argentina"></Option>
+      <Option value="aus" label="Australia"></Option>
+      <Option value="au" label="Austria"></Option>
+      <Option value="ban" label="Bangladesh"></Option>
+      <Option value="bel" label="Belgium"></Option>
+      <Option value="bra" label="Brazil"></Option>
+      <Option value="can" label="Canada"></Option>
+      <Option value="chi" label="China"></Option>
+      <Option value="col" label="Colombia"></Option>
+      <Option value="den" label="Denmark"></Option>
+    </Selectlistbox>
+  </Combobox>
+</div>
+```
+
 ## Key props (typical)
 
 - **`label`**, **`value`**, **`noResultText`**, **`filter`**, **`controlType`**, **`required`**, **`helpText`**, **`helpTextType`**

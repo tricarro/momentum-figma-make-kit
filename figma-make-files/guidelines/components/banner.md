@@ -36,17 +36,27 @@ For slots, use the **`slot="..."` attribute** on children (e.g. `<Button slot="t
 ## Example
 
 ```jsx
-import { Banner, Button } from "@momentum-design/components/react";
+import { Banner, Button } from "@momentum-design/components/dist/react";
 
-function DataIssueBanner() {
-  return (
-    <Banner
-      variant="warning"
-      label="Connection interrupted"
-      secondaryLabel="We’ll retry automatically. You can also refresh."
-    />
-  );
-}
+
+<Banner
+  variant="informational"
+  label="System Update Available"
+  secondaryLabel="A new version is ready to install. Please save your work before proceeding."
+>
+  <div slot="trailing-actions">
+    <Button ariaLabel="Cancel action" variant="tertiary">Cancel</Button>
+    <Button ariaLabel="Perform primary action" variant="secondary"
+      >Action</Button
+    >
+    <Button
+      prefixIcon="cancel-bold"
+      ariaLabel="Dismiss banner"
+      variant="tertiary"
+      size="20"
+    ></Button>
+  </div>
+</Banner>
 ```
 
 Add `trailing-actions` with `Button` children when the design needs **Dismiss** / **Retry** (see Storybook for your package version’s slot example).

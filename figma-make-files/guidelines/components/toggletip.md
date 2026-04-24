@@ -19,4 +19,26 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Toggletip** in **form** labels: often the **`toggletip`** **slot** on **Input** / **Checkbox**—use the same **Trigger**+**content** **pattern** in Storybook.  
 - Theming: **`--mdc-toggletip-*`**.  
 
+---
+
+## Example — `ToggleTip` content (default **slot**)
+
+`ToggleTip` **extends** **Popover**; you must still add the **trigger** / **anchor** markup the same way as in the Storybook page (not repeated here, because it is version-specific).
+
+```jsx
+import { ToggleTip, Text, Link } from "@momentum-design/components/react";
+
+function RichHelpBody() {
+  return (
+    <ToggleTip placement="bottom">
+      <Text type="body-primary" tagname="div">
+        Use links or buttons in this panel. <Link href="https://example.com">Learn more</Link>
+      </Text>
+    </ToggleTip>
+  );
+}
+```
+
+Copy the full **trigger + `ToggleTip`** tree from [Storybook — ToggleTip / Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggletip-toggletip--example).
+
 [Storybook — ToggleTip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggletip-toggletip--docs)

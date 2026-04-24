@@ -19,4 +19,22 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **Parts:** `status-icon`, `step-number`, `label`, `help-text`, error **icon** when in error.  
 - **Clicks** can move the user to a **previous** step if your flow allows; otherwise do not make steps look **clickable** without a handler.  
 
+---
+
+## Example — one `StepperItem`
+
+```jsx
+import { Stepper, StepperItem } from "@momentum-design/components/react";
+
+function Single() {
+  return (
+    <Stepper>
+      <StepperItem label="Confirm" status="error-current" dataAriaLabel="Confirm step" />
+    </Stepper>
+  );
+}
+```
+
+(You normally render **several** items and **`StepperConnector`** between; see [Storybook — Stepper / Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepper--example).)
+
 [Storybook — StepperItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperitem--docs)

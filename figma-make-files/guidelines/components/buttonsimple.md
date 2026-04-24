@@ -40,18 +40,9 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { Buttonsimple } from "@momentum-design/components/react";
+import { Buttonsimple } from "@momentum-design/components/dist/react";
 
-function DismissRow() {
-  return (
-    <Buttonsimple
-      type="button"
-      onClick={() => { /* dismiss */ }}
-    >
-      Dismiss
-    </Buttonsimple>
-  );
-}
+<Buttonsimple>Click Me</Buttonsimple>
 ```
 
 ---

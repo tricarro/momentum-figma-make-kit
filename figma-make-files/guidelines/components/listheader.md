@@ -29,6 +29,30 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Listheader` in the `list-header` slot
+
+```jsx
+import { List, Listheader, ListItem } from "@momentum-design/components/react";
+
+function InboxList() {
+  return (
+    <List>
+      <Listheader
+        slot="list-header"
+        headerText="Inbox"
+        postfixIcon="add-bold"
+      />
+      <ListItem label="Message one" />
+      <ListItem label="Message two" />
+    </List>
+  );
+}
+```
+
+(Confirm how **`List`** composes with **`Listheader`** in React: **`slot`** on the child vs a **`listHeader` prop**—see [Storybook — List / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-list--docs) and [Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs).)
+
+---
+
 ## Checklist
 
 - [ ] Nests under **`List`** in the **`list-header` slot, not floating alone  

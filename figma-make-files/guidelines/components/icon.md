@@ -31,6 +31,20 @@ Most product UI should use **icons inside** **Button**, **Input**, **Link**, etc
 
 ---
 
+## Example — decorative `Icon` (`name` with weight)
+
+```jsx
+import { Icon } from "@momentum-design/components/react";
+
+function SearchRow() {
+  return <Icon name="search-bold" size={20} />;
+}
+```
+
+(Use **`<base>-<weight>`** for **`name`** per the [Icons](../Guidelines.md#icons) section in `Guidelines.md`. Standalone **informative** icons also need the **label / `dataAriaLabel`** model from [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs).)
+
+---
+
 ## Checklist
 
 - [ ] `IconProvider` and theme are configured per `Guidelines.md`  

@@ -23,6 +23,25 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `List` with `ListItem` rows
+
+```jsx
+import { List, ListItem } from "@momentum-design/components/react";
+
+function SimpleList() {
+  return (
+    <List>
+      <ListItem label="Project Alpha" secondaryLabel="Last updated 2d ago" />
+      <ListItem label="Project Beta" secondaryLabel="Last updated 1w ago" />
+    </List>
+  );
+}
+```
+
+(For a **header** row, place **`Listheader`** in the **`list-header` slot** on `List`—see [Storybook — List / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-list--docs).)
+
+---
+
 ## Checklist
 
 - [ ] **List** wraps every list row pattern in the doc  

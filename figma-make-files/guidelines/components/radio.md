@@ -24,6 +24,26 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — one `Radio` in a set (prefer **`RadioGroup`** in real forms)
+
+```jsx
+import { RadioGroup, Radio } from "@momentum-design/components/react";
+
+function OneOfThree() {
+  return (
+    <RadioGroup name="size" headerText="Shirt size" label="Shirt size">
+      <Radio label="Small" value="s" />
+      <Radio label="Medium" value="m" />
+      <Radio label="Large" value="l" />
+    </RadioGroup>
+  );
+}
+```
+
+(Confirm **group** and **`Radio` value** API in [Storybook — Radio / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-radio-radio--docs) and [RadioGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-radiogroup-radiogroup--docs).)
+
+---
+
 ## Checklist
 
 - [ ] **RadioGroup** (or a shared `name`) ties every **Radio** in the set  

@@ -23,6 +23,28 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `ListItem` with text props
+
+```jsx
+import { List, ListItem } from "@momentum-design/components/react";
+
+function OneRow() {
+  return (
+    <List>
+      <ListItem
+        label="Design review"
+        secondaryLabel="Today, 2:00 PM"
+        sublineText="3 attendees"
+      />
+    </List>
+  );
+}
+```
+
+(Add **leading** / **trailing** controls, **badges**, or **Tooltips** from the [Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs) when the design needs them.)
+
+---
+
 ## Checklist
 
 - [ ] `List` wraps the items  

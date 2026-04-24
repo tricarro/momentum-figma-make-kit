@@ -29,6 +29,26 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Linksimple` with slotted `Text`
+
+```jsx
+import { Linksimple, Text } from "@momentum-design/components/react";
+
+function SupportLink() {
+  return (
+    <Linksimple href="https://help.example.com" rel="noopener noreferrer" target="_blank">
+      <Text type="body-primary" tagname="span">
+        Get help
+      </Text>
+    </Linksimple>
+  );
+}
+```
+
+(Prefer **`Link`** when you need a **size** + **icon** pattern. See [Storybook — Linksimple / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-linksimple-linksimple--docs).)
+
+---
+
 ## Checklist
 
 - [ ] If you need size + `iconName`, use **Link** for consistency  

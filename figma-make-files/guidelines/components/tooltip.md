@@ -14,6 +14,28 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Tooltip` **body** (default slot, **no** focusable content)
+
+The **open** / **close** and **anchor** to the **field** is specified in [Storybook — Tooltip / Example](https://momentum.design/storybook-static/index.html?path=/story/components-tooltip-tooltip--example) (depends on your package version). The **message** is usually a short **`Text`** or string:
+
+```jsx
+import { Tooltip, Text } from "@momentum-design/components/react";
+
+function ShortHelp() {
+  return (
+    <Tooltip>
+      <Text type="label-compact" tagname="span">
+        8–64 characters
+      </Text>
+    </Tooltip>
+  );
+}
+```
+
+(Wrap with the same **Button** / **input** + **`triggerId` / `id`** / **slotted** structure Storybook uses so the help shows on **hover** and **focus**.)
+
+---
+
 ## Checklist
 
 - [ ] Content is **plain** **text** (or unstyled text nodes)—no **interactive** **children**  

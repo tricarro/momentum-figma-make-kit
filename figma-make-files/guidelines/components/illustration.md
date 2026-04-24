@@ -30,6 +30,32 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `Illustration` inside `IllustrationProvider`
+
+```jsx
+import { Illustration, IllustrationProvider, Text, Button } from "@momentum-design/components/react";
+
+function EmptyInbox() {
+  return (
+    <IllustrationProvider>
+      <div style={{ display: "grid", placeItems: "center", gap: "var(--mds-space-200, 0.5rem)" }}>
+        <Illustration name="your-illustration-name" dataAriaLabel="Empty inbox illustration" />
+        <Text type="heading-4" tagname="h2">
+          No messages
+        </Text>
+        <Button type="button" variant="primary">
+          Refresh
+        </Button>
+      </div>
+    </IllustrationProvider>
+  );
+}
+```
+
+(Replace **`name`** with a **published** Momentum illustration id from [Storybook — Illustration / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustration--docs); configure **IllustrationProvider** as in [IllustrationProvider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustrationprovider--docs). The **`name` above** is illustrative and may not exist in your set.)
+
+---
+
 ## Checklist
 
 - [ ] **IllustrationProvider** wraps the tree that uses **`Illustration`**  

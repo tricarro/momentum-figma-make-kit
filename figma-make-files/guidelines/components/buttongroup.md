@@ -35,23 +35,14 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example
 
 ```jsx
-import { ButtonGroup, Button } from "@momentum-design/components/react";
+import { Button, ButtonGroup } from "@momentum-design/components/dist/react";
 
-function TextAlignGroup() {
-  return (
-    <ButtonGroup variant="secondary" size={32} orientation="horizontal" compact={false}>
-      <Button type="button" prefixIcon="align-left-bold">
-        Left
-      </Button>
-      <Button type="button" prefixIcon="align-center-bold">
-        Center
-      </Button>
-      <Button type="button" prefixIcon="align-right-bold">
-        Right
-      </Button>
-    </ButtonGroup>
-  );
-}
+
+<ButtonGroup variant="primary" orientation="horizontal">
+  <Button prefixIcon="placeholder-bold" ariaLabel="icon button"></Button>
+  <Button prefixIcon="placeholder-bold" ariaLabel="icon button"></Button>
+  <Button prefixIcon="placeholder-bold" ariaLabel="icon button"></Button>
+</ButtonGroup>
 ```
 
 For **icon-only** groups, follow Storybook and your `Button` version for accessible names (e.g. `aria-label` on the host if exposed).

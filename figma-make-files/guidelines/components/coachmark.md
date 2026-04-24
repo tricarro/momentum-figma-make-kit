@@ -35,17 +35,45 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example (pattern)
 
 ```jsx
-import { Coachmark } from "@momentum-design/components/react";
+import {
+  Button,
+  Coachmark,
+  List,
+  ListItem,
+  Text,
+} from "@momentum-design/components/dist/react";
 
-// Wire anchor + open state per Storybook; this is a structure-only sketch.
-function FeatureHint() {
-  return (
-    <Coachmark
-      data-aria-label="Filter help"
-      onHidden={() => {}}
-    />
-  );
-}
+
+<div style="..." role="main">
+  <div style="...">
+    <Button> open </Button>
+    <Button> close </Button>
+  </div>
+  <List>
+    <ListItem label="Anchor Content" id="coachmark-trigger"></ListItem>
+  </List>
+  <Coachmark
+    id="coachmark"
+    triggerID="coachmark-trigger"
+    zIndex="1000"
+    showArrow
+    closeButton
+    style="width: 17.5rem; height: 9rem;"
+  >
+    <Text type="body-midsize-bold" tagname="div">Coachmark</Text>
+    <Text type="body-midsize-regular" tagname="div"
+      >This is a sample coach mark. Follow me to walk you through different ways
+      that I can be used.</Text
+    >
+    <div style="...">
+      <Button inverted>Next</Button>
+      <Button
+        style="--mdc-button-border-color: var(--mds-color-theme-inverted-outline-button-normal);"
+        >Back</Button
+      >
+    </div>
+  </Coachmark>
+</div>
 ```
 
 Follow the [Coachmark / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-coachmark-coachmark--docs) for exact anchor, slots, and controlled visibility.

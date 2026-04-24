@@ -25,6 +25,27 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ---
 
+## Example — `ListBox` with `Option` / `OptGroup`
+
+```jsx
+import { ListBox, Option, OptGroup } from "@momentum-design/components/react";
+
+function FlavorListBox() {
+  return (
+    <ListBox>
+      <OptGroup label="Popular">
+        <Option value="vanilla" label="Vanilla" />
+        <Option value="chocolate" label="Chocolate" />
+      </OptGroup>
+    </ListBox>
+  );
+}
+```
+
+Add **`value`**, **`onChange`**, and **`multiple`** (and any required **form** `name` props) as in [Storybook — ListBox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-listbox-listbox--docs).
+
+---
+
 ## Checklist
 
 - [ ] For **form** “pick one from dropdown” UX, also evaluate **Select**; for typeahead, **Combobox**  
