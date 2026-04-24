@@ -1,0 +1,42 @@
+# Combobox (Momentum) — Figma Make guidance
+
+**Combobox** is a **combobox** control: a **typeahead** / filterable list bound to a **text** input. Users can **type** to filter options, then **select**; **`no-result-text`** appears when there is no match. Options use **`Option`** and **`OptGroup`**, wrapped in **`Selectlistbox`** (see [Selectlistbox](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs) in Storybook) **inside** the Combobox. Reference: [Storybook — Combobox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-combobox-combobox--example).
+
+---
+
+## Import
+
+```jsx
+import { Combobox, Option, OptGroup, Selectlistbox } from "@momentum-design/components/react";
+```
+
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+
+---
+
+## What it is
+
+- **Filter:** default **`match-starts-with`**. **`filter="none"`** when the **app** filters (e.g. server results). A **custom** `filter` can be used for full control.  
+- **Form:** every **`option`** should have a **`value`**; **`control-type="controlled"`** means the parent must update **`value`** from **`onChange` / `onInput`**.  
+- **Slots:** `label`, `toggletip`, `help-text`, and form-field help patterns (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)).  
+- **Events in React:** **`onChange`**, **`onInput`**, **`onKeyDown`**, **`onFocus`**, **`onClick`**.  
+- **Tooltips on options:** place **`mdc-tooltip`** (or the React `Tooltip` wrapper) **outside** the listbox, per the package JSDoc.
+
+**Combobox** vs **Select:** combobox = **type + filter**; use **Select** when a simple dropdown is enough (see [Select](https://momentum.design/storybook-static/index.html?path=/docs/components-select-select--docs)).
+
+---
+
+## Key props (typical)
+
+- **`label`**, **`value`**, **`noResultText`**, **`filter`**, **`controlType`**, **`required`**, **`helpText`**, **`helpTextType`**
+
+---
+
+## Checklist
+
+- [ ] **Selectlistbox** wraps the options with the structure from Storybook  
+- [ ] Each **Option** has a **`value`** for forms  
+- [ ] For async lists, set **`filter="none"`** and own the option list  
+- [ ] **WCAG combobox** keyboard patterns — follow the linked APG in the [package docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)  
+
+[Storybook — Combobox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)
