@@ -276,7 +276,9 @@ Same pattern as in [Design Tokens](#design-tokens): `color: var(--mds-color-them
 
 ## Icons
 
-Use `Icon` with Momentum icon names. Do not use emoji or external icon libraries.
+- **Only** the Momentum icon set shipped with `@momentum-design/components` / `@momentum-design/icons` is allowed. **Every** icon must be rendered with `<Icon name="…" />` and a `name` that is a real symbol from that set (per [Momentum design](https://momentum.design) / component docs / Storybook—not invented kebab-strings that “sound” right).
+- **Do not** use emoji, stock images, inline SVG, `<img>` for UI icons, or any other pack (e.g. Lucide, Material Icons, Heroicons, Font Awesome, native OS glyphs) even if a close match is easier to find.
+- If a requested icon cannot be found in the Momentum set, pick the closest **documented** Momentum `name` (per the `name` rules that follow) or leave the icon out. **Do not** invent, approximate, or copy names from other libraries.
 
 ```jsx
 import { Icon } from "@momentum-design/components/react";
@@ -284,9 +286,17 @@ import { Icon } from "@momentum-design/components/react";
 <Icon name="search-bold" size="20" />
 ```
 
-Momentum Icons are appended with a weight value: "-light", "-regular", "-bold", or "-filled". If a user wants to use an icon and it doesn't have one of these suffixes conventions, add the "-bold" suffix to the icon name.
+### Icon `name` (required pattern)
 
-If a user asks for "brightness-high" when adding it, append "-bold" to the icon so it will read "brightness-high-bold".
+1. **Every** `name` is `<base>-<weight>` in kebab-case. The **weight** is one of: `-light`, `-regular`, `-bold`, or `-filled`.
+2. If the user (or the design) only gives a **base** name and no weight, **append `-bold`**. That is the default when nothing else is specified.
+3. If the user names a **weight** (e.g. “use the regular version”), use that suffix instead of the default: `-light`, `-regular`, or `-filled` as requested.
+4. **Never** pass a base name alone. Wrong: `name="brightness-high"`. Correct: `name="brightness-high-bold"` (default) or another valid `<base>-<weight>` from the Momentum set.
+
+```jsx
+
+<Icon name="brightness-high-bold" size="20" />
+```
 
 ---
 
