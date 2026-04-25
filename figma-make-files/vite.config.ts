@@ -2,23 +2,15 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs/promises';
-import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 
 // TODO: move to separate package and publish on npm
-function rewriteDynamicImportsEsbuild({packageName}: {packageName?: 'animations' | 'brand-visuals' | 'icons'} = {}) {
+function rewriteDynamicImportsEsbuild({packageName}: {packageName?: 'brand-visuals' | 'icons'} = {}) {
   let data: {
     componentFile: RegExp;
     dynamicImport: RegExp;
     packageQualifier: string;
   };
   switch (packageName) {
-    case 'animations':
-      data = {
-        componentFile: /node_modules\/@momentum-design\/components\/dist\/components\/animation\/animation\.component\.js$/,
-        dynamicImport: /import\(\s*`@momentum-design\/animations\/([^`]+)`\s*\)/g,
-        packageQualifier: '@momentum-design/animations'
-      };
-      break;
     case 'brand-visuals':
       data = {
         componentFile: /node_modules\/@momentum-design\/components\/dist\/components\/brandvisual\/brandvisual\.component\.js$/,
@@ -60,20 +52,13 @@ function rewriteDynamicImportsEsbuild({packageName}: {packageName?: 'animations'
 }
 
 // TODO: move to separate package and publish on npm
-function rewriteDynamicImportsRollup({packageName}: {packageName?: 'animations' | 'brand-visuals' | 'icons'} = {}) {
+function rewriteDynamicImportsRollup({packageName}: {packageName?: 'brand-visuals' | 'icons'} = {}) {
   let data: {
     componentFile: RegExp;
     dynamicImport: RegExp;
     packageQualifier: string;
   }
   switch (packageName) {
-    case 'animations':
-      data = {
-        componentFile: /node_modules\/@momentum-design\/components\/dist\/components\/animation\/animation\.component\.js$/,
-        dynamicImport: /import\(\s*`@momentum-design\/animations\/([^`]+)`\s*\)/g,
-        packageQualifier: '@momentum-design/animations'
-      };
-      break;
     case 'brand-visuals':
       data = {
         componentFile: /node_modules\/@momentum-design\/components\/dist\/components\/brandvisual\/brandvisual\.component\.js$/,
@@ -130,11 +115,6 @@ export default defineConfig({
       plugins: [
         rewriteDynamicImportsRollup({packageName: 'brand-visuals'}), 
         rewriteDynamicImportsRollup({packageName: 'icons'}),
-        rewriteDynamicImportsRollup({packageName: 'animations'}),
-        dynamicImportVars({
-          exclude: ['node_modules/@momentum-design/animations/**'],
-          warnOnError: true,
-        }),
       ],
     }
   },
