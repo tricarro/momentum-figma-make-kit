@@ -10,7 +10,7 @@
 import { Select, Selectlistbox, Option, OptGroup, Divider } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -49,6 +49,6 @@ function CountryField() {
 
 - [ ] **Selectlistbox** wraps the options in the same structure as Storybook  
 - [ ] Every **Option** has a **`value`** for forms and controlled state  
-- [ ] `IconProvider` in the app root per `Guidelines.md`  
+- [ ] `IconProvider` in the app root per [setup.md](../setup.md)  
 
 [Storybook — Select / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-select--docs)

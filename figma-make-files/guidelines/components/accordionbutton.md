@@ -12,7 +12,7 @@ import { AccordionButton, Text } from "@momentum-design/components/react";
 import { AccordionGroup } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per global guidelines).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -97,7 +97,7 @@ import {
 ## Checklist for Figma Make
 
 - [ ] `AccordionButton` from `@momentum-design/components/react`  
-- [ ] Theme / tokens and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as in `Guidelines.md`)  
+- [ ] Theme / tokens and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as in [setup.md](../setup.md))  
 - [ ] `dataAriaLevel` matches the page heading order  
 - [ ] Body content uses Momentum **`Text`** (or other MDS components); spacing uses **MDS** tokens, not ad-hoc pixel values  
 - [ ] Use **`AccordionGroup`** when multiple items should share one-at-a-time expansion (unless `allowMultiple`)  

@@ -1,0 +1,34 @@
+# Design tokens (Momentum + Figma Make)
+
+All color, typography, and elevation values exist as CSS custom properties on `:root`. Do not hardcode raw values. For setup (CSS bundles, theming class on root), see [setup.md](./setup.md). For layout and typography components, see [styles.md](./styles.md).
+
+## Using tokens in CSS and JSX
+
+**Always use tokens like this:**
+
+```css
+/* ✅ Correct */
+color: var(--mds-color-theme-text-primary-normal);
+background: var(--mds-color-theme-background-solid-primary-normal);
+
+/* ❌ Never do this */
+color: #1a1a1a;
+background: white;
+```
+
+When writing inline styles in JSX, reference tokens the same way:
+
+```jsx
+<div style={{ color: "var(--mds-color-theme-text-primary-normal)" }} />
+```
+
+## Text colors (semantic)
+
+- **Prefer the `Text` component** with an appropriate `type` so color comes from Momentum by default. Only set `color` when you need a specific semantic (e.g. secondary, disabled, error, success). See [styles.md](./styles.md#typography).
+- **Use theme text tokens only** — names like `var(--mds-color-theme-text-<role>-<state>)`. Examples: `text-primary-normal`, `text-secondary-normal`, `text-primary-disabled`, `text-error-normal`. These are **not** raw palette colors; do **not** use `--mds-color-core-*` for body or label text unless a guideline explicitly calls for a brand or chart color.
+- **Set the Webex theme class** on the root (see [Theming in setup.md](./setup.md#theming)) so the same token resolves to the correct light or dark value.
+
+Apply color with the same pattern as above, for example:
+
+- CSS: `color: var(--mds-color-theme-text-primary-normal);`
+- JSX: `style={{ color: "var(--mds-color-theme-text-primary-normal)" }}`

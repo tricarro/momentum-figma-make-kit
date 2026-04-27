@@ -12,7 +12,7 @@ import { Accordion, Text, Icon, Button, Chip } from "@momentum-design/components
 import { AccordionGroup, AccordionButton } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per global guidelines).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -110,7 +110,7 @@ import {
 ## Checklist for Figma Make
 
 - [ ] `Accordion` from `@momentum-design/components/react`  
-- [ ] Theme / tokens loaded (global `Guidelines.md` / primer) and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as required)  
+- [ ] Theme / tokens loaded ([setup.md](../setup.md) / primer) and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as required)  
 - [ ] `openButtonAriaLabel` and `closeButtonAriaLabel` set  
 - [ ] `dataAriaLevel` matches the page’s heading order  
 - [ ] Body copy uses Momentum **`Text`**, spacing uses **MDS** tokens, not one-off CSS numbers  

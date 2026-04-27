@@ -10,7 +10,7 @@
 import { Icon } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -41,13 +41,13 @@ function SearchRow() {
 }
 ```
 
-(Use **`<base>-<weight>`** for **`name`** per the [Icons](../Guidelines.md#icons) section in `Guidelines.md`. Standalone **informative** icons also need the **label / `dataAriaLabel`** model from [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs).)
+(Use **`<base>-<weight>`** for **`name`** per the [Icons](../components.md#icons) section in [components.md](../components.md). Standalone **informative** icons also need the **label / `dataAriaLabel`** model from [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs).)
 
 ---
 
 ## Checklist
 
-- [ ] `IconProvider` and theme are configured per `Guidelines.md`  
+- [ ] `IconProvider` and theme are configured per [setup.md](../setup.md)  
 - [ ] **Meaning** is in **text** or a proper **aria** / tooltip, not color alone  
 - [ ] In standalone informative cases, match Storybook for **focus** and **tooltip**  
 

@@ -10,7 +10,7 @@
 import { Link } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -20,7 +20,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 - **`--mdc-link-*`** and inverted tokens for state colors.  
 - For **app actions** without a URL, use **Button** or **LinkButton**, not a fake `#` link.
 
-**Link** vs **Linksimple** vs **ButtonLink** vs **LinkButton** — `Guidelines.md` and Storybook describe when to use which.
+**Link** vs **Linksimple** vs **ButtonLink** vs **LinkButton** — see **link.md**, **linksimple.md**, **linkbutton.md**, and **buttonlink.md** in this folder and [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs) for when to use which.
 
 ---
 
@@ -58,6 +58,6 @@ function PolicyLink() {
 
 - [ ] External links: **`rel`** and **`target`** (e.g. `noopener` + `noreferrer` for new tabs) per security policy  
 - [ ] The visible **label** is descriptive (“Settings”), not only “Click here”  
-- [ ] Icons use **Icon**/**Link**’s `iconName`; **IconProvider** at root per `Guidelines.md`  
+- [ ] Icons use **Icon**/**Link**’s `iconName`; **IconProvider** at root per [setup.md](../setup.md)  
 
 [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs)

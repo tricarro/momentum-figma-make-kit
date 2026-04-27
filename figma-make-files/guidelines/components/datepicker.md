@@ -10,7 +10,7 @@
 import { DatePicker } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -61,6 +61,6 @@ Add **`onInput`**, **`onChange`**, and any **`onFocus` / `onBlur`** your flow ne
 - [ ] Choose **`input`** vs **`default`** to match the product’s data-entry pattern  
 - [ ] Set **`locale`** (and any format) consistently with the rest of the app  
 - [ ] Wire **`onChange`** for committed values and error messages from the field wrapper  
-- [ ] `IconProvider` in the app root per `Guidelines.md` (icons in the control)  
+- [ ] `IconProvider` in the app root per [setup.md](../setup.md) (icons in the control)  
 
 [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs)

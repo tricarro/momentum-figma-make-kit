@@ -1,0 +1,92 @@
+# Package setup (Momentum + Figma Make)
+
+Install and wire the design system in your prototype’s entry so tokens, typography, theming, and icons work. See [Guidelines.md](./Guidelines.md) for the global rules, [components.md](./components.md) for React component usage, and [tokens.md](./tokens.md) / [styles.md](./styles.md) for tokens and layout/typography.
+
+## Install
+
+Begin by installing the `@momentum-design/components` package:
+
+`yarn add @momentum-design/components`
+
+## CSS imports (required)
+
+Every prototype must include these imports at the top of the entry file:
+
+```js
+// Tokens + typography
+import "@momentum-design/fonts/dist/css/fonts.css";
+import "@momentum-design/tokens/dist/css/core/complete.css";
+import "@momentum-design/tokens/dist/css/components/complete.css";
+import "@momentum-design/tokens/dist/css/typography/complete.css";
+```
+
+## Root / body classes
+
+Set the `mds-typography` and `mds-elevation` classes on the root element of your application:
+
+```html
+<body class="mds-typography mds-elevation">
+  ...
+</body>
+```
+
+## Font smoothing
+
+Match Figma by setting font smoothing on root / `body`:
+
+```css
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+```
+
+## Theme and icon providers
+
+Wrap your application or component tree with the theme and icon provider components so theming and icons resolve correctly:
+
+```jsx
+<ThemeProvider>
+  <IconProvider>
+    {/* your app */}
+  </IconProvider>
+</ThemeProvider>
+```
+
+## React import path
+
+Momentum React components are imported from:
+
+```js
+import { ComponentName } from "@momentum-design/components/react";
+```
+
+Never import from `@momentum-design/components` directly (without the `/react` subpath).
+
+## Theming
+
+Momentum supports light and dark mode via a class on the root element. Do not implement custom theming.
+
+```html
+<body class="mds-theme-stable-darkWebex">
+  {/* all content */}
+</body>
+```
+
+or
+
+```html
+<body class="mds-theme-stable-lightWebex">
+```
+
+In React, apply to a wrapping `div` if `body` is not accessible:
+
+```jsx
+<div className="mds-theme-stable-darkWebex" style={{ minHeight: "100vh" }}>
+  {/* all content */}
+</div>
+```
+
+The same pattern applies for `mds-theme-stable-lightWebex`.
+
+For how tokens respond to the theme, see [tokens.md](./tokens.md).

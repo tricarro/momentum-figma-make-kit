@@ -10,7 +10,7 @@
 import { List, ListItem, Text, Avatar, Checkbox, Radio, Toggle, Badge } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -50,6 +50,6 @@ function OneRow() {
 - [ ] `List` wraps the items  
 - [ ] Only **one** primary “control” type per design (radio **group** vs ad-hoc) matches **RadioGroup** or **name**  
 - [ ] Truncation + **Tooltip** for ellipsized titles  
-- [ ] `IconProvider` in the app root if rows use **Icon** / avatars with icons per `Guidelines.md`  
+- [ ] `IconProvider` in the app root if rows use **Icon** / avatars with icons per [setup.md](../setup.md)  
 
 [Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs)

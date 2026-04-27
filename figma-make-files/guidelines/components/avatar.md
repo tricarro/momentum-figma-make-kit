@@ -10,7 +10,7 @@ The **Avatar** shows a **person or space** as a **photo**, **initials**, a custo
 import { Avatar } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -65,6 +65,6 @@ import { Avatar } from "@momentum-design/components/dist/react";
 - [ ] Chosen **`size`** and content (`src` / `iconName` / `initials` / `counter`) follow **display priority** above  
 - [ ] **`presence`** only when the design needs status and **`counter` / `isTyping`** are not hiding it  
 - [ ] `ariaHidden` set deliberately if the image must be announced  
-- [ ] `IconProvider` / theme set per `Guidelines.md`  
+- [ ] `IconProvider` / theme set per [setup.md](../setup.md)  
 
 For full props and parts, see [Storybook — Avatar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-avatar--docs).

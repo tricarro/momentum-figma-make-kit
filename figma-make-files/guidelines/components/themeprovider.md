@@ -11,13 +11,13 @@ Official reference: [Storybook — ThemeProvider / Docs](https://momentum.design
 import { ThemeProvider, IconProvider } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
 ## What it is
 
-- **Not** a replacement for loading tokens: you still import `@momentum-design` **fonts** and **tokens** CSS in the app entry (see [Package setup](../Guidelines.md#package-setup) in `Guidelines.md`). ThemeProvider **selects** which Momentum **theme** (light/dark and product variant) is active for subtrees and components that read theme variables.
+- **Not** a replacement for loading tokens: you still import `@momentum-design` **fonts** and **tokens** CSS in the app entry (see [setup.md](../setup.md)). ThemeProvider **selects** which Momentum **theme** (light/dark and product variant) is active for subtrees and components that read theme variables.
 - Puts the active **`themeclass` string** on the provider element so the matching theme rules from the components token bundle apply to **children**. Switching `themeclass` **swaps** the class, not a stack of themes.
 - **Context:** Lit child components can consume the theme class via the provider’s context (implementation detail; use `themeclass` from React and normal composition for most Figma Make code).
 - Pairs with **`IconProvider`**: in prototypes, **wrap the app (or the styled subtree) with `ThemeProvider` and put `IconProvider` inside** so Momentum `Icon` and other components have theme + icon resolution.
@@ -82,9 +82,9 @@ For **dark** mode matching the package default, you can omit `themeclass` or set
 
 ---
 
-## Relationship to `Guidelines.md` “Theming”
+## Relationship to [Theming in setup.md](../setup.md#theming)
 
-`Guidelines.md` shows putting theme classes on **`body`** or a **wrapper** `div`. **Using `ThemeProvider` is the React-side equivalent** for the subtree it wraps: set **`themeclass`** to the same string you would have put on the wrapper (e.g. `mds-theme-stable-lightWebex`). Still apply **`mds-typography`** and **`mds-elevation`** on a root (e.g. `body` or a parent `div`) per global `Guidelines.md` package setup, and add **`mds-core`** when your layout expects core palette/tokens, if your `theme.css` or docs require it.
+[setup.md](../setup.md#theming) shows putting theme classes on **`body`** or a **wrapper** `div`. **Using `ThemeProvider` is the React-side equivalent** for the subtree it wraps: set **`themeclass`** to the same string you would have put on the wrapper (e.g. `mds-theme-stable-lightWebex`). Still apply **`mds-typography`** and **`mds-elevation`** on a root (e.g. `body` or a parent `div`) per [setup.md](../setup.md) (package setup), and add **`mds-core`** when your layout expects core palette/tokens, if your `theme.css` or docs require it.
 
 ---
 

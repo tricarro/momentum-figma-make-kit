@@ -10,7 +10,7 @@
 import { Presence } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -60,6 +60,6 @@ function StatusRow() {
 - [ ] `Presence` is only for **status** UI; use **`Avatar`** / **`AvatarButton`** `presence` for badge-on-avatar  
 - [ ] `type` and `size` match the design; verify against [Storybook](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs)  
 - [ ] Do not use standalone `Presence` to fake **avatars**; pair with `Text` or other MDS for labels  
-- [ ] `IconProvider` / theme per `Guidelines.md`  
+- [ ] `IconProvider` / theme per [setup.md](../setup.md)  
 
 For CSS parts and token names, see [Storybook — Presence / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs).

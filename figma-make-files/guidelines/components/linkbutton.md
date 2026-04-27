@@ -10,7 +10,7 @@
 import { LinkButton } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -55,6 +55,6 @@ function ExpandDetails() {
 
 - [ ] `type="button"` when the control is not submitting a form  
 - [ ] Use a **link-styled** control for actions; use **Link** when there is a **real** URL  
-- [ ] `IconProvider` in the app root if using icons in the slot per `Guidelines.md`  
+- [ ] `IconProvider` in the app root if using icons in the slot per [setup.md](../setup.md)  
 
 [Storybook — LinkButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-linkbutton-linkbutton--docs)

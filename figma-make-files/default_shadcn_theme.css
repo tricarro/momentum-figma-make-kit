@@ -3,7 +3,7 @@
   Values resolve when an ancestor (typically <html class="…">) includes:
   - mds-core (from @momentum-design/tokens core/complete)
   - mds-theme-stable-lightWebex (light) and mds-theme-stable-darkWebex (dark), from components/complete
-  See Guidelines.md. Semantic colors are `var(--mds-color-...)` only; mds-core + Webex theme classes on an ancestor are required for resolution.
+  See `guidelines/Guidelines.md`, `guidelines/tokens.md`, and `guidelines/setup.md`. Semantic colors are `var(--mds-color-...)` only; mds-core + Webex theme classes on an ancestor are required for resolution.
 */
 
 :root {

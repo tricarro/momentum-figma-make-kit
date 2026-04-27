@@ -1,0 +1,165 @@
+# Layout and typography (Momentum + Figma Make)
+
+How to structure screens and set type with Momentum. For token syntax and semantic text colors, see [tokens.md](./tokens.md). For the root theme class, see [setup.md](./setup.md).
+
+## Layout
+
+These rules mirror the Momentum **Layout Guidelines** in Figma ([Layout Guidelines — Desktop Grid](https://www.figma.com/design/67Dm1VJfWCx7UooEaRta4m/%F0%9F%93%95-Layout-Guidelines?node-id=1-1683)). In Figma Make, implement them with **CSS flex or grid**. Momentum does not ship a single “page layout” component: you compose regions yourself.
+
+### Principles
+
+- **Grid as foundation.** A consistent underlying grid (columns, gutters, and spacing) keeps layouts aligned with the rounded Momentum UI. Treat spacing and alignment as one system, not one-off nudges.
+- **4px base unit.** Spacing and layout are built from a **4px** base (the design file’s “square (x)”). In code, that means using **`var(--mds-space-*)` values that match the spec** (8px, 16px, 24px, etc. map to steps on the Momentum space scale—pick the token that matches the designed distance). Avoid arbitrary pixel gaps that do not line up to that rhythm.
+- **Space before boxes.** **Adequate white space** reduces the need for extra containers to group content, which lowers visual noise. **Rhythm and balance** come from **repeating the same alignment patterns** (e.g. consistent horizontal padding, column gaps, and vertical gaps between blocks).
+
+### Page-level grid (breakpoints)
+
+Use this table to decide **how many notional columns**, **gutter**, **side margins**, **top/bottom padding**, and **width behavior** apply at each breakpoint. Translate gutters, margins, and padding to the closest matching **`var(--mds-space-*)`** tokens; use **`min()` / `max()`** with `100%` and `%` or `vw` for fluid behavior where the table says **Fluid**.
+
+| Size | Viewport (width) | Column grid | Gutter | Side margins | Vertical page padding | Width behavior |
+| --- | --- | --- | --- | --- | --- | --- |
+| Extra small | 320px–575px | 2 columns | 8px | 24px | 24px | Fluid |
+| Small | 576px–767px | 4 columns | 16px | 24px | 24px | Fluid |
+| Medium | 768px–1023px | 8 columns | 16px | 24px | 24px | Fluid |
+| Large | 1024px–1920px | 12 columns | 16px | 24px | 24px | Fluid |
+| Extra large | 1920px and up | 12 columns | 16px | min 24px (can grow) | 24px | **Fixed** (content hits a max width; extra width goes to side margins) |
+
+**Figma Make notes:**
+
+- **“Columns”** are a planning grid: use **`display: "grid"`** with **`gridTemplateColumns: "repeat(12, minmax(0, 1fr))"`** (or the column count for that breakpoint) and **`columnGap` / `rowGap`** from tokens, or use **flex** with **token** `gap` to align content to the same rhythm.
+- **Extra large / Fixed:** the guidelines target a **wide desktop** with **centered** content and **bounded** main width (the artboard in the file uses a **~1520px** content area on a **1920px**-wide frame with **~200px** side margins at maximum width). In React, a common pattern is `marginLeft: "auto"`, `marginRight: "auto"`, **`maxWidth: "min(100%, 95rem)"`** (or the exact max width your product standardizes) **or** a token if your team exposes one, plus horizontal padding from the table.
+- **Margins vs padding:** the table’s **24px** margin/padding values should be the **same** spacing token family (e.g. 24px step) so the edge of the page and vertical section spacing stay aligned.
+
+```jsx
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "var(--mds-space-200)",
+    boxSizing: "border-box",
+    minHeight: "100vh",
+    maxWidth: "min(100%, 95rem)",
+    margin: "0 auto",
+    padding: "var(--mds-space-300)",
+  }}
+>
+  <Text type="heading-5">Section Title</Text>
+  <Input label="Email" />
+  <Button variant="primary" size="32">
+    Submit
+  </Button>
+</div>
+```
+
+Use nested flex/grid regions for more complex **12-column** (or 8/4/2) sections; keep **gutters and outer padding** consistent with the row in the table for the viewport you are emulating in the preview.
+
+## Typography
+
+Use `Text` for all typographic content. Avoid `<h1>`–`<h6>`, `<p>`, or `<span>` unless wrapping a Momentum component.
+
+```jsx
+<Text type="heading-3">Page Title</Text>
+<Text type="body-primary">Supporting description text here.</Text>
+<Text type="label-compact">Field label</Text>
+```
+
+Common `type` values: `heading-1` through `heading-6`, `body-primary`, `body-secondary`, `label-compact`, `label-balance`.
+
+When using the `Text` component, these `type` values are acceptable:
+
+- `body-small-regular`
+- `body-small-medium`
+- `body-small-bold`
+- `body-midsize-regular`
+- `body-midsize-medium`
+- `body-midsize-bold`
+- `body-large-regular`
+- `body-large-medium`
+- `body-large-bold`
+- `body-small-regular-underline`
+- `body-small-medium-underline`
+- `body-midsize-regular-underline`
+- `body-midsize-medium-underline`
+- `body-large-regular-underline`
+- `body-large-medium-underline`
+- `heading-small-regular`
+- `heading-small-medium`
+- `heading-small-bold`
+- `heading-midsize-regular`
+- `heading-midsize-medium`
+- `heading-midsize-bold`
+- `heading-large-regular`
+- `heading-large-medium`
+- `heading-large-bold`
+- `heading-xlarge-regular`
+- `heading-xlarge-medium`
+- `heading-xlarge-bold`
+- `headline-small-light`
+- `headline-small-regular`
+
+To override `color` for a semantic state, use theme text tokens in [tokens.md](./tokens.md#text-colors-semantic).
+
+## Border radius
+
+In the Figma [Layout Guidelines — Border Radius](https://www.figma.com/design/67Dm1VJfWCx7UooEaRta4m/%F0%9F%93%95-Layout-Guidelines?node-id=1405-29769) frame (node `1405:29769`), this is titled **Border Radius**; the rules below are the same content, written for **Figma Make** (React + inline `style` / CSS, **no Tailwind**).
+
+Curved shapes support a welcoming, “human” feel and continue the line language of icons and illustrations. **Default to Momentum components** so corners match the system. For **custom** wrappers, use **only** the **four** radius classes; the radius **fits the size of the element** (small control vs. large region).
+
+The published token CSS may not list every radius; use these **rem** values at a 16px root so they stay on the **4px base**: **4px → `0.25rem`**, **8px → `0.5rem`**, **12px → `0.75rem`**. Do not invent one-off values (e.g. 7px) unless a component’s documentation requires a specific override.
+
+Use a **full 12px** (`0.75rem` on all sides) for separate **large** container frames (see **Large**); reserve the **one-corner** pattern for the primary “notch” surface when the design specifies it.
+
+### Pill (50% of height)
+
+For **compact** pieces: **buttons**, **text fields**, **data visualization**, **chips**, **labels**, and similar.
+
+- **Radius = 50% of height** (e.g. `borderRadius: "50%"` with a set `height`, or a half-height cap such as `9999` **px** only with an even `height` in px).
+- **Heights must be even** (e.g. 32, 40, 48).
+- If there is **text** inside: **12px** minimum size and **18px** line height per the doc—use `Text` / system typography, not ad hoc fonts.
+- **If height would exceed 52px**, do **not** use pill; use **Medium (8px)** instead.
+- In prototypes, **import** `Button`, `Input`, `Chip`, etc. instead of recreating a pill `div` unless the brief requires a throwaway box.
+
+```jsx
+<div
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 48,
+    maxHeight: 52,
+    boxSizing: "border-box",
+    borderRadius: "50%",
+  }}
+>
+  …
+</div>
+```
+
+### Small (4px) — rare
+
+**Only in exceptional cases**, e.g. **very tight** grids or dense data where a larger radius costs space.
+
+`borderRadius: "0.25rem"`
+
+### Medium (8px) — most common
+
+Use for **text fields**, **list items**, **table rows**, **grid content**, and also **larger** surfaces such as **modals**, **dialogs**, **toasts**, and **popovers** (as stated in the Figma copy).
+
+`borderRadius: "0.5rem"`
+
+### Large (12px) — prominent blocks
+
+**12px on all corners** for **large**, high-hierarchy **panels** and key **preview**-scale frames. Nested content inside a notched or large shell often still uses **Medium (8px)**; match whatever the comp shows.
+
+`borderRadius: "0.75rem"`
+
+### Quick reference (for agents)
+
+| Class  | Value (16px root) | Use |
+|--------|-------------------|-----|
+| **Pill**  | 50% of **even** height; `maxHeight` 52 | Buttons, fields, chips, small controls |
+| **Small** | 4px (`0.25rem`) | Tight / dense only |
+| **Medium** | 8px (`0.5rem`) | Default for most UI, including modals/dialogs/toasts/popovers |
+| **Large** / **notch** | 12px (`0.75rem`) | Large panels (all sides); main content **notch** = top-left only |
+
+**Checklist:** 1) Prefer a **Momentum** component. 2) If styling a custom box, map to **Pill / Small / Medium / Large** above. 3) Do not layer a random `border-radius` on components that already include MDS styling unless the component doc names an allowed variable (e.g. `--mdc-icon-border-radius`).

@@ -10,7 +10,7 @@
 import { Searchfield, InputChip, Chip } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -41,6 +41,6 @@ function MessagesSearch() {
 
 - [ ] Do not pair with **Popover**-based result lists; use **SearchPopover** for that model  
 - [ ] **Controlled** chip lists keep React state in sync in **`onChipRemove`**  
-- [ ] `IconProvider` in the app root per `Guidelines.md`  
+- [ ] `IconProvider` in the app root per [setup.md](../setup.md)  
 
 [Storybook — Searchfield / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-searchfield-searchfield--docs)

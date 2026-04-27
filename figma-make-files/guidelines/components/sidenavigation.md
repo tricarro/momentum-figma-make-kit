@@ -10,7 +10,7 @@
 import { SideNavigation, MenuBar, NavMenuItem, Text, Divider } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -48,7 +48,7 @@ function AppNav() {
 ## Checklist
 
 - [ ] Every **nav** target has a **visible** or **screen-reader** label; **submenu** tooltips filled when the design collapses the rail  
-- [ ] `ThemeProvider` + `IconProvider` in the tree per `Guidelines.md`  
+- [ ] `ThemeProvider` + `IconProvider` in the tree per [setup.md](../setup.md)  
 - [ ] `Divider` and **Text** for sections match the Momentum **side nav** story  
 
 [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs)

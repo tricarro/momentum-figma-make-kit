@@ -10,7 +10,7 @@
 import { List, ListItem, Listheader } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -46,6 +46,6 @@ function SimpleList() {
 
 - [ ] **List** wraps every list row pattern in the doc  
 - [ ] Long labels: add **Tooltip** with **`triggerID`** on the `ListItem`, per the ListItem docs  
-- [ ] `IconProvider` in the app root when list rows use **Icon** (e.g. in `Listheader`) per `Guidelines.md`  
+- [ ] `IconProvider` in the app root when list rows use **Icon** (e.g. in `Listheader`) per [setup.md](../setup.md)  
 
 [Storybook — List / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-list--docs)

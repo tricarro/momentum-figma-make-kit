@@ -12,7 +12,7 @@ import { Buttonsimple } from "@momentum-design/components/react";
 
 The public export is **`Buttonsimple`** from `@momentum-design/components/react`.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 

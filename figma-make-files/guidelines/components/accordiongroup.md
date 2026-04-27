@@ -12,7 +12,7 @@ import { AccordionGroup, AccordionButton, Text } from "@momentum-design/componen
 import { Accordion } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per global guidelines).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -144,6 +144,6 @@ For **`Accordion`** children, add **`openButtonAriaLabel`**, **`closeButtonAriaL
 - [ ] `size` and `variant` match the design; remember group **`variant`** options (`stacked` / `borderless` / `contained`) differ from a single item’s `variant`  
 - [ ] `allowMultiple` matches the spec (one open vs several)  
 - [ ] Each child has correct **`dataAriaLevel`**; **`Accordion`** children include required **ARIA** labels for the expand control  
-- [ ] Theme / tokens, **`mds-typography`**, and `ThemeProvider` / `IconProvider` as in `Guidelines.md`  
+- [ ] Theme / tokens, **`mds-typography`**, and `ThemeProvider` / `IconProvider` as in [setup.md](../setup.md)  
 
 For the latest API, see [Storybook — AccordionGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordiongroup--docs) and your installed **`@momentum-design/components`** version.

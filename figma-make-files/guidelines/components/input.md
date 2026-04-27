@@ -10,7 +10,7 @@
 import { Input } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -49,6 +49,6 @@ For **controlled** usage, add **`value`** + **`onInput`** / **`onChange`** per [
 - [ ] Label or **`dataAriaLabel`** for screen readers  
 - [ ] **`onClear` + `clearAriaLabel`** if a clear action is shown  
 - [ ] Errors use **`helpTextType="error"`** (or the slot) with a strategy that does not rely on color alone  
-- [ ] `IconProvider` in the app root per `Guidelines.md`  
+- [ ] `IconProvider` in the app root per [setup.md](../setup.md)  
 
 [Storybook — Input / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-input-input--docs)

@@ -11,14 +11,14 @@ Official reference: [Storybook — IconProvider / Docs](https://momentum.design/
 import { ThemeProvider, IconProvider } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
 ## What it is
 
 - **Resolves** where the **glyph data** for `Icon` comes from. With the default set, the [Momentum icon package](https://momentum.design) is loaded via **dynamic `import()`**; your app must have **`@momentum-design/icons`** installed and build tooling (e.g. Vite) must **support** dynamic imports.
-- **Figma Make + this kit:** use **`momentum-icons` only** (the default) so every icon stays in the Momentum set—aligned with the [Icons](../Guidelines.md#icons) rules in `Guidelines.md` (valid `name` only, no other libraries).
+- **Figma Make + this kit:** use **`momentum-icons` only** (the default) so every icon stays in the Momentum set—aligned with the [Icons](../components.md#icons) rules in [components.md](../components.md) (valid `name` only, no other libraries).
 - **Wrap** `Icon` (and any Momentum control that needs icons) **inside** `IconProvider`. In prototypes, place **`IconProvider` inside `ThemeProvider`** (see [ThemeProvider](themeprovider.md)) so theming and icons are both in scope.
 - **Context** is consumed by underlying components (`providerUtils`-style); you normally only need correct **props** and **nesting** on the provider, not the context object.
 
@@ -42,12 +42,12 @@ Web component: **`mdc-iconprovider`**. **Slot:** default — all children that s
 
 ### Figma Make: `momentum-icons` (required for kit work)
 
-- Install **`@momentum-design/icons`** in the app (as in the kit’s `package.json` / [Package setup](../Guidelines.md#package-setup)). No **`url`**, **`fileExtension`**, or **`custom-icons`** in standard prototypes.  
-- Do **not** switch to **`custom-icons`** to work around a missing Momentum `name`—pick a real `name` or omit the icon (per [Icons](../Guidelines.md#icons)) instead.
+- Install **`@momentum-design/icons`** in the app (as in the kit’s `package.json` / [setup.md](../setup.md)). No **`url`**, **`fileExtension`**, or **`custom-icons`** in standard prototypes.  
+- Do **not** switch to **`custom-icons`** to work around a missing Momentum `name`—pick a real `name` or omit the icon (per [Icons](../components.md#icons)) instead.
 
 ### `custom-icons` (out of band for the kit)
 
-- Only for products that **deliberately** host a compatible icon bundle at a base URL, manage extensions, and optionally set **`cacheStrategy` + `cacheName`** to avoid network churn. This does not replace the rule that [Icons](../Guidelines.md#icons) in kit guidance must be **Momentum**-named glyphs unless your program authorizes a different policy.
+- Only for products that **deliberately** host a compatible icon bundle at a base URL, manage extensions, and optionally set **`cacheStrategy` + `cacheName`** to avoid network churn. This does not replace the rule that [Icons](../components.md#icons) in kit guidance must be **Momentum**-named glyphs unless your program authorizes a different policy.
 
 ---
 
@@ -69,7 +69,7 @@ function App() {
 
 - **`iconSet` omitted** → `momentum-icons` with **`@momentum-design/icons`**.  
 - **Per-`Icon` `size`** (e.g. `20`) overrides default sizing where the `Icon` API allows it.  
-- Follow the [**Icon `name`** pattern](../Guidelines.md#icon-name-required-pattern) (`<base>-<weight>`; default **`-bold`** if weight unspecified).
+- Follow the [**Icon `name`** pattern](../components.md#icon-name-required-pattern) (`<base>-<weight>`; default **`-bold`** if weight unspecified).
 
 ---
 
@@ -78,7 +78,7 @@ function App() {
 - [ ] `IconProvider` **wraps** all routes / screens that use **`Icon`** (or Momentum parts that need the icon system).
 - [ ] **`@momentum-design/icons`** is a project dependency; the bundler **supports** dynamic `import()`.
 - [ ] **`iconSet` stays** `momentum-icons` (default) for kit work; no **`custom-icons`** / arbitrary URLs unless a separate product spec requires it.
-- [ ] [Icons section](../Guidelines.md#icons): **only** documented Momentum `name` strings on `Icon`—no other packs or ad hoc SVG.  
+- [ ] [Icons section](../components.md#icons): **only** documented Momentum `name` strings on `Icon`—no other packs or ad hoc SVG.  
 - [ ] **`ThemeProvider` above or around** the same tree when the UI uses theme + icons together (see [ThemeProvider](themeprovider.md)).
 
 For provider options, custom hosting, and caching, see [Storybook — IconProvider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/providers-icon-provider--docs).

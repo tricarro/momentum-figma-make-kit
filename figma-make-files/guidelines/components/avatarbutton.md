@@ -10,7 +10,7 @@
 import { AvatarButton } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -53,6 +53,6 @@ import { AvatarButton } from "@momentum-design/components/dist/react";
 - [ ] Use **`type="button"`** when the control is not submitting a form  
 - [ ] Prefer **`Avatar`** when the element is not actionable  
 - [ ] Match **`Avatar`** content rules: `src` / `iconName` / `initials` / `counter` and **`presence` / `isTyping`**  
-- [ ] `IconProvider` / theme per `Guidelines.md`  
+- [ ] `IconProvider` / theme per [setup.md](../setup.md)  
 
 For events, disabled states, and CSS parts (`overlay`, `content`, `photo`, `presence`, `loader`, …), see [Storybook — AvatarButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-avatarbutton--docs).

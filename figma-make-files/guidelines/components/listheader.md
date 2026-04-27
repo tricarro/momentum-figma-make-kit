@@ -10,7 +10,7 @@
 import { List, Listheader } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -57,6 +57,6 @@ function InboxList() {
 
 - [ ] Nests under **`List`** in the **`list-header` slot, not floating alone  
 - [ ] Trailing **actions** in the default slot remain **labeled** and **focusable**  
-- [ ] `IconProvider` in the app root per `Guidelines.md` if using icons  
+- [ ] `IconProvider` in the app root per [setup.md](../setup.md) if using icons  
 
 [Storybook — Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs)

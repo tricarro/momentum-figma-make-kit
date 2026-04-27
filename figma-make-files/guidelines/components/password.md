@@ -10,7 +10,7 @@
 import { Password } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -54,6 +54,6 @@ function SignIn() {
 
 - [ ] **Show** / **hide** buttons have **distinct, translated** ARIA labels  
 - [ ] Errors use **`helpTextType`** (or slots), not only red borders  
-- [ ] `IconProvider` in the app root per `Guidelines.md`  
+- [ ] `IconProvider` in the app root per [setup.md](../setup.md)  
 
 [Storybook — Password / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-password-password--docs)

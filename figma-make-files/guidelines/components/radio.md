@@ -10,7 +10,7 @@
 import { Radio, RadioGroup, Text } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -48,6 +48,6 @@ function OneOfThree() {
 
 - [ ] **RadioGroup** (or a shared `name`) ties every **Radio** in the set  
 - [ ] Group error copy lives on **RadioGroup** (recommended) or per-field as in Storybook  
-- [ ] `IconProvider` in the app root per `Guidelines.md` when labels use **Icon** / toggletip icons  
+- [ ] `IconProvider` in the app root per [setup.md](../setup.md) when labels use **Icon** / toggletip icons  
 
 [Storybook — Radio / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-radio-radio--docs)

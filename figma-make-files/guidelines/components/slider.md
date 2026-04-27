@@ -10,7 +10,7 @@
 import { Slider } from "@momentum-design/components/react";
 ```
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per `Guidelines.md`).
+Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
 
 ---
 
@@ -32,6 +32,6 @@ function Volume() {
 
 - [ ] **Label** and **min** / **max** / **step** are set from product; screen readers get the same information  
 - [ ] **Range** mode documents **two** thumbs and how values bind in React  
-- [ ] `IconProvider` in the app root if the slider uses built-in **Icon**s per `Guidelines.md`  
+- [ ] `IconProvider` in the app root if the slider uses built-in **Icon**s per [setup.md](../setup.md)  
 
 [Storybook — Slider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs)
