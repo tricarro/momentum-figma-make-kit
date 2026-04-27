@@ -60,7 +60,7 @@ function App() {
   return (
     <ThemeProvider themeclass="mds-theme-stable-lightWebex" style={{ minHeight: "100vh" }}>
       <IconProvider>
-        <Icon name="search-bold" size={20} />
+        <Icon name="search-bold" size='32px' />
       </IconProvider>
     </ThemeProvider>
   );
@@ -68,7 +68,7 @@ function App() {
 ```
 
 - **`iconSet` omitted** → `momentum-icons` with **`@momentum-design/icons`**.  
-- **Per-`Icon` `size`** (e.g. `20`) overrides default sizing where the `Icon` API allows it.  
+- **Per-`Icon` `size`** and **`lengthUnit`** override the provider’s defaults. For Figma Make, prefer **explicit** sizing on each **`Icon`**: match the **uploaded design**, or **`size={32}`** and **`lengthUnit="px"`** when the design does not state a size (see [icon.md](icon.md)).  
 - Follow the [**Icon `name`** pattern](../components.md#icon-name-required-pattern) (`<base>-<weight>`; default **`-bold`** if weight unspecified).
 
 ---

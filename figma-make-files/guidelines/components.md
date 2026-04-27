@@ -142,10 +142,12 @@ Spelling and capitalization match the published package (for example `Appheader`
 ```jsx
 import { Icon } from "@momentum-design/components/react";
 
-<Icon name="search-bold" size="20" />
+<Icon name="search-bold" size='32px' />
 ```
 
-For accessibility and props details, see **`./components/icon.md`**.
+**Size:** Match the **uploaded design file**; if it does not specify a size, use **32px** (`size='32px'`, `lengthUnit="px"`). See **`./components/icon.md`**.
+
+For accessibility and full props, see **`./components/icon.md`**.
 
 ### Icon name (required pattern)
 
@@ -155,5 +157,5 @@ For accessibility and props details, see **`./components/icon.md`**.
 4. **Never** pass a base name alone. Wrong: `name="brightness-high"`. Correct: `name="brightness-high-bold"` (default) or another valid `<base>-<weight>` from the Momentum set.
 
 ```jsx
-<Icon name="brightness-high-bold" size="20" />
+<Icon name="brightness-high-bold" size={32} lengthUnit="px" />
 ```
