@@ -9,12 +9,12 @@ These rules mirror the Momentum **Layout Guidelines** in Figma ([Layout Guidelin
 ### Principles
 
 - **Grid as foundation.** A consistent underlying grid (columns, gutters, and spacing) keeps layouts aligned with the rounded Momentum UI. Treat spacing and alignment as one system, not one-off nudges.
-- **4px base unit.** Spacing and layout are built from a **4px** base (the design file’s “square (x)”). In code, that means using **`var(--mds-space-*)` values that match the spec** (8px, 16px, 24px, etc. map to steps on the Momentum space scale—pick the token that matches the designed distance). Avoid arbitrary pixel gaps that do not line up to that rhythm.
+- **4px base unit.** Spacing and layout are built from a **4px** base (the design file’s “square (x)”). 
 - **Space before boxes.** **Adequate white space** reduces the need for extra containers to group content, which lowers visual noise. **Rhythm and balance** come from **repeating the same alignment patterns** (e.g. consistent horizontal padding, column gaps, and vertical gaps between blocks).
 
 ### Page-level grid (breakpoints)
 
-Use this table to decide **how many notional columns**, **gutter**, **side margins**, **top/bottom padding**, and **width behavior** apply at each breakpoint. Translate gutters, margins, and padding to the closest matching **`var(--mds-space-*)`** tokens; use **`min()` / `max()`** with `100%` and `%` or `vw` for fluid behavior where the table says **Fluid**.
+Use this table to decide **how many notional columns**, **gutter**, **side margins**, **top/bottom padding**, and **width behavior** apply at each breakpoint.
 
 | Size | Viewport (width) | Column grid | Gutter | Side margins | Vertical page padding | Width behavior |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ Use this table to decide **how many notional columns**, **gutter**, **side margi
 
 - **“Columns”** are a planning grid: use **`display: "grid"`** with **`gridTemplateColumns: "repeat(12, minmax(0, 1fr))"`** (or the column count for that breakpoint) and **`columnGap` / `rowGap`** from tokens, or use **flex** with **token** `gap` to align content to the same rhythm.
 - **Extra large / Fixed:** the guidelines target a **wide desktop** with **centered** content and **bounded** main width (the artboard in the file uses a **~1520px** content area on a **1920px**-wide frame with **~200px** side margins at maximum width). In React, a common pattern is `marginLeft: "auto"`, `marginRight: "auto"`, **`maxWidth: "min(100%, 95rem)"`** (or the exact max width your product standardizes) **or** a token if your team exposes one, plus horizontal padding from the table.
-- **Margins vs padding:** the table’s **24px** margin/padding values should be the **same** spacing token family (e.g. 24px step) so the edge of the page and vertical section spacing stay aligned.
+- **Margins vs padding:** the table’s **24px** margin/padding values so the edge of the page and vertical section spacing stay aligned.
 
 ```jsx
 <div

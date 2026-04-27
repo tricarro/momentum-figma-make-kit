@@ -37,25 +37,132 @@ Exact enums match **`button.types`** / Storybook (e.g. `variant` primary | secon
 
 ---
 
-## Example
+## Examples
+
+Use these patterns as a **reference map** to the usual Figma / Storybook button types: **pill (text)**, **pill inverted**, **prefix icon**, **postfix icon**, **icon-only**, **icon-only inverted**. `IconProvider` must wrap the tree (see [setup.md](../setup.md)). Icon `name` values use the `<base>-<weight>` rule in [components.md](../components.md#icons).
+
+### 1. Pill button (text only)
+
+Default **pill**—label in the default slot, no icon props.
 
 ```jsx
 import { Button } from "@momentum-design/components/react";
 
-function SaveBar() {
-  return (
-    <Button
-      variant="primary"
-      color="default"
-      size={32}
-      type="button"
-      prefixIcon="check-bold"
-      onClick={() => { /* save */ }}
-    >
-      Save
-    </Button>
-  );
-}
+<Button variant="primary" color="default" size={32} type="button">
+  Continue
+</Button>
+```
+
+### 2. Pill button (inverted)
+
+`inverted` flips the **primary** / **default** fill for use on **strong** or **dark** surfaces. Only applies for `variant="primary"`, `color="default"`, and not `active` (see package docs).
+
+```jsx
+<Button variant="primary" color="default" size={32} type="button" inverted>
+  Continue
+</Button>
+```
+
+### 3. Pill with prefix icon
+
+Icon **before** the label via `prefixIcon`.
+
+```jsx
+<Button
+  variant="primary"
+  color="default"
+  size={32}
+  type="button"
+  prefixIcon="check-bold"
+  onClick={() => { /* save */ }}
+>
+  Save
+</Button>
+```
+
+### 4. Pill with postfix icon
+
+Icon **after** the label via `postfixIcon`.
+
+```jsx
+<Button
+  variant="secondary"
+  color="default"
+  size={32}
+  type="button"
+  postfixIcon="arrow-right-bold"
+>
+  Next
+</Button>
+```
+
+### 5. Icon button (icon only)
+
+**No** default slot text; **only** `prefixIcon` or `postfixIcon` (not both for a single icon). Type is inferred as **icon** button. Use an **accessible name** (e.g. `title`, `aria-label` on a wrapper, or the pattern your Storybook version documents for `mdc-button`).
+
+```jsx
+<Button
+  variant="tertiary"
+  color="default"
+  size={32}
+  type="button"
+  prefixIcon="more-bold"
+  title="More actions"
+/>
+```
+
+### 6. Icon button (inverted)
+
+On surfaces where **inverted** primary is used, keep `variant="primary"`, `color="default"`, and `inverted` with a **prefix** icon and no label.
+
+```jsx
+<Button
+  variant="primary"
+  color="default"
+  size={32}
+  type="button"
+  inverted
+  prefixIcon="audio-static-bold"
+  title="Unmute"
+/>
+```
+
+### Row of variants (layout only)
+
+When showing several references in a prototype, space them with a **token** `gap` (see [styles.md](../styles.md#layout)):
+
+```jsx
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    gap: "var(--mds-space-200)",
+  }}
+>
+  <Button variant="primary" color="default" size={32} type="button">
+    Pill
+  </Button>
+  <Button variant="primary" color="default" size={32} type="button" inverted>
+    Inverted
+  </Button>
+  <Button variant="primary" color="default" size={32} type="button" prefixIcon="check-bold">
+    Prefix
+  </Button>
+  <Button variant="primary" color="default" size={32} type="button" postfixIcon="arrow-right-bold">
+    Postfix
+  </Button>
+  <Button variant="tertiary" color="default" size={32} type="button" prefixIcon="more-bold" title="More" />
+  <Button
+    variant="primary"
+    color="default"
+    size={32}
+    type="button"
+    inverted
+    prefixIcon="settings-bold"
+    title="Settings"
+  />
+</div>
 ```
 
 ---
