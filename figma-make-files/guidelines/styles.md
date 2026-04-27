@@ -26,7 +26,7 @@ Use this table to decide **how many notional columns**, **gutter**, **side margi
 
 **Figma Make notes:**
 
-- **“Columns”** are a planning grid: use **`display: "grid"`** with **`gridTemplateColumns: "repeat(12, minmax(0, 1fr))"`** (or the column count for that breakpoint) and **`columnGap` / `rowGap`** from tokens, or use **flex** with **token** `gap` to align content to the same rhythm.
+- **“Columns”** are a planning grid: use **`display: "grid"`** with **`gridTemplateColumns: "repeat(12, minmax(0, 1fr))"`** (or the column count for that breakpoint) and **`columnGap` / `rowGap`** in **rem** (aligned to the 4px base), or use **flex** with a consistent **`gap`** to match the same rhythm.
 - **Extra large / Fixed:** the guidelines target a **wide desktop** with **centered** content and **bounded** main width (the artboard in the file uses a **~1520px** content area on a **1920px**-wide frame with **~200px** side margins at maximum width). In React, a common pattern is `marginLeft: "auto"`, `marginRight: "auto"`, **`maxWidth: "min(100%, 95rem)"`** (or the exact max width your product standardizes) **or** a token if your team exposes one, plus horizontal padding from the table.
 - **Margins vs padding:** the table’s **24px** margin/padding values so the edge of the page and vertical section spacing stay aligned.
 
@@ -35,12 +35,12 @@ Use this table to decide **how many notional columns**, **gutter**, **side margi
   style={{
     display: "flex",
     flexDirection: "column",
-    gap: "var(--mds-space-200)",
+    gap: "0.5rem",
     boxSizing: "border-box",
     minHeight: "100vh",
     maxWidth: "min(100%, 95rem)",
     margin: "0 auto",
-    padding: "var(--mds-space-300)",
+    padding: "0.75rem",
   }}
 >
   <Text type="heading-5">Section Title</Text>

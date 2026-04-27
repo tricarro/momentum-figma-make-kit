@@ -200,14 +200,14 @@ If unsure whether a component exists, attempt to import it from `@momentum-desig
 
 ## Layout
 
-Use standard CSS layout (flexbox, grid) with token-based spacing. Momentum does not have a layout component — structure is yours to compose.
+Use standard CSS layout (flexbox, grid) with rem-based spacing aligned to the layout guidelines. Momentum does not have a layout component — structure is yours to compose.
 
 ```jsx
 <div style={{
   display: "flex",
   flexDirection: "column",
-  gap: "var(--mds-space-200)",
-  padding: "var(--mds-space-300)"
+  gap: "0.5rem",
+  padding: "0.75rem"
 }}>
   <Text type="heading-5">Section Title</Text>
   <Input label="Email" />

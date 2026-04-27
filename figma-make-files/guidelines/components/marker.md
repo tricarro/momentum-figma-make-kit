@@ -36,7 +36,7 @@ import { Marker, Text } from "@momentum-design/components/react";
 
 function Callout() {
   return (
-    <div style={{ display: "flex", gap: "var(--mds-space-200, 0.5rem)" }}>
+    <div style={{ display: "flex", gap: "0.5rem" }}>
       <Marker variant="solid" />
       <Text type="body-primary" tagname="p">
         Status: in review (also describe this in copy; do not rely on color alone).

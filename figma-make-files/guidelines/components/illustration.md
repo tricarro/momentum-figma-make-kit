@@ -38,7 +38,7 @@ import { Illustration, IllustrationProvider, Text, Button } from "@momentum-desi
 function EmptyInbox() {
   return (
     <IllustrationProvider>
-      <div style={{ display: "grid", placeItems: "center", gap: "var(--mds-space-200, 0.5rem)" }}>
+      <div style={{ display: "grid", placeItems: "center", gap: "0.5rem" }}>
         <Illustration name="your-illustration-name" dataAriaLabel="Empty inbox illustration" />
         <Text type="heading-4" tagname="h2">
           No messages

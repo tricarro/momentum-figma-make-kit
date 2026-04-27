@@ -129,7 +129,7 @@ On surfaces where **inverted** primary is used, keep `variant="primary"`, `color
 
 ### Row of variants (layout only)
 
-When showing several references in a prototype, space them with a **token** `gap` (see [styles.md](../styles.md#layout)):
+When showing several references in a prototype, space them with a consistent `gap` (see [styles.md](../styles.md#layout)):
 
 ```jsx
 <div
@@ -137,7 +137,7 @@ When showing several references in a prototype, space them with a **token** `gap
     display: "flex",
     flexWrap: "wrap",
     alignItems: "center",
-    gap: "var(--mds-space-200)",
+    gap: "0.5rem",
   }}
 >
   <Button variant="primary" color="default" size={32} type="button">

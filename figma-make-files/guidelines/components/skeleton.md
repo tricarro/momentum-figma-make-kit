@@ -28,7 +28,7 @@ import { Skeleton, Text } from "@momentum-design/components/react";
 
 function ListRowLoading() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--mds-space-200, 0.5rem)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
       <Skeleton variant="rectangular" />
       <Text type="body-midsize-regular" tagname="p">
         Loading…

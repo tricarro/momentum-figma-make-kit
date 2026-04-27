@@ -41,7 +41,7 @@ import { Presence, Text } from "@momentum-design/components/react";
 
 function StatusRow() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "var(--mds-space-150, 0.375rem)" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.375rem" }}>
       <Presence type="meeting" size={32} />
       <Text type="body-midsize-medium" tagname="span">
         In a meeting
