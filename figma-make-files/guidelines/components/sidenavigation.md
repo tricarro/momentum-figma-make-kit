@@ -27,18 +27,188 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `SideNavigation` + `MenuBar` + `NavMenuItem` (shell)
 
 ```jsx
-import { SideNavigation, MenuBar, NavMenuItem } from "@momentum-design/components/react";
+import { 
+  Icon,
+  MenuSection,
+  NavMenuItem,
+  SideNavigation,
+} from "@momentum-design/components/dist/react";
 
-function AppNav() {
-  return (
-    <SideNavigation dataAriaLabel="Product navigation">
-      <MenuBar slot="scrollable-menubar" data-aria-label="Main">
-        <NavMenuItem label="Home" iconName="home-bold" onClick={() => {}} />
-        <NavMenuItem label="Messages" iconName="inbox-bold" onClick={() => {}} />
-      </MenuBar>
-    </SideNavigation>
-  );
-}
+
+<div style="...">
+  <SideNavigation
+    expanded
+    footerText="%Customer Name%"
+    grabberBtnAriaLabel="Toggle Side navigation"
+  >
+    <!-- Upper Nav (scrollable section) -->
+    <MenuSection slot="scrollable-menubar" showDivider>
+      <NavMenuItem
+        badgeType="counter"
+        counter="2"
+        maxCounter="66"
+        iconName="chat-bold"
+        navId="1"
+        label="Messaging"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="meetings-bold"
+        navId="2"
+        label="Meetings"
+        disabled
+      ></NavMenuItem>
+      <NavMenuItem
+        badgeType="dot"
+        iconName="audio-call-bold"
+        navId="3"
+        label="Calling"
+      ></NavMenuItem>
+    </MenuSection>
+
+    <MenuSection slot="scrollable-menubar" showDivider headerText="Section 1">
+      <NavMenuItem
+        iconName="chat-bold"
+        navId="4"
+        label="Messaging"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="meetings-bold"
+        navId="5"
+        label="Meetings"
+        badgeType="counter"
+        counter="2"
+        maxCounter="66"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="audio-call-bold"
+        navId="6"
+        label="Calling"
+      ></NavMenuItem>
+    </MenuSection>
+
+    <MenuSection slot="scrollable-menubar" showDivider headerText="Section 2">
+      <NavMenuItem
+        badgeType="counter"
+        counter="2"
+        maxCounter="66"
+        iconName="chat-bold"
+        navId="8"
+        label="Messaging"
+      ></NavMenuItem>
+      <NavMenuItem iconName="meetings-bold" navId="9" label="Meetings">
+      </NavMenuItem>
+      <NavMenuItem
+        badgeType="dot"
+        iconName="audio-call-bold"
+        navId="10"
+        label="Calling"
+      >
+      </NavMenuItem>
+    </MenuSection>
+
+    <MenuSection slot="scrollable-menubar" showDivider headerText="Section 3">
+      <NavMenuItem
+        iconName="chat-bold"
+        navId="11"
+        label="Messaging"
+      ></NavMenuItem>
+      <NavMenuItem
+        badgeType="counter"
+        counter="3"
+        maxCounter="66"
+        iconName="meetings-bold"
+        navId="12"
+        label="Meetings"
+      ></NavMenuItem>
+      <NavMenuItem
+        badgeType="dot"
+        iconName="audio-call-bold"
+        navId="13"
+        label="Calling"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="placeholder-bold"
+        navId="14"
+        label="Teams"
+      ></NavMenuItem>
+      <NavMenuItem
+        badgeType="counter"
+        counter="3"
+        maxCounter="66"
+        iconName="placeholder-bold"
+        navId="15"
+        label="Contacts"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="placeholder-bold"
+        navId="16"
+        label="Whiteboards"
+      ></NavMenuItem>
+    </MenuSection>
+
+    <MenuSection slot="scrollable-menubar" headerText="Section 4">
+      <NavMenuItem
+        badgeType="counter"
+        counter="2"
+        maxCounter="66"
+        iconName="chat-bold"
+        navId="17"
+        label="Messaging"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="meetings-bold"
+        navId="18"
+        label="Meetings"
+      ></NavMenuItem>
+      <NavMenuItem
+        badgeType="dot"
+        iconName="audio-call-bold"
+        navId="19"
+        label="Calling"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="chat-bold"
+        navId="20"
+        label="Messaging"
+      ></NavMenuItem>
+      <NavMenuItem
+        iconName="meetings-bold"
+        navId="21"
+        label="Meetings"
+      ></NavMenuItem>
+      <NavMenuItem
+        badgeType="dot"
+        iconName="audio-call-bold"
+        navId="22"
+        label="Calling"
+      ></NavMenuItem>
+    </MenuSection>
+
+    <!-- Lower Nav (Fixed section) -->
+    <MenuSection slot="fixed-menubar">
+      <NavMenuItem
+        iconName="settings-bold"
+        navId="23"
+        label="Settings"
+      ></NavMenuItem>
+      <NavMenuItem
+        badgeType="counter"
+        counter="3"
+        maxCounter="66"
+        iconName="help-circle-bold"
+        navId="24"
+        label="Help"
+      ></NavMenuItem>
+    </MenuSection>
+
+    <!-- Brand Logo (Fixed section) -->
+    <Icon
+      slot="brand-logo"
+      ariaLabel="This is a brandlogo."
+      name="apple-bold"
+    ></Icon>
+  </SideNavigation>
+</div>
 ```
 
 (The **full** layout (slot names, **`onToggle`**, **variants**, **submenus**) is in [Storybook — SideNavigation / Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).)
