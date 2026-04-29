@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { NavMenuItem, MenuBar } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { NavMenuItem, MenuBar } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -25,7 +25,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `NavMenuItem`
 
 ```jsx
-import { NavMenuItem } from "@momentum-design/components/react";
+import { NavMenuItem } from "@momentum-design/components/dist/react";
 
 function InboxRow() {
   return (

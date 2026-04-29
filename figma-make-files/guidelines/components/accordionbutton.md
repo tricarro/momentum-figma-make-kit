@@ -6,13 +6,13 @@ Use the **AccordionButton** component for a **simple, fully clickable** row: the
 
 ## Import
 
-```jsx
-import { AccordionButton, Text } from "@momentum-design/components/react";
-// Optional: group multiple items
-import { AccordionGroup } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { AccordionButton, Text } from "@momentum-design/components/dist/react";
+// Optional: group multiple items
+import { AccordionGroup } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -96,7 +96,7 @@ import {
 
 ## Checklist for Figma Make
 
-- [ ] `AccordionButton` from `@momentum-design/components/react`  
+- [ ] `AccordionButton` from `@momentum-design/components/dist/react`  
 - [ ] Theme / tokens and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as in [setup.md](../setup.md))  
 - [ ] `dataAriaLevel` matches the page heading order  
 - [ ] Body content uses Momentum **`Text`** (or other MDS components); spacing uses **MDS** tokens, not ad-hoc pixel values  

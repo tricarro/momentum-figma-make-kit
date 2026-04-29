@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Stepper, StepperItem, StepperConnector } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Stepper, StepperItem, StepperConnector } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -19,7 +19,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 This is the same **Stepper** snippet as in **`stepper.md`**; **`StepperConnector`** sits between items:
 
 ```jsx
-import { Stepper, StepperItem, StepperConnector } from "@momentum-design/components/react";
+import { Stepper, StepperItem, StepperConnector } from "@momentum-design/components/dist/react";
 
 function ConnectorOnly() {
   return (

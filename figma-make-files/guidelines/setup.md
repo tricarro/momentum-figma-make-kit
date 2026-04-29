@@ -58,10 +58,10 @@ Wrap your application or component tree with the theme and icon provider compone
 Momentum React components are imported from:
 
 ```js
-import { ComponentName } from "@momentum-design/components/react";
+import { ComponentName } from "@momentum-design/components/dist/react";
 ```
 
-Never import from `@momentum-design/components` directly (without the `/react` subpath).
+Never import from `@momentum-design/components` directly (without the `/dist/react` subpath).
 
 ## Theming
 

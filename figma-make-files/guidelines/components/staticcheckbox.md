@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { StaticCheckbox } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { StaticCheckbox } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -34,7 +34,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `StaticCheckbox` (read-only)
 
 ```jsx
-import { StaticCheckbox } from "@momentum-design/components/react";
+import { StaticCheckbox } from "@momentum-design/components/dist/react";
 
 function PlanSummary() {
   return <StaticCheckbox checked readOnly>API access</StaticCheckbox>;

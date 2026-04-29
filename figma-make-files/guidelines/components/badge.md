@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Badge } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Badge } from "@momentum-design/components/dist/react";
+```
 
 ---
 

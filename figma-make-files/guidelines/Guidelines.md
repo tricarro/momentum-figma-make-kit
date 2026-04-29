@@ -29,7 +29,7 @@ Start with [setup.md](./setup.md) for a new prototype, then use [components.md](
 | Do | Don't |
 |----|--------|
 | Import tokens as CSS bundles | Hardcode colors |
-| Use `@momentum-design/components/react` | Use native HTML elements for interactive UI |
+| Use `@momentum-design/components/dist/react` | Use native HTML elements for interactive UI |
 | Use `Text` for all type | Use raw `<p>`, `<h1>`, `<span>` |
 | Use `Icon` for all icons | Use emoji or third-party icon libraries |
 | Use CSS custom properties for all values | Use Tailwind, Bootstrap, or custom CSS classes |

@@ -6,13 +6,13 @@
 
 ## Import
 
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
+
 ```jsx
-import { Buttonsimple } from "@momentum-design/components/react";
+import { Buttonsimple } from "@momentum-design/components/dist/react";
 ```
 
-The public export is **`Buttonsimple`** from `@momentum-design/components/react`.
-
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+The public export is **`Buttonsimple`** from `@momentum-design/components/dist/react`.
 
 ---
 

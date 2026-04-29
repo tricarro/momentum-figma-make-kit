@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { StaticToggle } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { StaticToggle } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -33,7 +33,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `StaticToggle` (on)
 
 ```jsx
-import { StaticToggle, Text } from "@momentum-design/components/react";
+import { StaticToggle, Text } from "@momentum-design/components/dist/react";
 
 function NotifReadout() {
   return (

@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { List, ListItem, Text, Avatar, Checkbox, Radio, Toggle, Badge } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { List, ListItem, Text, Avatar, Checkbox, Radio, Toggle, Badge } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -26,7 +26,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `ListItem` with text props
 
 ```jsx
-import { List, ListItem } from "@momentum-design/components/react";
+import { List, ListItem } from "@momentum-design/components/dist/react";
 
 function OneRow() {
   return (

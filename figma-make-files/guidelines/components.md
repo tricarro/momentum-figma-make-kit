@@ -8,7 +8,7 @@ Import and use Momentum React components directly. Do not recreate interactive U
 
 ```jsx
 // ✅ Correct
-import { Button } from "@momentum-design/components/react";
+import { Button } from "@momentum-design/components/dist/react";
 
 <Button variant="primary" size="32">
   Save
@@ -18,9 +18,9 @@ import { Button } from "@momentum-design/components/react";
 <button className="btn btn-primary">Save</button>
 ```
 
-Use `@momentum-design/components/react` only, never the package root (see [setup.md](./setup.md#react-import-path)).
+Use `@momentum-design/components/dist/react` only, never the package root (see [setup.md](./setup.md#react-import-path)).
 
-If unsure whether a component exists, try importing it from `@momentum-design/components/react` before falling back to native elements.
+If unsure whether a component exists, try importing it from `@momentum-design/components/dist/react` before falling back to native elements.
 
 ## Per-component documentation
 
@@ -30,7 +30,7 @@ For props, examples, and checklists for a specific component, use the matching f
 
 When in doubt, open the folder and pick the file that matches the import name, preserving the package’s spelling (e.g. `buttonsimple.md`, `verticaltablist.md`).
 
-## React exports (from `@momentum-design/components/react`)
+## React exports (from `@momentum-design/components/dist/react`)
 
 These are the `export` names from the package’s React entry (PascalCase, matching `import { Name }`). Generated from `dist/react/index.d.ts` in **@momentum-design/components@0.133.31**:
 
@@ -140,7 +140,7 @@ Spelling and capitalization match the published package (for example `Appheader`
 - If a requested icon cannot be found in the Momentum set, pick the closest **documented** Momentum `name` (per the `name` rules below) or leave the icon out. **Do not** invent, approximate, or copy names from other libraries.
 
 ```jsx
-import { Icon } from "@momentum-design/components/react";
+import { Icon } from "@momentum-design/components/dist/react";
 
 <Icon name="search-bold" size='32px' />
 ```

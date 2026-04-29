@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Radio, RadioGroup, Text } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Radio, RadioGroup, Text } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -27,7 +27,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — one `Radio` in a set (prefer **`RadioGroup`** in real forms)
 
 ```jsx
-import { RadioGroup, Radio } from "@momentum-design/components/react";
+import { RadioGroup, Radio } from "@momentum-design/components/dist/react";
 
 function OneOfThree() {
   return (

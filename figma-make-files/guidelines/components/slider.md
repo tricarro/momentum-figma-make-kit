@@ -6,18 +6,18 @@
 
 ## Import
 
-```jsx
-import { Slider } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Slider } from "@momentum-design/components/dist/react";
+```
 
 ---
 
 ## Example — `Slider`
 
 ```jsx
-import { Slider } from "@momentum-design/components/react";
+import { Slider } from "@momentum-design/components/dist/react";
 
 function Volume() {
   return <Slider label="Volume" min={0} max={100} step={1} value={30} />;

@@ -6,18 +6,18 @@
 
 ## Import
 
-```jsx
-import { TimePicker } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { TimePicker } from "@momentum-design/components/dist/react";
+```
 
 ---
 
 ## Example — `TimePicker`
 
 ```jsx
-import { TimePicker } from "@momentum-design/components/react";
+import { TimePicker } from "@momentum-design/components/dist/react";
 
 function StartTime() {
   return <TimePicker label="Start time" />;

@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Option } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Option } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -25,7 +25,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `Option` in a `Select` listbox (see `select.md` for the full field)
 
 ```jsx
-import { Option } from "@momentum-design/components/react";
+import { Option } from "@momentum-design/components/dist/react";
 
 function StateOption() {
   return <Option value="az" label="Arizona" secondaryLabel="US" selected={false} />;

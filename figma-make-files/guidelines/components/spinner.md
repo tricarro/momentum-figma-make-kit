@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Spinner, Text, Button } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Spinner, Text, Button } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -24,7 +24,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `Spinner` (inline, **midsize**)
 
 ```jsx
-import { Spinner, Text } from "@momentum-design/components/react";
+import { Spinner, Text } from "@momentum-design/components/dist/react";
 
 function InlineLoading() {
   return (

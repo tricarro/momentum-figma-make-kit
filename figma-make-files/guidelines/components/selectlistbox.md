@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Selectlistbox, Option } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Selectlistbox, Option } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -24,7 +24,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — with **`Select`** (the usual pattern)
 
 ```jsx
-import { Select, Selectlistbox, Option } from "@momentum-design/components/react";
+import { Select, Selectlistbox, Option } from "@momentum-design/components/dist/react";
 
 function InSelect() {
   return (

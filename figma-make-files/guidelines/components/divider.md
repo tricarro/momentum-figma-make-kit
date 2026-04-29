@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Divider, Text, Button } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Divider, Text, Button } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -33,7 +33,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — horizontal `Divider` and with centered `Text`
 
 ```jsx
-import { Divider, Text } from "@momentum-design/components/react";
+import { Divider, Text } from "@momentum-design/components/dist/react";
 
 function SectionBreak() {
   return (

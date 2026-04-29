@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Popover, Button, Text } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Popover, Button, Text } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -28,7 +28,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ```jsx
 import { useState } from "react";
-import { Popover, Button, Text } from "@momentum-design/components/react";
+import { Popover, Button, Text } from "@momentum-design/components/dist/react";
 
 function WithPopover() {
   const [open, setOpen] = useState(false);

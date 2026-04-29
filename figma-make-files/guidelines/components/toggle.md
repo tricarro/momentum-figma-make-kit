@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Toggle, FormfieldGroup } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Toggle, FormfieldGroup } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -18,7 +18,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ```jsx
 import { useState } from "react";
-import { Toggle } from "@momentum-design/components/react";
+import { Toggle } from "@momentum-design/components/dist/react";
 
 function Mute() {
   const [on, setOn] = useState(false);

@@ -6,13 +6,13 @@ Use the **Accordion** component when the panel header must stay interactive apar
 
 ## Import
 
-```jsx
-import { Accordion, Text, Icon, Button, Chip } from "@momentum-design/components/react";
-// Optional: group multiple items with coordinated expansion
-import { AccordionGroup, AccordionButton } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Accordion, Text, Icon, Button, Chip } from "@momentum-design/components/dist/react";
+// Optional: group multiple items with coordinated expansion
+import { AccordionGroup, AccordionButton } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -109,7 +109,7 @@ import {
 
 ## Checklist for Figma Make
 
-- [ ] `Accordion` from `@momentum-design/components/react`  
+- [ ] `Accordion` from `@momentum-design/components/dist/react`  
 - [ ] Theme / tokens loaded ([setup.md](../setup.md) / primer) and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as required)  
 - [ ] `openButtonAriaLabel` and `closeButtonAriaLabel` set  
 - [ ] `dataAriaLevel` matches the page’s heading order  

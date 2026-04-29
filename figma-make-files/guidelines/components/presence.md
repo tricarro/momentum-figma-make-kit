@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Presence } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Presence } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -37,7 +37,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — standalone `Presence`
 
 ```jsx
-import { Presence, Text } from "@momentum-design/components/react";
+import { Presence, Text } from "@momentum-design/components/dist/react";
 
 function StatusRow() {
   return (

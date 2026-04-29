@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Tooltip, Text, Button, Icon } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Tooltip, Text, Button, Icon } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -19,7 +19,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 The **open** / **close** and **anchor** to the **field** is specified in [Storybook — Tooltip / Example](https://momentum.design/storybook-static/index.html?path=/story/components-tooltip-tooltip--example) (depends on your package version). The **message** is usually a short **`Text`** or string:
 
 ```jsx
-import { Tooltip, Text } from "@momentum-design/components/react";
+import { Tooltip, Text } from "@momentum-design/components/dist/react";
 
 function ShortHelp() {
   return (

@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Input } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Input } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -34,7 +34,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ### Example — `Input` with `label` and `helpText`
 
 ```jsx
-import { Input } from "@momentum-design/components/react";
+import { Input } from "@momentum-design/components/dist/react";
 
 function DisplayNameField() {
   return <Input label="Display name" defaultValue="" helpText="Shown in your profile." />;

@@ -6,13 +6,13 @@ Use **AccordionGroup** to present **several** **`Accordion`** and/or **`Accordio
 
 ## Import
 
-```jsx
-import { AccordionGroup, AccordionButton, Text } from "@momentum-design/components/react";
-// When headers need extra controls (use Accordion as children, not AccordionButton)
-import { Accordion } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { AccordionGroup, AccordionButton, Text } from "@momentum-design/components/dist/react";
+// When headers need extra controls (use Accordion as children, not AccordionButton)
+import { Accordion } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -139,7 +139,7 @@ For **`Accordion`** children, add **`openButtonAriaLabel`**, **`closeButtonAriaL
 
 ## Checklist for Figma Make
 
-- [ ] `AccordionGroup` from `@momentum-design/components/react`  
+- [ ] `AccordionGroup` from `@momentum-design/components/dist/react`  
 - [ ] **Only** `Accordion` / `AccordionButton` as direct children in the default slot  
 - [ ] `size` and `variant` match the design; remember group **`variant`** options (`stacked` / `borderless` / `contained`) differ from a single item’s `variant`  
 - [ ] `allowMultiple` matches the spec (one open vs several)  

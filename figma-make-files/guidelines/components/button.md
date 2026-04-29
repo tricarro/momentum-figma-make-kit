@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Button } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Button } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -46,7 +46,7 @@ Use these patterns as a **reference map** to the usual Figma / Storybook button 
 Default **pill**—label in the default slot, no icon props.
 
 ```jsx
-import { Button } from "@momentum-design/components/react";
+import { Button } from "@momentum-design/components/dist/react";
 
 <Button variant="primary" color="default" size={32} type="button">
   Continue

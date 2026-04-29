@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { FormfieldGroup, Checkbox, Toggle } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { FormfieldGroup, Checkbox, Toggle } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -33,7 +33,7 @@ See [Checkbox / Docs](https://momentum.design/storybook-static/index.html?path=/
 ## Example — `FormfieldGroup` with `Checkbox` children
 
 ```jsx
-import { FormfieldGroup, Checkbox } from "@momentum-design/components/react";
+import { FormfieldGroup, Checkbox } from "@momentum-design/components/dist/react";
 
 function FeatureToggles() {
   return (

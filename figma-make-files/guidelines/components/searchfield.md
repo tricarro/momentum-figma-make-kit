@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Searchfield, InputChip, Chip } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Searchfield, InputChip, Chip } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -26,7 +26,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `Searchfield`
 
 ```jsx
-import { Searchfield } from "@momentum-design/components/react";
+import { Searchfield } from "@momentum-design/components/dist/react";
 
 function MessagesSearch() {
   return <Searchfield label="Search messages" placeholder="Search…" />;

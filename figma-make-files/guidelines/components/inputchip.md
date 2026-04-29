@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { InputChip, Avatar } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { InputChip, Avatar } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -37,7 +37,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `InputChip`
 
 ```jsx
-import { InputChip } from "@momentum-design/components/react";
+import { InputChip } from "@momentum-design/components/dist/react";
 
 function EmailToken({ address, onDismiss }) {
   return (

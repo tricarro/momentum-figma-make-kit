@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { ToggleTip, Button, Text, Link } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { ToggleTip, Button, Text, Link } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -26,7 +26,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 `ToggleTip` **extends** **Popover**; you must still add the **trigger** / **anchor** markup the same way as in the Storybook page (not repeated here, because it is version-specific).
 
 ```jsx
-import { ToggleTip, Text, Link } from "@momentum-design/components/react";
+import { ToggleTip, Text, Link } from "@momentum-design/components/dist/react";
 
 function RichHelpBody() {
   return (

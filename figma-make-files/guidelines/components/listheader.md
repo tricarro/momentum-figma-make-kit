@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { List, Listheader } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { List, Listheader } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -32,7 +32,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `Listheader` in the `list-header` slot
 
 ```jsx
-import { List, Listheader, ListItem } from "@momentum-design/components/react";
+import { List, Listheader, ListItem } from "@momentum-design/components/dist/react";
 
 function InboxList() {
   return (

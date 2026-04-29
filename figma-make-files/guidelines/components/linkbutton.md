@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { LinkButton } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { LinkButton } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -34,7 +34,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 
 ```jsx
 import { useState } from "react";
-import { LinkButton } from "@momentum-design/components/react";
+import { LinkButton } from "@momentum-design/components/dist/react";
 
 function ExpandDetails() {
   const [open, setOpen] = useState(false);

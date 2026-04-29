@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Skeleton, Text, List, ListItem } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Skeleton, Text, List, ListItem } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -24,7 +24,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `Skeleton` (rectangular) next to a **label** size
 
 ```jsx
-import { Skeleton, Text } from "@momentum-design/components/react";
+import { Skeleton, Text } from "@momentum-design/components/dist/react";
 
 function ListRowLoading() {
   return (

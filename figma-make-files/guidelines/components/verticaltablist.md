@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Verticaltablist, Tab } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Verticaltablist, Tab } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -23,7 +23,7 @@ Use `@momentum-design/components/react` only, not `@momentum-design/components` 
 ## Example — `Verticaltablist` with `Tab` children
 
 ```jsx
-import { Verticaltablist, Tab } from "@momentum-design/components/react";
+import { Verticaltablist, Tab } from "@momentum-design/components/dist/react";
 
 function SettingsNav() {
   return (

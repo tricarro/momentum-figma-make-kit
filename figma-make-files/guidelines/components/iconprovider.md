@@ -7,11 +7,11 @@ Official reference: [Storybook — IconProvider / Docs](https://momentum.design/
 
 ## Import
 
-```jsx
-import { ThemeProvider, IconProvider } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { ThemeProvider, IconProvider } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -54,7 +54,7 @@ Web component: **`mdc-iconprovider`**. **Slot:** default — all children that s
 ## Example — `ThemeProvider` + default `IconProvider` + `Icon`
 
 ```jsx
-import { ThemeProvider, IconProvider, Icon } from "@momentum-design/components/react";
+import { ThemeProvider, IconProvider, Icon } from "@momentum-design/components/dist/react";
 
 function App() {
   return (

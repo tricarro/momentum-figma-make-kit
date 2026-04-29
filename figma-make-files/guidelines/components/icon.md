@@ -6,11 +6,11 @@
 
 ## Import
 
-```jsx
-import { Icon } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Icon } from "@momentum-design/components/dist/react";
+```
 
 ---
 
@@ -36,7 +36,7 @@ Most product UI should use **icons inside** **Button**, **Input**, **Link**, etc
 ## Example — decorative `Icon` (`name` with weight)
 
 ```jsx
-import { Icon } from "@momentum-design/components/react";
+import { Icon } from "@momentum-design/components/dist/react";
 
 function SearchRow() {
   return <Icon name="search-bold" size='32px' />;

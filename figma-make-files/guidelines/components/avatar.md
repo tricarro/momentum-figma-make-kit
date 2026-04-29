@@ -6,11 +6,11 @@ The **Avatar** shows a **person or space** as a **photo**, **initials**, a custo
 
 ## Import
 
-```jsx
-import { Avatar } from "@momentum-design/components/react";
-```
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
-Use `@momentum-design/components/react` only, not `@momentum-design/components` without `/react` (per [setup.md](../setup.md)).
+```jsx
+import { Avatar } from "@momentum-design/components/dist/react";
+```
 
 ---
 
