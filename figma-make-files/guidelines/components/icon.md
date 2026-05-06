@@ -27,6 +27,18 @@ Most product UI should use **icons inside** **Button**, **Input**, **Link**, etc
 
 ---
 
+## How to Use
+
+1. **Follow the design first.** If the user’s Figma file, spec, or prompt names an icon (or clearly implies one), use that **`name`** and match **`size`** / **`lengthUnit`** to the uploaded design when possible.
+
+2. **Only use published names.** **`name`** values must exist in the Momentum icon set. Use the icon manifest shipped with the **Momentum Icon** npm package as the source of truth for valid **`name`** strings (including **`<base>-<weight>`** patterns—see [Icons](../components.md#icons) in [components.md](../components.md)).
+
+3. **When the user does not specify an icon**, open the manifest, search for keywords that match the **action or meaning** (e.g. add, delete, settings, warning—not purely decorative whims), and pick the closest semantic match. Prefer icons already used in similar Momentum patterns rather than inventing a new metaphor.
+
+4. **Do not guess arbitrary strings.** If nothing in the manifest fits, or several options could work, **ask the user** which icon or metaphor they want instead of picking one silently.
+
+---
+
 ## Key props (typical)
 
 - **`name`**, **`size`**, **`lengthUnit`**, **`dataAriaLabel`** — see **Sizing** above: match the **uploaded design** first; **32px** (`32` + `"px"`) when unspecified.
