@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# StaticCheckbox (Momentum) — Momentum guidance (IDE)
+# StaticCheckbox (Momentum) — Momentum guidance (Cursor)
 
 **StaticCheckbox** is a **read-only** (non-form) **checkbox** appearance. It has **no** **`onChange`** and does **not** submit—**visual** **`checked`**, **`indeterminate`**, **`disabled`** / **`softDisabled`**, and **`readonly`** for summary UIs, confirmations, or “what you selected” readouts. The interactive control is **[Checkbox](./checkbox.mdc)** / **[CardCheckbox](./cardcheckbox.mdc)** / **[FormfieldGroup](./formfieldgroup.mdc)**. **`Checkbox`** can expose the static piece via a **`static-checkbox`** CSS part.
 
@@ -55,7 +55,7 @@ You can slot **`Text`** in the default label slot—[Storybook — StaticCheckbo
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Replace with **[Checkbox](./checkbox.mdc)** when the user can **change** the value  

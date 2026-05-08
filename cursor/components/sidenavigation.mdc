@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# SideNavigation (Momentum) — Momentum guidance (IDE)
+# SideNavigation (Momentum) — Momentum guidance (Cursor)
 
 **SideNavigation** (`SideNavigation` in React) is the **vertical** nav **shell**: layout variants, scrollable vs fixed groups, brand/footer chrome, expand/collapse **grabber**, and provider context for **`MenuBar`** / **`NavMenuItem`**. **[Appheader](./appheader.mdc)** and main content live **outside** this component—**SideNavigation** is the **nav** column only.
 
@@ -115,7 +115,7 @@ Full layouts (**variants**, **submenus**, **`onToggle`** payloads) — copy from
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Every nav target has a **visible** or **screen-reader** label; submenu / collapsed-rail **tooltips** filled when the design requires  

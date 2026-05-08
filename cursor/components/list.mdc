@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# List (Momentum) — Momentum guidance (IDE)
+# List (Momentum) — Momentum guidance (Cursor)
 
 **List** is the **container** for **ListItem** rows. Place **`ListItem`** components in the **default** slot. Optionally place **`Listheader`** in the **`list-header`** slot for a title row above the items. Always use **`List`** as the parent, **even** for a single item (structure for assistive tech).
 
@@ -52,7 +52,7 @@ For a **header** row, put **`Listheader`** in the **`list-header`** slot on **`L
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc); **`IconProvider`** when rows or header use **Icon**  
 - [ ] **List** wraps every list-row pattern in the doc  

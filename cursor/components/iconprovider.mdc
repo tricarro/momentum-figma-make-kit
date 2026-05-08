@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# IconProvider (Momentum) — Momentum guidance (IDE)
+# IconProvider (Momentum) — Momentum guidance (Cursor)
 
 **IconProvider** loads **Momentum icons** once at app shell using **`registerMomentumIcons`** from **`@momentum-design/icons/dist/esm/svg`** so **`Icon`**/`IconNames` resolve **`name`** strings.
 
@@ -52,7 +52,7 @@ export function AppShell({ children }) {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] Call **`registerMomentumIcons`** **once** before **`Icon`** renders  
 - [ ] **`ThemeProvider`** **outside** **`IconProvider`** per [setup.mdc](../setup.mdc)  

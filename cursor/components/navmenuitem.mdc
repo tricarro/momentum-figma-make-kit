@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# NavMenuItem (Momentum) — Momentum guidance (IDE)
+# NavMenuItem (Momentum) — Momentum guidance (Cursor)
 
 **NavMenuItem** is a **navigation** row shaped like a **menu** item, meant for **`MenuBar`** inside **[SideNavigation](./sidenavigation.mdc)**: **leading** **icon**, **label**, optional **badge**, **active** state, optional **submenu** **arrow**, and optional **`tooltipText`** when the sidebar is **collapsed** or a **submenu** child is active. In React: **`onClick`**, keyboard events, **`onActiveChange`**. It is **not** a generic list row—use **[ListItem](./listitem.mdc)** for arbitrary lists.
 
@@ -50,7 +50,7 @@ Place inside **`MenuBar`** / **`SideNavigation`** as in [Storybook — NavMenuIt
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`navId`** unique within its **MenuBar**  

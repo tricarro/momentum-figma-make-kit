@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# InputChip (Momentum) — Momentum guidance (IDE)
+# InputChip (Momentum) — Momentum guidance (Cursor)
 
 **InputChip** represents a **value** the user (or app) can **remove**: **label**, optional **leading** icon, **`prefix`** slot for **Avatar** (wins over **`iconName`**), **close** control, and an **`error`** state for validation. **Remove** fires **`onRemove`** in React.
 
@@ -62,7 +62,7 @@ function EmailToken({ address, onDismiss }) {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`** or icon-bearing **`Avatar`** patterns  
 - [ ] **Always** set **`clearAriaLabel`** (or the documented equivalent for your Storybook version)  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# AccordionButton (Momentum) — Momentum guidance (IDE)
+# AccordionButton (Momentum) — Momentum guidance (Cursor)
 
 Use the **AccordionButton** component for a **simple, fully clickable** row: the **entire header** toggles the panel. If the design needs **chips, badges, or other controls** in the header while **only a separate control** expands or collapses, use **`Accordion`** instead.
 
@@ -113,7 +113,7 @@ import {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `AccordionButton` from `@momentum-design/components/dist/react`  
 - [ ] Theme / tokens and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as in [setup.mdc](../setup.mdc))  

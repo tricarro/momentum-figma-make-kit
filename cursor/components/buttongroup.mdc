@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# ButtonGroup (Momentum) — Momentum guidance (IDE)
+# ButtonGroup (Momentum) — Momentum guidance (Cursor)
 
 **ButtonGroup** groups **`Button`**s with shared **size**, **variant**, and layout (**horizontal** / **vertical**), optional **compact** mode. **Only** **`Button`** (`mdc-button`) is allowed as **direct** children.
 
@@ -63,7 +63,7 @@ For **icon-only** groups, follow Storybook for accessible names (**`ariaLabel`**
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `ThemeProvider` + **`IconProvider`** when buttons use icons  
 - [ ] **Only** `Button` as children  

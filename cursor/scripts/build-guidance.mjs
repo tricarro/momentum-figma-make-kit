@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Generates translated Cursor rule files (.mdc) under guidance/ from
- * figma-make-files/guidelines/*.md — run from repo root:
- *   node guidance/scripts/build-guidance.mjs
+ * Generates translated Cursor rule files (.mdc) under cursor/ from
+ * figme-make/guidelines/*.md — run from repo root:
+ *   node cursor/scripts/build-guidance.mjs
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -10,27 +10,28 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
-const SOURCE_DIR = path.join(REPO_ROOT, "figma-make-files", "guidelines");
-const DEST_DIR = path.join(REPO_ROOT, "guidance");
+const SOURCE_DIR = path.join(REPO_ROOT, "figme-make", "guidelines");
+const DEST_DIR = path.join(REPO_ROOT, "cursor");
 
 /** @param {string} body */
 function translateBody(body) {
   let out = body;
 
   const phraseReplacements = [
-    [/Momentum Design System — Figma Make Guidelines/g, "Momentum Design System — IDE guidelines (Cursor)"],
-    [/\(Momentum \+ Figma Make\)/g, "(Momentum + IDE)"],
-    [/ — Figma Make guidance/g, " — Momentum guidance (IDE)"],
+    [/Momentum Design System — Figma Make Guidelines/g, "Momentum Design System — Cursor guidelines"],
+    [/\(Momentum \+ Figma Make\)/g, "(Momentum + Cursor)"],
+    [/ — Figma Make guidance/g, " — Momentum guidance (Cursor)"],
     [/Figma Make notes/g, "Implementation notes"],
-    [/In Figma Make,/g, "In the IDE,"],
+    [/In Figma Make,/g, "In Cursor,"],
     [
       /Guidelines for using the Momentum Design System \(components, tokens, and assets\) within Figma Make\./g,
-      "Guidelines for using the Momentum Design System (components, tokens, and assets) when prototyping in the IDE with AI assistance.",
+      "Guidelines for using the Momentum Design System (components, tokens, and assets) when prototyping in Cursor with AI assistance.",
     ],
     [
       /who use Figma Make to create interactive prototypes/g,
-      "who use AI-assisted coding in the IDE to create interactive prototypes",
+      "who use AI-assisted coding in Cursor to create interactive prototypes",
     ],
+    [/\*\*Cursor \/ IDE:\*\*/g, "**Cursor:**"],
   ];
 
   for (const [re, rep] of phraseReplacements) {
@@ -40,17 +41,17 @@ function translateBody(body) {
   // Title lines: "# Foo (Momentum) — Figma Make guidance"
   out = out.replace(
     /^#\s+(.+?)\s+—\s+Figma Make guidance\s*$/gm,
-    "# $1 — Momentum guidance (IDE)",
+    "# $1 — Momentum guidance (Cursor)",
   );
 
-  out = out.replace(/^#\s+Design tokens \(Momentum \+ Figma Make\)/gm, "# Design tokens (Momentum + IDE)");
-  out = out.replace(/^#\s+Layout and typography \(Momentum \+ Figma Make\)/gm, "# Layout and typography (Momentum + IDE)");
-  out = out.replace(/^#\s+Components \(Momentum \+ Figma Make\)/gm, "# Components (Momentum + IDE)");
-  out = out.replace(/^#\s+Package setup \(Momentum \+ Figma Make\)/gm, "# Package setup (Momentum + IDE)");
+  out = out.replace(/^#\s+Design tokens \(Momentum \+ Figma Make\)/gm, "# Design tokens (Momentum + Cursor)");
+  out = out.replace(/^#\s+Layout and typography \(Momentum \+ Figma Make\)/gm, "# Layout and typography (Momentum + Cursor)");
+  out = out.replace(/^#\s+Components \(Momentum \+ Figma Make\)/gm, "# Components (Momentum + Cursor)");
+  out = out.replace(/^#\s+Package setup \(Momentum \+ Figma Make\)/gm, "# Package setup (Momentum + Cursor)");
 
   out = out.replace(
     /^Begin by installing the `@momentum-design\/components` package:\s*\n\s*`yarn add @momentum-design\/components`/gm,
-    `Begin by installing \`@momentum-design/components\` with your package manager (\`npm\`, \`yarn\`, or \`pnpm\`). When working in this repo, pin versions to match [\`figma-make-files/package.json\`](../figma-make-files/package.json).\n\n\`\`\`bash\nnpm install @momentum-design/components\n\`\`\``,
+    `Begin by installing \`@momentum-design/components\` with your package manager (\`npm\`, \`yarn\`, or \`pnpm\`). When working in this repo, pin versions to match [\`figme-make/package.json\`](../figme-make/package.json).\n\n\`\`\`bash\nnpm install @momentum-design/components\n\`\`\``,
   );
 
   out = out.replace(/\]\(\.\/([^)]+)\)/g, (full, inner) => {
@@ -89,17 +90,17 @@ function translateBody(body) {
   out = out.replace(/\.\/components\/([a-z0-9]+)\.md\b/gi, "./components/$1.mdc");
 
   // Remaining "Figma Make" phrases in body copy
-  out = out.replace(/## Checklist for Figma Make/g, "## Checklist for IDE prototypes");
-  out = out.replace(/\bFigma Make prototypes\b/g, "IDE prototypes");
-  out = out.replace(/\bfor Figma Make\b/gi, "for IDE work");
-  out = out.replace(/\bIn Figma Make\b/g, "In the IDE");
+  out = out.replace(/## Checklist for Figma Make/g, "## Checklist for Cursor prototypes");
+  out = out.replace(/\bFigma Make prototypes\b/g, "Cursor prototypes");
+  out = out.replace(/\bfor Figma Make\b/gi, "for Cursor work");
+  out = out.replace(/\bIn Figma Make\b/g, "In Cursor");
   out = out.replace(/Figma Make should prefer/g, "Prefer");
   out = out.replace(/Figma Make should/g, "You should");
   out = out.replace(
     /written for \*\*Figma Make\*\*/g,
-    "written for **IDE prototypes**",
+    "written for **Cursor prototypes**",
   );
-  out = out.replace(/\bmost Figma Make code\b/g, "most IDE / vibe-coded UI");
+  out = out.replace(/\bmost Figma Make code\b/g, "most Cursor / vibe-coded UI");
   out = out.replace(
     /\*\*Figma Make \+ this kit:\*\*/g,
     "**This repo / Cursor:**",
@@ -109,11 +110,16 @@ function translateBody(body) {
   out = out.replace(/\bFor Figma Make,/g, "For Cursor work,");
   out = out.replace(
     /Momentum \*\*copy\*\* in Figma Make/g,
-    "Momentum **copy** in the IDE",
+    "Momentum **copy** in Cursor",
   );
-  out = out.replace(/\bas the Figma Make default\b/g, "as the default for IDE prototypes");
-  out = out.replace(/\bin Figma Make prototypes\b/g, "in IDE prototypes");
-  out = out.replace(/\bPrefer \*\*`Button`\*\* for Figma Make\b/g, "Prefer **`Button`** for IDE work");
+  out = out.replace(/\bas the Figma Make default\b/g, "as the default for Cursor prototypes");
+  out = out.replace(/\bin Figma Make prototypes\b/g, "in Cursor prototypes");
+  out = out.replace(/\bPrefer \*\*`Button`\*\* for Figma Make\b/g, "Prefer **`Button`** for Cursor work");
+
+  // Source files may still say "IDE" where guidelines were edited manually
+  out = out.replace(/\bIDE prototypes\b/g, "Cursor prototypes");
+  out = out.replace(/\bfor IDE work\b/g, "for Cursor work");
+  out = out.replace(/\bin the IDE\b/g, "in Cursor");
   return out;
 }
 

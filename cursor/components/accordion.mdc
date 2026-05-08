@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Accordion (Momentum) — Momentum guidance (IDE)
+# Accordion (Momentum) — Momentum guidance (Cursor)
 
 Use the **Accordion** component when the panel header must stay interactive apart from the expand/collapse action—e.g. **chips, badges, or extra buttons** in the header. Only the **dedicated expand/collapse control** toggles the section. For a **simple, fully clickable row header**, use **`AccordionButton`** instead.
 
@@ -67,7 +67,7 @@ For multiple sections, wrap items in **`AccordionGroup`** ([guidance](./accordio
 | `leading-controls` | Controls after the main header text. |
 | `trailing-controls` | Controls before the **expand/collapse** button. |
 
-For most IDE prototypes, **`headerText` + default slot** is enough.
+For most Cursor prototypes, **`headerText` + default slot** is enough.
 
 ---
 
@@ -130,7 +130,7 @@ import {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `Accordion` from `@momentum-design/components/dist/react`  
 - [ ] Theme / tokens loaded ([setup.mdc](../setup.mdc) / primer) and **`mds-typography`** (and `ThemeProvider` / `IconProvider` as required)  

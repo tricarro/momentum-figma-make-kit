@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Calendar (Momentum) — Momentum guidance (IDE)
+# Calendar (Momentum) — Momentum guidance (Cursor)
 
 **Calendar** shows a **monthly grid** for **single** date, **full week**, or **range** selection. It emits when the user picks a date and when the **visible month** changes.
 
@@ -72,7 +72,7 @@ For **`range`**, set **`selectionMode="range"`**, **`value`** / **`endValue`**, 
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc) (month nav uses **Icon** / buttons)  
 - [ ] Dates are **ISO `yyyy-mm-dd`**, no locale-formatted strings in **`value`** / **`endValue`**  

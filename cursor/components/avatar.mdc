@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Avatar (Momentum) — Momentum guidance (IDE)
+# Avatar (Momentum) — Momentum guidance (Cursor)
 
 The **Avatar** shows a **person or space** as a **photo**, **initials**, a custom **icon**, or a **counter**. It is **not** a button: it does not take focus. For a **clickable** avatar, use **`AvatarButton`**.
 
@@ -65,7 +65,7 @@ import { Avatar } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `Avatar` is **non-interactive**; use **`AvatarButton`** if the user can click it  
 - [ ] Chosen **`size`** and content (`src` / `iconName` / `initials` / `counter`) follow **display priority** above  

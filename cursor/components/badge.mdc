@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Badge (Momentum) — Momentum guidance (IDE)
+# Badge (Momentum) — Momentum guidance (Cursor)
 
 **Badge** shows a **dot** notification, **counter**, **icon**, or **success / warning / error** state. It is non-interactive display chrome—pair it with a parent (e.g. a tab, list row, or button) when the design needs counts or status.
 
@@ -62,7 +62,7 @@ import { Badge } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `ThemeProvider` + **`IconProvider`** per [setup.mdc](../setup.mdc) when using icon-backed types  
 - [ ] `Badge` is **not** a button; use `Button` + `Badge` overlay for actionable UI if needed  

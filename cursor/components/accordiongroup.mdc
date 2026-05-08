@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# AccordionGroup (Momentum) — Momentum guidance (IDE)
+# AccordionGroup (Momentum) — Momentum guidance (Cursor)
 
 Use **AccordionGroup** to present **several** **`Accordion`** and/or **`AccordionButton`** items as one set: shared **size** and **group layout variant**, and coordinated **expansion** (one open at a time by default).
 
@@ -153,7 +153,7 @@ For **`Accordion`** children, add **`openButtonAriaLabel`**, **`closeButtonAriaL
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `AccordionGroup` from `@momentum-design/components/dist/react`  
 - [ ] **Only** `Accordion` / `AccordionButton` as direct children in the default slot  

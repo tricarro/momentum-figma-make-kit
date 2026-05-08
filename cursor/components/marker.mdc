@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Marker (Momentum) — Momentum guidance (IDE)
+# Marker (Momentum) — Momentum guidance (Cursor)
 
 **Marker** is a **vertical** emphasis strip (~**0.25rem** wide by default) beside content: **`variant`** **`solid`** or **`striped`** (diagonal). Use to **relate** list rows, **cards**, or **blocks** to a category, priority, or callout. **Color / pattern** must be explained by **Text** (or a legend), not by the marker alone. Styling: **`--mdc-marker-*`** in the [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs).
 
@@ -60,7 +60,7 @@ Validate **`variant`** and layout against [Storybook — Marker / Docs](https://
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] A **string label** in the item explains what the marker color means  

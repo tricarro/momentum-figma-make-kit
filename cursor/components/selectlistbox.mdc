@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Selectlistbox (Momentum) — Momentum guidance (IDE)
+# Selectlistbox (Momentum) — Momentum guidance (Cursor)
 
 **Selectlistbox** is a **light-DOM** wrapper that sits **between** **[Select](./select.mdc)** (or **[Combobox](./combobox.mdc)**) and the **Option** / **OptGroup** children so **listbox** roles and **`aria-owns`** wiring stay correct. Use it in those patterns—the package notes it may be removed when **`ariaOwnsElements`** is broadly available. It has **no** selection business logic: **structure** and **a11y** plumbing only.
 
@@ -54,7 +54,7 @@ See [Storybook — Select / Docs](https://momentum.design/storybook-static/index
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when options use **`prefixIcon`** per [setup.mdc](../setup.mdc)  
 - [ ] **`Selectlistbox`** wraps **Option** / **OptGroup** exactly as Storybook shows for **Select** / **Combobox**  

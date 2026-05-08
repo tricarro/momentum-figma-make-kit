@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# TabList (Momentum) — Momentum guidance (IDE)
+# TabList (Momentum) — Momentum guidance (Cursor)
 
 **TabList** (React: **`TabList`**) is the **horizontal** **tab** strip: the **default** slot holds **[Tab](./tab)** children. **Arrow** keys move between tabs; **Enter** / **Space** activate. **`onChange`:** **`event.detail.tabId`**. The component sets **`tablist`**, **`tab`**, and **`aria-selected`**. **You** must label the bar (**`dataAriaLabel`**), link each **tab** to a **`tabpanel`** (**`aria-controls`**), and label each **panel** (**`aria-labelledby`**)—per [Storybook — TabList / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-tab-tablist--docs). Menus on a tab: set **`aria-haspopup`** on that tab.
 
@@ -50,7 +50,7 @@ Implement **`onChange`** (**`event.detail.tabId`**) and panel wiring per [Storyb
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`dataAriaLabel`** on **TabList**; each **Tab** / panel pair wired for SR users  

@@ -4,9 +4,9 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Buttonsimple (Momentum) — Momentum guidance (IDE)
+# Buttonsimple (Momentum) — Momentum guidance (Cursor)
 
-**Buttonsimple** (`mdc-buttonsimple`) is a **low-level** **`<button>`** with label in the default slot, **`type`**, **disabled** / **softDisabled**, and **active** (toggle/pressed with `aria-pressed`). It is the **base** for **Button** and other composite controls. Prefer **`Button`** for IDE prototypes unless you need a **minimal** control or are matching Storybook that uses **Buttonsimple** directly.
+**Buttonsimple** (`mdc-buttonsimple`) is a **low-level** **`<button>`** with label in the default slot, **`type`**, **disabled** / **softDisabled**, and **active** (toggle/pressed with `aria-pressed`). It is the **base** for **Button** and other composite controls. Prefer **`Button`** for Cursor prototypes unless you need a **minimal** control or are matching Storybook that uses **Buttonsimple** directly.
 
 See also: [Button](./button.mdc). Other extensions include **AlertChip**, **AvatarButton**, and controls built on **Buttonsimple**.
 
@@ -61,7 +61,7 @@ import { Buttonsimple } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] Prefer **`Button`** for icons, colors, and full variant set  
 - [ ] `type="button"` in forms when not submitting  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Bullet (Momentum) — Momentum guidance (IDE)
+# Bullet (Momentum) — Momentum guidance (Cursor)
 
 **Bullet** is a small **circular** dot for **list** and **nav** affordances. **Sizes** — `small` (0.25rem, **default**), `medium` (0.5rem), `large` (1rem). Styling: **`--mdc-bullet-size`**, **`--mdc-bullet-background-color`**. It is **decorative**—do not use **color or size** alone to convey the only copy of a status. Part of the **Decorator** set in the design system.
 
@@ -43,7 +43,7 @@ import { Bullet } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] Adjacent **text** carries the message  
 - [ ] `size` matches the layout density in Figma (dense vs open)  

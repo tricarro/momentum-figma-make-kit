@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# CardButton (Momentum) — Momentum guidance (IDE)
+# CardButton (Momentum) — Momentum guidance (Cursor)
 
 **CardButton** **looks** like a **Card** but behaves as a **single button**—**click/keyboard anywhere** on the card (except avoid nested focusables; slots should be **non-interactive** content). Use **`name`** and **`value`** in forms.
 
@@ -67,7 +67,7 @@ import { CardButton, Text } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`**  
 - [ ] **One** action per card surface; no nested **`Button`** / **`Link`** in slots  

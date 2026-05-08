@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Skeleton (Momentum) — Momentum guidance (IDE)
+# Skeleton (Momentum) — Momentum guidance (Cursor)
 
 **Skeleton** is a **placeholder** for **loading** UIs. **`variant`:** **`rectangular`** (default), **`rounded`**, **`circular`**, or **`button`**. Sizing: **wrap** optional slotted content (skeleton **matches** child size), **or** fill the **parent**; override with **`--mdc-skeleton-width`**, **`height`**, **`--mdc-skeleton-background-color`**. Use in list and card loading rows—mirror the real **[ListItem](./listitem.mdc)** / **Text** layout to avoid **layout shift**. **[Progressspinner](./progressspinner.mdc)** / **[Progressbar](./progressbar.mdc)** are for **known** or **busy** progress, not static chrome placeholders.
 
@@ -58,7 +58,7 @@ Prefer **wrapping** real **Text** / **Button** in **`Skeleton`** when the layout
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Skeleton **geometry** matches final **[Text](./text.mdc)** / row layout to limit layout shift  

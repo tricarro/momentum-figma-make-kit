@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# OptGroup (Momentum) — Momentum guidance (IDE)
+# OptGroup (Momentum) — Momentum guidance (Cursor)
 
 **OptGroup** groups **Option** rows inside a **Selectlistbox** (and compatible list contexts). It renders a **header** (**`label`** string) and holds **`Option`** components in the **default** slot. Supports **`disabled`** to disable the **group** (behavior cascades in source). Theming: **`--mdc-optgroup-disabled-color`**, **csspart** **`header-text`**. A **Divider** between groups in **Select** is often a separate **[Divider](./divider.mdc)** in the list, not part of **`OptGroup`**.
 
@@ -50,7 +50,7 @@ Compose **[Select](./select.mdc)** (or **[Combobox](./combobox.mdc)**) and **`Se
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when options use icons per [setup.mdc](../setup.mdc)  
 - [ ] **`label`** names the group for sighted users; verify SR grouping with **Select** / listbox Storybook  

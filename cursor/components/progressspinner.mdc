@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Progressspinner (Momentum) — Momentum guidance (IDE)
+# Progressspinner (Momentum) — Momentum guidance (Cursor)
 
 **Progressspinner** is a **circular** **determinate** indicator: it **extends** **[Progressbar](./progressbar.mdc)** (same **`value`** 0–100, **`error`**, and label/help from **`FormfieldWrapper`**) and adds **SVG** track + **progress** arcs. At **100%** it can show a **success** check; in **`error`** it shows the **error** pictogram. Styling: **`--mdc-spinner-size`**, **`--mdc-track-color`**, **`--mdc-progress-color`**, success and error color tokens.
 
@@ -53,7 +53,7 @@ See **success** / **error** end states in [Storybook — Progressspinner / Docs]
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc); **`IconProvider`** if success/error marks rely on icon assets per Storybook  
 - [ ] **`value`** reflects **real** progress, not a looping fake unless the spec says so  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# CardCheckbox (Momentum) — Momentum guidance (IDE)
+# CardCheckbox (Momentum) — Momentum guidance (Cursor)
 
 **CardCheckbox** is a **card** that acts as a **checkbox**: click or keyboard toggles **`checked`**, **`role="checkbox"`**, and **`onChange`**. **Multiple** cards in a set can be **checked** at once. **Requires `cardTitle`**. Wrap a group in **`role="group"`** with an **`aria-label`**.
 
@@ -75,7 +75,7 @@ Align **`onChange`** with your version’s **`detail`** / controlled pattern fro
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`**  
 - [ ] **`cardTitle`** on every **CardCheckbox**  

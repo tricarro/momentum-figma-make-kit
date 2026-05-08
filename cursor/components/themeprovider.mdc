@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# ThemeProvider (Momentum) — Momentum guidance (IDE)
+# ThemeProvider (Momentum) — Momentum guidance (Cursor)
 
 **ThemeProvider** applies a **Momentum theme class** to its host, exposes **theme CSS custom properties** to child DOM, and when **`themeclass`** changes it **removes** the previous class and **adds** the new one. It also provides **default text** styling (font family, color, etc.). Wrap the **root** or styled subtree with **`ThemeProvider`**; nest **[IconProvider](./iconprovider.mdc)** **inside** when using **[Icon](./icon.mdc)**.
 
@@ -93,7 +93,7 @@ For **dark** mode matching the package default, omit **`themeclass`** or set **`
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] Tokens and fonts are **imported** in the entry file before relying on theme colors  
 - [ ] **`ThemeProvider`** wraps the tree that should use the selected theme; **`IconProvider`** **inside** when using **Icon**  

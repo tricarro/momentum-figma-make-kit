@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# ButtonLink (Momentum) — Momentum guidance (IDE)
+# ButtonLink (Momentum) — Momentum guidance (Cursor)
 
 **ButtonLink** is an **`<a>`-style** control that **looks** like **Button** (`variant`, **`color`**, **`size`**, **`inverted`**, **prefix** / **postfix** icons—same mental model as **Button**). Use for **same-page anchors** or off-site **navigation**; use **`Button`** for **in-app actions** with no URL. It extends **`Linksimple`**: **`href`**, **`target`**, **`rel`**, etc.
 
@@ -69,7 +69,7 @@ Use a real internal help URL in production.
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `ThemeProvider` + **`IconProvider`** when using icons  
 - [ ] `href` points to a **real** destination; no `#` unless you handle focus in the same view  

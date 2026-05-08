@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# LinkButton (Momentum) — Momentum guidance (IDE)
+# LinkButton (Momentum) — Momentum guidance (Cursor)
 
 **LinkButton** **looks** like a **link** and **acts** like a **button** (extends **Buttonsimple** behaviors): in-app **actions** without a destination **URL**—dismiss, expand, or trigger logic that is **not** navigation. It supports **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`**, **`onBlur`**. Prefer **LinkButton** over **`<a href="#">`**.
 
@@ -61,7 +61,7 @@ Use a real **`href`** with **[Link](./link.mdc)**; use **LinkButton** only for *
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc); **`IconProvider`** if the pattern uses icons  
 - [ ] **`type="button"`** when the control is not submitting a form  

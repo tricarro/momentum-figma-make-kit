@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# VirtualizedList (Momentum) — Momentum guidance (IDE)
+# VirtualizedList (Momentum) — Momentum guidance (Cursor)
 
 **VirtualizedList** extends **[List](./list.mdc)** with [TanStack Virtual](https://tanstack.com/virtual/latest) for **very long** row lists. **`virtualizerProps` is required:** at least **`count`**, **`estimateSize`**, and **`getItemKey`**. The app renders **visible** rows only; use **`onVirtualItemsChange`** so each **[ListItem](./listitem.mdc)** sets **`data-index`** to match **`virtualItems`**. **Do not** put top/bottom padding on the scroll container in CSS—use **`paddingStart`** and **`paddingEnd`** on **`virtualizerProps`**. If you use **gap** between items in CSS, mirror the pixel value in **`virtualizerProps.gap`**. **[Listheader](./listheader.mdc)** uses the **`list-header`** slot like **List**. **Events (React):** **`onScroll`**, **`onVirtualItemsChange`**. Set **`observeSizeChanges`** when row heights can change (uses **ResizeObserver**).
 
@@ -61,7 +61,7 @@ Follow **`onVirtualItemsChange`**, **`data-index`**, and height/gap rules in [St
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when rows use **Icon** / avatars per [setup.mdc](../setup.mdc)  
 - [ ] **`virtualizerProps`** includes **`count`**, **`estimateSize`**, **`getItemKey`**  

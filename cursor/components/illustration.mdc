@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Illustration (Momentum) — Momentum guidance (IDE)
+# Illustration (Momentum) — Momentum guidance (Cursor)
 
 **Illustration** renders **Momentum SVG illustrations** by **`name`** + **`size`** **with** **`lengthUnit="px"`**. Illustrations register via **`IllustrationProvider`** / **`registerMomentumIllustrations`**—do **not** load SVG assets manually.
 
@@ -60,7 +60,7 @@ Confirm **`name`** values in [Storybook — Illustration / Docs](https://momentu
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IllustrationProvider`** + **`registerMomentumIllustrations`** per [setup.mdc](../setup.mdc)  
 - [ ] **`name`** matches **illustration** registry (not **`Icon`** **`name`**)  

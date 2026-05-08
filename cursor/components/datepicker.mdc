@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# DatePicker (Momentum) — Momentum guidance (IDE)
+# DatePicker (Momentum) — Momentum guidance (Cursor)
 
 **DatePicker** (`DatePicker` in React) lets users **pick a date** via a **Calendar** in a **popover** and/or **type a date** depending on **`variant`**: **`input`** (month/day/year **spinbutton** subfields) or **`default`** (trigger + calendar). Supports **localization** with a BCP-47 **`locale`** string.
 
@@ -67,7 +67,7 @@ Wire **`onInput`**, **`onChange`**, and **`onFocus` / `onBlur`** using the event
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc) (calendar / trigger icons)  
 - [ ] Choose **`input`** vs **`default`** to match the product’s data-entry pattern  

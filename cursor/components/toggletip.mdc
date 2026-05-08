@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# ToggleTip (Momentum) — Momentum guidance (IDE)
+# ToggleTip (Momentum) — Momentum guidance (Cursor)
 
 **ToggleTip** (React: **`ToggleTip`**, tag **`mdc-toggletip`**) is a **click-to-open** overlay for **content that can include links and buttons**. It **extends** **[Popover](./popover.mdc)** with toggletip defaults: stays open until **Escape**, **outside** click, or an optional **close** control; **focus trap** while open; focus **returns** to the **trigger**. Uses **[ScreenreaderAnnouncer](./screenreaderannouncer.mdc)** internally. **Not** a **[Tooltip](./tooltip.mdc)**—Tooltip is **hover/focus** and must not contain **focusable** content. **Events (React):** **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**. **`screenreaderAnnouncerIdentity`** (camelCase in React) configures announcement placement.
 
@@ -52,7 +52,7 @@ function RichHelpBody() {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`triggerID`** matches the trigger element **`id`** (same as **Popover**)  

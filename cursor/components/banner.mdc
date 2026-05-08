@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Banner (Momentum) — Momentum guidance (IDE)
+# Banner (Momentum) — Momentum guidance (Cursor)
 
 **Banner** surfaces **important, persistent messages** and expects **user action** (dismiss, fix, or follow a step). It supports **variant**-driven **icons** and copy via **`label`** / **`secondaryLabel`**, or full override through **slots**.
 
@@ -83,7 +83,7 @@ Add **`trailing-actions`** when the design needs **Dismiss** / **Retry** (see St
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `ThemeProvider` + **`IconProvider`** per [setup.mdc](../setup.mdc) (leading icons)  
 - [ ] `variant` matches the severity; **`custom`** + **`leading-icon`** if you need a one-off treatment  

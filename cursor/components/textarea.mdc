@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Textarea (Momentum) — Momentum guidance (IDE)
+# Textarea (Momentum) — Momentum guidance (Cursor)
 
 **Textarea** is a **multiline** field: **label**, **help** / validation, **`maxCharacterLimit`**, **`onLimitExceeded`** (React) when the count crosses the limit (set **`helpTextType`** to **error** and update **`helpText`** from that handler, per the package), optional **resizable** with **`resizeButtonAriaLabel`**, and **`characterLimitAnnouncement`** for screen reader updates. **Events:** **`onInput`**, **`onChange`**, **`onFocus`**, **`onBlur`**, **`onLimitExceeded`**. Same **form-field** family as **[Input](./input.mdc)** / **[Password](./password.mdc)**.
 
@@ -45,7 +45,7 @@ Use **`onInput`** / **`onChange`** / **`onLimitExceeded`**, **`resizable`**, and
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`characterLimitAnnouncement`** / **`helpText`** give SR users the same limits as sighted users  

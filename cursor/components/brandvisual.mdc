@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Brandvisual (Momentum) — Momentum guidance (IDE)
+# Brandvisual (Momentum) — Momentum guidance (Cursor)
 
 **Brandvisual** loads a **branded mark** (logo) by **`name`**, using the Momentum **brand visual** set. It fires **`onLoad`** / **`onError`** when the asset is fetched. Use in headers, sign-in, or any surface that must show a **Cisco** / product mark per brand guidelines.
 
@@ -61,7 +61,7 @@ Use layout **tokens** for width where possible; replace the fallback with the to
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `name` is a valid key for the installed **brand visual** bundle  
 - [ ] `altText` for image-based marks  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Linksimple (Momentum) — Momentum guidance (IDE)
+# Linksimple (Momentum) — Momentum guidance (Cursor)
 
 **Linksimple** is a **low-level** **`<a>`-style** link: **any** slotted **inline** content (usually **Text**, sometimes **Icon**). It has **no** fixed typography size; product chrome often uses **[Link](./link.mdc)** instead for consistent sizes and trailing icons. Fires **`onClick`**, **`onKeyDown`**, **`onFocus`**, **`onBlur`**. Styling: **`--mdc-link-color-*`**, **`--mdc-link-inverted-color-*`**, **`--mdc-link-border-radius`**.
 
@@ -59,7 +59,7 @@ Prefer **[Link](./link.mdc)** when you need **`size`** + **`iconName`**.
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc); **`IconProvider`** if slotted **Icon**  
 - [ ] If you need **`size`** + **`iconName`**, use **Link** for consistency  

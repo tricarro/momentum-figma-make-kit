@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# TimePicker (Momentum) — Momentum guidance (IDE)
+# TimePicker (Momentum) — Momentum guidance (Cursor)
 
 **TimePicker** (`TimePicker` in React) is a **time** field: **label**, **spinbutton**-style **hour** / **minute** (and **AM/PM** in 12h mode), optional **preset** intervals, and form-field **help** slots. **12h** vs **24h** and locale-style behavior: see the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-timepicker-timepicker--docs). **Events (React):** **`onInput`**, **`onChange`**, **`onFocus`**, **`onBlur`**. Combine with **[DatePicker](./datepicker.mdc)** when the product needs full **date + time** (separate fields unless Storybook documents a composed control).
 
@@ -45,7 +45,7 @@ Add **`onInput`** / **`onChange`**, **12h/24h**, **locale**, and **`value`** bin
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **Time zone** and **format** match the spec (12h/24h, leading zeros)  

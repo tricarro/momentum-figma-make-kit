@@ -1,6 +1,6 @@
 # Momentum Design System — Figma Make Guidelines
 
-**Cursor / IDE:** Translated Cursor rules (`.mdc`) mirroring this folder live at **[`../../guidance/`](../../guidance/README.md)** — regenerate with `node guidance/scripts/build-guidance.mjs` from the repo root after guideline edits.
+**Cursor / IDE:** Translated Cursor rules (`.mdc`) mirroring this folder live at **[`../../cursor/`](../../cursor/README.md)** — regenerate with `node cursor/scripts/build-guidance.mjs` from the repo root after guideline edits.
 
 Guidelines for using the Momentum Design System (components, tokens, and assets) within Figma Make. Details are split across the files below so setup, tokens, layout/type, and components are easy to find.
 

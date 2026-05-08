@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# ScreenreaderAnnouncer (Momentum) — Momentum guidance (IDE)
+# ScreenreaderAnnouncer (Momentum) — Momentum guidance (Cursor)
 
 **ScreenreaderAnnouncer** posts **transient** text to a **visually hidden** **`aria-live`** region so screen reader users hear **status** updates (save complete, row added, error echoed, etc.). Set **`announcement`**, or use the public **`announce()`** with an options object (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-screenreaderannouncer-screenreaderannouncer--docs)). **`delay`** and **`timeout`** control timing; **`identity`** lets multiple instances share one live region—read JSDoc before relying on this.
 
@@ -46,7 +46,7 @@ Use **`announce()`**, **`delay`**, **`timeout`**, and **`identity`** for advance
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] The same information is (or can be) seen **on screen**; announcer is **redundant** enhancement, not the only error channel  

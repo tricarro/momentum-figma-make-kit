@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Slider (Momentum) — Momentum guidance (IDE)
+# Slider (Momentum) — Momentum guidance (Cursor)
 
 **Slider** selects a **value** (or a **range** with **`range`**) along a **track**; with **step** greater than **1** it can show **ticks** and **snap** the thumb. **Events (React):** **`onInput`**, **`onChange`**. **Spatial** navigation: users may need to **enter** adjustment mode with arrow keys, then **Enter** / **Escape** to exit—see [Storybook — Slider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs). Theming: **`--mdc-slider-*`**; **cssparts** include **track**, **tick**, **tooltip** region.
 
@@ -45,7 +45,7 @@ Use **`onInput`** / **`onChange`**, **two-thumb `range`**, and thumb **labels** 
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc); **`IconProvider`** if the slider uses built-in **Icon**s  
 - [ ] **Label** and **min** / **max** / **step** match product; SR users get the same information  

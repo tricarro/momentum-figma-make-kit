@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Verticaltablist (Momentum) — Momentum guidance (IDE)
+# Verticaltablist (Momentum) — Momentum guidance (Cursor)
 
 **Verticaltablist** (React: **`Verticaltablist`**) is a **[TabList](./tablist.mdc)** in **column** layout: it **extends** **[List](./list.mdc)** and only supports the **line** **[Tab](./tab.mdc)** look (other **Tab** variants are **ignored**). **Arrow** **Up/Down** navigate; **Enter** / **Space** select; **`onChange`** exposes **`event.detail.tabId`**. The component sets **`tablist`**, vertical **`aria-orientation`**, and the same **tab** / **tabpanel** contract as **TabList**—**you** wire **`dataAriaLabel`**, **`aria-controls`**, and **tabpanel** labeling.
 
@@ -49,7 +49,7 @@ Implement **`onChange`** and **tab panel** wiring per [Storybook — Verticaltab
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`dataAriaLabel`** on **Verticaltablist**; panels wired like horizontal **TabList**  

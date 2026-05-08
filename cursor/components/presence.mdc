@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Presence (Momentum) — Momentum guidance (IDE)
+# Presence (Momentum) — Momentum guidance (Cursor)
 
 **Presence** is the small **status** dot (active, busy, in a meeting, and so on). **Avatar** and **AvatarButton** can show presence via their **`presence`** property using the same **type** values. Use standalone **`<Presence />`** when you need a **presence** indicator beside custom layout (or outside the default avatar flow).
 
@@ -71,7 +71,7 @@ Use **kebab-case** **`type`** values (e.g. **`on-mobile`**, **`away-calling`**).
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **Presence** is for **status** UI; use **`Avatar`** / **`AvatarButton`** **`presence`** for badge-on-avatar  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# CardRadio (Momentum) — Momentum guidance (IDE)
+# CardRadio (Momentum) — Momentum guidance (Cursor)
 
 **CardRadio** is a **card** that acts as a **radio**: only **one** **`checked`** item per **`name`**. **Requires `cardTitle` and `name`**. Arrow key navigation within the **same group** is supported. Wrap the set in **`role="radiogroup"`** and an **`aria-label`**.
 
@@ -71,7 +71,7 @@ import { CardRadio, Text } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`**  
 - [ ] **`name`** is stable and **shared** across the group  

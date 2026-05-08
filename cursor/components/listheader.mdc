@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Listheader (Momentum) — Momentum guidance (IDE)
+# Listheader (Momentum) — Momentum guidance (Cursor)
 
 **Listheader** is a **row** for the **title** and optional **actions** at the top of a **List**. Use **`headerText`**, or slot **Buttons** / **Links** in the **default** slot. Optional **`prefixIcon`** and **`postfixIcon`** (Momentum **icon** names). **`disabled`** grays the header; slot content can still be interactive unless you disable each control. **Place inside** the **`List`** component’s **`list-header`** slot.
 
@@ -63,7 +63,7 @@ Confirm how **`List`** composes with **`Listheader`** in React (**`slot`** on th
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using **`prefixIcon`** / **`postfixIcon`** per [setup.mdc](../setup.mdc)  
 - [ ] Nests under **`List`** in the **`list-header`** slot, not floating alone  

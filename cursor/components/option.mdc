@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Option (Momentum) — Momentum guidance (IDE)
+# Option (Momentum) — Momentum guidance (Cursor)
 
 **Option** is a **row** inside **Selectlistbox** (under **[Select](./select.mdc)** or **[Combobox](./combobox.mdc)**) and inside **[ListBox](./listbox.mdc)** when those patterns slot options. It exposes **`label`**, **`secondaryLabel`**, optional **`prefixIcon`**, and **`selected`** (check affordance). **Long** labels: add **Tooltip** manually—give the option or label element a **unique `id`** and set the tooltip / popover’s **`triggerID`** to match (see package JSDoc).
 
@@ -46,7 +46,7 @@ Always **`value`**; wire **`selected`** to the **Select** / **ListBox** model fr
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using **`prefixIcon`** per [setup.mdc](../setup.mdc)  
 - [ ] Stable **`value`**, human **`label`**, optional **`secondaryLabel`**  

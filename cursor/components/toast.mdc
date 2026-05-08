@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Toast (Momentum) — Momentum guidance (IDE)
+# Toast (Momentum) — Momentum guidance (Cursor)
 
 **Toast** is a **lightweight, non-modal** stacked **alert**: success, warning, error, or **custom** variant. It is **controlled** from the app (visibility, copy). **Slots** — **`toast-body-normal`**, **`toast-body-detailed`**, **footer** **Button**s, **close**; wrap body copy in **`Text tagname="span"`** as recommended. **`onClose`** in React. **Not** a **[Dialog](./dialog.mdc)**—Toast does **not** trap focus site-wide. For **page-level** critical messaging, compare **Toast** vs **[Banner](./banner.mdc)** in the design spec.
 
@@ -68,7 +68,7 @@ Confirm **`Icon`** **`size`** / **`lengthUnit`** and slot names for your Storybo
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`closeButtonAriaLabel`** (and footer actions) have clear names  

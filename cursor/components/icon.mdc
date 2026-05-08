@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Icon (Momentum) — Momentum guidance (IDE)
+# Icon (Momentum) — Momentum guidance (Cursor)
 
 **Icon** renders **Momentum icons** by **`name`** + **`size`** **with** **`lengthUnit="px"`**. Icons register via **`IconProvider`** / **`registerMomentumIcons`**—do **not** load SVG assets manually.
 
@@ -56,7 +56,7 @@ function LabeledIconRow() {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`name`** matches Momentum registry exactly  

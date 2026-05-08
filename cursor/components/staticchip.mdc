@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# StaticChip (Momentum) — Momentum guidance (IDE)
+# StaticChip (Momentum) — Momentum guidance (Cursor)
 
 **StaticChip** is the **read-only** chip: **no** focus target and **no** **`onClick`**—a **label** and optional **icon** for **status**, **metadata**, or **tags** that are **not** buttons. For **clickable** chips use **[Chip](./chip.mdc)**; for **alerts** **[AlertChip](./alertchip.mdc)**; for **filters** **[FilterChip](./filterchip.mdc)**; for **removable** values **[InputChip](./inputchip.mdc)**.
 
@@ -54,7 +54,7 @@ function PlanBadge() {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc) when using **`iconName`**  
 - [ ] If users must **act** on the value, use **Button**, **Chip**, or **InputChip** instead  

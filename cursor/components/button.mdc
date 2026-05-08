@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Button (Momentum) — Momentum guidance (IDE)
+# Button (Momentum) — Momentum guidance (Cursor)
 
 **Button** (`mdc-button`) is the main **action** control: **pill** (text, with or without **prefix** / **postfix** icon slots), or **icon-only** when there is no label. Variants: **primary** / **secondary** / **tertiary**; **colors** for solid styles: default, **positive**, **negative**, **accent**, **promotional**.
 
@@ -182,7 +182,7 @@ When showing several references in a prototype, space them with a consistent `ga
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `ThemeProvider` + **`IconProvider`** when using icons  
 - [ ] `type="button"` for non-submit actions inside forms  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Coachmark (Momentum) — Momentum guidance (IDE)
+# Coachmark (Momentum) — Momentum guidance (Cursor)
 
 **Coachmark** is a **contextual** popover built on **Popover** with coachmark defaults: **arrow**, **contrast** surface by default. Use for **onboarding**, feature discovery, or callouts anchored to a **specific** element. Lifecycle matches **Popover** (**show** / **hide**).
 
@@ -73,7 +73,7 @@ Copy **anchor**, **controlled open state**, and **footer actions** from [Storybo
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when coachmark content uses **Icon** / **Button**  
 - [ ] **Accessible name** (**`aria-label`** or **`aria-labelledby`**)  

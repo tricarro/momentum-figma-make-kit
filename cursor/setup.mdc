@@ -4,13 +4,13 @@ globs: "**/*.{css,tsx,jsx}"
 alwaysApply: false
 ---
 
-# Package setup (Momentum + IDE)
+# Package setup (Momentum + Cursor)
 
 Install and wire the design system in your prototype’s entry so tokens, typography, theming, and icons work. See [guidelines.mdc](./guidelines.mdc) for the global rules, [components.mdc](./components.mdc) for React component usage, and [tokens.mdc](./tokens.mdc) / [styles.mdc](./styles.mdc) for tokens and layout/typography.
 
 ## Install
 
-Begin by installing `@momentum-design/components` with your package manager (`npm`, `yarn`, or `pnpm`). When working in this repo, pin versions to match [`figma-make-files/package.json`](../figma-make-files/package.json).
+Begin by installing `@momentum-design/components` with your package manager (`npm`, `yarn`, or `pnpm`). When working in this repo, pin versions to match [`figme-make/package.json`](../figme-make/package.json).
 
 ```bash
 npm install @momentum-design/components

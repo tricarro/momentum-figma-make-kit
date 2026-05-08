@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Radio (Momentum) — Momentum guidance (IDE)
+# Radio (Momentum) — Momentum guidance (Cursor)
 
 **Radio** is a single **option** in a **mutually exclusive** set. All radios in the set share the same **`name`**, or sit inside **[RadioGroup](./radiogroup.mdc)** (preferred for label + help). **Events:** **`onInput`**, **`onChange`**, **`onFocus`**. The visual circle uses the **`radio-indicator`** part (built on [StaticRadio](./staticradio.mdc)); you can **slot** a custom **`indicator`**. **`required`** does not show a group asterisk on the radio alone—put validation on **RadioGroup** help text or the radio’s **`validationMessage`**, per the package.
 
@@ -54,7 +54,7 @@ Confirm **group** and **`Radio`** **`value`** API in [Storybook — Radio / Docs
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc) when labels use **Icon** / toggletip icons  
 - [ ] **[RadioGroup](./radiogroup.mdc)** (or a shared **`name`**) ties every **Radio** in the set  

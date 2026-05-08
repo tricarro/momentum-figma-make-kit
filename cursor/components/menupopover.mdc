@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# MenuPopover (Momentum) — Momentum guidance (IDE)
+# MenuPopover (Momentum) — Momentum guidance (Cursor)
 
 **MenuPopover** is **menu**-behavior **Popover** for **MenuBar** + **MenuItem** trees: **vertical** orientation, **arrow**-key navigation, **focus trap** while open, **Escape** / **outside click** to close, and **submenu** support (nested **`MenuPopover`**—opens on **hover** / **click** / **Enter** / **Space** per the package). **Submenus** close on **Left** and **Esc**; **Space** on **menuitemradio** / **menuitemcheckbox** does not close the whole menu. In React: **`onChange`**, **`onAction`**, plus **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**.
 
@@ -65,7 +65,7 @@ You must **anchor** the popover to a **trigger** (e.g. **MenuBar** or **Button**
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`triggerID`** on **`MenuPopover`** matches the trigger element’s **`id`** (same pattern as **Popover**)  

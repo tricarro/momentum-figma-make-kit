@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Dialog (Momentum) — Momentum guidance (IDE)
+# Dialog (Momentum) — Momentum guidance (Cursor)
 
 **Dialog** is a **modal** with **header**, **body**, and **footer** slots. It **blocks** the page until closed. Sizes: **small**, **medium**, **large**, **xlarge**, **fullscreen**; **variants** include **default** and **promotional**. Visibility is **controlled** via **`visible`**: the component does **not** own open/close state—you set **`visible`** and handle **`onClose`**. Optional **`triggerID`** (matches the package prop: capital **`ID`**) restores focus to the element whose **`id`** matches that string.
 
@@ -77,7 +77,7 @@ Slot names must match [Storybook — Dialog / Example](https://momentum.design/s
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when header/footer use icons  
 - [ ] **`visible`** and **`onClose`** wired so Escape and close control both collapse the dialog  

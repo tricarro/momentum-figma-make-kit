@@ -4,9 +4,9 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Components (Momentum + IDE)
+# Components (Momentum + Cursor)
 
-How to use Momentum React components in IDE prototypes. **Install, CSS imports, providers, and theming** are in [setup.mdc](./setup.mdc) — this file focuses on component choice, the published export list, **icons** rules, and per-component deep dives.
+How to use Momentum React components in Cursor prototypes. **Install, CSS imports, providers, and theming** are in [setup.mdc](./setup.mdc) — this file focuses on component choice, the published export list, **icons** rules, and per-component deep dives.
 
 ## General usage
 

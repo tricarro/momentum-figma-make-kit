@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# StepperConnector (Momentum) — Momentum guidance (IDE)
+# StepperConnector (Momentum) — Momentum guidance (Cursor)
 
 **StepperConnector** is the **line** between two **[StepperItem](./stepperitem.mdc)** components. It reflects **complete** vs **incomplete** from **Stepper** context and matches **horizontal** or **vertical** **orientation**. Use **only** **between** items **inside** **[Stepper](./stepper.mdc)**. Theming: **`--mdc-stepperconnector-complete-background`**, **`--mdc-stepperconnector-incomplete-background`**, **csspart** **`connector`**.
 
@@ -50,7 +50,7 @@ function ConnectorOnly() {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Exactly **one** connector **between** each **pair** of steps—not after the final step  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# StaticToggle (Momentum) — Momentum guidance (IDE)
+# StaticToggle (Momentum) — Momentum guidance (Cursor)
 
 **StaticToggle** is a **read-only** **toggle** (switch) appearance, matching **[Toggle](./toggle.mdc)** without interaction. **Props:** **`checked`** (on/off), **`size`** **`default`** \| **`compact`**, plus **`readOnly`**, **`disabled`**, **`softDisabled`**. The interactive case is **Toggle** (often with **[FormfieldGroup](./formfieldgroup.mdc)** for groups). Parent **`mdc-toggle`** can compose static visuals per JSDoc.
 
@@ -67,7 +67,7 @@ Confirm **slot** / layout in [Storybook — StaticToggle / Example](https://mome
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] If the user can **flip** the value, use **Toggle** and **`onChange`**  

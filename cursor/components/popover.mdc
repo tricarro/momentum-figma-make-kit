@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Popover (Momentum) — Momentum guidance (IDE)
+# Popover (Momentum) — Momentum guidance (Cursor)
 
 **Popover** is a **generic** anchored overlay: **Floating UI** positioning, scrollable content, **`--mdc-popover-*`** theming, and **`shown`** / **`hidden`** / **`created`** / **`destroyed`** in React. Use for **custom** panels that are not the dedicated **[MenuPopover](./menupopover.mdc)** or **[Coachmark](./coachmark.mdc)** (those wrap Popover with different defaults).
 
@@ -56,7 +56,7 @@ Give the **Button** (or trigger) a stable **`id`** that matches **`triggerID`**.
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when content uses **Icon** / **Text** patterns per [setup.mdc](../setup.mdc)  
 - [ ] **`triggerID`** matches the trigger element’s **`id`**  

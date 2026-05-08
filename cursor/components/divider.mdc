@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Divider (Momentum) — Momentum guidance (IDE)
+# Divider (Momentum) — Momentum guidance (Cursor)
 
 **Divider** draws a **line** to separate content. It infers a **type** from the **default** slot: **Primary** (empty)—plain line; **Text**—centered **`Text`**; **Grabber**—centered **`Button`** to resize a pane. **`orientation`:** **`horizontal`** or **`vertical`** (vertical **centered text** is **not** supported). **`variant`:** **`solid`** or **`gradient`** (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs)).
 
@@ -67,7 +67,7 @@ Use **one** child type: nothing, **`Text`**, or grabber **`Button`**—see [Stor
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Grabber patterns expose **name** and **state** in ARIA, not only an icon  

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Tab (Momentum) — Momentum guidance (IDE)
+# Tab (Momentum) — Momentum guidance (Cursor)
 
 **Tab** is one **tab** in a **[TabList](./tablist.mdc)** or **[Verticaltablist](./verticaltablist.mdc)**. Set **`text`** and a stable **`tabId`** inside the list. **Slots** **`badge`** and **`chip`** (not both); **icons** use **`iconName`**. Fires **`onClick`**, keyboard events, **`onFocus`**, **`onActiveChange`** (**`detail.tabId`**, **`active`**)—**TabList** subscribes; you often **do not** handle **`onActiveChange`** per tab yourself. Styling: **`--mdc-tab-*`**. **Vertical** lists force **line**-style tabs—see **[Verticaltablist](./verticaltablist.mdc)**.
 
@@ -49,7 +49,7 @@ Render **tab panels** and follow **WAI-ARIA Tabs** wiring from [Storybook — Ta
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc) when using **`iconName`**, **`badge`**, or **`chip`**  
 - [ ] **`tabId`** values are **stable** and match controlled selection / panels  

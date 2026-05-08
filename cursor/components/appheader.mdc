@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Appheader (Momentum) — Momentum guidance (IDE)
+# Appheader (Momentum) — Momentum guidance (Cursor)
 
 **Appheader** (`Appheader` in React, web component **`mdc-appheader`**) is a **top app bar** layout: three **slots**—**leading**, **center**, and **trailing**—inside a semantic **`<header>`**. Leading is for **brand**, **product name**, or a **menu** control; **center** for **search** (`Searchfield` / `Input`) or **actions**; **trailing** for **avatars**, **settings**, or **extra actions**. It does **not** own **side** navigation; pair it with the main content area and optionally **[SideNavigation](./sidenavigation.mdc)** in the overall shell.
 
@@ -112,7 +112,7 @@ import {
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `ThemeProvider` + `IconProvider` in the tree per [setup.mdc](../setup.mdc)  
 - [ ] **Meaning** for **icon-only** and **search** controls: **`title`**, **`aria`**, or **`label`/`helpText`** on **`Input`/`Searchfield`/`Button`** as required  

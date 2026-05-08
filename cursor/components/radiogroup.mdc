@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# RadioGroup (Momentum) — Momentum guidance (IDE)
+# RadioGroup (Momentum) — Momentum guidance (Cursor)
 
 **RadioGroup** groups **Radio** options with a shared **`name`** (auto-assigned from the group if unset) and a **form-field** shell inherited from **FormfieldGroup**—**header** / **description** text, **`role="radiogroup"`** wiring, and **help** / **toggletip** like other form groups. Prefer **RadioGroup** for **one** labeled set with **group-level** validation (the package recommends this over relying on each **Radio** alone).
 
@@ -59,7 +59,7 @@ Wire **selection** and **`onChange`** / **`onInput`** like [Storybook — RadioG
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **RadioGroup** + multiple **`Radio`**, not orphan radios with mismatched **`name`**  

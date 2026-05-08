@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# AlertChip (Momentum) — Momentum guidance (IDE)
+# AlertChip (Momentum) — Momentum guidance (Cursor)
 
 **AlertChip** is an **interactive** chip (extends **Buttonsimple**) for **status** or **inline alerts**: a **leading icon** and **label**, with **semantic** **`variant`** colors (error, success, warning, informational, neutral). Use for **short** inline callouts, not for full **Banner** width.
 
@@ -60,7 +60,7 @@ import { AlertChip } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] `ThemeProvider` + **`IconProvider`** for icons per [setup.mdc](../setup.mdc)  
 - [ ] `type="button"` when the chip is not in a form submit path  

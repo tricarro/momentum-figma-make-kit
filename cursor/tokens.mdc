@@ -4,7 +4,7 @@ globs: "**/*.{css,tsx,jsx}"
 alwaysApply: false
 ---
 
-# Design tokens (Momentum + IDE)
+# Design tokens (Momentum + Cursor)
 
 All color, typography, and elevation values exist as CSS custom properties on `:root`. Do not hardcode raw values. For setup (CSS bundles, theming class on root), see [setup.mdc](./setup.mdc). For layout and typography components, see [styles.mdc](./styles.mdc).
 

@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Spinner (Momentum) — Momentum guidance (IDE)
+# Spinner (Momentum) — Momentum guidance (Cursor)
 
 **Spinner** is an **indeterminate** (unknown duration) **loading** indicator. **Variant:** default **track** or **`button`** (for use inside **[Button](./button.mdc)**—contrast-tuned with label/icon). **Size** presets: **large** (~96px) for regions/pages, **midsize** (default **48px**), **small** (**24px**) inline—or unset **size** and set **`--mdc-spinner-size`**. **Color:** default vs **`inverted`** (e.g. **[Coachmark](./coachmark.mdc)**). **A11y:** with **`dataAriaLabel`** / **`aria-label`**, the host gets **`role="img"`**; without it, **`aria-hidden="true"`** (decorative). **[Progressspinner](./progressspinner.mdc)** = **determinate** percent; **Spinner** = “working…”.
 
@@ -58,7 +58,7 @@ See **`button`** variant and **inverted** on busy **Button**s in [Storybook — 
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Meaningful **`dataAriaLabel`** when the spinner is the main busy indicator; omit (**decorative**) only when adjacent **Text** explains state  

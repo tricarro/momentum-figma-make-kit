@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Select (Momentum) — Momentum guidance (IDE)
+# Select (Momentum) — Momentum guidance (Cursor)
 
 **Select** is a **dropdown** for choosing **one** option from a predefined list. Wrap **Option** / **OptGroup** in **`Selectlistbox`** (required for accessible wiring). Each **Option** needs a **`value`**; set **`selected`** for the default, or set **`value`** on **Select** to match. **Divider**s between groups are optional. Tooltips on options must **live outside** the select (per the package). **[Combobox](./combobox.mdc)** is for typeahead; **[ListBox](./listbox.mdc)** is a standalone listbox.
 
@@ -55,7 +55,7 @@ Use **`value`**, **`onInput`** / **`onChange`**, and form wiring from [Storybook
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`Selectlistbox`** wraps the options in the same structure as Storybook  

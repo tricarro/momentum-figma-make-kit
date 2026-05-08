@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# StaticRadio (Momentum) — Momentum guidance (IDE)
+# StaticRadio (Momentum) — Momentum guidance (Cursor)
 
 **StaticRadio** is a **read-only** **radio** look—**no** **`onChange`** or **`name`** grouping. Use in **read-only** summaries, confirmations, or to echo which option was **chosen**. The interactive case is **[Radio](./radio.mdc)** / **[Radiogroup](./radiogroup.mdc)** / **[CardRadio](./cardradio.mdc)**. **`Radio`** can compose with static affordances—see [StaticRadio / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-staticradio--docs).
 
@@ -60,7 +60,7 @@ Use a string in the default slot or **Text**—[Storybook — StaticRadio / Exam
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Real **mutually exclusive** selection uses **Radio** + **`name`** or **[Radiogroup](./radiogroup.mdc)** in forms  

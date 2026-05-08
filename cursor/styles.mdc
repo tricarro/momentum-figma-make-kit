@@ -4,13 +4,13 @@ globs: "**/*.{css,tsx,jsx}"
 alwaysApply: false
 ---
 
-# Layout and typography (Momentum + IDE)
+# Layout and typography (Momentum + Cursor)
 
 How to structure screens and set type with Momentum. For token syntax and semantic text colors, see [tokens.mdc](./tokens.mdc). For the root theme class, see [setup.mdc](./setup.mdc).
 
 ## Layout
 
-These rules mirror the Momentum **Layout Guidelines** in Figma ([Layout Guidelines — Desktop Grid](https://www.figma.com/design/67Dm1VJfWCx7UooEaRta4m/%F0%9F%93%95-Layout-Guidelines?node-id=1-1683)). In the IDE, implement them with **CSS flex or grid**. Momentum does not ship a single “page layout” component: you compose regions yourself.
+These rules mirror the Momentum **Layout Guidelines** in Figma ([Layout Guidelines — Desktop Grid](https://www.figma.com/design/67Dm1VJfWCx7UooEaRta4m/%F0%9F%93%95-Layout-Guidelines?node-id=1-1683)). In Cursor, implement them with **CSS flex or grid**. Momentum does not ship a single “page layout” component: you compose regions yourself.
 
 ### Principles
 
@@ -107,7 +107,7 @@ To override `color` for a semantic state, use theme text tokens in [tokens.mdc](
 
 ## Border radius
 
-In the Figma [Layout Guidelines — Border Radius](https://www.figma.com/design/67Dm1VJfWCx7UooEaRta4m/%F0%9F%93%95-Layout-Guidelines?node-id=1405-29769) frame (node `1405:29769`), this is titled **Border Radius**; the rules below are the same content, written for **IDE prototypes** (React + inline `style` / CSS, **no Tailwind**).
+In the Figma [Layout Guidelines — Border Radius](https://www.figma.com/design/67Dm1VJfWCx7UooEaRta4m/%F0%9F%93%95-Layout-Guidelines?node-id=1405-29769) frame (node `1405:29769`), this is titled **Border Radius**; the rules below are the same content, written for **Cursor prototypes** (React + inline `style` / CSS, **no Tailwind**).
 
 Curved shapes support a welcoming, “human” feel and continue the line language of icons and illustrations. **Default to Momentum components** so corners match the system. For **custom** wrappers, use **only** the **four** radius classes; the radius **fits the size of the element** (small control vs. large region).
 

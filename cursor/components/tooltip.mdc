@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Tooltip (Momentum) — Momentum guidance (IDE)
+# Tooltip (Momentum) — Momentum guidance (Cursor)
 
 **Tooltip** is **hover**- and **keyboard-focus**-driven help built on **[Popover](./popover.mdc)** for **non-interactive** text. It **closes** on pointer leave and focus **blur**. It **must not** contain **links**, **buttons**, or **focusable** content—use **[ToggleTip](./toggletip.mdc)** for that. The surface may use **`aria-hidden`** for some SR modes; the **trigger** or adjacent **[Text](./text.mdc)** should carry meaning when required by the a11y model. **Events (React):** **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**. Associate with a control via **`triggerID`** (capital **`ID`** on **Popover**) pointing at the trigger element’s **`id`** (e.g. **Option**, **ListItem** truncation patterns).
 
@@ -46,7 +46,7 @@ Give the **trigger** a stable **`id`** and set **`Tooltip`** **`triggerID`** to 
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] Content is **plain text** / **`Text`** only—no interactive children  

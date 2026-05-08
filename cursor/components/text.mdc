@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Text (Momentum) — Momentum guidance (IDE)
+# Text (Momentum) — Momentum guidance (Cursor)
 
 **Text** is the **typography** primitive: **`type`** selects the design type scale; **`tagname`** overrides the **HTML** tag (default **`p`**; must be **valid** or it falls back). Content goes in the **default** slot. Must sit under **[ThemeProvider](./themeprovider.mdc)** so **token** colors and **font** apply. Styling: **csspart** **`text`** and the **`type`** matrix in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs). Use **Text** for **all** Momentum copy in prototypes—avoid raw **`<p>`** / **`<span>`** with ad-hoc styling (see workspace guidelines).
 
@@ -54,7 +54,7 @@ Choose **`type`** and **`tagname`** from the matrix in [Storybook — Text / Exa
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** wraps the subtree so **`type`** resolves correctly  
 - [ ] **`IconProvider`** when slotted content uses **Icon**  

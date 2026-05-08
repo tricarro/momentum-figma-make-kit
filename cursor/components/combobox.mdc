@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Combobox (Momentum) — Momentum guidance (IDE)
+# Combobox (Momentum) — Momentum guidance (Cursor)
 
 **Combobox** is a **filterable** list bound to a **text** input: users **type** to narrow options, then **select**. **`noResultText`** (or equivalent prop name in your build) shows when nothing matches. Options use **`Option`** (and **`OptGroup`**) inside **`Selectlistbox`** — see [Selectlistbox](./selectlistbox.mdc).
 
@@ -72,7 +72,7 @@ import { Combobox, Option, Selectlistbox } from "@momentum-design/components/dis
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using icons on the field or list  
 - [ ] **`Selectlistbox`** wraps options with the structure from Storybook  

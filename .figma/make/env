@@ -1,4 +1,4 @@
 NODE_VERSION=24
-APP_DIR=figma-make-files
+APP_DIR=figme-make
 DEV_PORT=5173
 DEV_URL=http://localhost:${DEV_PORT}

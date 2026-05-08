@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Card (Momentum) — Momentum guidance (IDE)
+# Card (Momentum) — Momentum guidance (Cursor)
 
 **Card** is a **static** layout block for image, header, body, and optional footer. Use it for read-only or lightly interactive regions where **actions** are separate controls (e.g. **`Button`** in footer slots, **`Link`** in **`footer-link`**). The whole card is **not** one big button—use **`CardButton`**, **`CardCheckbox`**, or **`CardRadio`** for selection/click surfaces.
 
@@ -73,7 +73,7 @@ Adjust **`slot`** names on children to match Storybook for your installed packag
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`** or header icon buttons  
 - [ ] **Selection** = **`CardCheckbox`** or **`CardRadio`**; **single CTA** on whole card = **`CardButton`**  

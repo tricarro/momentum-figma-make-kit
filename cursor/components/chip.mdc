@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Chip (Momentum) — Momentum guidance (IDE)
+# Chip (Momentum) — Momentum guidance (Cursor)
 
 **Chip** is a **compact, interactive** pill (extends **Buttonsimple**): optional **leading `iconName`** and **`label`**. Wrap with **Tooltip** / overlays for extra context. Prefer **~20 characters** for **`label`** (design recommendation). Use **FilterChip** for filter toggles, **InputChip** for removable tokens, **StaticChip** for read-only tags, **AlertChip** for inline alert styling.
 
@@ -55,7 +55,7 @@ import { Chip } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **Short** label; truncate in design, not with arbitrary CSS  

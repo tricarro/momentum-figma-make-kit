@@ -4,7 +4,7 @@ globs: "**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 
-# Toggle (Momentum) — Momentum guidance (IDE)
+# Toggle (Momentum) — Momentum guidance (Cursor)
 
 **Toggle** is a **binary** **switch** implemented as a **checkbox** with **`role="switch"`**—for settings that **apply immediately** (not “submit at end of form”). **Group** toggles with **[FormfieldGroup](./formfieldgroup.mdc)** (not **[Radiogroup](./radiogroup.mdc)**). **Events (React):** **`onChange`**, **`onFocus`**. The thumb uses the **`static-toggle`** CSS part, backed by **[StaticToggle](./statictoggle.mdc)**. Label / help / toggletip match **Checkbox**-family patterns.
 
@@ -49,7 +49,7 @@ Use **`onChange`** / **`onInput`**, **`dataAriaLabel`**, and **FormfieldGroup** 
 
 ---
 
-## Checklist for IDE prototypes
+## Checklist for Cursor prototypes
 
 - [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
 - [ ] **`dataAriaLabel`** when the label is not visible (per package a11y notes)  
