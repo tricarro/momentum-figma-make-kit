@@ -1,0 +1,67 @@
+---
+description: Momentum skeleton component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Skeleton (Momentum) — Momentum guidance (IDE)
+
+**Skeleton** is a **placeholder** for **loading** UIs. **`variant`:** **`rectangular`** (default), **`rounded`**, **`circular`**, or **`button`**. Sizing: **wrap** optional slotted content (skeleton **matches** child size), **or** fill the **parent**; override with **`--mdc-skeleton-width`**, **`height`**, **`--mdc-skeleton-background-color`**. Use in list and card loading rows—mirror the real **[ListItem](./listitem.mdc)** / **Text** layout to avoid **layout shift**. **[Progressspinner](./progressspinner.mdc)** / **[Progressbar](./progressbar.mdc)** are for **known** or **busy** progress, not static chrome placeholders.
+
+See also: [List](./list.mdc), [ListItem](./listitem.mdc), [ScreenreaderAnnouncer](./screenreaderannouncer.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Skeleton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-skeleton-skeleton--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-skeleton-skeleton--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Skeleton, Text, List, ListItem } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **Shimmer** / motion follows the design system—avoid one-off custom CSS.  
+- **Do not** use as the only loading signal—**announce** busy state where needed (**ScreenreaderAnnouncer** or live regions).
+
+---
+
+## Example — `Skeleton` (rectangular) with label
+
+```jsx
+import { Skeleton, Text } from "@momentum-design/components/dist/react";
+
+function ListRowLoading() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--mds-spacing-inline-xs, 0.5rem)",
+      }}
+    >
+      <Skeleton variant="rectangular" />
+      <Text type="body-midsize-regular" tagname="p">
+        Loading…
+      </Text>
+    </div>
+  );
+}
+```
+
+Prefer **wrapping** real **Text** / **Button** in **`Skeleton`** when the layout must match—[Storybook — Skeleton / Example](https://momentum.design/storybook-static/index.html?path=/story/components-skeleton-skeleton--example).
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] Skeleton **geometry** matches final **[Text](./text.mdc)** / row layout to limit layout shift  
+- [ ] Pair with visible “Loading…” or **[ScreenreaderAnnouncer](./screenreaderannouncer.mdc)** when status matters  
+
+Cross-check [Storybook — Skeleton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-skeleton-skeleton--docs) and your installed package version.

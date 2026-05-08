@@ -1,6 +1,10 @@
 # ButtonLink (Momentum) — Figma Make guidance
 
-**ButtonLink** is an **`<a>`-style** control that **looks** like **Button** (variant, size, **prefix** / **postfix** icons). Use for **same-page anchors** or off-site **navigation**; use **`Button`** for **in-app actions** with no URL. It extends **`Linksimple`**: **`href`**, **`target`**, **`rel`**, etc. Reference: [Storybook — ButtonLink / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonlink--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-button-buttonlink--example).
+**ButtonLink** is an **`<a>`-style** control that **looks** like **Button** (`variant`, **`color`**, **`size`**, **`inverted`**, **prefix** / **postfix** icons—same mental model as **Button**). Use for **same-page anchors** or off-site **navigation**; use **`Button`** for **in-app actions** with no URL. It extends **`Linksimple`**: **`href`**, **`target`**, **`rel`**, etc.
+
+See also: [Button](./button.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — ButtonLink / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonlink--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-button-buttonlink--example).
 
 ---
 
@@ -16,10 +20,10 @@ import { ButtonLink } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **Visuals:** same mental model as **`Button`** (sizes, variants, `prefixIcon` / `postfixIcon`, default slot = label).  
-- **Link behavior:** `href` required for navigation; supports **`onClick`**, **`onKeyDown`**, **`onFocus`**, **`onBlur`**.  
+- **Visuals:** same props family as **`Button`** (`size`, `variant`, `color`, `inverted`, `prefixIcon` / `postfixIcon`, default slot = label). Default **`size`** **`32`** in the package.  
+- **Link behavior:** **`href`** required for navigation; supports **`onClick`**, **`onKeyDown`**, **`onFocus`**, **`onBlur`**.  
 - **`softDisabled`:** looks disabled, still focusable (you must block real navigation in handlers if used).  
-- Styling: `--mdc-button-*` family as in the [ButtonLink](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonlink--docs) doc.
+- Styling: **`--mdc-button-*`** family as in the [ButtonLink Storybook doc](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonlink--docs).
 
 **External** links: set **`rel`** (e.g. `noopener noreferrer`) and **`target`** as required by your policy when `target="_blank"`.
 
@@ -27,9 +31,11 @@ import { ButtonLink } from "@momentum-design/components/dist/react";
 
 ## Key props (link + button styling)
 
-- **`href`**, **`target`**, **`rel`**, **`size`**, **`variant`**, **`color`**  
+- **`href`**, **`target`**, **`rel`**  
+- **`size`**, **`variant`**, **`color`**, **`inverted`**  
 - **`prefixIcon`**, **`postfixIcon`**, **`softDisabled`**  
-- **`onClick`**, **`onFocus`**, **`onBlur`**
+- **`onClick`**, **`onFocus`**, **`onBlur`**  
+- **`ariaLabel`:** use when the link has no visible text (e.g. icon-only), per Storybook for your version.
 
 ---
 
@@ -44,8 +50,12 @@ import { ButtonLink } from "@momentum-design/components/dist/react";
     href="https://www.webex.com"
     target="_blank"
     rel="noopener noreferrer"
-    >VisitLink</ButtonLink
+    variant="secondary"
+    color="default"
+    size={32}
   >
+    Visit Webex
+  </ButtonLink>
 </div>
 ```
 
@@ -53,10 +63,11 @@ Use a real internal help URL in production.
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
+- [ ] `ThemeProvider` + **`IconProvider`** when using icons  
 - [ ] `href` points to a **real** destination; no `#` unless you handle focus in the same view  
 - [ ] `Button` (not `ButtonLink`) for **form submit** / in-app only actions  
 - [ ] External links: **`rel`** + **`target`** as required  
 
-[Storybook — ButtonLink / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonlink--docs)
+Cross-check [Storybook — ButtonLink / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonlink--docs) and your installed package version.

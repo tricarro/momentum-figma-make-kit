@@ -1,6 +1,10 @@
 # Banner (Momentum) — Figma Make guidance
 
-**Banner** surfaces **important, persistent messages** and expects **user action** (dismiss, fix, or follow a step). It supports **variant**-driven **icons** and copy via **`label`** / **`secondaryLabel`**, or full override through **slots**. Reference: [Storybook — Banner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-banner-banner--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-banner-banner--example).
+**Banner** surfaces **important, persistent messages** and expects **user action** (dismiss, fix, or follow a step). It supports **variant**-driven **icons** and copy via **`label`** / **`secondaryLabel`**, or full override through **slots**.
+
+See also: [AlertChip](./alertchip.md) (compact inline alert vs full-width banner).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Banner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-banner-banner--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-banner-banner--example).
 
 ---
 
@@ -16,20 +20,32 @@ import { Banner, Button } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **`variant`:** `custom` (default) · `informational` · `warning` · `error` · `success` (drives default **leading** icon; for **`custom`**, supply a **`leading-icon`** slot or the banner may have no default icon).  
-- **Properties path:** `label` with optional `secondaryLabel` (secondary only shows with a label).  
-- **Slots:** `content` replaces **entire** inner layout; or use `leading-icon`, `leading-text`, `trailing-actions` for custom sections.  
-- Trailing **actions** (e.g. dismiss) go in **`trailing-actions`**, often with Momentum **`Button`**s.
+- **`variant`:** `custom` · `informational` · `warning` · `error` · `success` (drives default **leading** icon for non-custom variants). For **`custom`**, supply **`slot="leading-icon"`** or there may be **no** default icon.  
+- **Properties path:** **`label`** with optional **`secondaryLabel`** (**secondary** only renders when **`label`** is set).  
+- Trailing **actions** (e.g. dismiss) go in **`slot="trailing-actions"`**, often with Momentum **`Button`**s.
 
-Styling: `--mdc-banner-*` (background, border, padding, icon color, elevation, etc.) in [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-banner-banner--docs).
+### Slots
+
+| Slot | Effect |
+| --- | --- |
+| **`content`** | Replaces **all** default inner content (icon, labels, actions). Full layout override. |
+| **`leading-icon`** | Custom icon; for **`custom`** variant, use this when you need an icon. Overrides variant-based icon. |
+| **`leading-text`** | Custom text block; overrides **`label`** / **`secondaryLabel`**. |
+| **`trailing-actions`** | Actions (e.g. **Dismiss**, **Retry**) — typically **`Button`** children. |
+
+Use **`slot="..."`** on the **direct** child (or wrapper) in JSX.
+
+Styling: **`--mdc-banner-*`** (background, border, padding, icon color, elevation, etc.) in [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-banner-banner--docs).
+
+### Defaults (package)
+
+**`variant`** defaults to **`custom`** — choose **`informational`** / **`warning`** / **`error`** / **`success`** explicitly when matching severity icons and colors.
 
 ---
 
 ## Key props
 
 - **`variant`**, **`label`**, **`secondaryLabel`**
-
-For slots, use the **`slot="..."` attribute** on children (e.g. `<Button slot="trailing-actions" …>` when supported by the pattern in Storybook for your version).
 
 ---
 
@@ -46,9 +62,7 @@ import { Banner, Button } from "@momentum-design/components/dist/react";
 >
   <div slot="trailing-actions">
     <Button ariaLabel="Cancel action" variant="tertiary">Cancel</Button>
-    <Button ariaLabel="Perform primary action" variant="secondary"
-      >Action</Button
-    >
+    <Button ariaLabel="Perform primary action" variant="secondary">Action</Button>
     <Button
       prefixIcon="cancel-bold"
       ariaLabel="Dismiss banner"
@@ -59,14 +73,15 @@ import { Banner, Button } from "@momentum-design/components/dist/react";
 </Banner>
 ```
 
-Add `trailing-actions` with `Button` children when the design needs **Dismiss** / **Retry** (see Storybook for your package version’s slot example).
+Add **`trailing-actions`** when the design needs **Dismiss** / **Retry** (see Storybook for your package version).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] `variant` matches the severity; **`custom`** + `leading-icon` if you need a one-off treatment  
+- [ ] `ThemeProvider` + **`IconProvider`** per [setup.md](../setup.md) (leading icons)  
+- [ ] `variant` matches the severity; **`custom`** + **`leading-icon`** if you need a one-off treatment  
 - [ ] Actions in **`trailing-actions`** use MDS **Button**, not raw `<button>`  
 - [ ] Prefer **tokens** (`var(--mds-…)`) for any extra layout around the banner  
 
-[Storybook — Banner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-banner-banner--docs)
+Cross-check [Storybook — Banner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-banner-banner--docs) and your installed package version.

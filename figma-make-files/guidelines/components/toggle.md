@@ -1,6 +1,10 @@
 # Toggle (Momentum) — Figma Make guidance
 
-**Toggle** is a **binary** **switch** implemented as a **checkbox** with **`role="switch"`**—for features that **apply immediately** (not “submit form”). **Group** toggles with **FormfieldGroup** (not **RadioGroup**). **Events (React):** **`onChange`**, **`onFocus`**. The **visual** thumb uses the **`static-toggle`** CSS part, backed by [StaticToggle](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-statictoggle--docs). Label / help / toggletip match **Checkbox**-family patterns. **StaticToggle** = read-only display. Reference: [Storybook — Toggle / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggle-toggle--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggle-toggle--example).
+**Toggle** is a **binary** **switch** implemented as a **checkbox** with **`role="switch"`**—for settings that **apply immediately** (not “submit at end of form”). **Group** toggles with **[FormfieldGroup](./formfieldgroup.md)** (not **[Radiogroup](./radiogroup.md)**). **Events (React):** **`onChange`**, **`onFocus`**. The thumb uses the **`static-toggle`** CSS part, backed by **[StaticToggle](./statictoggle.md)**. Label / help / toggletip match **Checkbox**-family patterns.
+
+See also: [FormfieldGroup](./formfieldgroup.md), [StaticToggle](./statictoggle.md), [Checkbox](./checkbox.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Toggle / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggle-toggle--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggle-toggle--example).
 
 ---
 
@@ -35,13 +39,14 @@ function Mute() {
 }
 ```
 
-(Use **`onChange` / `onInput`**, **`dataAriaLabel`**, and **group** with **FormfieldGroup** as in [Storybook — Toggle / Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggle-toggle--example).)
+Use **`onChange`** / **`onInput`**, **`dataAriaLabel`**, and **FormfieldGroup** grouping as in [Storybook — Toggle / Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggle-toggle--example).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] `dataAriaLabel` when the label is not visible, per the package a11y notes  
-- [ ] `IconProvider` in the app root per [setup.md](../setup.md)  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] **`dataAriaLabel`** when the label is not visible (per package a11y notes)  
+- [ ] Prefer **[StaticToggle](./statictoggle.md)** for read-only summaries  
 
-[Storybook — Toggle / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggle-toggle--docs)
+Cross-check [Storybook — Toggle / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggle-toggle--docs) and your installed package version.

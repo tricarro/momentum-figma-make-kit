@@ -1,6 +1,10 @@
 # Selectlistbox (Momentum) — Figma Make guidance
 
-**Selectlistbox** is a **light-DOM** wrapper that sits **between** **Select** (or **Combobox**) and the **Option** / **OptGroup** children so the **listbox** roles and `aria-owns` wiring stay correct. You **must** use it in those patterns—the package will remove it if/when `ariaOwnsElements` is broadly available. It has **no** business logic: **only** structure and a11y plumbing. Reference: [Storybook — Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-list-selectlistbox--example).
+**Selectlistbox** is a **light-DOM** wrapper that sits **between** **[Select](./select.md)** (or **[Combobox](./combobox.md)**) and the **Option** / **OptGroup** children so **listbox** roles and **`aria-owns`** wiring stay correct. Use it in those patterns—the package notes it may be removed when **`ariaOwnsElements`** is broadly available. It has **no** selection business logic: **structure** and **a11y** plumbing only.
+
+See also: [Select](./select.md), [Combobox](./combobox.md), [Option](./option.md), [OptGroup](./optgroup.md), [ListBox](./listbox.md) (standalone—different use case).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-list-selectlistbox--example).
 
 ---
 
@@ -16,12 +20,14 @@ import { Selectlistbox, Option } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **Default** slot: **`Option`** and **`OptGroup`** only (same as **Select**’s “default” slot in practice).  
-- **Not** the same as **ListBox** (standalone) or the combobox’s internal list—name matches the **select** + **a11y** use case.  
+- **Default** slot: **`Option`** and **`OptGroup`** only (same as **Select**’s option tree in practice).  
+- **Not** the same as **[ListBox](./listbox.md)** (standalone listbox component).
+
+You **rarely** import **`Selectlistbox`** alone—it exists so **Select** / **Combobox** wrap **Option** trees correctly.
 
 ---
 
-## Example — with **`Select`** (the usual pattern)
+## Example — with **`Select`** (usual pattern)
 
 ```jsx
 import { Select, Selectlistbox, Option } from "@momentum-design/components/dist/react";
@@ -38,6 +44,14 @@ function InSelect() {
 }
 ```
 
-(You **rarely** use **`Selectlistbox` alone**—it exists so **Select** / **Combobox** can wrap **Option** trees; see [Storybook — Select / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-select--docs) and [Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs).)
+See [Storybook — Select / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-select-select--docs) and [Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs).
 
-[Storybook — Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs)
+---
+
+## Checklist for Figma Make
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** when options use **`prefixIcon`** per [setup.md](../setup.md)  
+- [ ] **`Selectlistbox`** wraps **Option** / **OptGroup** exactly as Storybook shows for **Select** / **Combobox**  
+- [ ] Do not substitute **ListBox** for **`Selectlistbox`**—different components  
+
+Cross-check [Storybook — Selectlistbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs) and your installed package version.

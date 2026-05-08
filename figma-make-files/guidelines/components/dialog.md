@@ -1,6 +1,10 @@
 # Dialog (Momentum) — Figma Make guidance
 
-**Dialog** is a **modal** with **header**, **body**, and **footer** slots. It **blocks** the page until closed. Sizes: **small**, **medium**, **large**, **xlarge**, **fullscreen**; **variants** include **default** and **promotional**. Visibility is **fully controlled** via **`visible`**: the component does **not** own open/close state—you set **`visible`** and handle **`onClose`**. Optional **`triggerID`** restores focus to a trigger; otherwise the previously focused element is used. Reference: [Storybook — Dialog / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-dialog-dialog--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-dialog-dialog--example).
+**Dialog** is a **modal** with **header**, **body**, and **footer** slots. It **blocks** the page until closed. Sizes: **small**, **medium**, **large**, **xlarge**, **fullscreen**; **variants** include **default** and **promotional**. Visibility is **controlled** via **`visible`**: the component does **not** own open/close state—you set **`visible`** and handle **`onClose`**. Optional **`triggerID`** (matches the package prop: capital **`ID`**) restores focus to the element whose **`id`** matches that string.
+
+See also: [Popover](./popover.md) (non-modal surfaces), [Coachmark](./coachmark.md) (teaching popover).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Dialog / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-dialog-dialog--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-dialog-dialog--example).
 
 ---
 
@@ -16,19 +20,19 @@ import { Dialog, Button, Text, Link } from "@momentum-design/components/dist/rea
 
 ## What it is
 
-- **Slots:** `header-prefix`, `dialog-body`, `footer-button-primary` / `footer-button-secondary`, `footer-link`, or **`footer`** for custom layouts.  
-- **Events (React):** **`onClose`** (close button or **Escape** — it does not automatically hide; your handler should set `visible` false), **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**.  
-- **A11y:** you must set **`aria-label`** or **`aria-labelledby`** (often the visible title’s id).  
-- **Layout:** max height follows viewport; body and dialog scroll with **`overflow: auto`**.  
+- **Slots:** **`header-prefix`**, **`dialog-body`**, **`footer-button-primary`** / **`footer-button-secondary`**, **`footer-link`**, or **`footer`** for custom layouts.  
+- **Events (React):** **`onClose`** (close control or **Escape**—you still set **`visible`** false in state), **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**.  
+- **A11y:** set **`ariaLabel`** or **`aria-labelledby`** (often tie to visible title **`id`**).  
+- **Layout:** max height follows viewport; body scrolls with **`overflow: auto`** where Storybook shows it.  
 - Theming: **`--mdc-dialog-*`** in the [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-dialog-dialog--docs).
 
-**Dialog** for blocking tasks; use **AnnouncementDialog** or lighter patterns for non-modal messaging when Storybook allows.
+Use **Dialog** for blocking tasks; lighter patterns (e.g. inline **Announcement**) only when Storybook/product allow.
 
 ---
 
 ## Key props (typical)
 
-- **`visible`**, **`onClose`**, **`triggerId`**, **`variant`**, size-related props, **`ariaLabel`** / `aria-labelledby`
+- **`visible`**, **`onClose`**, **`triggerID`**, **`variant`**, size props, **`ariaLabel`** / **`aria-labelledby`**
 
 ---
 
@@ -43,7 +47,9 @@ function ConfirmAction() {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open dialog</Button>
+      <Button type="button" onClick={() => setOpen(true)}>
+        Open dialog
+      </Button>
 
       <Dialog visible={open} onClose={() => setOpen(false)} ariaLabel="Confirm action">
         <Text slot="dialog-body" type="body-primary">
@@ -61,15 +67,15 @@ function ConfirmAction() {
 }
 ```
 
-(Slot names and **footer** layout must match your Storybook for this version—see [Storybook — Dialog / Example](https://momentum.design/storybook-static/index.html?path=/story/components-dialog-dialog--example).)
+Slot names must match [Storybook — Dialog / Example](https://momentum.design/storybook-static/index.html?path=/story/components-dialog-dialog--example) for your package version.
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] `visible` and **`onClose`** are wired so Escape and the close control **both** work  
-- [ ] **`aria-label`** or **`aria-labelledby`** is set  
-- [ ] Prefer **footer** slots for **Button** and **Link**; avoid orphan actions outside the pattern  
-- [ ] For **long** copy, the scrollable **body** slot is used; header stays stable  
+- [ ] **`ThemeProvider`** + **`IconProvider`** when header/footer use icons  
+- [ ] **`visible`** and **`onClose`** wired so Escape and close control both collapse the dialog  
+- [ ] **`ariaLabel`** or **`aria-labelledby`** set  
+- [ ] Prefer **footer** slots for **Button** / **Link**; long copy lives in the scrollable **body**  
 
-[Storybook — Dialog / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-dialog-dialog--docs)
+Cross-check [Storybook — Dialog / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-dialog-dialog--docs) and your installed package version.

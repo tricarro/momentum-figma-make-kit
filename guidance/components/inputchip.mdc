@@ -1,0 +1,73 @@
+---
+description: Momentum inputchip component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# InputChip (Momentum) — Momentum guidance (IDE)
+
+**InputChip** represents a **value** the user (or app) can **remove**: **label**, optional **leading** icon, **`prefix`** slot for **Avatar** (wins over **`iconName`**), **close** control, and an **`error`** state for validation. **Remove** fires **`onRemove`** in React.
+
+See also: [Chip](./chip.mdc), [FilterChip](./filterchip.mdc), [StaticChip](./staticchip.mdc), [AlertChip](./alertchip.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — InputChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-inputchip--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { InputChip, Avatar } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`label`:** string (required in typings).  
+- **`error`:** boolean validation styling.  
+- **`clearAriaLabel`:** **accessible name** for the **close** control—set it whenever the chip is dismissible.  
+- **`onRemove`:** when the user activates **close**; bubbles.  
+- **`prefix` slot:** e.g. small **Avatar**; else **`iconName`** (needs **`IconProvider`**).  
+- **`disabled`:** from the disabled mixin.  
+- Styling: **`--mdc-chip-*`** in [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs).
+
+**Typical** use: email **To:** field tokens, **file** chips with remove, or dismissible filter tags.
+
+---
+
+## Key props
+
+- **`label`**, **`error`**, **`clearAriaLabel`**, **`iconName`**, **`onRemove`**, **`disabled`**
+
+---
+
+## Example — `InputChip`
+
+```jsx
+import { InputChip } from "@momentum-design/components/dist/react";
+
+function EmailToken({ address, onDismiss }) {
+  return (
+    <InputChip
+      label={address}
+      clearAriaLabel={`Remove ${address}`}
+      onRemove={onDismiss}
+    />
+  );
+}
+```
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`** or icon-bearing **`Avatar`** patterns  
+- [ ] **Always** set **`clearAriaLabel`** (or the documented equivalent for your Storybook version)  
+- [ ] **`onRemove`** updates the parent’s list of values  
+- [ ] **`error`** with form validation, not ad-hoc red text  
+- [ ] For **static** (non-dismiss) tags, use **[StaticChip](./staticchip.mdc)** or **[Chip](./chip.mdc)** instead  
+
+Cross-check [Storybook — InputChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs) and your installed package version.

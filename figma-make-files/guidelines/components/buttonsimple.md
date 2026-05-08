@@ -1,6 +1,10 @@
 # Buttonsimple (Momentum) — Figma Make guidance
 
-**Buttonsimple** (`mdc-buttonsimple`) is a **low-level** **`<button>`** with label in the default slot, **`type`**, **disabled** / **softDisabled**, and **active** (toggle/pressed with `aria-pressed`). It is the **base** for **Button** and other composite controls. Prefer **`Button`** for Figma Make unless you need a **minimal** control or are matching Storybook that uses `Buttonsimple` directly. Reference: [Storybook — ButtonSimple / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonsimple--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-button-buttonsimple--example).
+**Buttonsimple** (`mdc-buttonsimple`) is a **low-level** **`<button>`** with label in the default slot, **`type`**, **disabled** / **softDisabled**, and **active** (toggle/pressed with `aria-pressed`). It is the **base** for **Button** and other composite controls. Prefer **`Button`** for IDE prototypes unless you need a **minimal** control or are matching Storybook that uses **Buttonsimple** directly.
+
+See also: [Button](./button.md). Other extensions include **AlertChip**, **AvatarButton**, and controls built on **Buttonsimple**.
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — ButtonSimple / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonsimple--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-button-buttonsimple--example).
 
 ---
 
@@ -25,7 +29,11 @@ The public export is **`Buttonsimple`** from `@momentum-design/components/dist/r
 - **Events:** `onClick`, `onKeyDown`, `onKeyUp`, `onFocus`  
 - **Single slot** for the **text** label; no built-in prefix/postfix icon API (use **`Button`** for that).
 
-`Button`, **AvatarButton**, and others extend this; styling tokens: `--mdc-button-*` in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonsimple--docs).
+**Button**, **AvatarButton**, and others extend this; styling tokens: **`--mdc-button-*`** in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonsimple--docs).
+
+### Defaults (package)
+
+**`type`** **`button`** when unset—use **`submit`** / **`reset`** deliberately in forms.
 
 ---
 
@@ -42,16 +50,16 @@ The public export is **`Buttonsimple`** from `@momentum-design/components/dist/r
 ```jsx
 import { Buttonsimple } from "@momentum-design/components/dist/react";
 
-<Buttonsimple>Click Me</Buttonsimple>
+<Buttonsimple type="button">Click Me</Buttonsimple>
 ```
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
 - [ ] Prefer **`Button`** for icons, colors, and full variant set  
 - [ ] `type="button"` in forms when not submitting  
 - [ ] `softDisabled` only with a clear **inert** action policy in code  
 - [ ] `active` for **true** toggles, not for single-use actions  
 
-[Storybook — ButtonSimple / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonsimple--docs)
+Cross-check [Storybook — ButtonSimple / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-buttonsimple--docs) and your installed package version.

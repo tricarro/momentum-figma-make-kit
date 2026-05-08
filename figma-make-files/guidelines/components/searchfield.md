@@ -1,6 +1,10 @@
 # Searchfield (Momentum) — Figma Make guidance
 
-**Searchfield** extends **Input** with **inline filter chips** (**`InputChip`**, **`AlertChip`**, **`Chip`**) in the **`filters`** slot. Chips act like part of the **text** line: **arrow** keys move between text and chips; **Backspace** removes a chip when the cursor is next to it. **Control type** — default **uncontrolled** removes removed chips from the DOM and fires **`onChipRemove`**; **`controlType="controlled"`** only fires **`onChipRemove`**, and you must **remove the chip in state** yourself. In React: **`onChipRemove`**, plus **`onInput`**, **`onChange`**, **`onFocus`**, **`onBlur`**, **`onClear`**. The package **discourages** using **Searchfield** **with** a **Popover** or **ListBox**; **results** should be **on the page**. For a search field that **opens a popover** of results, use **SearchPopover** instead. Reference: [Storybook — Searchfield / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-searchfield-searchfield--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-searchfield-searchfield--example).
+**Searchfield** extends **[Input](./input.md)** with **inline filter chips** (**`InputChip`**, **`AlertChip`**, **`Chip`**) in the **`filters`** slot. Chips sit in the **text** line: **arrow** keys move between text and chips; **Backspace** removes a chip when the cursor is adjacent. **Control type** — default **uncontrolled** removes chips from the DOM and fires **`onChipRemove`**; **`controlType="controlled"`** only fires **`onChipRemove`**, and **you** remove the chip in state. In React: **`onChipRemove`**, plus **`onInput`**, **`onChange`**, **`onFocus`**, **`onBlur`**, **`onClear`**. The package **discourages** **Searchfield** **with** **Popover** or **ListBox**; keep **results** **on the page**. For search + **floating** results list, use **`SearchPopover`** (Storybook) instead of pairing **Searchfield** + **Popover**.
+
+See also: [Input](./input.md), [InputChip](./inputchip.md), [Chip](./chip.md), [Combobox](./combobox.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Searchfield / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-searchfield-searchfield--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-searchfield-searchfield--example).
 
 ---
 
@@ -17,9 +21,9 @@ import { Searchfield, InputChip, Chip } from "@momentum-design/components/dist/r
 ## What it is
 
 - Inherits **Input** slots: **label**, **help**, **leading** icon, **clear**, etc.  
-- **`onChipRemove`:** `event.detail` includes the **chip** element.  
+- **`onChipRemove`:** **`event.detail`** includes the **chip** element.
 
-**Searchfield** = main search + **inline** **filters**; **SearchPopover** = search + **floating** results; **Combobox** = typeahead **option** list.
+**Searchfield** = main search + **inline** **filters**; **`SearchPopover`** (catalog) = search + **floating** results; **Combobox** = typeahead **option** list.
 
 ---
 
@@ -33,14 +37,14 @@ function MessagesSearch() {
 }
 ```
 
-(Add **`InputChip` / `Chip` filter** children and **`onChipRemove`** when the design needs inline filters—[Storybook — Searchfield / Example](https://momentum.design/storybook-static/index.html?path=/story/components-searchfield-searchfield--example).)
+Add **`InputChip`** / **`Chip`** filter children and **`onChipRemove`** when the design needs inline filters—[Storybook — Searchfield / Example](https://momentum.design/storybook-static/index.html?path=/story/components-searchfield-searchfield--example).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] Do not pair with **Popover**-based result lists; use **SearchPopover** for that model  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] Do not pair with **Popover**-based result lists; use **`SearchPopover`** for that model (see Storybook)  
 - [ ] **Controlled** chip lists keep React state in sync in **`onChipRemove`**  
-- [ ] `IconProvider` in the app root per [setup.md](../setup.md)  
 
-[Storybook — Searchfield / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-searchfield-searchfield--docs)
+Cross-check [Storybook — Searchfield / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-searchfield-searchfield--docs) and your installed package version.

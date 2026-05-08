@@ -1,0 +1,61 @@
+---
+description: Momentum iconprovider component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# IconProvider (Momentum) — Momentum guidance (IDE)
+
+**IconProvider** loads **Momentum icons** once at app shell using **`registerMomentumIcons`** from **`@momentum-design/icons/dist/esm/svg`** so **`Icon`**/`IconNames` resolve **`name`** strings.
+
+See also: [Icon](./icon.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — IconProvider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-iconprovider-iconprovider--docs).
+
+---
+
+## Import
+
+Requires <ThemeProvider> ancestor. See setup.mdc.
+
+```jsx
+import { IconProvider } from "@momentum-design/components/dist/react";
+import { registerMomentumIcons } from "@momentum-design/icons/dist/esm/svg";
+```
+
+---
+
+## What it is
+
+- **`IconProvider`** wraps the subtree that renders **`Icon`** (often **`ThemeProvider`** → **`IconProvider`** → app).  
+- **`registerMomentumIcons`** imports registry modules **once**—avoid duplicate registration across bundles.  
+- Unknown **`Icon`** **`name`** logs a warning and renders nothing—verify **`name`** against **`IconNames`** / Storybook.
+
+---
+
+## Example — shell wiring
+
+```jsx
+import { ThemeProvider, IconProvider } from "@momentum-design/components/dist/react";
+import { registerMomentumIcons } from "@momentum-design/icons/dist/esm/svg";
+
+registerMomentumIcons();
+
+export function AppShell({ children }) {
+  return (
+    <ThemeProvider theme="light">
+      <IconProvider>{children}</IconProvider>
+    </ThemeProvider>
+  );
+}
+```
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] Call **`registerMomentumIcons`** **once** before **`Icon`** renders  
+- [ ] **`ThemeProvider`** **outside** **`IconProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] Icon **`name`** strings align with **`IconNames`** / Storybook  
+
+Cross-check [Storybook — IconProvider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-iconprovider-iconprovider--docs) and your installed package version.

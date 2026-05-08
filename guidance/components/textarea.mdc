@@ -1,0 +1,54 @@
+---
+description: Momentum textarea component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Textarea (Momentum) — Momentum guidance (IDE)
+
+**Textarea** is a **multiline** field: **label**, **help** / validation, **`maxCharacterLimit`**, **`onLimitExceeded`** (React) when the count crosses the limit (set **`helpTextType`** to **error** and update **`helpText`** from that handler, per the package), optional **resizable** with **`resizeButtonAriaLabel`**, and **`characterLimitAnnouncement`** for screen reader updates. **Events:** **`onInput`**, **`onChange`**, **`onFocus`**, **`onBlur`**, **`onLimitExceeded`**. Same **form-field** family as **[Input](./input.mdc)** / **[Password](./password.mdc)**.
+
+See also: [Input](./input.mdc), [Password](./password.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Textarea / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-textarea-textarea--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-textarea-textarea--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Textarea } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **Resizing:** when **`resizable`**, document shortcuts in the resize button’s **ARIA** label.  
+- **Length** rules: use **`onLimitExceeded`** to flip **error** help text, not a silent truncate.
+
+---
+
+## Example — `Textarea`
+
+```jsx
+import { Textarea } from "@momentum-design/components/dist/react";
+
+function Notes() {
+  return <Textarea label="Notes" placeholder="Add details" maxCharacterLimit={500} helpText="Optional" />;
+}
+```
+
+Use **`onInput`** / **`onChange`** / **`onLimitExceeded`**, **`resizable`**, and **help** for errors per [Storybook — Textarea / Example](https://momentum.design/storybook-static/index.html?path=/story/components-textarea-textarea--example).
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] **`characterLimitAnnouncement`** / **`helpText`** give SR users the same limits as sighted users  
+- [ ] **`onLimitExceeded`** drives **`helpTextType="error"`** when the spec requires blocking submit  
+
+Cross-check [Storybook — Textarea / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-textarea-textarea--docs) and your installed package version.

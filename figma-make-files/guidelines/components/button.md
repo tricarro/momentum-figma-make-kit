@@ -1,6 +1,10 @@
 # Button (Momentum) — Figma Make guidance
 
-**Button** (`mdc-button`) is the main **action** control: **pill** (text, with or without **prefix** / **postfix** icon slots), or **icon-only** when there is no label. Variants: **primary** / **secondary** / **tertiary**; **colors** for solid styles: default, **positive**, **negative**, **accent**, **promotional**. Reference: [Storybook — Button / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-button--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-button-button--example).
+**Button** (`mdc-button`) is the main **action** control: **pill** (text, with or without **prefix** / **postfix** icon slots), or **icon-only** when there is no label. Variants: **primary** / **secondary** / **tertiary**; **colors** for solid styles: default, **positive**, **negative**, **accent**, **promotional**.
+
+See also: [ButtonLink](./buttonlink.md) (navigation), [ButtonGroup](./buttongroup.md) (grouped actions), [Buttonsimple](./buttonsimple.md) (low-level base).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Button / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-button--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-button-button--example).
 
 ---
 
@@ -25,13 +29,18 @@ import { Button } from "@momentum-design/components/dist/react";
 
 For **navigation that looks like a button**, use **`ButtonLink`** instead.
 
+### Defaults (package)
+
+**`type`** is typically **`button`** when unset—set **`submit`** / **`reset`** explicitly inside forms.
+
 ---
 
 ## Key props (common)
 
 - **`size`**, **`variant`**, **`color`**, **`type`**, **`disabled`**, **`softDisabled`**, **`active`**  
 - **`prefixIcon`**, **`postfixIcon`** (icon names)  
-- **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`**
+- **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`**  
+- **`ariaLabel`:** use for **icon-only** buttons when the React wrapper exposes it (matches other Momentum components); otherwise follow Storybook for **`title`** / native **`aria-*`** on your version.
 
 Exact enums match **`button.types`** / Storybook (e.g. `variant` primary | secondary | tertiary, `color` for primary & secondary).
 
@@ -98,7 +107,7 @@ Icon **after** the label via `postfixIcon`.
 
 ### 5. Icon button (icon only)
 
-**No** default slot text; **only** `prefixIcon` or `postfixIcon` (not both for a single icon). Type is inferred as **icon** button. Use an **accessible name** (e.g. `title`, `aria-label` on a wrapper, or the pattern your Storybook version documents for `mdc-button`).
+**No** default slot text; **only** `prefixIcon` or `postfixIcon` (not both for a single icon). Type is inferred as **icon** button. Prefer **`ariaLabel`** on the component when your Storybook/React build documents it; otherwise use **`title`** or the accessibility pattern your package version recommends.
 
 ```jsx
 <Button
@@ -107,7 +116,7 @@ Icon **after** the label via `postfixIcon`.
   size={32}
   type="button"
   prefixIcon="more-bold"
-  title="More actions"
+  ariaLabel="More actions"
 />
 ```
 
@@ -123,7 +132,7 @@ On surfaces where **inverted** primary is used, keep `variant="primary"`, `color
   type="button"
   inverted
   prefixIcon="audio-static-bold"
-  title="Unmute"
+  ariaLabel="Unmute"
 />
 ```
 
@@ -152,7 +161,7 @@ When showing several references in a prototype, space them with a consistent `ga
   <Button variant="primary" color="default" size={32} type="button" postfixIcon="arrow-right-bold">
     Postfix
   </Button>
-  <Button variant="tertiary" color="default" size={32} type="button" prefixIcon="more-bold" title="More" />
+  <Button variant="tertiary" color="default" size={32} type="button" prefixIcon="more-bold" ariaLabel="More" />
   <Button
     variant="primary"
     color="default"
@@ -160,18 +169,19 @@ When showing several references in a prototype, space them with a consistent `ga
     type="button"
     inverted
     prefixIcon="settings-bold"
-    title="Settings"
+    ariaLabel="Settings"
   />
 </div>
 ```
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
+- [ ] `ThemeProvider` + **`IconProvider`** when using icons  
 - [ ] `type="button"` for non-submit actions inside forms  
 - [ ] `color="negative"` for destructive actions (when the design system prescribes)  
-- [ ] Icon-only `Button` has an **accessible name** (visible text, `aria-label` on the custom element, or pattern from Storybook for your version)  
+- [ ] Icon-only **`Button`** has an **accessible name** (**`ariaLabel`** if supported, else Storybook pattern)  
 - [ ] Inside **`ButtonGroup`**, `size` / `variant` on the **group** override child buttons  
 
-[Storybook — Button / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-button--docs)
+Cross-check [Storybook — Button / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-button-button--docs) and your installed **`@momentum-design/components`** version if props drift.

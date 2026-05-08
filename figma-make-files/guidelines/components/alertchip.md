@@ -1,6 +1,10 @@
 # AlertChip (Momentum) — Figma Make guidance
 
-**AlertChip** is an **interactive** chip (extends **Buttonsimple**) for **status** or **inline alerts**: a **leading icon** and **label**, with **semantic** **`variant`** colors (error, success, warning, informational, neutral). Use for **short** inline callouts, not for full **Banner** width. Reference: [Storybook — AlertChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-alertchip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-alertchip--example).
+**AlertChip** is an **interactive** chip (extends **Buttonsimple**) for **status** or **inline alerts**: a **leading icon** and **label**, with **semantic** **`variant`** colors (error, success, warning, informational, neutral). Use for **short** inline callouts, not for full **Banner** width.
+
+See also: [Banner](./banner.md) (page-level messaging).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — AlertChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-alertchip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-alertchip--example).
 
 ---
 
@@ -20,7 +24,7 @@ import { AlertChip } from "@momentum-design/components/dist/react";
 - **`label`:** keep **≤ ~20 characters** (team recommendation in the source).  
 - **`iconName`:** Momentum icon (from **IconName** mixin).  
 - **Events:** `onClick`, `onKeyDown`, `onKeyUp`, `onFocus` (Buttonsimple).  
-- Theming: `--mdc-chip-*` + dedicated **icon** / **border** tokens in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-alertchip--docs).
+- Theming: **`--mdc-chip-color`**, **`--mdc-chip-icon-color`**, **`--mdc-chip-border-color`**, **`--mdc-chip-background-color`**; **`csspart`** **`icon`** and **`label`** for advanced styling (see [Storybook — AlertChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-alertchip--docs)).
 
 **Banner** = page-level message; **AlertChip** = compact, often **next to** other UI.
 
@@ -28,7 +32,12 @@ import { AlertChip } from "@momentum-design/components/dist/react";
 
 ## Key props
 
-- **`variant`**, **`label`**, **`iconName`**, **`type`**, **`disabled`**
+- **`variant`:** semantic color — default **`neutral`**; also **`error`**, **`success`**, **`warning`**, **`informational`**.  
+- **`label`:** visible text (keep short; ~20 characters recommended).  
+- **`iconName`:** Momentum icon for the **leading** icon.  
+- **`type`:** HTML button type — use **`"button"`** unless submitting a form (**`"submit"`** / **`"reset"`**).  
+- **`disabled`:** fully disables interaction.  
+- **`softDisabled`:** looks disabled but stays focusable (from **Buttonsimple**); you must still block real actions in your handler.
 
 ---
 
@@ -38,15 +47,16 @@ import { AlertChip } from "@momentum-design/components/dist/react";
 import { AlertChip } from "@momentum-design/components/dist/react";
 
 
-<AlertChip label="Alert"></AlertChip>
+<AlertChip label="Alert" variant="error" iconName="error-bold"></AlertChip>
 ```
 
 (Use icon names and **`variant`** pairings that match your Storybook example.)
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
+- [ ] `ThemeProvider` + **`IconProvider`** for icons per [setup.md](../setup.md)  
 - [ ] `type="button"` when the chip is not in a form submit path  
 - [ ] Keep copy **short**; use **Banner** for long or dismissible page alerts  
 - [ ] Meaningful **label**; icon supports but does not replace the text for all users  

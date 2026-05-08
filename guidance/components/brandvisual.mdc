@@ -1,0 +1,71 @@
+---
+description: Momentum brandvisual component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Brandvisual (Momentum) — Momentum guidance (IDE)
+
+**Brandvisual** loads a **branded mark** (logo) by **`name`**, using the Momentum **brand visual** set. It fires **`onLoad`** / **`onError`** when the asset is fetched. Use in headers, sign-in, or any surface that must show a **Cisco** / product mark per brand guidelines.
+
+See also: [Appheader](./appheader.mdc) (typical placement).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Brandvisual / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-brandvisual-brandvisual--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-brandvisual-brandvisual--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Brandvisual } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`name`:** a valid **brand visual** key from the design system (TypeScript: **`BrandVisualNames`** in the package—use Storybook to see the allowed set for your build).  
+- **`altText`:** use for **PNG**-based brand visuals; important for a11y.  
+- **`onLoad`:** success after fetch.  
+- **`onError`:** failed import (handle fallback UI in React if needed).  
+- Renders the SVG/image inside parts **`brandvisual`** and **`brandvisualImage`** (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-brandvisual-brandvisual--docs) for `csspart` use).
+
+`@momentum-design/brand-visuals` (or the package your app wires for dynamic loads) must resolve for the **`name`** you use—see the repo’s Vite/Storybook setup if the mark does not appear.
+
+---
+
+## Key props
+
+- **`name`**, **`altText`**, **`onLoad`**, **`onError`**
+
+---
+
+## Example
+
+```jsx
+import { Brandvisual } from "@momentum-design/components/dist/react";
+
+
+<div role="main">
+  <Brandvisual
+    altText="Momentum design vertical logo"
+    name="momentum-design-logo-dark-color-vertical"
+    style={{ width: "var(--mds-spacing-container-horizontal-xl, 6.25rem)" }}
+  ></Brandvisual>
+</div>
+```
+
+Use layout **tokens** for width where possible; replace the fallback with the token your design specifies. Pick a **`name`** that exists in your version’s **`BrandVisualNames`** (re-exported from `@momentum-design/brand-visuals`).
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] `name` is a valid key for the installed **brand visual** bundle  
+- [ ] `altText` for image-based marks  
+- [ ] Error state so a failed load does not leave a blank hole with no layout  
+- [ ] Follow **brand** placement rules (spacing, min size) from the design file  
+
+Cross-check [Storybook — Brandvisual / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-brandvisual-brandvisual--docs) and your installed package version.

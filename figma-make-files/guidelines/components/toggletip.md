@@ -1,6 +1,10 @@
 # ToggleTip (Momentum) — Figma Make guidance
 
-**ToggleTip** (React: **`ToggleTip`**, tag **`mdc-toggletip`**) is a **click-to-open** overlay for **content that can include links and buttons**. It **extends** **Popover** with toggletip **defaults**: stays open until **Escape**, **outside** click, or an optional **close** control; **focus trap** while open; focus **returns** to the **trigger**. Uses **ScreenreaderAnnouncer** internally. **Not** a **Tooltip**—**Tooltip** is **hover/focus** and must not contain **focusable** content. **Events (React):** **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**. **Attribute** `screenreaderAnnouncerIdentity` (camelCase in React) is documented for announcement placement. Reference: [Storybook — ToggleTip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggletip-toggletip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggletip-toggletip--example).
+**ToggleTip** (React: **`ToggleTip`**, tag **`mdc-toggletip`**) is a **click-to-open** overlay for **content that can include links and buttons**. It **extends** **[Popover](./popover.md)** with toggletip defaults: stays open until **Escape**, **outside** click, or an optional **close** control; **focus trap** while open; focus **returns** to the **trigger**. Uses **[ScreenreaderAnnouncer](./screenreaderannouncer.md)** internally. **Not** a **[Tooltip](./tooltip.md)**—Tooltip is **hover/focus** and must not contain **focusable** content. **Events (React):** **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**. **`screenreaderAnnouncerIdentity`** (camelCase in React) configures announcement placement.
+
+See also: [Popover](./popover.md), [Tooltip](./tooltip.md), [ScreenreaderAnnouncer](./screenreaderannouncer.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — ToggleTip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggletip-toggletip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggletip-toggletip--example).
 
 ---
 
@@ -16,14 +20,15 @@ import { ToggleTip, Button, Text, Link } from "@momentum-design/components/dist/
 
 ## What it is
 
-- **Toggletip** in **form** labels: often the **`toggletip`** **slot** on **Input** / **Checkbox**—use the same **Trigger**+**content** **pattern** in Storybook.  
-- Theming: **`--mdc-toggletip-*`**.  
+- **Form** labels: often the **`toggletip`** **slot** on **Input** / **Checkbox**—match Storybook’s **trigger + panel** tree.  
+- Anchoring uses **`Popover`** **`triggerID`** (capital **`ID`**) like other overlays—see **[Popover](./popover.md)**.  
+- Theming: **`--mdc-toggletip-*`**.
 
 ---
 
-## Example — `ToggleTip` content (default **slot**)
+## Example — `ToggleTip` content (default slot)
 
-`ToggleTip` **extends** **Popover**; you must still add the **trigger** / **anchor** markup the same way as in the Storybook page (not repeated here, because it is version-specific).
+You must add the **trigger** / **`triggerID`** wiring the way [Storybook — ToggleTip / Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggletip-toggletip--example) shows (version-specific).
 
 ```jsx
 import { ToggleTip, Text, Link } from "@momentum-design/components/dist/react";
@@ -39,6 +44,12 @@ function RichHelpBody() {
 }
 ```
 
-Copy the full **trigger + `ToggleTip`** tree from [Storybook — ToggleTip / Example](https://momentum.design/storybook-static/index.html?path=/story/components-toggletip-toggletip--example).
+---
 
-[Storybook — ToggleTip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggletip-toggletip--docs)
+## Checklist for Figma Make
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] **`triggerID`** matches the trigger element **`id`** (same as **Popover**)  
+- [ ] Rich content / links → **ToggleTip**; plain short hover help → **Tooltip**  
+
+Cross-check [Storybook — ToggleTip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-toggletip-toggletip--docs) and your installed package version.

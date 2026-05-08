@@ -2,6 +2,8 @@
 
 Repository for **Momentum Design System** guidance used when prototyping in **Figma Make** (and similar AI-assisted flows). Most of the content lives under **`figma-make-files/`**: markdown guidelines for humans and assistants, plus a small **Vite + React** package that pins `@momentum-design/*` versions and applies bundler fixes needed for icons and brand visuals in Make.
 
+For **Cursor** (and consistent AI-assisted coding in the IDE), translated **project rules** live under **[`guidance/`](guidance/README.md)** (`.mdc` files). See [`guidance/README.md`](guidance/README.md) for how to copy them into `.cursor/rules/` and how to regenerate them from `figma-make-files/guidelines/`.
+
 ---
 
 ## What lives in `figma-make-files/`

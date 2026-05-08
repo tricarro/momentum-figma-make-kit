@@ -1,6 +1,10 @@
 # ListItem (Momentum) — Figma Make guidance
 
-**ListItem** is a **row** in a **List** with **leading** / **trailing** areas for **radio**, **checkbox**, or **toggle**, plus **Avatar**, **Badge**, and **Text** sublines. Use the named **slots** (`leading-controls`, `leading-text-primary-label`, `trailing-text-subline`, `trailing-controls`, etc.) or the **`content`** slot to **fully override** the body (per Storybook; overrides default layout). Parent must be **List** for a11y. Fires **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`**, and lifecycle **enabled** / **disabled** / **created** / **destroyed** in React. Reference: [Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-list-listitem--example).
+**ListItem** is a **row** in a **List** with **leading** / **trailing** areas for **radio**, **checkbox**, or **toggle**, plus **Avatar**, **Badge**, and **Text** sublines. Use the named **slots** (**`leading-controls`**, **`leading-text-primary-label`**, **`trailing-text-subline`**, **`trailing-controls`**, etc.) or the **`content`** slot to **fully override** the body (see Storybook). Parent must be **List** for the intended pattern. Fires **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`**, and lifecycle events in React.
+
+See also: [List](./list.md), [Option](./option.md) (listbox rows, not **`List`**).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-list-listitem--example).
 
 ---
 
@@ -16,10 +20,10 @@ import { List, ListItem, Text, Avatar, Checkbox, Radio, Toggle, Badge } from "@m
 
 ## What it is
 
-- **Truncation:** for long text, the package recommends a **Tooltip**; add a **unique id** to the `ListItem` and set the tooltip’s **`triggerId`** to match (manual wiring per JSDoc).  
-- Theming: **`--mdc-listitem-*`** for hover, active, labels, and gaps.  
+- **Truncation:** for long text, the package recommends **Tooltip**; give the **`ListItem`** (or label element) a **unique `id`** and set the tooltip/popover’s **`triggerID`** to that **`id`** (see JSDoc / Storybook).  
+- Theming: **`--mdc-listitem-*`** for hover, active, labels, and gaps.
 
-**ListItem** = rich row; **Option** = option row inside listboxes / selects, not the same component.
+**ListItem** = rich row in **List**; **Option** = row inside **Select** / **ListBox** listboxes.
 
 ---
 
@@ -41,15 +45,15 @@ function OneRow() {
 }
 ```
 
-(Add **leading** / **trailing** controls, **badges**, or **Tooltips** from the [Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs) when the design needs them.)
+Add **leading** / **trailing** controls, **badges**, or **tooltips** from [Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs) when the design needs them.
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] `List` wraps the items  
-- [ ] Only **one** primary “control” type per design (radio **group** vs ad-hoc) matches **RadioGroup** or **name**  
-- [ ] Truncation + **Tooltip** for ellipsized titles  
-- [ ] `IconProvider` in the app root if rows use **Icon** / avatars with icons per [setup.md](../setup.md)  
+- [ ] **`ThemeProvider`** + **`IconProvider`** when rows use **Icon** / avatars with icons per [setup.md](../setup.md)  
+- [ ] **`List`** wraps the items  
+- [ ] **Radio** selection patterns align with **[Radiogroup](./radiogroup.md)** / shared **`name`**—do not mix ad-hoc semantics  
+- [ ] Truncation + **Tooltip** for ellipsized titles (**`triggerID`** matches trigger **`id`**)  
 
-[Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs)
+Cross-check [Storybook — ListItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listitem--docs) and your installed package version.

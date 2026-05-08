@@ -1,6 +1,10 @@
 # Icon (Momentum) — Figma Make guidance
 
-**Icon** loads an SVG from the **IconProvider**’s **URL** and renders it by **`name`**. Sizing is driven by **`size`** and **`lengthUnit`** (align to the **uploaded design**; use **32px** when the design is silent—see **Sizing** below). You must use **decorative**, **informative** (label + `role="img"`), or **informative standalone** (label, **`tabIndex={0}`**, and usually a **Tooltip**) per the a11y model in the [package docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs). Reference: [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-icon-icon--example).
+**Icon** renders **Momentum icons** by **`name`** + **`size`** **with** **`lengthUnit="px"`**. Icons register via **`IconProvider`** / **`registerMomentumIcons`**—do **not** load SVG assets manually.
+
+See also: [IconProvider](./iconprovider.md). Optional: [Brandvisual](./brandvisual.md), [Illustration](./illustration.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs).
 
 ---
 
@@ -16,54 +20,41 @@ import { Icon } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **IconProvider** at the app root supplies the **sprite or fetch URL**; icons **fail** silently if not found.  
-- **Color:** **`--mdc-icon-fill-color`**; border radius: **`--mdc-icon-border-radius`**.  
-- **Decorative:** no **aria** needed; keep them **hidden** from the accessibility tree.  
-- **Meaning** not in adjacent text: set **`dataAriaLabel`** (or the documented equivalent) and treat as an image.  
-
-Most product UI should use **icons inside** **Button**, **Input**, **Link**, etc. Use **Icon** alone only when the pattern calls for a standalone pictogram.
-
-**Sizing:** **Align `size` and `lengthUnit` to the uploaded design file** (the Figma or reference you are implementing—inspect frames, components, and measurements so icons match that spec). When the design does **not** specify a size, set **`size={32}`** and **`lengthUnit="px"`** (32px) as the Figma Make default. If the icon lives inside another Momentum control (**Button**, **Input**, etc.), still prefer the **uploaded design** when it shows a concrete size; otherwise follow that parent’s scale, and use **32px** only when nothing else is defined.
+- **`name`** — exact registry key (case-sensitive); unknown names **warn** and render nothing.  
+- **`size`** — numeric length + **`lengthUnit`** (**`px`** default).  
+- **`aria-hidden`** — **`true`** when decorative (paired with visible **`Text`**); omit when icon conveys meaning—then pair with **`aria-label`** or adjacent text **`id`**.  
+- Colors inherit **`currentColor`**—set **`color`** on parent **`Text`** / CSS **`color`** using **`var(--mds-color-*)`**.
 
 ---
 
-## How to Use
+## Key props
 
-1. **Follow the design first.** If the user’s Figma file, spec, or prompt names an icon (or clearly implies one), use that **`name`** and match **`size`** / **`lengthUnit`** to the uploaded design when possible.
-
-2. **Only use published names.** **`name`** values must exist in the Momentum icon set. Use the icon manifest shipped with the **Momentum Icon** npm package as the source of truth for valid **`name`** strings (including **`<base>-<weight>`** patterns—see [Icons](../components.md#icons) in [components.md](../components.md)).
-
-3. **When the user does not specify an icon**, open the manifest, search for keywords that match the **action or meaning** (e.g. add, delete, settings, warning—not purely decorative whims), and pick the closest semantic match. Prefer icons already used in similar Momentum patterns rather than inventing a new metaphor.
-
-4. **Do not guess arbitrary strings.** If nothing in the manifest fits, or several options could work, **ask the user** which icon or metaphor they want instead of picking one silently.
+- **`name`**, **`size`**, **`lengthUnit`**, **`aria-hidden`**, **`aria-label`**
 
 ---
 
-## Key props (typical)
-
-- **`name`**, **`size`**, **`lengthUnit`**, **`dataAriaLabel`** — see **Sizing** above: match the **uploaded design** first; **32px** (`32` + `"px"`) when unspecified.
-
----
-
-## Example — decorative `Icon` (`name` with weight)
+## Example — decorative icon beside label `Text`
 
 ```jsx
-import { Icon } from "@momentum-design/components/dist/react";
+import { Icon, Text } from "@momentum-design/components/dist/react";
 
-function SearchRow() {
-  return <Icon name="search-bold" size='32px' />;
+function LabeledIconRow() {
+  return (
+    <Text type="body-primary">
+      <Icon name="check-circle-bold" size={16} lengthUnit="px" aria-hidden />
+      Saved
+    </Text>
+  );
 }
 ```
 
-(Use **`<base>-<weight>`** for **`name`** per the [Icons](../components.md#icons) section in [components.md](../components.md). Standalone **informative** icons also need the **label / `dataAriaLabel`** model from [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs).)
-
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] `IconProvider` and theme are configured per [setup.md](../setup.md)  
-- [ ] **`size` / `lengthUnit`** follow the **uploaded design** when it specifies dimensions; if not, use **32px** default (`size={32}`, `lengthUnit="px"`)  
-- [ ] **Meaning** is in **text** or a proper **aria** / tooltip, not color alone  
-- [ ] In standalone informative cases, match Storybook for **focus** and **tooltip**  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] **`name`** matches Momentum registry exactly  
+- [ ] Decorative icons → **`aria-hidden`** + adjacent **`Text`**  
+- [ ] Meaningful icons → **`aria-label`** or labelled-by visible **`Text`**  
 
-[Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs)
+Cross-check [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs) and your installed package version.

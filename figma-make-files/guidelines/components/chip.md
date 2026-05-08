@@ -1,6 +1,10 @@
 # Chip (Momentum) — Figma Make guidance
 
-**Chip** is a **compact, interactive** pill (extends **Buttonsimple**): **leading `iconName`** and **`label`**. You can wrap it in **Tooltip** / other overlays for more context. Prefer **~20 character** labels (design recommendation). Use **FilterChip** for **selected/deselected** filter toggles, **InputChip** for **removable** user-entered values, **StaticChip** for read-only tags. Reference: [Storybook — Chip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-chip--example).
+**Chip** is a **compact, interactive** pill (extends **Buttonsimple**): optional **leading `iconName`** and **`label`**. Wrap with **Tooltip** / overlays for extra context. Prefer **~20 characters** for **`label`** (design recommendation). Use **FilterChip** for filter toggles, **InputChip** for removable tokens, **StaticChip** for read-only tags, **AlertChip** for inline alert styling.
+
+See also: [FilterChip](./filterchip.md), [InputChip](./inputchip.md), [StaticChip](./staticchip.md), [AlertChip](./alertchip.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Chip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-chip--example).
 
 ---
 
@@ -17,18 +21,20 @@ import { Chip } from "@momentum-design/components/dist/react";
 ## What it is
 
 - **`label`:** visible text.  
-- **`iconName`:** Momentum icon (optional; extension pattern).  
+- **`iconName`:** Momentum icon (optional).  
 - **`color`:** `default` · `cobalt` · `gold` · `lime` · `mint` · `orange` · `pink` · `purple` · `slate` · `violet`  
-- **Events:** `onClick`, `onKeyDown`, `onKeyUp`, `onFocus`  
-- Styling: `--mdc-chip-color`, `--mdc-chip-border-color`, `--mdc-chip-background-color` (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs)).
+- **Events:** **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`** (Buttonsimple).  
+- **`type`:** HTML button type—use **`"button"`** unless submitting a form.  
+- **`disabled`**, **`softDisabled`** (from **Buttonsimple**—soft keeps focus; block actions in code).  
+- Styling: **`--mdc-chip-color`**, **`--mdc-chip-border-color`**, **`--mdc-chip-background-color`** (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs)).
 
-**Do not** use a plain `Chip` when the UX is a **filter toggle** (use **FilterChip**) or a **token with remove** (use **InputChip**).
+**Do not** use plain **Chip** when the UX is a **filter toggle** (**FilterChip**) or a **removable token** (**InputChip**).
 
 ---
 
 ## Key props
 
-- **`label`**, **`color`**, **`iconName`**, **`type`**, **`disabled`**, **`onClick`**
+- **`label`**, **`color`**, **`iconName`**, **`type`**, **`disabled`**, **`softDisabled`**, **`onClick`**
 
 ---
 
@@ -38,15 +44,16 @@ import { Chip } from "@momentum-design/components/dist/react";
 import { Chip } from "@momentum-design/components/dist/react";
 
 
-<Chip label="Label"></Chip>
+<Chip label="Label" color="cobalt" type="button"></Chip>
 ```
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] **Short** label; truncate in design, not in random CSS  
-- [ ] **Filter** UI → **FilterChip**; **dismiss** token → **InputChip**; **read-only** tag → **StaticChip**  
-- [ ] `IconProvider` in the app root per [setup.md](../setup.md)  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] **Short** label; truncate in design, not with arbitrary CSS  
+- [ ] **Filter** UI → **FilterChip**; **dismiss** token → **InputChip**; **read-only** tag → **StaticChip**; **inline alert** → **AlertChip**  
+- [ ] **`type="button"`** when not submitting a form  
 
-[Storybook — Chip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs)
+Cross-check [Storybook — Chip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs) and your installed package version.

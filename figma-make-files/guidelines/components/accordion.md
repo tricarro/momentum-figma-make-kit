@@ -1,6 +1,10 @@
 # Accordion (Momentum) — Figma Make guidance
 
-Use the **Accordion** component when the panel header must stay interactive apart from the expand/collapse action—e.g. **chips, badges, or extra buttons** in the header. Only the **dedicated expand/collapse control** toggles the section. For a **simple, fully clickable row header**, use **`AccordionButton`** instead. Official reference: [Storybook — Accordion / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordion--docs). Example story (visual + behavior): [Storybook — Accordion / Example](https://momentum.design/storybook-static/index.html?path=/story/components-accordion-accordion--example).
+Use the **Accordion** component when the panel header must stay interactive apart from the expand/collapse action—e.g. **chips, badges, or extra buttons** in the header. Only the **dedicated expand/collapse control** toggles the section. For a **simple, fully clickable row header**, use **`AccordionButton`** instead.
+
+See also: [AccordionButton](./accordionbutton.md) (full-header toggle), [AccordionGroup](./accordiongroup.md) (sets of items).
+
+Official reference: [Storybook — Accordion / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordion--docs). Example story (visual + behavior): [Storybook — Accordion / Example](https://momentum.design/storybook-static/index.html?path=/story/components-accordion-accordion--example).
 
 ---
 
@@ -9,9 +13,16 @@ Use the **Accordion** component when the panel header must stay interactive apar
 Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
 ```jsx
-import { Accordion, Text, Icon, Button, Chip } from "@momentum-design/components/dist/react";
-// Optional: group multiple items with coordinated expansion
-import { AccordionGroup, AccordionButton } from "@momentum-design/components/dist/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionGroup,
+  Badge,
+  Button,
+  Chip,
+  Icon,
+  Text,
+} from "@momentum-design/components/dist/react";
 ```
 
 ---
@@ -22,18 +33,22 @@ import { AccordionGroup, AccordionButton } from "@momentum-design/components/dis
 - **Unlike `AccordionButton`**, the **whole header is not** the primary toggle: **only the expand/collapse button** opens and closes the panel.  
 - **`variant`**: border style (e.g. `default` has borders, `borderless` removes them).  
 - **`size`**: padding (`small` = 1rem, `large` = 1.5rem for header/body).  
-- **`disabled`**: blocks the toggle and should disable slotted header controls (when applicable).
+- **`disabled`**: blocks the expand/collapse control; the component also applies **disabled** to elements in **`leading-controls`** and **`trailing-controls`** so slotted header controls stay consistent.
 
-For multiple sections, wrap items in **`AccordionGroup`** to share **variant**, **size**, and **single-expand** behavior; set **`allowMultiple`** if more than one section may be open. See the Storybook app’s **accordion / accordionGroup** doc page (same static host as the links above) for group props and layout variants (`stacked`, `contained`, `borderless`).
+### Defaults (package)
+
+Out of the box: **`expanded`** `false`, **`size`** `"small"`, **`dataAriaLevel`** `3`, **`variant`** `"default"`, **`togglePosition`** `"trailing"`.
+
+For multiple sections, wrap items in **`AccordionGroup`** ([guidance](./accordiongroup.md)) for shared **size**, group layout **variant**, and single-expand unless **`allowMultiple`**. The group’s **`variant`** (`stacked`, `contained`, `borderless`) is **not** the same prop as a single **`Accordion`** / **`AccordionButton`** **`variant`**—see [Storybook — AccordionGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordiongroup--docs).
 
 ---
 
 ## Accessibility (required)
 
 - Set **`openButtonAriaLabel`** and **`closeButtonAriaLabel`** for the expand/collapse control.  
-- Set **`dataAriaLevel`** (e.g. `2`, `3`, …) to match the real **heading** hierarchy of the page (header text defaults to an H3-like role; align with your outline).  
+- Set **`dataAriaLevel`** so the header’s semantic heading level matches your page outline (default **`3`**, i.e. same level as an `<h3>`—use `2`, `4`, … when your structure requires it).  
 - If the panel starts **expanded by default**, be aware some screen readers **may lose focus** on toggle; prefer collapsed-by-default when possible.  
-- The component fires **`onShown`** when expand/collapse happens (React), mapping the native **`shown`** event. Use it for analytics or to sync to React state if you control `expanded` yourself.
+- The component fires **`onShown`** when expand/collapse happens (React), mapping the native **`shown`** event. Use it for analytics or to sync to React state when **`expanded`** is controlled—read **`e.detail.expanded`** (boolean).
 
 ---
 
@@ -42,7 +57,7 @@ For multiple sections, wrap items in **`AccordionGroup`** to share **variant**, 
 | Slot | Purpose |
 | --- | --- |
 | *(default)* | **Body** — any content for the collapsible section. |
-| `leading-header-text` | Text region after the **prefix** icon (if you use custom text here instead of/in addition to `headerText`—see package docs for your version). |
+| `leading-header-text` | Content **after the prefix icon**, **before** the main title row—use for custom title markup when **`headerText`** alone is not enough; if you only need a string title, use **`headerText`** and skip this slot. |
 | `leading-controls` | Controls after the main header text. |
 | `trailing-controls` | Controls before the **expand/collapse** button. |
 
@@ -55,15 +70,17 @@ For most Figma Make prototypes, **`headerText` + default slot** is enough.
 - **`headerText`**: Title string in the header.  
 - **`prefixIcon`**: Momentum **icon name** (e.g. `"file-bold"`), or omit.  
 - **`openButtonAriaLabel`**, **`closeButtonAriaLabel`**: **Required for a11y.**  
-- **`expanded`**: Controlled open state; pair with `onShown` to update.  
-- **`dataAriaLevel`**: Number for heading level (default **3** in the design system).  
+- **`expanded`**: Controlled open state; pair with **`onShown`** and set state from **`e.detail.expanded`** so the UI stays in sync when the user toggles.  
+- **`dataAriaLevel`**: Number for heading level (default **3**).  
 - **`size`**: `"small"` | `"large"`.  
 - **`variant`**: `"default"` | `"borderless"`.  
-- **`togglePosition`**: `"trailing"` | `"leading"` (where the **arrow** row sits vs. text).  
-- **`disabled`**: Disables interaction.  
-- **`onShown`**: `(e) => …` when expansion changes; `e.detail` includes **`expanded`**.
+- **`togglePosition`**: `"trailing"` | `"leading"` (where the **arrow** sits vs. text).  
+- **`disabled`**: Disables interaction (including slotted header controls—see above).  
+- **`onShown`**: `(e) => …` when expansion changes; **`e.detail.expanded`** is a **boolean**.
 
-Styling tokens for borders/disabled state can be tuned with CSS custom properties (see package docs) such as `--mdc-accordionbutton-border-color`, `--mdc-accordionbutton-disabled-color`.
+**Controlled mode:** If you drive **`expanded`** from React state, update that state inside **`onShown`** using **`e.detail.expanded`**. Use the same handler for analytics if needed.
+
+Styling: borders/disabled text can be tuned with CSS custom properties such as `--mdc-accordionbutton-border-color`, `--mdc-accordionbutton-disabled-color` (see package / Storybook). For shadow-DOM styling hooks, the component exposes **`csspart`** names such as `body-section`, `header-section`, `toggle-button`—see Storybook for the full list.
 
 ---
 
@@ -116,4 +133,4 @@ import {
 - [ ] Body copy uses Momentum **`Text`**, spacing uses **MDS** tokens, not one-off CSS numbers  
 - [ ] Prefer `AccordionGroup` for multiple **Accordion**s with one-at-a-time open behavior (unless `allowMultiple`)
 
-For the latest props and slots, cross-check the [Storybook Accordion – Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordion--docs) and your installed **`@momentum-design/components`** version.
+Cross-check [Storybook — Accordion / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordion--docs) and your installed **`@momentum-design/components`** version if props drift.

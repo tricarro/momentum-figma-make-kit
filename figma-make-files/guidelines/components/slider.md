@@ -1,6 +1,10 @@
 # Slider (Momentum) — Figma Make guidance
 
-**Slider** selects a **value** (or a **range** with **`range`**) along a **track**; with **step** greater than **1** it shows **ticks** and **snaps** the thumb. **Events (React):** **`onInput`**, **`onChange`**. **Spatial** navigation: user may need to **enter** “edit” mode to adjust with **arrow** keys, then **Enter** / **Escape** to exit—see the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs). Theming: **`--mdc-slider-*`**; **cssparts** include **track**, **tick**, **tooltip** region. **Progressbar** / **Progressspinner** show **read-only** progress, not a draggable value. Reference: [Storybook — Slider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-slider-slider--example).
+**Slider** selects a **value** (or a **range** with **`range`**) along a **track**; with **step** greater than **1** it can show **ticks** and **snap** the thumb. **Events (React):** **`onInput`**, **`onChange`**. **Spatial** navigation: users may need to **enter** adjustment mode with arrow keys, then **Enter** / **Escape** to exit—see [Storybook — Slider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs). Theming: **`--mdc-slider-*`**; **cssparts** include **track**, **tick**, **tooltip** region.
+
+See also: [Progressbar](./progressbar.md), [Input](./input.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Slider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-slider-slider--example).
 
 ---
 
@@ -14,6 +18,13 @@ import { Slider } from "@momentum-design/components/dist/react";
 
 ---
 
+## What it is
+
+- **Progressbar** / **Progressspinner** show **read-only** progress, not a draggable value.  
+- Wire **`min`**, **`max`**, **`step`**, **`value`**, and **`range`** (two thumbs) per Storybook for your version.
+
+---
+
 ## Example — `Slider`
 
 ```jsx
@@ -24,14 +35,14 @@ function Volume() {
 }
 ```
 
-(Use **`onInput` / `onChange`**, **two-thumb `range`**, and **a11y** for thumb labels from [Storybook — Slider / Example](https://momentum.design/storybook-static/index.html?path=/story/components-slider-slider--example).)
+Use **`onInput`** / **`onChange`**, **two-thumb `range`**, and thumb **labels** from [Storybook — Slider / Example](https://momentum.design/storybook-static/index.html?path=/story/components-slider-slider--example).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] **Label** and **min** / **max** / **step** are set from product; screen readers get the same information  
+- [ ] **`ThemeProvider`** per [setup.md](../setup.md); **`IconProvider`** if the slider uses built-in **Icon**s  
+- [ ] **Label** and **min** / **max** / **step** match product; SR users get the same information  
 - [ ] **Range** mode documents **two** thumbs and how values bind in React  
-- [ ] `IconProvider` in the app root if the slider uses built-in **Icon**s per [setup.md](../setup.md)  
 
-[Storybook — Slider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs)
+Cross-check [Storybook — Slider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-slider-slider--docs) and your installed package version.

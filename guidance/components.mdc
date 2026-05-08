@@ -1,0 +1,167 @@
+---
+description: Momentum React components — imports, export list, icon names
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Components (Momentum + IDE)
+
+How to use Momentum React components in IDE prototypes. **Install, CSS imports, providers, and theming** are in [setup.mdc](./setup.mdc) — this file focuses on component choice, the published export list, **icons** rules, and per-component deep dives.
+
+## General usage
+
+Import and use Momentum React components directly. Do not recreate interactive UI with native HTML when a Momentum component exists.
+
+```jsx
+// ✅ Correct
+import { Button } from "@momentum-design/components/dist/react";
+
+<Button variant="primary" size="32">
+  Save
+</Button>
+
+// ❌ Never do this
+<button className="btn btn-primary">Save</button>
+```
+
+Use `@momentum-design/components/dist/react` only, never the package root (see [setup.mdc](./setup.mdc#react-import-path)).
+
+If unsure whether a component exists, try importing it from `@momentum-design/components/dist/react` before falling back to native elements.
+
+## Per-component documentation
+
+For props, examples, and checklists for a specific component, use the matching file in **`./components/`** — filenames are **lowercase** and match the export name (e.g. `Button` → `button.md`, `Appheader` → `appheader.md`, `Selectlistbox` → `selectlistbox.md`):
+
+`./components/<lowercase-name>.md`
+
+When in doubt, open the folder and pick the file that matches the import name, preserving the package’s spelling (e.g. `buttonsimple.md`, `verticaltablist.md`).
+
+## React exports (from `@momentum-design/components/dist/react`)
+
+These are the `export` names from the package’s React entry (PascalCase, matching `import { Name }`). Generated from `dist/react/index.d.ts` in **@momentum-design/components@0.133.31**:
+
+- `Accordion`
+- `AccordionButton`
+- `AccordionGroup`
+- `AlertChip`
+- `Animation`
+- `AnnouncementDialog`
+- `Appheader`
+- `Avatar`
+- `AvatarButton`
+- `Badge`
+- `Banner`
+- `Brandvisual`
+- `Bullet`
+- `Button`
+- `ButtonGroup`
+- `ButtonLink`
+- `Buttonsimple`
+- `Calendar`
+- `Card`
+- `CardButton`
+- `CardCheckbox`
+- `CardRadio`
+- `Checkbox`
+- `Chip`
+- `Coachmark`
+- `Combobox`
+- `ControlTypeProvider`
+- `DatePicker`
+- `Dialog`
+- `Divider`
+- `FilterChip`
+- `FormfieldGroup`
+- `FormfieldWrapper`
+- `Icon`
+- `IconProvider`
+- `Illustration`
+- `IllustrationProvider`
+- `Input`
+- `InputChip`
+- `Link`
+- `LinkButton`
+- `Linksimple`
+- `List`
+- `ListBox`
+- `Listheader`
+- `ListItem`
+- `Marker`
+- `MenuBar`
+- `MenuItem`
+- `MenuItemCheckbox`
+- `MenuItemRadio`
+- `MenuPopover`
+- `MenuSection`
+- `NavMenuItem`
+- `OptGroup`
+- `Option`
+- `Password`
+- `Popover`
+- `Presence`
+- `Progressbar`
+- `Progressspinner`
+- `Radio`
+- `RadioGroup`
+- `ResponsiveSettingsProvider`
+- `ScreenreaderAnnouncer`
+- `Searchfield`
+- `Searchpopover`
+- `Select`
+- `Selectlistbox`
+- `SideNavigation`
+- `Skeleton`
+- `Slider`
+- `SpatialNavigationProvider`
+- `Spinner`
+- `StaticCheckbox`
+- `StaticChip`
+- `StaticRadio`
+- `StaticToggle`
+- `Stepper`
+- `StepperConnector`
+- `StepperItem`
+- `Tab`
+- `TabList`
+- `Text`
+- `Textarea`
+- `ThemeProvider`
+- `TimePicker`
+- `Toast`
+- `Toggle`
+- `ToggleTip`
+- `Tooltip`
+- `Typewriter`
+- `Verticaltablist`
+- `VirtualizedList`
+
+Spelling and capitalization match the published package (for example `Appheader`, `Buttonsimple`, `Selectlistbox`). Re-run against `dist/react/index.d.ts` after upgrading the dependency if imports fail.
+
+## Icons
+
+### Allowed sources and rendering
+
+- **Only** the Momentum icon set shipped with `@momentum-design/components` / `@momentum-design/icons` is allowed. **Every** icon must be rendered with `<Icon name="…" />` and a `name` that is a real symbol from that set (per [Momentum design](https://momentum.design), component docs, or Storybook — not invented kebab-strings that “sound” right). Configure **IconProvider** at the app root per [setup.mdc](./setup.mdc#theme-and-icon-providers).
+- **Do not** use emoji, stock images, inline SVG, `<img>` for UI icons, or any other pack (e.g. Lucide, Material Icons, Heroicons, Font Awesome, native OS glyphs) even if a close match is easier to find.
+- If a requested icon cannot be found in the Momentum set, pick the closest **documented** Momentum `name` (per the `name` rules below) or leave the icon out. **Do not** invent, approximate, or copy names from other libraries.
+
+```jsx
+import { Icon } from "@momentum-design/components/dist/react";
+
+<Icon name="search-bold" size='32px' />
+```
+
+**Size:** Match the **uploaded design file**; if it does not specify a size, use **32px** (`size='32px'`, `lengthUnit="px"`). See **`./components/icon.mdc`**.
+
+For accessibility and full props, see **`./components/icon.mdc`**.
+
+### Icon name (required pattern)
+
+1. **Every** `name` is `<base>-<weight>` in kebab-case. The **weight** is one of: `-light`, `-regular`, `-bold`, or `-filled`.
+2. If the user (or the design) only gives a **base** name and no weight, **append `-bold`**. That is the default when nothing else is specified.
+3. If the user names a **weight** (e.g. “use the regular version”), use that suffix instead of the default: `-light`, `-regular`, or `-filled` as requested.
+4. **Never** pass a base name alone. Wrong: `name="brightness-high"`. Correct: `name="brightness-high-bold"` (default) or another valid `<base>-<weight>` from the Momentum set.
+
+```jsx
+<Icon name="brightness-high-bold" size={32} lengthUnit="px" />
+```

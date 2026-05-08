@@ -1,6 +1,12 @@
 # AccordionButton (Momentum) — Figma Make guidance
 
-Use the **AccordionButton** component for a **simple, fully clickable** row: the **entire header** toggles the panel. If the design needs **chips, badges, or other controls** in the header while **only a separate control** expands or collapses, use **`Accordion`** instead. Official reference: [Storybook — AccordionButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordionbutton--docs). Optional visual reference: [Storybook — AccordionButton / Example](https://momentum.design/storybook-static/index.html?path=/story/components-accordion-accordionbutton--example).
+Use the **AccordionButton** component for a **simple, fully clickable** row: the **entire header** toggles the panel. If the design needs **chips, badges, or other controls** in the header while **only a separate control** expands or collapses, use **`Accordion`** instead.
+
+Do **not** put separate actionable controls in the header row (buttons, chips, links that must be clicked independently); the header acts as **one** control. For independent header actions plus expand/collapse, use **`Accordion`**.
+
+See also: [Accordion](./accordion.md) (extra header controls), [AccordionGroup](./accordiongroup.md) (sets of items).
+
+Official reference: [Storybook — AccordionButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordionbutton--docs). Optional visual reference: [Storybook — AccordionButton / Example](https://momentum.design/storybook-static/index.html?path=/story/components-accordion-accordionbutton--example).
 
 ---
 
@@ -9,9 +15,7 @@ Use the **AccordionButton** component for a **simple, fully clickable** row: the
 Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
 ```jsx
-import { AccordionButton, Text } from "@momentum-design/components/dist/react";
-// Optional: group multiple items
-import { AccordionGroup } from "@momentum-design/components/dist/react";
+import { AccordionButton, AccordionGroup } from "@momentum-design/components/dist/react";
 ```
 
 ---
@@ -19,21 +23,26 @@ import { AccordionGroup } from "@momentum-design/components/dist/react";
 ## What it is
 
 - **Header** (optional **prefix** icon, **header** text, **expand/collapse** arrow) and **body** (default slot).  
-- The **whole header** is the control (click / keyboard) that opens and closes the body.  
+- The **whole header** toggles the body via **click** and keyboard (**Enter** / **Space**).  
 - **`variant`**: `default` (borders) or `borderless`.  
 - **`size`**: `small` (1rem padding) or `large` (1.5rem padding).  
-- **`disabled`**: header is not clickable.  
-- Fires **`onShown`** (React) when the section is toggled (`shown` in the design system), with `detail.expanded`.
+- **`disabled`**: header is not clickable and does not toggle.  
+- Fires **`onShown`** (React), mapping the **`shown`** event; read **`e.detail.expanded`** (boolean) for the new open state.
 
-For **several** rows, **`AccordionGroup`** can wrap multiple **`AccordionButton`** (or **`Accordion`**) children, shared **size** / **variant**, and **single-open** behavior unless **`allowMultiple`** is true.
+### Defaults (package)
+
+Out of the box: **`expanded`** `false`, **`size`** `"small"`, **`dataAriaLevel`** `3`, **`variant`** `"default"`, **`togglePosition`** `"trailing"`.
+
+For **several** rows, **`AccordionGroup`** ([guidance](./accordiongroup.md)) wraps multiple **`AccordionButton`** (and/or **`Accordion`**) children with shared **size**, group layout **variant**, and single-open behavior unless **`allowMultiple`**. The group’s **`variant`** (`stacked`, `contained`, `borderless`) describes **group layout**, not the same thing as a single item’s **`variant`** (`default`, `borderless`)—see [Storybook — AccordionGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordiongroup--docs).
 
 ---
 
 ## Accessibility
 
-- Set **`dataAriaLevel`** to match the page **heading** level (default is **3**; use `2`, `3`, etc. to fit your outline).  
-- If the first item is **expanded by default**, some screen readers **may lose focus** when toggling; prefer **collapsed** by default when you can.  
-- Unlike **`Accordion`**, this component does **not** use separate `openButtonAriaLabel` / `closeButtonAriaLabel` props on the public API—the header acts as one interactive region.
+**Expand/collapse:** You do **not** set `openButtonAriaLabel` / `closeButtonAriaLabel` (those apply to **`Accordion`** only). The whole header is one interactive region (pointer + **Enter** / **Space**).
+
+- Set **`dataAriaLevel`** so the header’s semantic heading level matches your page outline (default **`3`**, i.e. same level as an `<h3>`—use `2`, `4`, … when your structure requires it).  
+- If an item starts **expanded by default**, some screen readers **may lose focus** when toggling; prefer **collapsed** by default when you can.
 
 ---
 
@@ -45,21 +54,25 @@ For **several** rows, **`AccordionGroup`** can wrap multiple **`AccordionButton`
 
 There are no `leading-controls` / `trailing-controls` slots on **AccordionButton**; use **`Accordion`** if the spec needs those.
 
+**`leading-header-text` vs `Accordion`:** On **`Accordion`**, `leading-header-text` is a **named slot** for custom title markup. On **`AccordionButton`**, Storybook/package may still mention **`leading-header-text`** as a **`csspart`** (shadow-DOM styling hook), **not** an extra slot—body content still goes only in the **default** slot.
+
 ---
 
 ## Key props (React / camelCase on the wrapper)
 
 - **`headerText`**: Title in the header.  
 - **`prefixIcon`**: Momentum **icon name**, or omit.  
-- **`expanded`**: Open state; pair with **`onShown`** for controlled usage.  
+- **`expanded`**: Controlled open state; pair with **`onShown`** and set state from **`e.detail.expanded`** so the UI stays in sync when the user toggles.  
 - **`dataAriaLevel`**: Number for the heading level (default **3**).  
 - **`size`**: `"small"` | `"large"`.  
 - **`variant`**: `"default"` | `"borderless"`.  
 - **`togglePosition`**: `"trailing"` | `"leading"` (where the **arrow** appears).  
 - **`disabled`**: Disables the header.  
-- **`onShown`**: Fired on toggle; **`e.detail.expanded`** is the new state.
+- **`onShown`**: `(e) => …` when expansion changes; **`e.detail.expanded`** is a **boolean**.
 
-Optional theming via CSS custom properties, e.g. `--mdc-accordionbutton-border-color`, `--mdc-accordionbutton-hover-color`, `--mdc-accordionbutton-active-color`, `--mdc-accordionbutton-disabled-color` (see [Storybook — AccordionButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordionbutton--docs)).
+**Controlled mode:** If you drive **`expanded`** from React state, update that state inside **`onShown`** using **`e.detail.expanded`**. Use the same handler for analytics if needed.
+
+Styling: optional theming via CSS custom properties such as `--mdc-accordionbutton-border-color`, `--mdc-accordionbutton-hover-color`, `--mdc-accordionbutton-active-color`, `--mdc-accordionbutton-disabled-color` (see package / Storybook). For shadow-DOM styling hooks, the component exposes **`csspart`** names including `body-section`, `header-button-section`, `header-section`, `leading-header`, `leading-header-text`, `trailing-header`, `toggle-icon`—see Storybook for usage.
 
 ---
 
@@ -103,4 +116,4 @@ import {
 - [ ] Use **`AccordionGroup`** when multiple items should share one-at-a-time expansion (unless `allowMultiple`)  
 - [ ] Switch to **`Accordion`** if the design adds **header slots** for extra controls
 
-For the latest API, see [Storybook — AccordionButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordionbutton--docs) and your installed **`@momentum-design/components`** version.
+Cross-check [Storybook — AccordionButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordionbutton--docs) and your installed **`@momentum-design/components`** version if props drift.

@@ -1,0 +1,65 @@
+---
+description: Momentum avatarbutton component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# AvatarButton (Momentum) — Momentum guidance (IDE)
+
+**AvatarButton** is the **interactive** form of **Avatar**: same **photo / icon / initials / counter / presence** behavior, wrapped in a **button** (focusable, click, keyboard). For **display-only** avatars, use **`Avatar`**.
+
+See also: [Avatar](./avatar.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Official reference: [Storybook — AvatarButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-avatarbutton--docs). Optional: [AvatarButton / Example](https://momentum.design/storybook-static/index.html?path=/story/components-avatar-avatarbutton--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { AvatarButton } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- Extends **`Buttonsimple`**: supports **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`**, **`disabled`**, **`softDisabled`**, **`type`** (e.g. `"button"`), and button **size** where applicable—see the package and Storybook for the exact matrix with avatar sizing.  
+- Inherits **avatar** behavior: same **display priority** as **`Avatar`** (`src` → `iconName` → `initials` → `counter`), plus **`presence`**, **`isTyping`**, and **`size`** in the **avatar** sense (`24`–`124`).  
+- **Accessibility:** the docs require a meaningful **`ariaLabel`** (React: **`ariaLabel`**) on the control.
+
+---
+
+## Key props (in addition to Avatar)
+
+- **`ariaLabel`:** **Required** for a meaningful accessible name (e.g. "Open profile for Alex").  
+- **`onClick`**, **`disabled`**, **`softDisabled`**, **`type`**, etc.: as in **Buttonsimple** / Storybook (`softDisabled` keeps focus while looking disabled—you must still guard actions).
+
+`--mdc-avatarbutton-*` variables control overlay, avatar fill, and loading (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-avatarbutton--docs)).
+
+---
+
+## Example — `AvatarButton`
+
+```jsx
+import { AvatarButton } from "@momentum-design/components/dist/react";
+
+
+<AvatarButton initials="MD" size="88" ariaLabel="Open account menu"></AvatarButton>
+```
+
+(Add **`src`**, **`presence`**, etc. per design; use a real **`ariaLabel`** string.)
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **Always** set a descriptive **`ariaLabel`**  
+- [ ] Use **`type="button"`** when the control is not submitting a form  
+- [ ] Prefer **`Avatar`** when the element is not actionable  
+- [ ] Match **`Avatar`** content rules: `src` / `iconName` / `initials` / `counter` and **`presence` / `isTyping`**  
+- [ ] `IconProvider` / theme per [setup.mdc](../setup.mdc)  
+
+For events, disabled states, and CSS parts (`overlay`, `content`, `photo`, `presence`, `loader`, …), see [Storybook — AvatarButton / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-avatarbutton--docs).

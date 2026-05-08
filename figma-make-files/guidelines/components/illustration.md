@@ -1,65 +1,64 @@
 # Illustration (Momentum) — Figma Make guidance
 
-**Illustration** loads a **larger SVG** scene (empty states, onboarding) by **`name`**, with sizing via **`--mdc-illustration-size`**. It must sit under **IllustrationProvider**, which defines the **base URL** and caching (web API cache or in-memory). Color is **baked into the asset**; picking a different **`name`** is the main way to change the look. Reference: [Storybook — Illustration / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustration--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-illustration-illustration--example). Also: **IllustrationProvider** [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustrationprovider--docs).
+**Illustration** renders **Momentum SVG illustrations** by **`name`** + **`size`** **with** **`lengthUnit="px"`**. Illustrations register via **`IllustrationProvider`** / **`registerMomentumIllustrations`**—do **not** load SVG assets manually.
+
+**IllustrationProvider** is separate from **IconProvider**: illustrations vs icons use different registries and **`name`** spaces.
+
+See also: [Icon](./icon.md), [IconProvider](./iconprovider.md), [Brandvisual](./brandvisual.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Illustration / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustration--docs).
 
 ---
 
 ## Import
 
-Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
+Requires <ThemeProvider> and <IllustrationProvider> ancestors. See setup.md.
 
 ```jsx
-import { Illustration, IllustrationProvider } from "@momentum-design/components/dist/react";
+import { Illustration } from "@momentum-design/components/dist/react";
 ```
 
 ---
 
 ## What it is
 
-- **Decorative** vs **informative** — same model as **Icon** (decorative: hide from AT; informative: need **`dataAriaLabel`** and **`img`** role when required).  
-- If fetch fails, **nothing** renders.  
-- Pair with **Text** headings and actions for full empty states.
-
-**Illustration** (large scene) vs **Icon** (small pictogram) vs **Brandvisual** (logo mark).
-
----
-
-## Key props (typical)
-
-- **`name`**, **`dataAriaLabel`**, **`className` / size overrides**
+- **`name`** — exact illustration registry key (case-sensitive); unknown names **warn** and render nothing.  
+- **`size`** — numeric length + **`lengthUnit`** (**`px`** default).  
+- **`aria-hidden`** — **`true`** when decorative (paired with visible **`Text`**); omit when the illustration conveys meaning—then pair with **`aria-label`** or adjacent copy **`id`**.  
+- Colors inherit **`currentColor`**—set **`color`** on parent **`Text`** / CSS **`color`** using **`var(--mds-color-*)`**.
 
 ---
 
-## Example — `Illustration` inside `IllustrationProvider`
+## Key props
+
+- **`name`**, **`size`**, **`lengthUnit`**, **`aria-hidden`**, **`aria-label`**
+
+---
+
+## Example — decorative illustration beside heading `Text`
 
 ```jsx
-import { Illustration, IllustrationProvider, Text, Button } from "@momentum-design/components/dist/react";
+import { Illustration, Text } from "@momentum-design/components/dist/react";
 
-function EmptyInbox() {
+function EmptyStateHero() {
   return (
-    <IllustrationProvider>
-      <div style={{ display: "grid", placeItems: "center", gap: "0.5rem" }}>
-        <Illustration name="your-illustration-name" dataAriaLabel="Empty inbox illustration" />
-        <Text type="heading-4" tagname="h2">
-          No messages
-        </Text>
-        <Button type="button" variant="primary">
-          Refresh
-        </Button>
-      </div>
-    </IllustrationProvider>
+    <Text type="title-primary">
+      <Illustration name="empty-state-generic" size={48} lengthUnit="px" aria-hidden />
+      Nothing here yet
+    </Text>
   );
 }
 ```
 
-(Replace **`name`** with a **published** Momentum illustration id from [Storybook — Illustration / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustration--docs); configure **IllustrationProvider** as in [IllustrationProvider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustrationprovider--docs). The **`name` above** is illustrative and may not exist in your set.)
+Confirm **`name`** values in [Storybook — Illustration / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustration--docs) for your package version.
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] **IllustrationProvider** wraps the tree that uses **`Illustration`**  
-- [ ] Empty states still have a **title** and **action**; art is supportive  
-- [ ] Informative illustrations are **named** in copy or **`dataAriaLabel`** as in Storybook  
+- [ ] **`ThemeProvider`** + **`IllustrationProvider`** + **`registerMomentumIllustrations`** per [setup.md](../setup.md)  
+- [ ] **`name`** matches **illustration** registry (not **`Icon`** **`name`**)  
+- [ ] Decorative illustrations → **`aria-hidden`** + adjacent **`Text`**  
+- [ ] Meaningful illustrations → **`aria-label`** or labelled-by visible **`Text`**  
 
-[Storybook — Illustration / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustration--docs)
+Cross-check [Storybook — Illustration / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-illustration-illustration--docs) and your installed package version.

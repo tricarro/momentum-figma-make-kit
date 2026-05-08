@@ -1,6 +1,10 @@
 # Brandvisual (Momentum) — Figma Make guidance
 
-**Brandvisual** loads a **branded mark** (logo) by **`name`**, using the Momentum **brand visual** set. It fires **`onLoad`** / **`onError`** when the asset is fetched. Use in headers, sign-in, or any surface that must show a **Cisco** / product mark per brand guidelines. Reference: [Storybook — Brandvisual / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-brandvisual-brandvisual--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-brandvisual-brandvisual--example).
+**Brandvisual** loads a **branded mark** (logo) by **`name`**, using the Momentum **brand visual** set. It fires **`onLoad`** / **`onError`** when the asset is fetched. Use in headers, sign-in, or any surface that must show a **Cisco** / product mark per brand guidelines.
+
+See also: [Appheader](./appheader.md) (typical placement).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Brandvisual / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-brandvisual-brandvisual--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-brandvisual-brandvisual--example).
 
 ---
 
@@ -42,20 +46,20 @@ import { Brandvisual } from "@momentum-design/components/dist/react";
   <Brandvisual
     altText="Momentum design vertical logo"
     name="momentum-design-logo-dark-color-vertical"
-    style="width: 6.25rem;"
+    style={{ width: "var(--mds-spacing-container-horizontal-xl, 6.25rem)" }}
   ></Brandvisual>
 </div>
 ```
 
-Pick a **`name`** that exists in your version’s **`BrandVisualNames`** (re-exported from `@momentum-design/brand-visuals`).
+Use layout **tokens** for width where possible; replace the fallback with the token your design specifies. Pick a **`name`** that exists in your version’s **`BrandVisualNames`** (re-exported from `@momentum-design/brand-visuals`).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
 - [ ] `name` is a valid key for the installed **brand visual** bundle  
 - [ ] `altText` for image-based marks  
 - [ ] Error state so a failed load does not leave a blank hole with no layout  
 - [ ] Follow **brand** placement rules (spacing, min size) from the design file  
 
-[Storybook — Brandvisual / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-brandvisual-brandvisual--docs)
+Cross-check [Storybook — Brandvisual / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-brandvisual-brandvisual--docs) and your installed package version.

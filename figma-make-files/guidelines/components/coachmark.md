@@ -1,6 +1,10 @@
 # Coachmark (Momentum) — Figma Make guidance
 
-**Coachmark** is a **contextual** popover built on top of the **Popover** with coachmark **defaults**: it always shows an **arrow**, and the default surface is **contrast** colored. Use for **onboarding**, feature discovery, or callouts that explain a **specific** anchor element. It dispatches the same show/hide lifecycle as Popover. Reference: [Storybook — Coachmark / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-coachmark-coachmark--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-coachmark-coachmark--example).
+**Coachmark** is a **contextual** popover built on **Popover** with coachmark defaults: **arrow**, **contrast** surface by default. Use for **onboarding**, feature discovery, or callouts anchored to a **specific** element. Lifecycle matches **Popover** (**show** / **hide**).
+
+See also: [Popover](./popover.md), [Tooltip](./tooltip.md), [Toggletip](./toggletip.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Coachmark / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-coachmark-coachmark--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-coachmark-coachmark--example).
 
 ---
 
@@ -16,74 +20,58 @@ import { Coachmark } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **Popover-based:** **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`** in React.  
-- **Default `role`:** `"dialog"` (can be overridden with **`role`**).  
-- **Accessible name:** provide **`aria-label`** or **`aria-labelledby`**.  
+- **Popover-based:** **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`** in React (align names with your Storybook version).  
+- **Default `role`:** **`dialog`** (overridable via **`role`**).  
+- **Accessible name:** **`aria-label`** or **`aria-labelledby`**.  
 - Theming: **`--mdc-popover-*`** (background, border, arrow, elevation) in the [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-coachmark-coachmark--docs).
 
-**Coachmark** vs **Tooltip** vs **Toggletip:** coachmarks are **larger, persistent-until-dismissed** teaching surfaces with an arrow, not a one-line hover hint.
+**Coachmark** vs **Tooltip** vs **Toggletip:** coachmarks are **larger, teaching** surfaces with an arrow and dismissal patterns—not a one-line hover hint.
 
 ---
 
 ## Key props / attributes (typical)
 
-- **Lifecycle / visibility** — align with Popover in Storybook (e.g. anchor, open, placement)  
-- **`onShown`**, **`onHidden`**
+- **Anchor / visibility:** **`triggerID`** (or anchor pattern per Storybook), **`open`**, **`placement`**, **`zIndex`**, **`showArrow`**, **`closeButton`**  
+- **Lifecycle:** **`onShown`**, **`onHidden`**
+
+Follow Storybook for controlled vs declarative opening—API varies by version.
 
 ---
 
-## Example (pattern)
+## Example (pattern — wire anchor IDs per Storybook)
 
 ```jsx
-import {
-  Button,
-  Coachmark,
-  List,
-  ListItem,
-  Text,
-} from "@momentum-design/components/dist/react";
+import { Button, Coachmark, Text } from "@momentum-design/components/dist/react";
 
 
-<div style="..." role="main">
-  <div style="...">
-    <Button> open </Button>
-    <Button> close </Button>
-  </div>
-  <List>
-    <ListItem label="Anchor Content" id="coachmark-trigger"></ListItem>
-  </List>
+<div role="main" style={{ padding: "2rem" }}>
+  <Button id="coachmark-trigger">Focus target</Button>
   <Coachmark
-    id="coachmark"
     triggerID="coachmark-trigger"
-    zIndex="1000"
     showArrow
     closeButton
-    style="width: 17.5rem; height: 9rem;"
+    aria-label="Feature introduction"
+    style={{ width: "17.5rem" }}
   >
-    <Text type="body-midsize-bold" tagname="div">Coachmark</Text>
-    <Text type="body-midsize-regular" tagname="div"
-      >This is a sample coach mark. Follow me to walk you through different ways
-      that I can be used.</Text
-    >
-    <div style="...">
-      <Button inverted>Next</Button>
-      <Button
-        style="--mdc-button-border-color: var(--mds-color-theme-inverted-outline-button-normal);"
-        >Back</Button
-      >
-    </div>
+    <Text type="body-midsize-bold" tagname="div">
+      Coachmark title
+    </Text>
+    <Text type="body-midsize-regular" tagname="div">
+      Short supporting copy. Use tokens for width/spacing in real layouts.
+    </Text>
   </Coachmark>
 </div>
 ```
 
-Follow the [Coachmark / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-coachmark-coachmark--docs) for exact anchor, slots, and controlled visibility.
+Copy **anchor**, **controlled open state**, and **footer actions** from [Storybook — Coachmark / Example](https://momentum.design/storybook-static/index.html?path=/story/components-coachmark-coachmark--example) for your package.
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] The coachmark has an **accessible name** (`aria-label` or `aria-labelledby`)  
-- [ ] Flow does not trap the user: **dismiss** and **focus** behavior match the Storybook pattern  
-- [ ] Use **contrast** styling intentionally; do not hand-roll custom popovers  
+- [ ] **`ThemeProvider`** + **`IconProvider`** when coachmark content uses **Icon** / **Button**  
+- [ ] **Accessible name** (**`aria-label`** or **`aria-labelledby`**)  
+- [ ] **Dismiss** and **focus** behavior match Storybook (no accidental trap)  
+- [ ] Prefer **Coachmark** tokens—avoid bespoke popover CSS  
 
-[Storybook — Coachmark / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-coachmark-coachmark--docs)
+Cross-check [Storybook — Coachmark / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-coachmark-coachmark--docs) and your installed package version.

@@ -1,6 +1,10 @@
 # Link (Momentum) — Figma Make guidance
 
-**Link** extends **Linksimple** and adds a **sized** text+icon **pattern**: **`iconName`**, and **`size`** for **`small`**, **`midsize`**, or **`large`** (default). Use for in-app and external **navigation**, **`mailto:`**, **`tel:`**, etc. Children are the **link text**. Fires **`onClick`**, **`onKeyDown`**, **`onFocus`**, **`onBlur`** in React. Reference: [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-link-link--example).
+**Link** extends **Linksimple** and adds a **sized** text + icon **pattern**: **`iconName`**, and **`size`** for **`small`**, **`midsize`**, or **`large`** (default). Use for in-app and external **navigation**, **`mailto:`**, **`tel:`**, etc. Children are the **link text**. Fires **`onClick`**, **`onKeyDown`**, **`onFocus`**, **`onBlur`** in React.
+
+See also: [Linksimple](./linksimple.md), [LinkButton](./linkbutton.md), [ButtonLink](./buttonlink.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-link-link--example).
 
 ---
 
@@ -16,17 +20,17 @@ import { Link } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **Inherits** **`href`**, **`target`**, **`rel`**, and link behavior from **Linksimple** (see **`linksimple.md`**).  
+- **Inherits** **`href`**, **`target`**, **`rel`**, and link behavior from **Linksimple** (see [Linksimple](./linksimple.md)).  
 - **`--mdc-link-*`** and inverted tokens for state colors.  
-- For **app actions** without a URL, use **Button** or **LinkButton**, not a fake `#` link.
+- For **app actions** without a URL, use **Button** or **LinkButton**, not a fake **`#`** link.
 
-**Link** vs **Linksimple** vs **ButtonLink** vs **LinkButton** — see **link.md**, **linksimple.md**, **linkbutton.md**, and **buttonlink.md** in this folder and [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs) for when to use which.
+**Link** vs **Linksimple** vs **ButtonLink** vs **LinkButton** — compare [Linksimple](./linksimple.md), [LinkButton](./linkbutton.md), [ButtonLink](./buttonlink.md), and [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs).
 
 ---
 
 ## Key props (typical)
 
-- **`href`**, **`size`**, **`iconName`**, **`inverted`**, **`disabled` / softDisabled**
+- **`href`**, **`size`**, **`iconName`**, **`inverted`**, **`disabled`**, **`softDisabled`**
 
 ---
 
@@ -50,14 +54,14 @@ function PolicyLink() {
 }
 ```
 
-(Confirm **`size`**, **`iconName`**, and **external** link **security** in [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs).)
+Confirm **`size`**, **`iconName`**, and external-link **`rel`** / **`target`** in [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] External links: **`rel`** and **`target`** (e.g. `noopener` + `noreferrer` for new tabs) per security policy  
-- [ ] The visible **label** is descriptive (“Settings”), not only “Click here”  
-- [ ] Icons use **Icon**/**Link**’s `iconName`; **IconProvider** at root per [setup.md](../setup.md)  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md) when using **`iconName`**  
+- [ ] External links: **`rel`** and **`target`** (e.g. **`noopener`** + **`noreferrer`** for new tabs) per your security policy  
+- [ ] Visible **label** is descriptive (“Privacy policy”), not only “Click here”  
 
-[Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs)
+Cross-check [Storybook — Link / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-link-link--docs) and your installed **`@momentum-design/components`** version.

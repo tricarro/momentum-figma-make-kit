@@ -1,12 +1,16 @@
 # Text (Momentum) — Figma Make guidance
 
-**Text** is the **typography** primitive: **`type`** maps to the design type scale, **`tagname`** overrides the **HTML** tag (default **`p`**; must be a **valid** tag or it falls back). Content goes in the **default** slot. Must be under **`ThemeProvider`** so **token** colors and **font** work. Styling: **`csspart` `text`** and the **`type`** matrix in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs). Use **Text** for **all** Momentum **copy** in Figma Make—**no** raw `<span>` with random font sizes. Reference: [Storybook — Text / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-text-text--example).
+**Text** is the **typography** primitive: **`type`** selects the design type scale; **`tagname`** overrides the **HTML** tag (default **`p`**; must be **valid** or it falls back). Content goes in the **default** slot. Must sit under **[ThemeProvider](./themeprovider.md)** so **token** colors and **font** apply. Styling: **csspart** **`text`** and the **`type`** matrix in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs). Use **Text** for **all** Momentum copy in prototypes—avoid raw **`<p>`** / **`<span>`** with ad-hoc styling (see workspace guidelines).
+
+See also: [ThemeProvider](./themeprovider.md), [Link](./link.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Text / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-text-text--example).
 
 ---
 
 ## Import
 
-Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
+Requires <ThemeProvider> ancestor. Use **[IconProvider](./iconprovider.md)** when children include **[Icon](./icon.md)**. See setup.md.
 
 ```jsx
 import { Text } from "@momentum-design/components/dist/react";
@@ -16,8 +20,8 @@ import { Text } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **Link**-like inline: often **`Link`** or **`Text`**+**`tagname="span"`** in context—follow Storybook.  
-- **Typewriter** animation is a **separate** **Typewriter** component, not a prop on **Text** alone.  
+- **Inline** emphasis / links: often **[Link](./link.md)** or **`Text`** with **`tagname="span"`**—follow Storybook.  
+- **Typewriter** animation is the separate **Typewriter** component, not a **`Text`** prop.
 
 ---
 
@@ -40,6 +44,14 @@ function Blurb() {
 }
 ```
 
-(Choose **`type`** and **`tagname`** from the matrix in [Storybook — Text / Example](https://momentum.design/storybook-static/index.html?path=/story/components-text-text--example).)
+Choose **`type`** and **`tagname`** from the matrix in [Storybook — Text / Example](https://momentum.design/storybook-static/index.html?path=/story/components-text-text--example).
 
-[Storybook — Text / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs)
+---
+
+## Checklist for Figma Make
+
+- [ ] **`ThemeProvider`** wraps the subtree so **`type`** resolves correctly  
+- [ ] **`IconProvider`** when slotted content uses **Icon**  
+- [ ] **`type`** matches hierarchy (heading vs body vs label)—do not invent sizes outside the matrix  
+
+Cross-check [Storybook — Text / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-text-text--docs) and your installed **`@momentum-design/components`** version.

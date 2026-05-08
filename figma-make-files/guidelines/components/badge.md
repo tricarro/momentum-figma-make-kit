@@ -1,6 +1,10 @@
 # Badge (Momentum) — Figma Make guidance
 
-**Badge** shows a **dot** notification, **counter**, **icon**, or **success / warning / error** state. It is non-interactive display chrome—pair it with a parent (e.g. a tab, list row, or button) when the design needs counts or status. Reference: [Storybook — Badge / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-badge-badge--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-badge-badge--example).
+**Badge** shows a **dot** notification, **counter**, **icon**, or **success / warning / error** state. It is non-interactive display chrome—pair it with a parent (e.g. a tab, list row, or button) when the design needs counts or status.
+
+See also: [Chip](./chip.md) (interactive pill).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Badge / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-badge-badge--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-badge-badge--example).
 
 ---
 
@@ -16,19 +20,29 @@ import { Badge } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **`type`:** `dot` (notification dot) · `icon` (set **`iconName`**) · `counter` (**`counter`**, **`maxCounter`**) · `success` · `warning` · `error` (uses built-in icons and semantic colors for those three).  
+- **`type`:** `dot` (notification dot) · `icon` (set **`iconName`**) · `counter` (**set both `counter` and `maxCounter` behavior**) · `success` · `warning` · `error` (uses built-in icons and semantic colors for those three).  
 - **`variant`:** `primary` | `secondary` (affects color tokens for **icon** / **counter**-style use).  
-- **Counter:** values above **`maxCounter`** show as `max+` (e.g. 99+); `maxCounter` can be `9` | `99` | `999` (capped in UI up to 999+ per design).  
+- **Counter:** values above **`maxCounter`** show as **`maxCounter+`** (e.g. 99+); `maxCounter` can be **`9`**, **`99`**, or **`999`** (display caps at **999+** per package).  
 - **`overlay`:** thin outline so a badge on top of a **button** stays visible.  
 - Set **`ariaLabel`** when a screen reader should hear a name (counters and dots especially).
 
-`IconProvider` is required for **`icon`**, `success`, `warning`, `error` icon rendering. Theme with `--mdc-badge-*` custom properties in Storybook.
+`IconProvider` is required for **`icon`**, `success`, `warning`, `error` icon rendering. Theme with **`--mdc-badge-*`** custom properties in Storybook.
+
+### Defaults (package)
+
+**`variant`** **`primary`**, **`maxCounter`** **`99`**, **`overlay`** **`false`**, **`ariaLabel`** **`null`** until you set a string.
 
 ---
 
 ## Key props (React / camelCase)
 
-- **`type`**, **`variant`**, **`iconName`**, **`counter`**, **`maxCounter`**, **`overlay`**, **`ariaLabel`**
+- **`type`:** `dot` | `icon` | `counter` | `success` | `warning` | `error`.  
+- **`variant`:** `primary` | `secondary`.  
+- **`iconName`:** Momentum icon when **`type="icon"`**.  
+- **`counter`:** number when **`type="counter"`**.  
+- **`maxCounter`:** **`9`**, **`99`**, or **`999`**.  
+- **`overlay`:** boolean — outline for stacking on buttons.  
+- **`ariaLabel`:** string for AT when the visual alone is not enough.
 
 ---
 
@@ -42,11 +56,12 @@ import { Badge } from "@momentum-design/components/dist/react";
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
+- [ ] `ThemeProvider` + **`IconProvider`** per [setup.md](../setup.md) when using icon-backed types  
 - [ ] `Badge` is **not** a button; use `Button` + `Badge` overlay for actionable UI if needed  
 - [ ] `ariaLabel` for meaningful count/dot semantics  
-- [ ] `type="icon"` / semantic types use valid Momentum **icons** / `IconProvider`  
+- [ ] `type="icon"` / semantic types use valid Momentum **icons**  
 - [ ] MDS tokens for layout around the badge, not raw colors  
 
-[Storybook — Badge / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-badge-badge--docs)
+Cross-check [Storybook — Badge / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-badge-badge--docs) and your installed **`@momentum-design/components`** version if props drift.

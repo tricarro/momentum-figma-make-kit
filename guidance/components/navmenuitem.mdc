@@ -1,0 +1,60 @@
+---
+description: Momentum navmenuitem component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# NavMenuItem (Momentum) — Momentum guidance (IDE)
+
+**NavMenuItem** is a **navigation** row shaped like a **menu** item, meant for **`MenuBar`** inside **[SideNavigation](./sidenavigation.mdc)**: **leading** **icon**, **label**, optional **badge**, **active** state, optional **submenu** **arrow**, and optional **`tooltipText`** when the sidebar is **collapsed** or a **submenu** child is active. In React: **`onClick`**, keyboard events, **`onActiveChange`**. It is **not** a generic list row—use **[ListItem](./listitem.mdc)** for arbitrary lists.
+
+See also: [SideNavigation](./sidenavigation.mdc), [MenuPopover](./menupopover.mdc), [ListItem](./listitem.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — NavMenuItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-navmenuitem--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-navmenuitem--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { NavMenuItem, MenuBar } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`navId`:** unique id for this item within the **MenuBar** (see package JSDoc).  
+- **Submenus:** submenu **`MenuPopover`** instances pair with triggers via element **`id`** / **`triggerID`** on **Popover** (capital **`ID`**)—follow [SideNavigation](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs) examples.  
+- **`tooltipText`** / **`isActiveParentTooltipText`:** collapsed sidebar and active-child tooltips.  
+- **`disableAriaCurrent`:** keep **look** without **`aria-current`** navigation semantics when needed (vs **`cannotActivate`**—see Storybook).  
+- Theming: **`--mdc-navmenuitem-*`** in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-navmenuitem--docs).
+
+---
+
+## Example — `NavMenuItem`
+
+```jsx
+import { NavMenuItem } from "@momentum-design/components/dist/react";
+
+function InboxRow() {
+  return (
+    <NavMenuItem navId="inbox" label="Inbox" iconName="inbox-bold" onClick={() => { /* navigate or expand */ }} />
+  );
+}
+```
+
+Place inside **`MenuBar`** / **`SideNavigation`** as in [Storybook — NavMenuItem / Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-navmenuitem--example); add **active**, **tooltipText**, and submenu wiring when the design needs them.
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] **`navId`** unique within its **MenuBar**  
+- [ ] Submenus: **`MenuPopover`** **`triggerID`** matches the submenu trigger **`id`**  
+- [ ] Not used as a free-floating row—compose with **SideNavigation** patterns  
+
+Cross-check [Storybook — NavMenuItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-navmenuitem--docs) and your installed package version.

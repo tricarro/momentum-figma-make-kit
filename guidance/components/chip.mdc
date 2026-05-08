@@ -1,0 +1,65 @@
+---
+description: Momentum chip component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Chip (Momentum) — Momentum guidance (IDE)
+
+**Chip** is a **compact, interactive** pill (extends **Buttonsimple**): optional **leading `iconName`** and **`label`**. Wrap with **Tooltip** / overlays for extra context. Prefer **~20 characters** for **`label`** (design recommendation). Use **FilterChip** for filter toggles, **InputChip** for removable tokens, **StaticChip** for read-only tags, **AlertChip** for inline alert styling.
+
+See also: [FilterChip](./filterchip.mdc), [InputChip](./inputchip.mdc), [StaticChip](./staticchip.mdc), [AlertChip](./alertchip.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Chip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-chip--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Chip } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`label`:** visible text.  
+- **`iconName`:** Momentum icon (optional).  
+- **`color`:** `default` · `cobalt` · `gold` · `lime` · `mint` · `orange` · `pink` · `purple` · `slate` · `violet`  
+- **Events:** **`onClick`**, **`onKeyDown`**, **`onKeyUp`**, **`onFocus`** (Buttonsimple).  
+- **`type`:** HTML button type—use **`"button"`** unless submitting a form.  
+- **`disabled`**, **`softDisabled`** (from **Buttonsimple**—soft keeps focus; block actions in code).  
+- Styling: **`--mdc-chip-color`**, **`--mdc-chip-border-color`**, **`--mdc-chip-background-color`** (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs)).
+
+**Do not** use plain **Chip** when the UX is a **filter toggle** (**FilterChip**) or a **removable token** (**InputChip**).
+
+---
+
+## Key props
+
+- **`label`**, **`color`**, **`iconName`**, **`type`**, **`disabled`**, **`softDisabled`**, **`onClick`**
+
+---
+
+## Example
+
+```jsx
+import { Chip } from "@momentum-design/components/dist/react";
+
+
+<Chip label="Label" color="cobalt" type="button"></Chip>
+```
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] **Short** label; truncate in design, not with arbitrary CSS  
+- [ ] **Filter** UI → **FilterChip**; **dismiss** token → **InputChip**; **read-only** tag → **StaticChip**; **inline alert** → **AlertChip**  
+- [ ] **`type="button"`** when not submitting a form  
+
+Cross-check [Storybook — Chip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-chip--docs) and your installed package version.

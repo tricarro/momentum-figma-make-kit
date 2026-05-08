@@ -1,6 +1,10 @@
 # Calendar (Momentum) — Figma Make guidance
 
-**Calendar** shows a **monthly grid** for **single** date, **full week**, or **range** selection. It emits when the user picks a date and when the **visible month** changes. Reference: [Storybook — Calendar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-calendar-calendar--example).
+**Calendar** shows a **monthly grid** for **single** date, **full week**, or **range** selection. It emits when the user picks a date and when the **visible month** changes.
+
+See also: [Datepicker](./datepicker.md) (when you need a full picker field pattern).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Calendar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-calendar-calendar--example).
 
 ---
 
@@ -20,38 +24,54 @@ import { Calendar } from "@momentum-design/components/dist/react";
 - **`value`:** ISO string **`yyyy-mm-dd`**; for **range**, this is the **start**; **`endValue`** is the end ISO string.  
 - **`locale`:** BCP-47 (default **`en-US`**) for labels and week start.  
 - **`min`** / **`max`:** optional ISO bounds for what can be selected.  
-- **`showTodayButton`** and **`localeTodayLabel`**; **`localePrevMonthLabel`** / **`localeNextMonthLabel`** for month nav `aria-label`s.  
-- **React events:** **`onDateSelected`**, **`onMonthChanged`** (maps `date-selected` and `month-changed`).  
+- **`showTodayButton`** (default **`false`**) and **`localeTodayLabel`**; **`localePrevMonthLabel`** / **`localeNextMonthLabel`** for month nav **`aria-label`**s.  
+- **React events:** **`onDateSelected`**, **`onMonthChanged`** (maps **`date-selected`** and **`month-changed`**).  
 - **`onDateSelected` `detail`:** at least **`date`**; in range mode also **`startDate`**, **`endDate`** as applicable.
 
-Styling: `--mdc-calendar-*` tokens in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs). Typically pair with a **popover** or **form field** pattern from Storybook for a full “picker” experience.
+Styling: **`--mdc-calendar-*`** tokens in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs). Typically pair with **Popover**, **Datepicker**, or a **form field** pattern from Storybook for a full “picker” experience.
+
+### Defaults (package)
+
+**`selectionMode`** **`single`**, **`locale`** **`en-US`**, **`showTodayButton`** **`false`**.
 
 ---
 
 ## Key props
 
-- **`selectionMode`**, **`value`**, **`endValue`**, **`locale`**, **`min`**, **`max`**, **`showTodayButton`**, locale label props  
+- **`selectionMode`**, **`value`**, **`endValue`**, **`locale`**, **`min`**, **`max`**, **`showTodayButton`**, **`localeTodayLabel`**, **`localePrevMonthLabel`**, **`localeNextMonthLabel`**  
 - **`onDateSelected`**, **`onMonthChanged`**
 
 ---
 
-## Example
+## Example (React)
 
 ```jsx
-import "@momentum-design/components/dist/components/calendar/index.js";
+import { Calendar } from "@momentum-design/components/dist/react";
 
-<mdc-calendar selection-mode="single" locale="en-US"></mdc-calendar>
+
+<Calendar
+  selectionMode="single"
+  locale="en-US"
+  value="2026-05-08"
+  showTodayButton
+  localeTodayLabel="Today"
+  localePrevMonthLabel="Previous month"
+  localeNextMonthLabel="Next month"
+/>
 ```
 
-For **`range`**, set **`selectionMode="range"`**, keep **`value`** / **`endValue`** in sync with `onDateSelected` **detail**.
+Use **`import "@momentum-design/components/dist/components/calendar/index.js"`** and **`<mdc-calendar>`** only if your stack mounts raw custom elements without the React wrapper.
+
+For **`range`**, set **`selectionMode="range"`**, **`value`** / **`endValue`**, and sync from **`onDateSelected`** **detail**.
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] Dates are **ISO `yyyy-mm-dd`**, no locale-specific strings in `value`  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md) (month nav uses **Icon** / buttons)  
+- [ ] Dates are **ISO `yyyy-mm-dd`**, no locale-formatted strings in **`value`** / **`endValue`**  
 - [ ] **`min` / `max`** match form validation for the same field  
 - [ ] Month nav and **Today** labels are localized in multi-language UIs  
-- [ ] `onDateSelected` handles **`single`**, **week**, and **range** **detail** shapes as in the type **`DateSelectionDetail`** for your version  
+- [ ] **`onDateSelected`** handles **`single`**, **week**, and **range** detail shapes (**`DateSelectionDetail`**) for your package version  
 
-[Storybook — Calendar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs)
+Cross-check [Storybook — Calendar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs) and your installed **`@momentum-design/components`** version.

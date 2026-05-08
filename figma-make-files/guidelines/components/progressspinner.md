@@ -1,6 +1,10 @@
 # Progressspinner (Momentum) — Figma Make guidance
 
-**Progressspinner** is a **circular** **determinate** indicator: it **extends** **Progressbar** (same **value** 0–100, **`error`**, and label/help from `FormfieldWrapper`) and adds **SVG** track + **progress** arcs. At **100%** it can show a **success** check; in **`error`** it shows the **error** pictogram. Styling: **`--mdc-spinner-size`**, **`--mdc-track-color`**, **`--mdc-progress-color`**, success and error color tokens. Reference: [Storybook — Progressspinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-progressspinner-progressspinner--example).
+**Progressspinner** is a **circular** **determinate** indicator: it **extends** **[Progressbar](./progressbar.md)** (same **`value`** 0–100, **`error`**, and label/help from **`FormfieldWrapper`**) and adds **SVG** track + **progress** arcs. At **100%** it can show a **success** check; in **`error`** it shows the **error** pictogram. Styling: **`--mdc-spinner-size`**, **`--mdc-track-color`**, **`--mdc-progress-color`**, success and error color tokens.
+
+See also: [Progressbar](./progressbar.md), [Spinner](./spinner.md) (indeterminate), [ScreenreaderAnnouncer](./screenreaderannouncer.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Progressspinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-progressspinner-progressspinner--example).
 
 ---
 
@@ -17,7 +21,7 @@ import { Progressspinner } from "@momentum-design/components/dist/react";
 ## What it is
 
 - **End states** — default arc, full **success** mark, or **error** mark (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs)).  
-- **Parts** — `spinner-base`, `spinner-container`, `spinner-track`, `spinner-progress`, `success-icon`, `error-icon`.  
+- **Parts** — **`spinner-base`**, **`spinner-container`**, **`spinner-track`**, **`spinner-progress`**, **`success-icon`**, **`error-icon`**.
 
 Use **Progressspinner** in **compact** spaces (row end, cell); use **Progressbar** for full-width file rows.
 
@@ -39,14 +43,15 @@ function StepSpinner() {
 }
 ```
 
-(See **end-of-flow** **success** / **error** visuals in [Storybook — Progressspinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs).)
+See **success** / **error** end states in [Storybook — Progressspinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] `value` reflects **real** progress, not a looping fake unless the spec says so  
-- [ ] Pair with **Text** and/or **ScreenreaderAnnouncer** for status changes the user must hear  
-- [ ] `error: true` only with a **message** the user can read (see **Progressbar** + form-field help)  
+- [ ] **`ThemeProvider`** per [setup.md](../setup.md); **`IconProvider`** if success/error marks rely on icon assets per Storybook  
+- [ ] **`value`** reflects **real** progress, not a looping fake unless the spec says so  
+- [ ] Pair with **Text** and/or **[ScreenreaderAnnouncer](./screenreaderannouncer.md)** for status changes SR users must hear  
+- [ ] **`error`** only with a **message** users can read (same model as **Progressbar** + form-field help)  
 
-[Storybook — Progressspinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs)
+Cross-check [Storybook — Progressspinner / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs) and your installed **`@momentum-design/components`** version.

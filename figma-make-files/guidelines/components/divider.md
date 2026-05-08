@@ -1,6 +1,10 @@
 # Divider (Momentum) — Figma Make guidance
 
-**Divider** draws a **line** to separate content. It infers a **type** from what you put in the (default) **slot**: **Primary** (empty) — a plain line; **Text** — centered **`Text`**; **Grabber** — a centered **`Button`** to resize a pane. **`orientation`:** `horizontal` or `vertical` (vertical **text** in the center is **not** supported in the current doc). **Variant:** e.g. **solid** or **gradient**; see the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs) for the full list. Reference: [Storybook — Divider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-decorator-divider--example).
+**Divider** draws a **line** to separate content. It infers a **type** from the **default** slot: **Primary** (empty)—plain line; **Text**—centered **`Text`**; **Grabber**—centered **`Button`** to resize a pane. **`orientation`:** **`horizontal`** or **`vertical`** (vertical **centered text** is **not** supported). **`variant`:** **`solid`** or **`gradient`** (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs)).
+
+See also: [Bullet](./bullet.md), [Marker](./marker.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Divider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-decorator-divider--example).
 
 ---
 
@@ -16,17 +20,21 @@ import { Divider, Text, Button } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **One** allowed child type in the slot: **`mdc-text`**, **`mdc-button`**, or nothing. Multiple or wrong tags **fall back** to Primary.  
-- **Grabber** buttons: pass **`aria-label`**, **`aria-expanded`**, and wire resize behavior; see Storybook.  
-- Large set of **`--mdc-divider-*`** custom properties.  
+- **One** allowed child pattern in the slot: **`Text`**, grabber **`Button`**, or **nothing**. Invalid or multiple children **fall back** to Primary.  
+- **Grabber** **`Button`**: set **`aria-label`**, **`aria-expanded`**, wire resize logic per Storybook.  
+- Large set of **`--mdc-divider-*`** custom properties.
 
-**Divider** for **structure**; for **in-app** “or” in forms, use **Text**+pattern from components, not a random line.
+### Defaults (package)
+
+**`orientation`** **`horizontal`**, **`variant`** **`solid`**.
+
+**Divider** for **layout structure**; arbitrary “or” copy in forms should still use **`Text`** and tokens, not unlabeled lines alone.
 
 ---
 
 ## Key props (typical)
 
-- **`orientation`**, **`variant` / line style`
+- **`orientation`**, **`variant`**, **`arrowDirection`**, **`buttonPosition`** (grabber-only—see Storybook)
 
 ---
 
@@ -49,14 +57,15 @@ function SectionBreak() {
 }
 ```
 
-(Use **one** child type in the default slot: nothing, `Text`, or a grabber `Button`—see [Storybook — Divider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs).)
+Use **one** child type: nothing, **`Text`**, or grabber **`Button`**—see [Storybook — Divider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] Grabber patterns have **name** and **state** in ARIA, not only an icon  
-- [ ] Sufficient **contrast** for the line against the surface (tokens, not ad-hoc hex)  
-- [ ] Vertical layout does not use **Text**-in-the-middle; that pattern is not supported for vertical in the [package note](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs)  
+- [ ] **`ThemeProvider`** per [setup.md](../setup.md)  
+- [ ] Grabber patterns expose **name** and **state** in ARIA, not only an icon  
+- [ ] **Contrast** for the line uses tokens, not ad-hoc hex  
+- [ ] Do not put **centered `Text`** on **vertical** orientation (unsupported)  
 
-[Storybook — Divider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs)
+Cross-check [Storybook — Divider / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-divider--docs) and your installed package version.

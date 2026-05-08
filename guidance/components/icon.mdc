@@ -1,0 +1,66 @@
+---
+description: Momentum icon component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Icon (Momentum) — Momentum guidance (IDE)
+
+**Icon** renders **Momentum icons** by **`name`** + **`size`** **with** **`lengthUnit="px"`**. Icons register via **`IconProvider`** / **`registerMomentumIcons`**—do **not** load SVG assets manually.
+
+See also: [IconProvider](./iconprovider.mdc). Optional: [Brandvisual](./brandvisual.mdc), [Illustration](./illustration.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Icon } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`name`** — exact registry key (case-sensitive); unknown names **warn** and render nothing.  
+- **`size`** — numeric length + **`lengthUnit`** (**`px`** default).  
+- **`aria-hidden`** — **`true`** when decorative (paired with visible **`Text`**); omit when icon conveys meaning—then pair with **`aria-label`** or adjacent text **`id`**.  
+- Colors inherit **`currentColor`**—set **`color`** on parent **`Text`** / CSS **`color`** using **`var(--mds-color-*)`**.
+
+---
+
+## Key props
+
+- **`name`**, **`size`**, **`lengthUnit`**, **`aria-hidden`**, **`aria-label`**
+
+---
+
+## Example — decorative icon beside label `Text`
+
+```jsx
+import { Icon, Text } from "@momentum-design/components/dist/react";
+
+function LabeledIconRow() {
+  return (
+    <Text type="body-primary">
+      <Icon name="check-circle-bold" size={16} lengthUnit="px" aria-hidden />
+      Saved
+    </Text>
+  );
+}
+```
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] **`name`** matches Momentum registry exactly  
+- [ ] Decorative icons → **`aria-hidden`** + adjacent **`Text`**  
+- [ ] Meaningful icons → **`aria-label`** or labelled-by visible **`Text`**  
+
+Cross-check [Storybook — Icon / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-icon-icon--docs) and your installed package version.

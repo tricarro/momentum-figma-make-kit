@@ -1,6 +1,10 @@
 # StepperItem (Momentum) — Figma Make guidance
 
-**StepperItem** is a **single** step. **`status`:** e.g. **`completed`**, **`current`**, **`incomplete`**, **`error-current`**, **`error-incomplete`** (see the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperitem--docs)). The component is **uncontrolled**—**you** set `status` from the app. **A11y:** for **`current`** or **`error-current`**, the package expects **`aria-current="step"`** on the **one** active step, and a strong **`aria-label` / `dataAriaLabel`** if the text alone is not enough. Fires **`onClick`**, **`onKeyDown`**, **`onKeyUp`** in React. Reference: [Storybook — StepperItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperitem--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepperitem--example).
+**StepperItem** is a **single** step in a **[Stepper](./stepper.md)**. **`status`:** e.g. **`completed`**, **`current`**, **`incomplete`**, **`error-current`**, **`error-incomplete`** (full set in [Storybook — StepperItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperitem--docs)). **You** own state—the component does not advance steps by itself. **A11y:** for **`current`** / **`error-current`**, the package expects **`aria-current="step"`** on the active step and strong **`dataAriaLabel`** / **`aria-label`** when visible text is insufficient. Fires **`onClick`**, **`onKeyDown`**, **`onKeyUp`** in React.
+
+See also: [Stepper](./stepper.md), [StepperConnector](./stepperconnector.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — StepperItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperitem--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepperitem--example).
 
 ---
 
@@ -9,15 +13,15 @@
 Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
 ```jsx
-import { Stepper, StepperItem, StepperConnector, Text } from "@momentum-design/components/dist/react";
+import { Stepper, StepperItem, StepperConnector } from "@momentum-design/components/dist/react";
 ```
 
 ---
 
 ## What it is
 
-- **Parts:** `status-icon`, `step-number`, `label`, `help-text`, error **icon** when in error.  
-- **Clicks** can move the user to a **previous** step if your flow allows; otherwise do not make steps look **clickable** without a handler.  
+- **Parts:** **`status-icon`**, **`step-number`**, **`label`**, **`help-text`**, error **icon** when in error states.  
+- **Clicks** may navigate to a **previous** step only if your flow implements **`onClick`**; otherwise avoid **clickable** affordance without a handler.
 
 ---
 
@@ -35,6 +39,15 @@ function Single() {
 }
 ```
 
-(You normally render **several** items and **`StepperConnector`** between; see [Storybook — Stepper / Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepper--example).)
+Normally render **multiple** items and **[StepperConnector](./stepperconnector.md)** between them—[Storybook — Stepper / Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepper--example).
 
-[Storybook — StepperItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperitem--docs)
+---
+
+## Checklist for Figma Make
+
+- [ ] **`ThemeProvider`** per [setup.md](../setup.md)  
+- [ ] **`status`** reflects real wizard/checkout step state from the app  
+- [ ] **`dataAriaLabel`** (or visible label) identifies each step for assistive tech  
+- [ ] **`StepperConnector`** between items—not after the last step only  
+
+Cross-check [Storybook — StepperItem / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperitem--docs) and your installed **`@momentum-design/components`** version.

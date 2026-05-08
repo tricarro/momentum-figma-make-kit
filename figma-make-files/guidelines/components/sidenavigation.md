@@ -1,273 +1,119 @@
 # SideNavigation (Momentum) — Figma Make guidance
 
-**SideNavigation** (`SideNavigation` in React) is the **vertical** nav **shell**—layout variants, scrollable vs fixed groups, brand/footer chrome, expand/collapse **grabber**, and provider context for **`MenuBar`** / **`NavMenuItem`**. Props, events, slots, submenu wiring, and labeling are summarized in **[Behavior model](#behavior-model)** below. Official reference: [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs); walkthrough layout: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).
+**SideNavigation** (`SideNavigation` in React) is the **vertical** nav **shell**: layout variants, scrollable vs fixed groups, brand/footer chrome, expand/collapse **grabber**, and provider context for **`MenuBar`** / **`NavMenuItem`**. **[Appheader](./appheader.md)** and main content live **outside** this component—**SideNavigation** is the **nav** column only.
+
+See also: [NavMenuItem](./navmenuitem.md), [MenuPopover](./menupopover.md), [Divider](./divider.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs). Walkthrough: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).
 
 ---
 
 ## Import
+
 Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
 ```jsx
-import { SideNavigation, MenuBar, NavMenuItem, Text, Divider } from "@momentum-design/components/dist/react";
+import { SideNavigation, MenuSection, NavMenuItem, Icon, Divider } from "@momentum-design/components/dist/react";
 ```
 
 ---
 
 ## Behavior model
 
-Typed-style reference for how props, events, slots, and related components fit together (see [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs)).
+Typed-style reference for props, events, slots, and related components (details and edge cases in [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs)).
 
-### `SideNavigation` props
+### `SideNavigation` props (representative)
 
 | Prop | Type | Role |
 |------|------|------|
-| `variant` | `'fixed-collapsed'` \| `'fixed-expanded'` \| `'flexible'` \| `'flexible-on-hover'` \| `'hidden'` | Chooses the shell layout: fixed collapsed/expanded widths, flexible toggle (and hover behavior where supported), or hides the nav shell. |
-| `expanded` | `boolean` \| `undefined` | Whether the rail is expanded; used with flexible-style variants and grabber toggling. |
-| `footerText` | `string` | Copy in the fixed footer area (e.g. customer name). |
-| `grabberBtnAriaLabel` | `string` | Accessible name for the expand/collapse **grabber** (sets `aria-label` on the control). |
-| `parentNavTooltipText` | `string` | Tooltip text when a **parent** row must describe an active **child** (e.g. collapsed rail with an open submenu). |
+| **`variant`** | **`fixed-collapsed`** \| **`fixed-expanded`** \| **`flexible`** \| **`flexible-on-hover`** \| **`hidden`** | Shell layout: fixed widths, flexible toggle / hover, or hidden rail. |
+| **`expanded`** | `boolean` \| `undefined` | Rail expanded vs collapsed (with flexible variants + grabber). |
+| **`footerText`** | `string` | Copy in the footer area (e.g. tenant name). |
+| **`grabberBtnAriaLabel`** | `string` | Accessible name for expand/collapse **grabber**. |
+| **`parentNavTooltipText`** | `string` | Tooltip when a **parent** row must describe an active **child** (e.g. collapsed rail + open submenu). |
 
 ### `SideNavigation` events (React)
 
-| Handler | Payload | When |
-|---------|---------|------|
-| `onToggle` | `{ expanded: boolean }` | The **grabber** toggles expanded vs collapsed. |
-| `onActiveChange` | `{ navId: string; active: boolean }` | A descendant **`NavMenuItem`**’s active state changes. |
+| Handler | When |
+|---------|------|
+| **`onToggle`** | Grabber toggles expanded vs collapsed (`detail` shape in Storybook). |
+| **`onActiveChange`** | A descendant **`NavMenuItem`** active state changes. |
 
 ### Slots (composition)
 
 | Slot | Purpose |
 |------|---------|
-| `scrollable-section` / **`scrollable-menubar`** | Scrollable nav groups — typically **`MenuSection`** with `slot="scrollable-menubar"` and **`NavMenuItem`** children. |
-| `fixed-section` / **`fixed-menubar`** | Fixed bottom nav (e.g. settings, help). |
-| `brand-logo` | Brand **`Icon`** / logo (often alongside footer chrome). |
+| **`scrollable-menubar`** | Scrollable nav groups—typically **`MenuSection`** with **`slot="scrollable-menubar"`** and **`NavMenuItem`** children. |
+| **`fixed-menubar`** | Fixed bottom nav (settings, help). |
+| **`brand-logo`** | Brand **`Icon`** / logo. |
 
-**SideNavigation** is a **provider**: it supplies context to descendant **`MenuBar`** / menu sections and **`NavMenuItem`** (selection, collapsed rail behavior, submenu-related hints).
+**SideNavigation** is a **provider**: it supplies context to **`MenuSection`**, **`NavMenuItem`**, and submenu patterns.
 
 ### Submenus (`NavMenuItem` + `MenuPopover`)
 
-| Piece | Prop | Contract |
-|-------|------|----------|
-| **`NavMenuItem`** | Stable **`id`** | Identifies the row that triggers the submenu (Storybook / DOM identity). |
-| **`MenuPopover`** | **`triggerId`** | Must match that **`NavMenuItem`**’s **`id`** so the popover binds to the correct trigger. |
-| **`NavMenuItem`** / shell | **`parentNavTooltipText`** | Explains **which submenu child** is active when the rail is **collapsed** (see JSDoc). |
+| Piece | Contract |
+|-------|------------|
+| **`NavMenuItem`** | Stable **`id`** on the row that opens the submenu (DOM identity). |
+| **`MenuPopover`** | **`triggerID`** (capital **`ID`**) must match that element’s **`id`**—same **`Popover`** anchoring as elsewhere. |
+| **Tooltips** | **`parentNavTooltipText`** / **`tooltipText`** explain collapsed rail and active-child cases—see **`NavMenuItem`** JSDoc. |
 
 ### Accessibility — minimum labeling
 
-| Surface | Prop | Notes |
-|---------|------|-------|
-| Grabber | `grabberBtnAriaLabel` | Meaningful label for expand/collapse. |
-| **`MenuBar`** | `dataAriaLabel` (per docs) | Labels the menu region for AT when the API exposes it. |
-| **`NavMenuItem`** | `dataAriaLabel` / `ariaLabel` / visible **`label`** | Each row needs a clear name; follow Storybook for which prop applies in your slotting setup. |
-| **`MenuSection`** / regions | `ariaLabel`, `headerText` | Describe grouped sections when multiple blocks stack in the scrollable area. |
+- **Grabber:** meaningful **`grabberBtnAriaLabel`**.  
+- **`MenuBar` / regions:** **`dataAriaLabel`** or visible structure where Storybook shows it.  
+- **`NavMenuItem`:** visible **`label`** and/or **`ariaLabel`** / **`dataAriaLabel`** per slotting.  
+- **`MenuSection`:** **`headerText`** / **`ariaLabel`** when multiple blocks stack.
 
 ---
 
 ## What it is
 
-- **Slots:** `scrollable-section` / `scrollable-menubar`, `fixed-section` / `fixed-menubar`, `brand-logo`.  
-- **Section** headers: **`Text`**; section separators: **`Divider`** with **`variant="gradient"`** as recommended.  
-- Theming: **`--mdc-sidenavigation-*`** (widths, paddings, grabber `z-index`).  
-
-**Appheader** and **side** content live **outside** this component; **SideNavigation** is the **nav** column only.
+- **Slots:** **`scrollable-menubar`**, **`fixed-menubar`**, **`brand-logo`**.  
+- **Section** headers: **`Text`**; separators: **`Divider`** (**`variant="gradient"`** where Storybook recommends).  
+- Theming: **`--mdc-sidenavigation-*`** (widths, padding, grabber **`z-index`**).
 
 ---
 
-## Example — `SideNavigation` + `MenuBar` + `NavMenuItem` (shell)
+## Example — `SideNavigation` shell (JSX)
 
 ```jsx
-import { 
-  Icon,
-  MenuSection,
-  NavMenuItem,
-  SideNavigation,
-} from "@momentum-design/components/dist/react";
+import { Icon, MenuSection, NavMenuItem, SideNavigation } from "@momentum-design/components/dist/react";
 
+export function AppSideNav() {
+  return (
+    <SideNavigation
+      variant="flexible"
+      expanded
+      footerText="Acme Corp"
+      grabberBtnAriaLabel="Toggle side navigation"
+      onToggle={() => {
+        /* sync expanded state with Storybook detail */
+      }}
+    >
+      <MenuSection slot="scrollable-menubar" showDivider headerText="Main">
+        <NavMenuItem navId="msg" iconName="chat-bold" label="Messaging" badgeType="counter" counter={2} />
+        <NavMenuItem navId="meet" iconName="meetings-bold" label="Meetings" disabled />
+      </MenuSection>
 
-<div style="...">
-  <SideNavigation
-    expanded
-    footerText="%Customer Name%"
-    grabberBtnAriaLabel="Toggle Side navigation"
-  >
-    <!-- Upper Nav (scrollable section) -->
-    <MenuSection slot="scrollable-menubar" showDivider>
-      <NavMenuItem
-        badgeType="counter"
-        counter="2"
-        maxCounter="66"
-        iconName="chat-bold"
-        navId="1"
-        label="Messaging"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="meetings-bold"
-        navId="2"
-        label="Meetings"
-        disabled
-      ></NavMenuItem>
-      <NavMenuItem
-        badgeType="dot"
-        iconName="audio-call-bold"
-        navId="3"
-        label="Calling"
-      ></NavMenuItem>
-    </MenuSection>
+      <MenuSection slot="fixed-menubar">
+        <NavMenuItem navId="settings" iconName="settings-bold" label="Settings" />
+      </MenuSection>
 
-    <MenuSection slot="scrollable-menubar" showDivider headerText="Section 1">
-      <NavMenuItem
-        iconName="chat-bold"
-        navId="4"
-        label="Messaging"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="meetings-bold"
-        navId="5"
-        label="Meetings"
-        badgeType="counter"
-        counter="2"
-        maxCounter="66"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="audio-call-bold"
-        navId="6"
-        label="Calling"
-      ></NavMenuItem>
-    </MenuSection>
-
-    <MenuSection slot="scrollable-menubar" showDivider headerText="Section 2">
-      <NavMenuItem
-        badgeType="counter"
-        counter="2"
-        maxCounter="66"
-        iconName="chat-bold"
-        navId="8"
-        label="Messaging"
-      ></NavMenuItem>
-      <NavMenuItem iconName="meetings-bold" navId="9" label="Meetings">
-      </NavMenuItem>
-      <NavMenuItem
-        badgeType="dot"
-        iconName="audio-call-bold"
-        navId="10"
-        label="Calling"
-      >
-      </NavMenuItem>
-    </MenuSection>
-
-    <MenuSection slot="scrollable-menubar" showDivider headerText="Section 3">
-      <NavMenuItem
-        iconName="chat-bold"
-        navId="11"
-        label="Messaging"
-      ></NavMenuItem>
-      <NavMenuItem
-        badgeType="counter"
-        counter="3"
-        maxCounter="66"
-        iconName="meetings-bold"
-        navId="12"
-        label="Meetings"
-      ></NavMenuItem>
-      <NavMenuItem
-        badgeType="dot"
-        iconName="audio-call-bold"
-        navId="13"
-        label="Calling"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="placeholder-bold"
-        navId="14"
-        label="Teams"
-      ></NavMenuItem>
-      <NavMenuItem
-        badgeType="counter"
-        counter="3"
-        maxCounter="66"
-        iconName="placeholder-bold"
-        navId="15"
-        label="Contacts"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="placeholder-bold"
-        navId="16"
-        label="Whiteboards"
-      ></NavMenuItem>
-    </MenuSection>
-
-    <MenuSection slot="scrollable-menubar" headerText="Section 4">
-      <NavMenuItem
-        badgeType="counter"
-        counter="2"
-        maxCounter="66"
-        iconName="chat-bold"
-        navId="17"
-        label="Messaging"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="meetings-bold"
-        navId="18"
-        label="Meetings"
-      ></NavMenuItem>
-      <NavMenuItem
-        badgeType="dot"
-        iconName="audio-call-bold"
-        navId="19"
-        label="Calling"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="chat-bold"
-        navId="20"
-        label="Messaging"
-      ></NavMenuItem>
-      <NavMenuItem
-        iconName="meetings-bold"
-        navId="21"
-        label="Meetings"
-      ></NavMenuItem>
-      <NavMenuItem
-        badgeType="dot"
-        iconName="audio-call-bold"
-        navId="22"
-        label="Calling"
-      ></NavMenuItem>
-    </MenuSection>
-
-    <!-- Lower Nav (Fixed section) -->
-    <MenuSection slot="fixed-menubar">
-      <NavMenuItem
-        iconName="settings-bold"
-        navId="23"
-        label="Settings"
-      ></NavMenuItem>
-      <NavMenuItem
-        badgeType="counter"
-        counter="3"
-        maxCounter="66"
-        iconName="help-circle-bold"
-        navId="24"
-        label="Help"
-      ></NavMenuItem>
-    </MenuSection>
-
-    <!-- Brand Logo (Fixed section) -->
-    <Icon
-      slot="brand-logo"
-      ariaLabel="This is a brandlogo."
-      name="apple-bold"
-    ></Icon>
-  </SideNavigation>
-</div>
+      <Icon slot="brand-logo" name="apple-bold" ariaLabel="Brand" />
+    </SideNavigation>
+  );
+}
 ```
 
-(The **full** layout (slot names, **`onToggle`**, **variants**, **submenus**) is in [Storybook — SideNavigation / Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).)
+Full layouts (**variants**, **submenus**, **`onToggle`** payloads) — copy from [Storybook — SideNavigation / Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] Every **nav** target has a **visible** or **screen-reader** label; **submenu** tooltips filled when the design collapses the rail  
-- [ ] `ThemeProvider` + `IconProvider` in the tree per [setup.md](../setup.md)  
-- [ ] `Divider` and **Text** for sections match the Momentum **side nav** story  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] Every nav target has a **visible** or **screen-reader** label; submenu / collapsed-rail **tooltips** filled when the design requires  
+- [ ] **`MenuPopover`** **`triggerID`** matches the submenu trigger **`id`**  
+- [ ] **`Divider`** and **Text** for sections match the Side Navigation story patterns  
 
-[Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs)
+Cross-check [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs) and your installed **`@momentum-design/components`** version.

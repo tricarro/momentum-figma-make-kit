@@ -1,0 +1,125 @@
+---
+description: Momentum sidenavigation component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# SideNavigation (Momentum) — Momentum guidance (IDE)
+
+**SideNavigation** (`SideNavigation` in React) is the **vertical** nav **shell**: layout variants, scrollable vs fixed groups, brand/footer chrome, expand/collapse **grabber**, and provider context for **`MenuBar`** / **`NavMenuItem`**. **[Appheader](./appheader.mdc)** and main content live **outside** this component—**SideNavigation** is the **nav** column only.
+
+See also: [NavMenuItem](./navmenuitem.mdc), [MenuPopover](./menupopover.mdc), [Divider](./divider.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs). Walkthrough: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { SideNavigation, MenuSection, NavMenuItem, Icon, Divider } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## Behavior model
+
+Typed-style reference for props, events, slots, and related components (details and edge cases in [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs)).
+
+### `SideNavigation` props (representative)
+
+| Prop | Type | Role |
+|------|------|------|
+| **`variant`** | **`fixed-collapsed`** \| **`fixed-expanded`** \| **`flexible`** \| **`flexible-on-hover`** \| **`hidden`** | Shell layout: fixed widths, flexible toggle / hover, or hidden rail. |
+| **`expanded`** | `boolean` \| `undefined` | Rail expanded vs collapsed (with flexible variants + grabber). |
+| **`footerText`** | `string` | Copy in the footer area (e.g. tenant name). |
+| **`grabberBtnAriaLabel`** | `string` | Accessible name for expand/collapse **grabber**. |
+| **`parentNavTooltipText`** | `string` | Tooltip when a **parent** row must describe an active **child** (e.g. collapsed rail + open submenu). |
+
+### `SideNavigation` events (React)
+
+| Handler | When |
+|---------|------|
+| **`onToggle`** | Grabber toggles expanded vs collapsed (`detail` shape in Storybook). |
+| **`onActiveChange`** | A descendant **`NavMenuItem`** active state changes. |
+
+### Slots (composition)
+
+| Slot | Purpose |
+|------|---------|
+| **`scrollable-menubar`** | Scrollable nav groups—typically **`MenuSection`** with **`slot="scrollable-menubar"`** and **`NavMenuItem`** children. |
+| **`fixed-menubar`** | Fixed bottom nav (settings, help). |
+| **`brand-logo`** | Brand **`Icon`** / logo. |
+
+**SideNavigation** is a **provider**: it supplies context to **`MenuSection`**, **`NavMenuItem`**, and submenu patterns.
+
+### Submenus (`NavMenuItem` + `MenuPopover`)
+
+| Piece | Contract |
+|-------|------------|
+| **`NavMenuItem`** | Stable **`id`** on the row that opens the submenu (DOM identity). |
+| **`MenuPopover`** | **`triggerID`** (capital **`ID`**) must match that element’s **`id`**—same **`Popover`** anchoring as elsewhere. |
+| **Tooltips** | **`parentNavTooltipText`** / **`tooltipText`** explain collapsed rail and active-child cases—see **`NavMenuItem`** JSDoc. |
+
+### Accessibility — minimum labeling
+
+- **Grabber:** meaningful **`grabberBtnAriaLabel`**.  
+- **`MenuBar` / regions:** **`dataAriaLabel`** or visible structure where Storybook shows it.  
+- **`NavMenuItem`:** visible **`label`** and/or **`ariaLabel`** / **`dataAriaLabel`** per slotting.  
+- **`MenuSection`:** **`headerText`** / **`ariaLabel`** when multiple blocks stack.
+
+---
+
+## What it is
+
+- **Slots:** **`scrollable-menubar`**, **`fixed-menubar`**, **`brand-logo`**.  
+- **Section** headers: **`Text`**; separators: **`Divider`** (**`variant="gradient"`** where Storybook recommends).  
+- Theming: **`--mdc-sidenavigation-*`** (widths, padding, grabber **`z-index`**).
+
+---
+
+## Example — `SideNavigation` shell (JSX)
+
+```jsx
+import { Icon, MenuSection, NavMenuItem, SideNavigation } from "@momentum-design/components/dist/react";
+
+export function AppSideNav() {
+  return (
+    <SideNavigation
+      variant="flexible"
+      expanded
+      footerText="Acme Corp"
+      grabberBtnAriaLabel="Toggle side navigation"
+      onToggle={() => {
+        /* sync expanded state with Storybook detail */
+      }}
+    >
+      <MenuSection slot="scrollable-menubar" showDivider headerText="Main">
+        <NavMenuItem navId="msg" iconName="chat-bold" label="Messaging" badgeType="counter" counter={2} />
+        <NavMenuItem navId="meet" iconName="meetings-bold" label="Meetings" disabled />
+      </MenuSection>
+
+      <MenuSection slot="fixed-menubar">
+        <NavMenuItem navId="settings" iconName="settings-bold" label="Settings" />
+      </MenuSection>
+
+      <Icon slot="brand-logo" name="apple-bold" ariaLabel="Brand" />
+    </SideNavigation>
+  );
+}
+```
+
+Full layouts (**variants**, **submenus**, **`onToggle`** payloads) — copy from [Storybook — SideNavigation / Example](https://momentum.design/storybook-static/index.html?path=/story/components-sidenavigation-sidenavigation--example).
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] Every nav target has a **visible** or **screen-reader** label; submenu / collapsed-rail **tooltips** filled when the design requires  
+- [ ] **`MenuPopover`** **`triggerID`** matches the submenu trigger **`id`**  
+- [ ] **`Divider`** and **Text** for sections match the Side Navigation story patterns  
+
+Cross-check [Storybook — SideNavigation / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-sidenavigation-sidenavigation--docs) and your installed **`@momentum-design/components`** version.

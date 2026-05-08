@@ -1,0 +1,83 @@
+---
+description: Momentum calendar component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Calendar (Momentum) — Momentum guidance (IDE)
+
+**Calendar** shows a **monthly grid** for **single** date, **full week**, or **range** selection. It emits when the user picks a date and when the **visible month** changes.
+
+See also: [Datepicker](./datepicker.mdc) (when you need a full picker field pattern).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Calendar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-calendar-calendar--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Calendar } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`selectionMode`:** `single` (default) · `week` · `range`.  
+- **`value`:** ISO string **`yyyy-mm-dd`**; for **range**, this is the **start**; **`endValue`** is the end ISO string.  
+- **`locale`:** BCP-47 (default **`en-US`**) for labels and week start.  
+- **`min`** / **`max`:** optional ISO bounds for what can be selected.  
+- **`showTodayButton`** (default **`false`**) and **`localeTodayLabel`**; **`localePrevMonthLabel`** / **`localeNextMonthLabel`** for month nav **`aria-label`**s.  
+- **React events:** **`onDateSelected`**, **`onMonthChanged`** (maps **`date-selected`** and **`month-changed`**).  
+- **`onDateSelected` `detail`:** at least **`date`**; in range mode also **`startDate`**, **`endDate`** as applicable.
+
+Styling: **`--mdc-calendar-*`** tokens in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs). Typically pair with **Popover**, **Datepicker**, or a **form field** pattern from Storybook for a full “picker” experience.
+
+### Defaults (package)
+
+**`selectionMode`** **`single`**, **`locale`** **`en-US`**, **`showTodayButton`** **`false`**.
+
+---
+
+## Key props
+
+- **`selectionMode`**, **`value`**, **`endValue`**, **`locale`**, **`min`**, **`max`**, **`showTodayButton`**, **`localeTodayLabel`**, **`localePrevMonthLabel`**, **`localeNextMonthLabel`**  
+- **`onDateSelected`**, **`onMonthChanged`**
+
+---
+
+## Example (React)
+
+```jsx
+import { Calendar } from "@momentum-design/components/dist/react";
+
+
+<Calendar
+  selectionMode="single"
+  locale="en-US"
+  value="2026-05-08"
+  showTodayButton
+  localeTodayLabel="Today"
+  localePrevMonthLabel="Previous month"
+  localeNextMonthLabel="Next month"
+/>
+```
+
+Use **`import "@momentum-design/components/dist/components/calendar/index.js"`** and **`<mdc-calendar>`** only if your stack mounts raw custom elements without the React wrapper.
+
+For **`range`**, set **`selectionMode="range"`**, **`value`** / **`endValue`**, and sync from **`onDateSelected`** **detail**.
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc) (month nav uses **Icon** / buttons)  
+- [ ] Dates are **ISO `yyyy-mm-dd`**, no locale-formatted strings in **`value`** / **`endValue`**  
+- [ ] **`min` / `max`** match form validation for the same field  
+- [ ] Month nav and **Today** labels are localized in multi-language UIs  
+- [ ] **`onDateSelected`** handles **`single`**, **week**, and **range** detail shapes (**`DateSelectionDetail`**) for your package version  
+
+Cross-check [Storybook — Calendar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-calendar-calendar--docs) and your installed **`@momentum-design/components`** version.

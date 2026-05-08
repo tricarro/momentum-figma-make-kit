@@ -1,0 +1,70 @@
+---
+description: Momentum checkbox component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Checkbox (Momentum) — Momentum guidance (IDE)
+
+**Checkbox** wraps a **native** `<input type="checkbox">` with MDS styling, **label**, optional **help** / **error** text, and **toggletip** support. Use for **one or many** options, **binary** toggles, and **indeterminate** parent checkboxes. Group related checkboxes with **`FormfieldGroup`** when the design shows a fieldset.
+
+See also: [Radio](./radio.mdc), [FormfieldGroup](./formfieldgroup.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Checkbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-checkbox-checkbox--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-checkbox-checkbox--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Checkbox } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`checked`**, **`indeterminate`** (parent “partial” state in trees).  
+- **Label** via **`label`** (and **`FormfieldWrapper`** props: **`required`**, **`helpText`**, **`helpTextType`** **`default`** | **`error`**, **`toggletipText`**, etc.—see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-checkbox-checkbox--docs)).  
+- **`dataAriaLabel`** when there is **no** visible label.  
+- **Events:** **`onChange`**, **`onFocus`**.  
+- Shadow **`part`** **`static-checkbox`** aligns with **StaticCheckbox** visuals—style via tokens/parts, not a duplicate custom checkbox.
+
+**Space** toggles; **Tab** moves focus; **Enter** may submit the form.
+
+---
+
+## Key props (typical)
+
+- **`label`**, **`checked`**, **`indeterminate`**, **`onChange`**, **`required`**, **`helpText`**, **`helpTextType`**, **`dataAriaLabel`**, **`disabled`**, **`softDisabled`**
+
+---
+
+## Example
+
+```jsx
+import { Checkbox } from "@momentum-design/components/dist/react";
+
+
+<div role="main">
+  <Checkbox
+    label="I agree to the terms"
+    helpTextType="default"
+    dataAriaLabel="Agree to all terms and conditions"
+  ></Checkbox>
+</div>
+```
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** per [setup.mdc](../setup.mdc)  
+- [ ] Every checkbox has a visible **`label`** or accessible **`dataAriaLabel`**  
+- [ ] **Indeterminate** only for “some children selected” parent rows  
+- [ ] **Help** / error text uses **`helpTextType="error"`** with validation state  
+- [ ] Use **`FormfieldGroup`** for **related** checkboxes in one fieldset when the design calls for it  
+
+Cross-check [Storybook — Checkbox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-checkbox-checkbox--docs) and your installed package version.

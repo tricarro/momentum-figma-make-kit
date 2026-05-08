@@ -1,6 +1,10 @@
 # Marker (Momentum) — Figma Make guidance
 
-**Marker** is a **vertical** emphasis strip (~**0.25rem** wide by default) beside content: **`variant`** `solid` or `striped` (diagonal). Use to **relate** list rows, **cards**, or **blocks** to a category, priority, or callout. It is **decorative** in the a11y sense: **color/pattern** must be explained by **Text** (or a legend), not by the marker alone. Styling: **`--mdc-marker-*`** in the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs). Reference: [Storybook — Marker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-decorator-marker--example).
+**Marker** is a **vertical** emphasis strip (~**0.25rem** wide by default) beside content: **`variant`** **`solid`** or **`striped`** (diagonal). Use to **relate** list rows, **cards**, or **blocks** to a category, priority, or callout. **Color / pattern** must be explained by **Text** (or a legend), not by the marker alone. Styling: **`--mdc-marker-*`** in the [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs).
+
+See also: [Divider](./divider.md), [Bullet](./bullet.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Marker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-decorator-marker--example).
 
 ---
 
@@ -9,7 +13,7 @@
 Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
 ```jsx
-import { Marker } from "@momentum-design/components/dist/react";
+import { Marker, Text } from "@momentum-design/components/dist/react";
 ```
 
 ---
@@ -17,9 +21,9 @@ import { Marker } from "@momentum-design/components/dist/react";
 ## What it is
 
 - **List** and **table** lead columns, or **card** leading edge.  
-- **Do not** encode the **only** meaning in red vs green—add **labels** or **Badges** per content strategy.  
+- **Do not** encode the **only** meaning in red vs green—add **labels** or **Badges** per content strategy.
 
-**Marker** (vertical strip) vs **Divider** (horizontal/vertical line between regions), **Bullet** (list dot).
+**Marker** (vertical strip) vs **Divider** (line between regions), **Bullet** (list dot).
 
 ---
 
@@ -36,24 +40,25 @@ import { Marker, Text } from "@momentum-design/components/dist/react";
 
 function Callout() {
   return (
-    <div style={{ display: "flex", gap: "0.5rem" }}>
+    <div style={{ display: "flex", gap: "var(--mds-spacing-inline-xs, 0.5rem)", alignItems: "flex-start" }}>
       <Marker variant="solid" />
       <Text type="body-primary" tagname="p">
-        Status: in review (also describe this in copy; do not rely on color alone).
+        Status: in review (describe status in copy; do not rely on color alone).
       </Text>
     </div>
   );
 }
 ```
 
-(Validate **`variant`** and layout against [Storybook — Marker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs).)
+Validate **`variant`** and layout against [Storybook — Marker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
+- [ ] **`ThemeProvider`** per [setup.md](../setup.md)  
 - [ ] A **string label** in the item explains what the marker color means  
-- [ ] **Contrast** between marker and page background (tokens)  
+- [ ] **Contrast** between marker and background uses tokens  
 - [ ] Not used in place of **error** or **status** when the spec calls for **AlertChip** / **Banner**  
 
-[Storybook — Marker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs)
+Cross-check [Storybook — Marker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-decorator-marker--docs) and your installed package version.

@@ -1,6 +1,10 @@
 # Progressbar (Momentum) — Figma Make guidance
 
-**Progressbar** shows a **linear** 0–100% bar: **`variant`** **default** or **inline**; **validation**-style help via **`error`** and the same **form-field** label/help model as other **`FormfieldWrapper`** components. **`value`** is a string percentage, **clamped** 0–100. Optional **label** and help slots / **`helpText`**. Theming: **`--mdc-progressbar-*`**. For **circular** progress, use **Progressspinner** (it extends the same value logic). Reference: [Storybook — Progressbar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-progressbar-progressbar--example).
+**Progressbar** shows a **linear** 0–100% bar: **`variant`** **default** or **inline**; **validation**-style help via **`error`** and the same **form-field** label/help model as other **`FormfieldWrapper`** components. **`value`** is a **string** percentage, **clamped** 0–100. Optional **label** and help slots / **`helpText`**. Theming: **`--mdc-progressbar-*`**. For **circular** progress, use **[Progressspinner](./progressspinner.md)**.
+
+See also: [Progressspinner](./progressspinner.md), [ScreenreaderAnnouncer](./screenreaderannouncer.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Progressbar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-progressbar-progressbar--example).
 
 ---
 
@@ -17,10 +21,10 @@ import { Progressbar } from "@momentum-design/components/dist/react";
 ## What it is
 
 - **`value`:** string **percentage**; **`error`:** error chrome.  
-- **Validation** chrome (default / success / error) is derived from **`value`** and **`error`**; see the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs) for the exact rules.  
-- Expose progress to **screen reader** users: use **`dataAriaLabel`** and/or **help** text, not only bar color.  
+- **Validation** chrome (default / success / error) is derived from **`value`** and **`error`**; see the [doc](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs) for rules.  
+- Expose progress to **screen reader** users: use **`dataAriaLabel`** and/or **help** text, not only bar color.
 
-**Progressbar** = **determinate** linear; **Progressspinner** = circular (also uses **`value`**, plus success/error end states from the [Progressspinner doc](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs)).
+**Progressbar** = **determinate** linear; **Progressspinner** = circular (also uses **`value`**, plus success/error end states in the [Progressspinner doc](https://momentum.design/storybook-static/index.html?path=/docs/components-progressspinner-progressspinner--docs)).
 
 ---
 
@@ -41,14 +45,15 @@ function UploadStatus() {
 }
 ```
 
-(Confirm **validation** / **error** props in [Storybook — Progressbar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs). **`value`** is a string percentage.)
+Confirm **validation** / **error** props in [Storybook — Progressbar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs). **`value`** is a **string** percentage.
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] **`value`** updated as the real job advances; avoid fake animation on static pages  
-- [ ] When **`error`**, a **string** in **help** explains what failed, not just red fill  
-- [ ] Prefer **Text** or **`dataAriaLabel`** for “Uploading 40%” style announcements, or add **ScreenreaderAnnouncer** for one-off status updates  
+- [ ] **`ThemeProvider`** per [setup.md](../setup.md)  
+- [ ] **`value`** updates as the real job advances; avoid fake animation on static pages  
+- [ ] When **`error`**, **help** text explains what failed, not only red fill  
+- [ ] Prefer **`Text`**, **`dataAriaLabel`**, or **[ScreenreaderAnnouncer](./screenreaderannouncer.md)** for important status changes  
 
-[Storybook — Progressbar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs)
+Cross-check [Storybook — Progressbar / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-progressbar-progressbar--docs) and your installed package version.

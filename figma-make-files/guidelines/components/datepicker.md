@@ -1,6 +1,10 @@
 # DatePicker (Momentum) — Figma Make guidance
 
-**DatePicker** (`DatePicker` in React) lets users **pick a date** via a **Calendar** in a **popover** and/or **enter a date** depending on **variant**: **`input`** (month/day/year **spinbutton** subfields) or **`default`** (select-like **trigger** + calendar). It supports **localization** with a BCP-47 **locale** string. Reference: [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-datepicker-datepicker--example).
+**DatePicker** (`DatePicker` in React) lets users **pick a date** via a **Calendar** in a **popover** and/or **type a date** depending on **`variant`**: **`input`** (month/day/year **spinbutton** subfields) or **`default`** (trigger + calendar). Supports **localization** with a BCP-47 **`locale`** string.
+
+See also: [Calendar](./calendar.md) (grid only).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-datepicker-datepicker--example).
 
 ---
 
@@ -16,19 +20,19 @@ import { DatePicker } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **Variants** — `input` vs `default` (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs) for the exact control model).  
+- **Variants** — **`input`** vs **`default`** (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs) for the control model).  
 - **Events (React):** **`onInput`** (as value changes), **`onChange`** (committed), **`onFocus`**, **`onBlur`**.  
-- **Form-field slots** — `label`, `toggletip`, `help-icon`, `help-text` (and properties from the form-field layer).  
+- **Form-field slots** — **`label`**, **`toggletip`**, **`help-icon`**, **`help-text`** (and properties from the form-field layer).  
 - Theming: **`--mdc-datepicker-*`** in the [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs).  
-- Often paired with **validation** and **`format`** / locale from product requirements.
+- Pair with **validation** and product **`format`** / locale rules.
 
-**Calendar** alone: see **`calendar.md`**; **DatePicker** composes it into a field.
+**Calendar** alone: see [Calendar](./calendar.md); **DatePicker** composes calendar + field chrome.
 
 ---
 
 ## Key props (typical)
 
-- **`label`**, **`value` / binding**, **`variant`**, **`locale`**, **`helpText`**, **`helpTextType`**
+- **`label`**, **`value`**, **`variant`**, **`locale`**, **`helpText`**, **`helpTextType`**, **`required`**, **`onInput`**, **`onChange`**
 
 ---
 
@@ -47,20 +51,21 @@ function DueDateField() {
       value={value}
       locale="en-US"
       variant="default"
+      onChange={(e) => setValue(e.detail.value)}
     />
   );
 }
 ```
 
-Add **`onInput`**, **`onChange`**, and any **`onFocus` / `onBlur`** your flow needs using the event contract in [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs).
+Wire **`onInput`**, **`onChange`**, and **`onFocus` / `onBlur`** using the event contract in [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md) (calendar / trigger icons)  
 - [ ] Choose **`input`** vs **`default`** to match the product’s data-entry pattern  
-- [ ] Set **`locale`** (and any format) consistently with the rest of the app  
-- [ ] Wire **`onChange`** for committed values and error messages from the field wrapper  
-- [ ] `IconProvider` in the app root per [setup.md](../setup.md) (icons in the control)  
+- [ ] Set **`locale`** consistently with the rest of the app  
+- [ ] Wire **`onChange`** for committed values and surface errors via **`helpText`** / **`helpTextType`**  
 
-[Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs)
+Cross-check [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs) and your installed **`@momentum-design/components`** version.

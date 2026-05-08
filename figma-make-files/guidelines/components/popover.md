@@ -1,6 +1,12 @@
 # Popover (Momentum) — Figma Make guidance
 
-**Popover** is a **generic** anchored overlay: **Floating UI** positioning, scrollable content, **`--mdc-popover-*`** theming, and **shown** / **hidden** / **created** / **destroyed** in React. Use for **custom** panels that are not the dedicated **MenuPopover** or **Coachmark** (those wrap Popover with different defaults). If **one trigger** opens **several** popovers, set **`disableAriaExpanded`** on all but **one** so the trigger’s **`aria-expanded`** is not wrong. For **`appendTo`** in React: the package warns of **`NotFoundError`** when the popover portaled node is **directly** added/removed by React—**wrap the Popover in an element** (not `Fragment`) when using **`appendTo`**, per the JSDoc. Reference: [Storybook — Popover / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-popover-popover--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-popover-popover--example).
+**Popover** is a **generic** anchored overlay: **Floating UI** positioning, scrollable content, **`--mdc-popover-*`** theming, and **`shown`** / **`hidden`** / **`created`** / **`destroyed`** in React. Use for **custom** panels that are not the dedicated **[MenuPopover](./menupopover.md)** or **[Coachmark](./coachmark.md)** (those wrap Popover with different defaults).
+
+**Trigger wiring:** set **`triggerID`** (capital **`ID`**) to the **`id`** of the opening control. Control visibility with **`visible`** and lifecycle handlers. If **one trigger** opens **several** popovers, set **`disableAriaExpanded`** on all but **one** so **`aria-expanded`** stays correct. For **`appendTo`** in React: the package warns of **`NotFoundError`** when the popover portal node is **directly** added/removed by React—**wrap `Popover` in an element** (not **`Fragment`**) when using **`appendTo`**, per JSDoc.
+
+See also: [MenuPopover](./menupopover.md), [Dialog](./dialog.md), [Tooltip](./tooltip.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Popover / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-popover-popover--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-popover-popover--example).
 
 ---
 
@@ -17,50 +23,39 @@ import { Popover, Button, Text } from "@momentum-design/components/dist/react";
 ## What it is
 
 - **Events (React):** **`onShown`**, **`onHidden`**, **`onCreated`**, **`onDestroyed`**.  
-- **Parts** — `popover-content`, `popover-close`, `popover-hover-bridge` for styling.  
-- **Backdrop** and **max** width/height: see Storybook.  
+- **Parts** — **`popover-content`**, **`popover-close`**, **`popover-hover-bridge`** for styling.  
+- **Backdrop** and max width/height: see Storybook.
 
-**Popover** = general; **MenuPopover** = application menus; **Dialog** = modal; **Toggletip** / **Tooltip** = smaller help.
+**Popover** = general anchored overlay; **MenuPopover** = application menus; **Dialog** = modal; smaller help surfaces may use **Tooltip** / **Toggletip**—see Storybook.
 
 ---
 
-## Example — `Popover` with a **trigger** + **Button**
+## Example — minimal pattern (copy full wiring from Storybook)
 
 ```jsx
-import { useState } from "react";
-import { Popover, Button, Text } from "@momentum-design/components/dist/react";
+import { Popover, Text } from "@momentum-design/components/dist/react";
 
-function WithPopover() {
-  const [open, setOpen] = useState(false);
-
+function AnchoredPanel({ open, triggerId }) {
   return (
-    <>
-      <Button type="button" onClick={() => setOpen(true)}>
-        Open
-      </Button>
-      <Popover
-        onHidden={() => setOpen(false)}
-        onShown={() => {
-          // optional: focus
-        }}
-      >
-        <Text type="body-primary" tagname="p" slot="popover-content">
-          Panel content
-        </Text>
-      </Popover>
-    </>
+    <Popover visible={open} triggerID={triggerId}>
+      <Text type="body-primary" tagname="p" slot="popover-content">
+        Panel content
+      </Text>
+    </Popover>
   );
 }
 ```
 
-(The **trigger → popover** wiring, **`visible` / open state**, and **slot** names are version-specific; copy the pattern from [Storybook — Popover / Example](https://momentum.design/storybook-static/index.html?path=/story/components-popover-popover--example).)
+Give the **Button** (or trigger) a stable **`id`** that matches **`triggerID`**. Slot names, **`visible`** handling, and focus behavior are **version-specific**—mirror [Storybook — Popover / Example](https://momentum.design/storybook-static/index.html?path=/story/components-popover-popover--example).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] **`appendTo` + React** use the **wrapper** workaround if you hit mount errors  
-- [ ] For multiple flyouts on one **trigger**, set **`disableAriaExpanded`** on extra popovers  
-- [ ] Focus: confirm **trap** and **return focus** for modal-like usage vs lightweight dropdowns to match UX and Storybook  
+- [ ] **`ThemeProvider`** + **`IconProvider`** when content uses **Icon** / **Text** patterns per [setup.md](../setup.md)  
+- [ ] **`triggerID`** matches the trigger element’s **`id`**  
+- [ ] **`appendTo` + React**: use the **wrapper** workaround from JSDoc if mount errors appear  
+- [ ] Multiple flyouts on one trigger: **`disableAriaExpanded`** on extra popovers  
+- [ ] Focus: confirm **trap** / **return focus** for modal-like panels vs lightweight dropdowns per UX + Storybook  
 
-[Storybook — Popover / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-popover-popover--docs)
+Cross-check [Storybook — Popover / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-popover-popover--docs) and your installed package version.

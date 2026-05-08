@@ -1,6 +1,10 @@
 # Textarea (Momentum) — Figma Make guidance
 
-**Textarea** is a **multiline** field: **label**, **help** / validation, **`maxCharacterLimit`**, **`onLimitExceeded`** (React) when the count crosses the limit (set **`helpTextType`** to **error** and set **`helpText`** from that path, per the package), optional **resizable** with **`resizeButtonAriaLabel`**, and **`characterLimitAnnouncement`** for screen reader updates. **Events:** **`onInput`**, **`onChange`**, **`onFocus`**, **`onBlur`**, **`onLimitExceeded`**. Same **form-field** family as **Input** / **Password**. Reference: [Storybook — Textarea / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-textarea-textarea--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-textarea-textarea--example).
+**Textarea** is a **multiline** field: **label**, **help** / validation, **`maxCharacterLimit`**, **`onLimitExceeded`** (React) when the count crosses the limit (set **`helpTextType`** to **error** and update **`helpText`** from that handler, per the package), optional **resizable** with **`resizeButtonAriaLabel`**, and **`characterLimitAnnouncement`** for screen reader updates. **Events:** **`onInput`**, **`onChange`**, **`onFocus`**, **`onBlur`**, **`onLimitExceeded`**. Same **form-field** family as **[Input](./input.md)** / **[Password](./password.md)**.
+
+See also: [Input](./input.md), [Password](./password.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Textarea / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-textarea-textarea--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-textarea-textarea--example).
 
 ---
 
@@ -16,8 +20,8 @@ import { Textarea } from "@momentum-design/components/dist/react";
 
 ## What it is
 
-- **Resizing:** when **`resizable`**, document **shortcuts** in the resize button’s **aria** label.  
-- **Length** rules: use **`onLimitExceeded`** to flip **error** help text, not a silent cap.  
+- **Resizing:** when **`resizable`**, document shortcuts in the resize button’s **ARIA** label.  
+- **Length** rules: use **`onLimitExceeded`** to flip **error** help text, not a silent truncate.
 
 ---
 
@@ -31,6 +35,14 @@ function Notes() {
 }
 ```
 
-(Use **`onInput` / `onChange` / `onLimitExceeded`**, **`resizable`**, and **help** for errors per [Storybook — Textarea / Example](https://momentum.design/storybook-static/index.html?path=/story/components-textarea-textarea--example).)
+Use **`onInput`** / **`onChange`** / **`onLimitExceeded`**, **`resizable`**, and **help** for errors per [Storybook — Textarea / Example](https://momentum.design/storybook-static/index.html?path=/story/components-textarea-textarea--example).
 
-[Storybook — Textarea / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-textarea-textarea--docs)
+---
+
+## Checklist for Figma Make
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] **`characterLimitAnnouncement`** / **`helpText`** give SR users the same limits as sighted users  
+- [ ] **`onLimitExceeded`** drives **`helpTextType="error"`** when the spec requires blocking submit  
+
+Cross-check [Storybook — Textarea / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-textarea-textarea--docs) and your installed package version.

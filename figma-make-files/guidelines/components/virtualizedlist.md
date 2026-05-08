@@ -1,6 +1,10 @@
 # VirtualizedList (Momentum) — Figma Make guidance
 
-**VirtualizedList** extends **List** with [TanStack Virtual](https://tanstack.com/virtual/latest) for **very long** rows. **`virtualizerProps` is required:** at least **`count`**, **`estimateSize`**, and **`getItemKey`**. The app renders only **visible** rows, driven by **`onVirtualItemsChange`**: each **ListItem** (or row) must set **`data-index`** to match the **`virtualItems` list. **Do not** put top/bottom padding on the scroll container in CSS; use **`paddingStart`** and **`paddingEnd`** on **`virtualizerProps`**. If you add gaps between items (margin/gap in CSS), mirror the pixel value in the **`gap`** field of **`virtualizerProps`**. For **Listheader**, use the `list-header` slot (same pattern as **List**). **Events (React):** **`onScroll`**, **`onVirtualItemsChange`**. Set **`observeSizeChanges`** when item heights can change and the list must re-measure (uses **ResizeObserver** internally). Reference: [Storybook — VirtualizedList / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-virtualizedlist-virtualizedlist--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-virtualizedlist-virtualizedlist--example).
+**VirtualizedList** extends **[List](./list.md)** with [TanStack Virtual](https://tanstack.com/virtual/latest) for **very long** row lists. **`virtualizerProps` is required:** at least **`count`**, **`estimateSize`**, and **`getItemKey`**. The app renders **visible** rows only; use **`onVirtualItemsChange`** so each **[ListItem](./listitem.md)** sets **`data-index`** to match **`virtualItems`**. **Do not** put top/bottom padding on the scroll container in CSS—use **`paddingStart`** and **`paddingEnd`** on **`virtualizerProps`**. If you use **gap** between items in CSS, mirror the pixel value in **`virtualizerProps.gap`**. **[Listheader](./listheader.md)** uses the **`list-header`** slot like **List**. **Events (React):** **`onScroll`**, **`onVirtualItemsChange`**. Set **`observeSizeChanges`** when row heights can change (uses **ResizeObserver**).
+
+See also: [List](./list.md), [ListItem](./listitem.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — VirtualizedList / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-virtualizedlist-virtualizedlist--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-virtualizedlist-virtualizedlist--example).
 
 ---
 
@@ -16,12 +20,12 @@ import { VirtualizedList, ListItem, Listheader } from "@momentum-design/componen
 
 ## What it is
 
-- **Stability** of **`getItemKey`** is **critical** when list **data** **mutates**—or **scroll** and **content** will **jitter** (per JSDoc).  
-- For **short** lists, **List** is **simpler**; use **VirtualizedList** at **hundreds+** of **rows** or when **profile** **requires** it.  
+- **Stable** **`getItemKey`** is critical when data **mutates**—otherwise scroll and content **jitter** (JSDoc).  
+- For **short** lists, **[List](./list.md)** is simpler; use **VirtualizedList** at **hundreds+** rows or when performance requires it.
 
 ---
 
-## Example (shell — `virtualizerProps` **required**)
+## Example (shell — `virtualizerProps` required)
 
 ```jsx
 import { VirtualizedList, ListItem } from "@momentum-design/components/dist/react";
@@ -41,12 +45,21 @@ function LongList() {
         /* set data-index on visible rows; see JSDoc + Storybook */
       }}
     >
-      {/* Render rows from `virtualItems` in your app — see Storybook */}
+      {/* Render rows from virtualItems in your app — see Storybook */}
     </VirtualizedList>
   );
 }
 ```
 
-(Follow **`onVirtualItemsChange`**, **`data-index`**, and **height** / **gap** rules in [Storybook — VirtualizedList / Example](https://momentum.design/storybook-static/index.html?path=/story/components-virtualizedlist-virtualizedlist--example).)
+Follow **`onVirtualItemsChange`**, **`data-index`**, and height/gap rules in [Storybook — VirtualizedList / Example](https://momentum.design/storybook-static/index.html?path=/story/components-virtualizedlist-virtualizedlist--example).
 
-[Storybook — VirtualizedList / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-virtualizedlist-virtualizedlist--docs)
+---
+
+## Checklist for Figma Make
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** when rows use **Icon** / avatars per [setup.md](../setup.md)  
+- [ ] **`virtualizerProps`** includes **`count`**, **`estimateSize`**, **`getItemKey`**  
+- [ ] **`gap`** in props matches CSS gap/margin between rows  
+- [ ] Prefer plain **[List](./list.md)** for small static lists  
+
+Cross-check [Storybook — VirtualizedList / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-virtualizedlist-virtualizedlist--docs) and your installed **`@momentum-design/components`** version.

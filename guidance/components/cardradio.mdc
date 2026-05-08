@@ -1,0 +1,82 @@
+---
+description: Momentum cardradio component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# CardRadio (Momentum) — Momentum guidance (IDE)
+
+**CardRadio** is a **card** that acts as a **radio**: only **one** **`checked`** item per **`name`**. **Requires `cardTitle` and `name`**. Arrow key navigation within the **same group** is supported. Wrap the set in **`role="radiogroup"`** and an **`aria-label`**.
+
+See also: [Card](./card.mdc), [CardCheckbox](./cardcheckbox.mdc), [Radio](./radio.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — CardRadio / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-card-cardradio--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-card-cardradio--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { CardRadio, Text } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **`name`:** groups radios; must be **identical** for cards in the same choice set.  
+- **`checked`:** which card is selected.  
+- **`onChange`:** when selection moves to this card.  
+- **No nested interactives** in slots.  
+- Inherits the same **card** layout/variant API as other card components (see [Card](./card.mdc)).  
+- Prefer **`disabled`** on the React wrapper when exposed; **`setDisabled`** exists on the underlying class in some builds.
+
+**Use `CardCheckbox`** for multi-select; **use `CardRadio`** for **exactly one** option in the group.
+
+---
+
+## Key props
+
+- **`name`** and **`cardTitle`** (required) · **`checked`**, **`onChange`**, **`disabled`**, plus card layout props
+
+---
+
+## Example
+
+```jsx
+import { CardRadio, Text } from "@momentum-design/components/dist/react";
+
+
+<div role="main">
+  <CardRadio
+    name="radio-card"
+    variant="border"
+    orientation="vertical"
+    cardTitle="Title"
+    subtitle="Subtitle"
+    imageSrc="https://picsum.photos/seed/momentum-cr/640/360"
+    imageAlt="Decorative card image"
+    iconName="placeholder-bold"
+    titleTagName="span"
+    subtitleTagName="span"
+  >
+    <Text slot="body" tagname="span">
+      One option in a shared name group—drive checked from React state so only one is selected.
+    </Text>
+  </CardRadio>
+</div>
+```
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`**  
+- [ ] **`name`** is stable and **shared** across the group  
+- [ ] **Exactly one** **`checked`** at a time in UI state (controlled React state)  
+- [ ] **`role="radiogroup"`** + label on the wrapper  
+- [ ] **Multi select** = **`CardCheckbox`**, not **`CardRadio`**  
+
+Cross-check [Storybook — CardRadio / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-card-cardradio--docs) and your installed package version.

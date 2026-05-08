@@ -1,6 +1,10 @@
 # Presence (Momentum) — Figma Make guidance
 
-**Presence** is the small **status indicator** (active, busy, in a meeting, and so on). **Avatars** and **AvatarButton** can show presence via their **`presence`** property, which uses the same **type** values. Use the standalone **`<Presence />`** when you need a **presence chip** next to custom layout (or outside the default avatar flow). Official reference: [Storybook — Presence / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs). Optional: [Presence / Example](https://momentum.design/storybook-static/index.html?path=/story/components-avatar-presence--example).
+**Presence** is the small **status** dot (active, busy, in a meeting, and so on). **Avatar** and **AvatarButton** can show presence via their **`presence`** property using the same **type** values. Use standalone **`<Presence />`** when you need a **presence** indicator beside custom layout (or outside the default avatar flow).
+
+See also: [Avatar](./avatar.md), [AvatarButton](./avatarbutton.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Presence / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs). Optional: [Presence / Example](https://momentum.design/storybook-static/index.html?path=/story/components-avatar-presence--example).
 
 ---
 
@@ -17,20 +21,20 @@ import { Presence } from "@momentum-design/components/dist/react";
 ## What it is
 
 - Renders a **colored** presence affordance and **icon** for a given **status type**.  
-- **`size`:** the overall presence footprint; allowed values: **`24`**, **`32`**, **`48`**, **`64`**, **`72`**, **`88`**, **`124`** (default **32**). Very small avatars still enforce a **minimum ~14px** icon read from the design spec in Storybook.  
-- Theming is via **`--mdc-presence-*-background-color`** per type (e.g. `--mdc-presence-active-background-color`, `…-busy-…`, `…-meeting-…`); see the [Storybook CSS property list](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs).
+- **`size`:** footprint; allowed values: **`24`**, **`32`**, **`48`**, **`64`**, **`72`**, **`88`**, **`124`** (default **32**). Small avatars still enforce a **minimum** icon size per Storybook.  
+- Theming: **`--mdc-presence-*-background-color`** per type; see the [Storybook CSS property list](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs).
 
 **`type` values (string, default `active`):**  
 `active` · `away` · `away-calling` · `busy` · `dnd` · `meeting` · `on-call` · `on-device` · `on-mobile` · `pause` · `pto` · `presenting` · `quiet` · `scheduled` · and **`overlay`** (see [Storybook](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs)).
 
-**Relationship to Avatar / AvatarButton:** set **`presence={type}`** on those components to render presence **on** the avatar. **Standalone `Presence`** is for **repeated** or **non-avatar** layouts. Note: on **Avatar**, presence is **hidden** when **`counter`** is set or **`isTyping`** is true.
+**Avatar / AvatarButton:** set **`presence={type}`** to render presence **on** the avatar. **Standalone `Presence`** is for **non-avatar** or custom layouts. On **Avatar**, presence is **hidden** when **`counter`** is set or **`isTyping`** is true.
 
 ---
 
 ## Key props
 
 - **`type`:** one of the values above; default **`active`**.  
-- **`size`:** one of `24` | `32` | `48` | `64` | `72` | `88` | `124`; default **32**.
+- **`size`:** one of **`24`** | **`32`** | **`48`** | **`64`** | **`72`** | **`88`** | **`124`**; default **32**.
 
 ---
 
@@ -41,7 +45,13 @@ import { Presence, Text } from "@momentum-design/components/dist/react";
 
 function StatusRow() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "0.375rem" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "var(--mds-spacing-inline-xs, 0.375rem)",
+      }}
+    >
       <Presence type="meeting" size={32} />
       <Text type="body-midsize-medium" tagname="span">
         In a meeting
@@ -51,15 +61,15 @@ function StatusRow() {
 }
 ```
 
-**Note:** use **kebab-case** `type` values (e.g. `on-mobile`, `away-calling`).
+Use **kebab-case** **`type`** values (e.g. **`on-mobile`**, **`away-calling`**).
 
 ---
 
 ## Checklist for Figma Make
 
-- [ ] `Presence` is only for **status** UI; use **`Avatar`** / **`AvatarButton`** `presence` for badge-on-avatar  
-- [ ] `type` and `size` match the design; verify against [Storybook](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs)  
-- [ ] Do not use standalone `Presence` to fake **avatars**; pair with `Text` or other MDS for labels  
-- [ ] `IconProvider` / theme per [setup.md](../setup.md)  
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.md](../setup.md)  
+- [ ] **Presence** is for **status** UI; use **`Avatar`** / **`AvatarButton`** **`presence`** for badge-on-avatar  
+- [ ] **`type`** and **`size`** match design; verify against [Storybook](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs)  
+- [ ] Do not use standalone **Presence** to fake **avatars**; pair with **Text** or other MDS for labels  
 
-For CSS parts and token names, see [Storybook — Presence / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs).
+Cross-check [Storybook — Presence / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-avatar-presence--docs) and your installed package version.

@@ -1,0 +1,84 @@
+---
+description: Momentum card component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Card (Momentum) — Momentum guidance (IDE)
+
+**Card** is a **static** layout block for image, header, body, and optional footer. Use it for read-only or lightly interactive regions where **actions** are separate controls (e.g. **`Button`** in footer slots, **`Link`** in **`footer-link`**). The whole card is **not** one big button—use **`CardButton`**, **`CardCheckbox`**, or **`CardRadio`** for selection/click surfaces.
+
+See also: [CardButton](./cardbutton.mdc), [CardCheckbox](./cardcheckbox.mdc), [CardRadio](./cardradio.mdc).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Card / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-card-card--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-card-card--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { Card, Text, Button, Link } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **Layout:** `image` → header (`title` / `subtitle` / up to **3** **`icon-button`** slots) → **`before-body`** / **`body`** / **`after-body`** → footer (**`footer-link`**, **`footer-button-primary`**, **`footer-button-secondary`**, or custom **`footer`**).  
+- **Visuals (from `CardComponentMixin`):** **`variant`:** `border` · `ghost` · `promotional` · **`orientation`:** `vertical` · `horizontal` · optional **`iconName`**, **`imageSrc`** / **`imageAlt`**, **`titleTagName`** / **`subtitleTagName`** for semantic headings.  
+- **Strings:** **`cardTitle`**, **`subtitle`**—or use **`title`** / **`subtitle`** / **`body`** **slots** for richer content.  
+- **Width:** **`--mdc-card-width`** (see Storybook).  
+- **No** root **`onClick`**—it is **presentational**.
+
+Use **`Text`** in body slots, **`Button`**, **`Link`** in footer; prefer MDS over raw HTML controls.
+
+---
+
+## Key props (typical)
+
+- **`cardTitle`**, **`subtitle`**, **`variant`**, **`orientation`**, **`imageSrc`**, **`imageAlt`**, **`iconName`**, **`titleTagName`**, **`subtitleTagName`**
+
+---
+
+## Example
+
+Replace **`imageSrc`** with your asset URL or omit **`imageSrc`** / **`imageAlt`** if the design has no image.
+
+```jsx
+import { Card, Text } from "@momentum-design/components/dist/react";
+
+
+<div role="main">
+  <Card
+    variant="border"
+    orientation="vertical"
+    cardTitle="Title"
+    subtitle="Subtitle"
+    imageSrc="https://picsum.photos/seed/momentum-card/640/360"
+    imageAlt="Decorative card image"
+    iconName="placeholder-bold"
+    titleTagName="span"
+    subtitleTagName="span"
+  >
+    <Text slot="body" tagname="span">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Use Momentum Text for body copy.
+    </Text>
+  </Card>
+</div>
+```
+
+Adjust **`slot`** names on children to match Storybook for your installed package version.
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`** or header icon buttons  
+- [ ] **Selection** = **`CardCheckbox`** or **`CardRadio`**; **single CTA** on whole card = **`CardButton`**  
+- [ ] **`icon-button` slot:** **max 3** header action buttons  
+- [ ] **Footer** uses **`Link`** + **`Button`** (MDS), not raw `<a>` / `<button>` when avoidable  
+- [ ] MDS **tokens** for spacing around the card  
+
+Cross-check [Storybook — Card / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-card-card--docs) and your installed package version.

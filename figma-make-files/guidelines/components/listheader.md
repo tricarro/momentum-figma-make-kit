@@ -1,6 +1,10 @@
 # Listheader (Momentum) — Figma Make guidance
 
-**Listheader** is a **row** for the **title** and optional **actions** at the top of a **List**. Use **`headerText`**, or slot **Buttons** / **Links** in the **default** slot. Optional **`prefixIcon`** and **`postfixIcon`** (Momentum **icon** names). **`disabled`** grays the header; slot content can still be interactive unless you disable each control. **Place inside** the **`List`** component’s **`list-header` slot. Reference: [Storybook — Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-list-listheader--example).
+**Listheader** is a **row** for the **title** and optional **actions** at the top of a **List**. Use **`headerText`**, or slot **Buttons** / **Links** in the **default** slot. Optional **`prefixIcon`** and **`postfixIcon`** (Momentum **icon** names). **`disabled`** grays the header; slot content can still be interactive unless you disable each control. **Place inside** the **`List`** component’s **`list-header`** slot.
+
+See also: [List](./list.md), [ListItem](./listitem.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-list-listheader--example).
 
 ---
 
@@ -17,9 +21,9 @@ import { List, Listheader } from "@momentum-design/components/dist/react";
 ## What it is
 
 - Theming: **`--mdc-listheader-height`**, **`padding`**, **`gap`**.  
-- **Parts:** `header-text`, `prefix-icon`, `postfix-icon` for advanced styling.  
+- **Parts:** **`header-text`**, **`prefix-icon`**, **`postfix-icon`** for advanced styling.
 
-**Listheader** = list chrome; **ListItem** = data rows; **Listheader** is not a generic page title—use app chrome patterns for that if needed.
+**Listheader** = list chrome; **ListItem** = data rows; **Listheader** is not a generic page title—use app chrome patterns when the design calls for that.
 
 ---
 
@@ -49,14 +53,14 @@ function InboxList() {
 }
 ```
 
-(Confirm how **`List`** composes with **`Listheader`** in React: **`slot`** on the child vs a **`listHeader` prop**—see [Storybook — List / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-list--docs) and [Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs).)
+Confirm how **`List`** composes with **`Listheader`** in React (**`slot`** on the child vs a **`listHeader`** prop) in [Storybook — List / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-list--docs) and [Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs).
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] Nests under **`List`** in the **`list-header` slot, not floating alone  
+- [ ] **`ThemeProvider`** + **`IconProvider`** when using **`prefixIcon`** / **`postfixIcon`** per [setup.md](../setup.md)  
+- [ ] Nests under **`List`** in the **`list-header`** slot, not floating alone  
 - [ ] Trailing **actions** in the default slot remain **labeled** and **focusable**  
-- [ ] `IconProvider` in the app root per [setup.md](../setup.md) if using icons  
 
-[Storybook — Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs)
+Cross-check [Storybook — Listheader / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-list-listheader--docs) and your installed package version.

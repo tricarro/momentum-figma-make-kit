@@ -1,0 +1,77 @@
+---
+description: Momentum datepicker component — usage and guidance
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# DatePicker (Momentum) — Momentum guidance (IDE)
+
+**DatePicker** (`DatePicker` in React) lets users **pick a date** via a **Calendar** in a **popover** and/or **type a date** depending on **`variant`**: **`input`** (month/day/year **spinbutton** subfields) or **`default`** (trigger + calendar). Supports **localization** with a BCP-47 **`locale`** string.
+
+See also: [Calendar](./calendar.mdc) (grid only).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-datepicker-datepicker--example).
+
+---
+
+## Import
+
+Requires <ThemeProvider> and <IconProvider> ancestors. See setup.mdc.
+
+```jsx
+import { DatePicker } from "@momentum-design/components/dist/react";
+```
+
+---
+
+## What it is
+
+- **Variants** — **`input`** vs **`default`** (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs) for the control model).  
+- **Events (React):** **`onInput`** (as value changes), **`onChange`** (committed), **`onFocus`**, **`onBlur`**.  
+- **Form-field slots** — **`label`**, **`toggletip`**, **`help-icon`**, **`help-text`** (and properties from the form-field layer).  
+- Theming: **`--mdc-datepicker-*`** in the [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs).  
+- Pair with **validation** and product **`format`** / locale rules.
+
+**Calendar** alone: see [Calendar](./calendar.mdc); **DatePicker** composes calendar + field chrome.
+
+---
+
+## Key props (typical)
+
+- **`label`**, **`value`**, **`variant`**, **`locale`**, **`helpText`**, **`helpTextType`**, **`required`**, **`onInput`**, **`onChange`**
+
+---
+
+## Example — `DatePicker` (default variant + `locale`)
+
+```jsx
+import { useState } from "react";
+import { DatePicker } from "@momentum-design/components/dist/react";
+
+function DueDateField() {
+  const [value, setValue] = useState("");
+
+  return (
+    <DatePicker
+      label="Due date"
+      value={value}
+      locale="en-US"
+      variant="default"
+      onChange={(e) => setValue(e.detail.value)}
+    />
+  );
+}
+```
+
+Wire **`onInput`**, **`onChange`**, and **`onFocus` / `onBlur`** using the event contract in [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs).
+
+---
+
+## Checklist for IDE prototypes
+
+- [ ] **`ThemeProvider`** + **`IconProvider`** per [setup.mdc](../setup.mdc) (calendar / trigger icons)  
+- [ ] Choose **`input`** vs **`default`** to match the product’s data-entry pattern  
+- [ ] Set **`locale`** consistently with the rest of the app  
+- [ ] Wire **`onChange`** for committed values and surface errors via **`helpText`** / **`helpTextType`**  
+
+Cross-check [Storybook — DatePicker / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-datepicker-datepicker--docs) and your installed **`@momentum-design/components`** version.

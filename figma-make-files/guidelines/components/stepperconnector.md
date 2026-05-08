@@ -1,6 +1,10 @@
 # StepperConnector (Momentum) — Figma Make guidance
 
-**StepperConnector** is the **line** between two **StepperItem**s. It reflects **complete** vs **incomplete** state from the **Stepper** context and matches **horizontal** or **vertical** **orientation**, laid out **only** between items **inside** **Stepper**. Theming: **`--mdc-stepperconnector-complete-background`**, **`--mdc-stepperconnector-incomplete-background`**, **csspart** `connector`. Reference: [Storybook — StepperConnector / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperconnector--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepperconnector--example).
+**StepperConnector** is the **line** between two **[StepperItem](./stepperitem.md)** components. It reflects **complete** vs **incomplete** from **Stepper** context and matches **horizontal** or **vertical** **orientation**. Use **only** **between** items **inside** **[Stepper](./stepper.md)**. Theming: **`--mdc-stepperconnector-complete-background`**, **`--mdc-stepperconnector-incomplete-background`**, **csspart** **`connector`**.
+
+See also: [Stepper](./stepper.md), [StepperItem](./stepperitem.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — StepperConnector / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperconnector--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-stepper-stepperconnector--example).
 
 ---
 
@@ -14,9 +18,13 @@ import { Stepper, StepperItem, StepperConnector } from "@momentum-design/compone
 
 ---
 
-## Example (only valid **between** `StepperItem` rows)
+## What it is
 
-This is the same **Stepper** snippet as in **`stepper.md`**; **`StepperConnector`** sits between items:
+Same composition as **[Stepper](./stepper.md)**—**StepperConnector** sits **between** **StepperItem** rows, not at the end of the sequence.
+
+---
+
+## Example — between two steps
 
 ```jsx
 import { Stepper, StepperItem, StepperConnector } from "@momentum-design/components/dist/react";
@@ -36,9 +44,10 @@ function ConnectorOnly() {
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] One **connector** **between** each **pair** of steps, not at the end of the list  
-- [ ] Color tokens reflect **step** state from your **StepperItem** `status` values, not ad-hoc hex  
+- [ ] **`ThemeProvider`** per [setup.md](../setup.md)  
+- [ ] Exactly **one** connector **between** each **pair** of steps—not after the final step  
+- [ ] Connector colors come from **`--mdc-stepperconnector-*`** tokens, not ad-hoc hex  
 
-[Storybook — StepperConnector / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperconnector--docs)
+Cross-check [Storybook — StepperConnector / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-stepper-stepperconnector--docs) and your installed package version.

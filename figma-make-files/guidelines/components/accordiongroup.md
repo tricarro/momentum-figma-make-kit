@@ -1,6 +1,10 @@
 # AccordionGroup (Momentum) — Figma Make guidance
 
-Use **AccordionGroup** to present **several** **`Accordion`** and/or **`AccordionButton`** items as one set: shared **size** and **group layout variant**, and coordinated **expansion** (one open at a time by default). Official reference: [Storybook — AccordionGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordiongroup--docs). Optional visual reference: [Storybook — AccordionGroup / Example](https://momentum.design/storybook-static/index.html?path=/story/components-accordion-accordiongroup--example).
+Use **AccordionGroup** to present **several** **`Accordion`** and/or **`AccordionButton`** items as one set: shared **size** and **group layout variant**, and coordinated **expansion** (one open at a time by default).
+
+See also: [Accordion](./accordion.md) (extra header controls), [AccordionButton](./accordionbutton.md) (simple row).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Official reference: [Storybook — AccordionGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordiongroup--docs). Optional visual reference: [Storybook — AccordionGroup / Example](https://momentum.design/storybook-static/index.html?path=/story/components-accordion-accordiongroup--example).
 
 ---
 
@@ -9,10 +13,14 @@ Use **AccordionGroup** to present **several** **`Accordion`** and/or **`Accordio
 Requires <ThemeProvider> and <IconProvider> ancestors. See setup.md.
 
 ```jsx
-import { AccordionGroup, AccordionButton, Text } from "@momentum-design/components/dist/react";
-// When headers need extra controls (use Accordion as children, not AccordionButton)
-import { Accordion } from "@momentum-design/components/dist/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionGroup,
+} from "@momentum-design/components/dist/react";
 ```
+
+Use **`Text`** (and other MDS components) inside each child’s **body** content as needed—see [Accordion](./accordion.md) / [AccordionButton](./accordionbutton.md).
 
 ---
 
@@ -50,7 +58,7 @@ import { Accordion } from "@momentum-design/components/dist/react";
 | --- | --- |
 | *(default)* | **`Accordion`** and/or **`AccordionButton`** instances only. |
 
-Do not put arbitrary markup here—non-accordion children are **ignored**.
+Do not put arbitrary markup here—non-accordion children are **ignored**. Put layout or copy **inside** each child’s default (body) slot, not as unrelated siblings in the group.
 
 ---
 
@@ -58,7 +66,9 @@ Do not put arbitrary markup here—non-accordion children are **ignored**.
 
 - **`size`**: `"small"` | `"large"` — applied to **all** children.  
 - **`variant`**: `"stacked"` | `"borderless"` | `"contained"` — **group** layout and borders.  
-- **`allowMultiple`**: `boolean` — allow more than one expanded panel (default **`false`**).
+- **`allowMultiple`**: `boolean` — allow more than one expanded panel.
+
+**Defaults (package):** **`size`** `"small"`, **`variant`** `"stacked"`, **`allowMultiple`** **`false`**.
 
 ---
 
@@ -146,4 +156,4 @@ For **`Accordion`** children, add **`openButtonAriaLabel`**, **`closeButtonAriaL
 - [ ] Each child has correct **`dataAriaLevel`**; **`Accordion`** children include required **ARIA** labels for the expand control  
 - [ ] Theme / tokens, **`mds-typography`**, and `ThemeProvider` / `IconProvider` as in [setup.md](../setup.md)  
 
-For the latest API, see [Storybook — AccordionGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordiongroup--docs) and your installed **`@momentum-design/components`** version.
+Cross-check [Storybook — AccordionGroup / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-accordion-accordiongroup--docs) and your installed **`@momentum-design/components`** version if props drift.

@@ -1,6 +1,10 @@
 # InputChip (Momentum) — Figma Make guidance
 
-**InputChip** represents a **value** the user (or app) can **remove**: **label**, optional **leading** icon, **`prefix`** slot for **Avatar** (wins over **`iconName`**), **close** control, and an **`error`** state for validation. **Remove** fires **`onRemove`** in React. Reference: [Storybook — InputChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-inputchip--example).
+**InputChip** represents a **value** the user (or app) can **remove**: **label**, optional **leading** icon, **`prefix`** slot for **Avatar** (wins over **`iconName`**), **close** control, and an **`error`** state for validation. **Remove** fires **`onRemove`** in React.
+
+See also: [Chip](./chip.md), [FilterChip](./filterchip.md), [StaticChip](./staticchip.md), [AlertChip](./alertchip.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — InputChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-chip-inputchip--example).
 
 ---
 
@@ -18,13 +22,13 @@ import { InputChip, Avatar } from "@momentum-design/components/dist/react";
 
 - **`label`:** string (required in typings).  
 - **`error`:** boolean validation styling.  
-- **`clearAriaLabel`:** **accessible** name for the **close** control.  
+- **`clearAriaLabel`:** **accessible name** for the **close** control—set it whenever the chip is dismissible.  
 - **`onRemove`:** when the user activates **close**; bubbles.  
-- **`prefix` slot:** e.g. small **Avatar**; else **`iconName`**.  
+- **`prefix` slot:** e.g. small **Avatar**; else **`iconName`** (needs **`IconProvider`**).  
 - **`disabled`:** from the disabled mixin.  
-- Styling: `--mdc-chip-*` in [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs).
+- Styling: **`--mdc-chip-*`** in [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs).
 
-**Typical** use: email **To:** field token, **file** chip with remove, or filter tags that are **dismissable**.
+**Typical** use: email **To:** field tokens, **file** chips with remove, or dismissible filter tags.
 
 ---
 
@@ -52,11 +56,12 @@ function EmailToken({ address, onDismiss }) {
 
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] **Always** set **`clearAriaLabel`** (or verify equivalent in your Storybook)  
-- [ ] `onRemove` updates the parent’s list of values  
+- [ ] **`ThemeProvider`** + **`IconProvider`** when using **`iconName`** or icon-bearing **`Avatar`** patterns  
+- [ ] **Always** set **`clearAriaLabel`** (or the documented equivalent for your Storybook version)  
+- [ ] **`onRemove`** updates the parent’s list of values  
 - [ ] **`error`** with form validation, not ad-hoc red text  
-- [ ] For **static** (non-dismiss) tags, use **StaticChip** or **Chip** instead  
+- [ ] For **static** (non-dismiss) tags, use **[StaticChip](./staticchip.md)** or **[Chip](./chip.md)** instead  
 
-[Storybook — InputChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs)
+Cross-check [Storybook — InputChip / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-chip-inputchip--docs) and your installed package version.

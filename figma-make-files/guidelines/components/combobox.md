@@ -1,6 +1,10 @@
 # Combobox (Momentum) — Figma Make guidance
 
-**Combobox** is a **combobox** control: a **typeahead** / filterable list bound to a **text** input. Users can **type** to filter options, then **select**; **`no-result-text`** appears when there is no match. Options use **`Option`** and **`OptGroup`**, wrapped in **`Selectlistbox`** (see [Selectlistbox](https://momentum.design/storybook-static/index.html?path=/docs/components-list-selectlistbox--docs) in Storybook) **inside** the Combobox. Reference: [Storybook — Combobox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-combobox-combobox--example).
+**Combobox** is a **filterable** list bound to a **text** input: users **type** to narrow options, then **select**. **`noResultText`** (or equivalent prop name in your build) shows when nothing matches. Options use **`Option`** (and **`OptGroup`**) inside **`Selectlistbox`** — see [Selectlistbox](./selectlistbox.md).
+
+See also: [Select](./select.md) (simple dropdown), [Selectlistbox](./selectlistbox.md), [Option](./option.md).
+
+Browse the [Momentum Components catalog](https://momentum.design/en/components/) for naming; Storybook documents props and examples. Reference: [Storybook — Combobox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs). Optional: [Example](https://momentum.design/storybook-static/index.html?path=/story/components-combobox-combobox--example).
 
 ---
 
@@ -16,31 +20,34 @@ import { Combobox, Option, OptGroup, Selectlistbox } from "@momentum-design/comp
 
 ## What it is
 
-- **Filter:** default **`match-starts-with`**. **`filter="none"`** when the **app** filters (e.g. server results). A **custom** `filter` can be used for full control.  
-- **Form:** every **`option`** should have a **`value`**; **`control-type="controlled"`** means the parent must update **`value`** from **`onChange` / `onInput`**.  
-- **Slots:** `label`, `toggletip`, `help-text`, and form-field help patterns (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)).  
-- **Events in React:** **`onChange`**, **`onInput`**, **`onKeyDown`**, **`onFocus`**, **`onClick`**.  
-- **Tooltips on options:** place **`mdc-tooltip`** (or the React `Tooltip` wrapper) **outside** the listbox, per the package JSDoc.
+- **Filter:** default **`match-starts-with`** (or equivalent—confirm enum in Storybook). **`filter="none"`** when **your app** filters (e.g. async/server).  
+- **Form:** each **`Option`** should have a **`value`**; **`control-type="controlled"`** / **`controlType="controlled"`** means the parent owns **`value`** from **`onChange`** / **`onInput`**.  
+- **Slots:** **`label`**, **`toggletip`**, **`help-text`**, form-field help patterns (see [docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)).  
+- **React events:** **`onChange`**, **`onInput`**, **`onKeyDown`**, **`onFocus`**, **`onClick`**.  
+- **Tooltips on options:** keep **`Tooltip`** **outside** the listbox per package JSDoc.
 
-**Combobox** vs **Select:** combobox = **type + filter**; use **Select** when a simple dropdown is enough (see [Select](https://momentum.design/storybook-static/index.html?path=/docs/components-select-select--docs)).
+**Combobox** vs **Select:** combobox = **type + filter**; **Select** when a plain dropdown is enough.
+
+---
+
+## Key props (typical)
+
+- **`label`**, **`value`**, **`placeholder`**, **`noResultText`**, **`filter`**, **`controlType`**, **`required`**, **`helpText`**, **`helpTextType`**, **`dataAriaLabel`**, **`placement`**, **`invalidCustomValueText`**
 
 ---
 
 ## Example
+
 ```jsx
-import {
-  Combobox,
-  Option,
-  Selectlistbox,
-} from "@momentum-design/components/dist/react";
+import { Combobox, Option, Selectlistbox } from "@momentum-design/components/dist/react";
 
 
-<div style="..." role="main">
+<div role="main">
   <Combobox
     dataAriaLabel="Select a country"
     helpText="Select a country"
     helpTextType="default"
-    infoIconAriaLabel="Required icon label"
+    infoIconAriaLabel="More about this field"
     label="Top Countries"
     name="country"
     noResultText="No results found"
@@ -52,29 +59,19 @@ import {
       <Option value="arg" label="Argentina"></Option>
       <Option value="aus" label="Australia"></Option>
       <Option value="au" label="Austria"></Option>
-      <Option value="ban" label="Bangladesh"></Option>
-      <Option value="bel" label="Belgium"></Option>
-      <Option value="bra" label="Brazil"></Option>
-      <Option value="can" label="Canada"></Option>
-      <Option value="chi" label="China"></Option>
-      <Option value="col" label="Colombia"></Option>
-      <Option value="den" label="Denmark"></Option>
     </Selectlistbox>
   </Combobox>
 </div>
 ```
 
-## Key props (typical)
-
-- **`label`**, **`value`**, **`noResultText`**, **`filter`**, **`controlType`**, **`required`**, **`helpText`**, **`helpTextType`**
-
 ---
 
-## Checklist
+## Checklist for Figma Make
 
-- [ ] **Selectlistbox** wraps the options with the structure from Storybook  
-- [ ] Each **Option** has a **`value`** for forms  
-- [ ] For async lists, set **`filter="none"`** and own the option list  
-- [ ] **WCAG combobox** keyboard patterns — follow the linked APG in the [package docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)  
+- [ ] **`ThemeProvider`** + **`IconProvider`** when using icons on the field or list  
+- [ ] **`Selectlistbox`** wraps options with the structure from Storybook  
+- [ ] Each **`Option`** has a **`value`** for forms  
+- [ ] Async lists: **`filter="none"`** (or equivalent) and own the option list  
+- [ ] Keyboard / **APG combobox** behavior per [Storybook](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)  
 
-[Storybook — Combobox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs)
+Cross-check [Storybook — Combobox / Docs](https://momentum.design/storybook-static/index.html?path=/docs/components-combobox-combobox--docs) and your installed **`@momentum-design/components`** version.
