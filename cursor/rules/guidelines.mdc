@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Momentum Design System — Cursor guidelines
 
-**Cursor:** Translated Cursor rules (`.mdc`) mirroring this folder live at **[`../../cursor/`](../../cursor/README.mdc)** — regenerate with `node cursor/scripts/build-guidance.mjs` from the repo root after guideline edits.
+**Cursor:** Translated Cursor rules (`.mdc`) mirroring this folder live at **[`../../cursor/rules/`](../../cursor/rules/README.md)** — regenerate with `node cursor/rules/scripts/build-guidance.mjs` from the repo root after guideline edits.
 
 Guidelines for using the Momentum Design System (components, tokens, and assets) when prototyping in Cursor with AI assistance. Details are split across the files below so setup, tokens, layout/type, and components are easy to find.
 

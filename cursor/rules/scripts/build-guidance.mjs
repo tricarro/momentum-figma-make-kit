@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 /**
- * Generates translated Cursor rule files (.mdc) under cursor/ from
+ * Generates translated Cursor rule files (.mdc) under cursor/rules/ from
  * figme-make/guidelines/*.md — run from repo root:
- *   node cursor/scripts/build-guidance.mjs
+ *   node cursor/rules/scripts/build-guidance.mjs
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, "..", "..");
+const REPO_ROOT = path.resolve(__dirname, "..", "..", "..");
 const SOURCE_DIR = path.join(REPO_ROOT, "figme-make", "guidelines");
-const DEST_DIR = path.join(REPO_ROOT, "cursor");
+const DEST_DIR = path.join(REPO_ROOT, "cursor", "rules");
 
 /** @param {string} body */
 function translateBody(body) {
@@ -51,7 +51,7 @@ function translateBody(body) {
 
   out = out.replace(
     /^Begin by installing the `@momentum-design\/components` package:\s*\n\s*`yarn add @momentum-design\/components`/gm,
-    `Begin by installing \`@momentum-design/components\` with your package manager (\`npm\`, \`yarn\`, or \`pnpm\`). When working in this repo, pin versions to match [\`figme-make/package.json\`](../figme-make/package.json).\n\n\`\`\`bash\nnpm install @momentum-design/components\n\`\`\``,
+    `Begin by installing \`@momentum-design/components\` with your package manager (\`npm\`, \`yarn\`, or \`pnpm\`). When working in this repo, pin versions to match [\`figme-make/package.json\`](../../figme-make/package.json).\n\n\`\`\`bash\nnpm install @momentum-design/components\n\`\`\``,
   );
 
   out = out.replace(/\]\(\.\/([^)]+)\)/g, (full, inner) => {
@@ -68,6 +68,7 @@ function translateBody(body) {
 
   // Parent-relative links: ../styles.md#layout → ../styles.mdc#layout
   out = out.replace(/\]\(\.\.\/([^#)]+\.md)(#[^)]*)?\)/g, (full, pathPart, hash = "") => {
+    if (/README\.md$/i.test(pathPart)) return full;
     const base = pathPart.replace(/\.md$/, "");
     return `](../${base}.mdc${hash})`;
   });

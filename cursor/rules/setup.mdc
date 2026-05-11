@@ -10,7 +10,7 @@ Install and wire the design system in your prototype’s entry so tokens, typogr
 
 ## Install
 
-Begin by installing `@momentum-design/components` with your package manager (`npm`, `yarn`, or `pnpm`). When working in this repo, pin versions to match [`figme-make/package.json`](../figme-make/package.json).
+Begin by installing `@momentum-design/components` with your package manager (`npm`, `yarn`, or `pnpm`). When working in this repo, pin versions to match [`figme-make/package.json`](../../figme-make/package.json).
 
 ```bash
 npm install @momentum-design/components
